@@ -16,23 +16,23 @@ public class UserManager : MonoBehaviour
 
     private void Start()
     {
-        addiInitUser();
+        AddInitUser();
     }
 
-    private void writeNewUser(string username, string email)
+    private void WriteNewUser(string username, string email)
     {
-        User user = new User(username, email);
+        User user = new(username, email);
         string json = JsonUtility.ToJson(user);
 
         string userId = RandomManager.GenerateRandomID();
         databaseReference.Child("users").Child(userId).SetRawJsonValueAsync(json);
     }
 
-    private void addiInitUser()
+    private void AddInitUser()
     {
-        string username = "huan";
+        string username = "???????";
         string email = "la@gmail.com";
 
-        writeNewUser(username, email);
+        WriteNewUser(username, email);
     }
 }
