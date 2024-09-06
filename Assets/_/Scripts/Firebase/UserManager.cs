@@ -21,7 +21,7 @@ public class UserManager : MonoBehaviour
 
     private void writeNewUser(string username, string email)
     {
-        User user = new User(name, email);
+        User user = new User(username, email);
         string json = JsonUtility.ToJson(user);
 
         string userId = RandomManager.GenerateRandomID();
@@ -30,8 +30,8 @@ public class UserManager : MonoBehaviour
 
     private void addiInitUser()
     {
-        string username = "pvbang";
-        string email = "pvbang@gmail.com";
+        string username = "huan";
+        string email = "la@gmail.com";
 
         writeNewUser(username, email);
     }
