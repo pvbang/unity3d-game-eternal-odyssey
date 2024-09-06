@@ -13,11 +13,4 @@ public class User
         this.username = username;
         this.email = email;
     }
-
-    public User(string userId, string username, string email)
-    {
-        this.userId = userId;
-        this.username = username;
-        this.email = email;
-    }
 }

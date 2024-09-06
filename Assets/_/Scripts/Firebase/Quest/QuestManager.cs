@@ -46,7 +46,7 @@ public class QuestManager : MonoBehaviour
     {
         // Tải file JSON từ thư mục Resources
         Debug.Log("Attempting to load quests.json from Resources folder.");
-        TextAsset jsonFile = Resources.Load<TextAsset>("quests");
+        TextAsset jsonFile = Resources.Load<TextAsset>("Data/quests");
 
         if (jsonFile == null)
         {
@@ -63,22 +63,19 @@ public class QuestManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("JSON content loaded: " + json);
-
-        QuestList questList = JsonUtility.FromJson<QuestList>("{\"quests\":" + json + "}");
+        QuestList questList = JsonUtility.FromJson<QuestList>(json);
+        Debug.Log("check fail" +json);
         if (questList == null || questList.quests == null)
         {
             Debug.LogError("Không thể chuyển đổi JSON sang đối tượng QuestList.");
             return;
         }
 
-        Debug.Log("Successfully parsed JSON into QuestList object.");
-
         foreach (Quest quest in questList.quests)
         {
-            Debug.Log("Saving quest: " + quest.title);
             saveQuest(quest.title, quest.description, quest.reward, quest.requirements, quest.type);
         }
-    }
+    } 
+    
 }
 
