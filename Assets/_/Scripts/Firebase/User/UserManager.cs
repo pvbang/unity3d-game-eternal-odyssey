@@ -26,12 +26,12 @@ public class UserManager : MonoBehaviour
         string userId = RandomManager.GenerateRandomID();
         databaseReference.Child("users").Child(userId).SetRawJsonValueAsync(json);
     }
-
+   
     private void AddInitUser()
     {
         string username = "tai day";
         string email = "la@gmail.com";
 
         WriteNewUser(username, email);
-    }
+    }    
 }
