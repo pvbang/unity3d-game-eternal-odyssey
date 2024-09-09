@@ -1426,6 +1426,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4316652776831010, guid: 9b3d693a654a56c43b2249ca7efee293, type: 3}
   m_PrefabInstance: {fileID: 83052326}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86249275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86249276}
+  - component: {fileID: 86249279}
+  - component: {fileID: 86249278}
+  - component: {fileID: 86249277}
+  m_Layer: 0
+  m_Name: go_cung
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86249276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86249275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86249277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86249275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "G\u1ED7 c\u1EE9ng"
+    type: 0
+    description: "Nguy\xEAn li\u1EC7u c\u01A1 b\u1EA3n t\u1EEB ch\u1EB7t c\xE2y,
+      d\xF9ng \u0111\u1EC3 x\xE2y d\u1EF1ng nh\xE0 c\u1EEDa, ch\u1EBF t\u1EA1o v\u0169
+      kh\xED c\u01A1 b\u1EA3n v\xE0 c\xE1c v\u1EADt ph\u1EA9m ph\xF2ng th\u1EE7."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate: 0.75
+    properties: 1
+    createTime: 0
+    usingTime: 0
+--- !u!114 &86249278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86249275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &86249279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86249275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &95149573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -2190,6 +2280,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
   m_PrefabInstance: {fileID: 1754401288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &249337579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249337580}
+  - component: {fileID: 249337583}
+  - component: {fileID: 249337582}
+  - component: {fileID: 249337581}
+  m_Layer: 0
+  m_Name: quest_0013
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249337580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249337579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249337581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249337579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &249337582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249337579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 13: \u0110\u1ED1i M\u1EB7t V\u1EDBi S\u1EF1 Th\u1EADt
+      (Reveal the Truth)"
+    description: "Khi c\xE1c Linh H\u1ED3n R\u1ED3ng \u0111\u01B0\u1EE3c h\u1EE3p
+      nh\u1EA5t, ng\u01B0\u1EDDi ch\u01A1i ph\xE1t hi\u1EC7n ra s\u1EF1 th\u1EADt
+      r\u1EB1ng h\u1ECD \u0111\xE3 gi\u1EA3i ph\xF3ng H\u1EAFc Long Nihiloth, con
+      r\u1ED3ng c\u1ED5 x\u01B0a b\u1ECB phong \u1EA5n. Nhi\u1EC7m v\u1EE5 c\u1EE7a
+      h\u1ECD b\xE2y gi\u1EDD l\xE0 \u0111\xE1nh b\u1EA1i Nihiloth \u0111\u1EC3 c\u1EE9u
+      Aeloria."
+    reward:
+    - hon_vua
+    requirements: "Chi\u1EBFn \u0111\u1EA5u v\xE0 \u0111\xE1nh b\u1EA1i H\u1EAFc
+      Long Nihiloth."
+    type: quest_type_004
+--- !u!114 &249337583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249337579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!4 &251063276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4569873704234660, guid: 3c3b0773e182ad847a706394ac5af117, type: 3}
@@ -2976,6 +3152,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
   m_PrefabInstance: {fileID: 352731299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &357916435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357916436}
+  - component: {fileID: 357916439}
+  - component: {fileID: 357916438}
+  - component: {fileID: 357916437}
+  m_Layer: 0
+  m_Name: quest_009
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &357916436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357916435}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357916437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357916435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &357916438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357916435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 9: \u0110\xE1nh B\u1EA1i B\u0103ng Long Gelidra"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
+      v\u1EDBi B\u0103ng Long Gelidra \u1EDF V\xF9ng \u0110\u1EA5t B\u0103ng \u0111\u1EC3
+      thu th\u1EADp M\u1EA3nh V\u1EE1 B\u0103ng."
+    reward:
+    - 1200 XP
+    - hon_thuy
+    requirements: "\u0110\xE1nh b\u1EA1i B\u0103ng Long Gelidra."
+    type: quest_type_003
+--- !u!114 &357916439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357916435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &359741763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3798,7 +4056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &443925022
 Transform:
   m_ObjectHideFlags: 0
@@ -3897,6 +4155,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4023013654594124, guid: 86263e8355f96ba4ab9fdf4e96c2090f, type: 3}
   m_PrefabInstance: {fileID: 1503985590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &458791539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458791540}
+  m_Layer: 0
+  m_Name: Quests
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &458791540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458791539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 506418664}
+  - {fileID: 1618829493}
+  - {fileID: 842066069}
+  - {fileID: 801462016}
+  - {fileID: 1212599642}
+  - {fileID: 2010425720}
+  - {fileID: 796283841}
+  - {fileID: 1918023385}
+  - {fileID: 357916436}
+  - {fileID: 2144662989}
+  - {fileID: 628032209}
+  - {fileID: 490687483}
+  - {fileID: 249337580}
+  m_Father: {fileID: 2058619556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &468718538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4023,6 +4325,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4316652776831010, guid: 9b3d693a654a56c43b2249ca7efee293, type: 3}
   m_PrefabInstance: {fileID: 489298968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &490687482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 490687483}
+  - component: {fileID: 490687486}
+  - component: {fileID: 490687485}
+  - component: {fileID: 490687484}
+  m_Layer: 0
+  m_Name: quest_0012
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490687483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490687482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &490687484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490687482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &490687485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490687482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 12: K\xEDch Ho\u1EA1t T\u1EBF \u0110\xE0n Thi\xEAng"
+    description: "Sau khi thu th\u1EADp \u0111\u1EE7 b\u1ED1n M\u1EA3nh V\u1EE1 C\u1ED5
+      \u0110\u1EA1i, ng\u01B0\u1EDDi ch\u01A1i \u0111\u1EBFn T\u1EBF \u0110\xE0n
+      Thi\xEAng \u0111\u1EC3 k\xEDch ho\u1EA1t s\u1EE9c m\u1EA1nh c\u1EE7a nh\xE0
+      vua."
+    reward:
+    - 1500 XP
+    requirements: "H\u1EE3p nh\u1EA5t c\xE1c M\u1EA3nh V\u1EE1 C\u1ED5 \u0110\u1EA1i
+      t\u1EA1i T\u1EBF \u0110\xE0n Thi\xEAng."
+    type: quest_type_004
+--- !u!114 &490687486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490687482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1 &493104021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809867701842812377, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
@@ -4221,6 +4606,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4023013654594124, guid: 86263e8355f96ba4ab9fdf4e96c2090f, type: 3}
   m_PrefabInstance: {fileID: 501330435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &506418663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 506418664}
+  - component: {fileID: 506418667}
+  - component: {fileID: 506418666}
+  - component: {fileID: 506418665}
+  m_Layer: 0
+  m_Name: quest_001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &506418664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506418663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506418665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506418663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 0}
+--- !u!114 &506418666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506418663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 1: Kh\xE1m Ph\xE1 Ng\xF4i L\xE0ng B\u1ECB B\u1ECF
+      Hoang"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i b\u1EAFt \u0111\u1EA7u cu\u1ED9c h\xE0nh
+      tr\xECnh t\u1EA1i m\u1ED9t ng\xF4i l\xE0ng b\u1ECB b\u1ECF hoang g\u1EA7n T\u1EBF
+      \u0110\xE0n Thi\xEAng. Nhi\u1EC7m v\u1EE5 l\xE0 kh\xE1m ph\xE1 ng\xF4i l\xE0ng
+      \u0111\u1EC3 t\xECm hi\u1EC3u nh\u1EEFng g\xEC \u0111\xE3 x\u1EA3y ra v\u1EDBi
+      c\u01B0 d\xE2n \u1EDF \u0111\xE2y."
+    reward:
+    - 100 XP
+    - mau
+    - riu
+    - kiem_danh_quai
+    requirements: "Thu th\u1EADp 5 m\u1EA3nh nh\u1EADt k\xFD b\u1ECB r\xE1ch \u0111\u1EC3
+      gh\xE9p l\u1EA1i v\xE0 \u0111\u1ECDc \u0111\u01B0\u1EE3c c\xE2u chuy\u1EC7n
+      v\u1EC1 ng\xF4i l\xE0ng."
+    type: quest_type_001
+--- !u!114 &506418667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506418663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &506795212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4819,6 +5294,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4627547270634096, guid: 93a135b5c8137e5468cb55d97a43df67, type: 3}
   m_PrefabInstance: {fileID: 2136422893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &628032208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628032209}
+  - component: {fileID: 628032212}
+  - component: {fileID: 628032211}
+  - component: {fileID: 628032210}
+  m_Layer: 0
+  m_Name: quest_0011
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628032209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628032208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628032210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628032208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &628032211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628032208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 11: \u0110\xE1nh B\u1EA1i L\xF4i Long Zephyros"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
+      v\u1EDBi L\xF4i Long Zephyros \u1EDF V\xF9ng \u0110\u1EA5t B\xE3o \u0111\u1EC3
+      thu th\u1EADp M\u1EA3nh V\u1EE1 S\u1EA5m S\xE9t."
+    reward:
+    - 1200 XP
+    - hon_kim
+    - hon_moc
+    requirements: "\u0110\xE1nh b\u1EA1i L\xF4i Long Zephyros."
+    type: quest_type_003
+--- !u!114 &628032212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628032208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!4 &633700138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -6697,6 +7255,179 @@ Transform:
   - {fileID: 1344019937}
   m_Father: {fileID: 1174709690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &796283840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796283841}
+  - component: {fileID: 796283844}
+  - component: {fileID: 796283843}
+  - component: {fileID: 796283842}
+  m_Layer: 0
+  m_Name: quest_007
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796283841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796283840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796283842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796283840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &796283843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796283840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 7: \u0110\xE1nh B\u1EA1i K\u1EBB Canh Gi\u1EEF T\xE0n
+      T\xEDch"
+    description: "Tr\u01B0\u1EDBc khi c\xF3 th\u1EC3 ti\u1EBFp c\u1EADn L\xF4i Long
+      Zephyros, ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\xE1nh b\u1EA1i k\u1EBB
+      canh gi\u1EEF t\xE0n t\xEDch c\u1ED5 \u0111\u1EA1i \u1EDF v\xF9ng \u0111\u1EA5t
+      b\xE3o, m\u1ED9t sinh v\u1EADt kh\u1ED5ng l\u1ED3 \u0111\u01B0\u1EE3c L\xF4i
+      Long tri\u1EC7u h\u1ED3i \u0111\u1EC3 b\u1EA3o v\u1EC7 l\xE3nh th\u1ED5 c\u1EE7a
+      m\xECnh."
+    reward:
+    - 600 XP
+    - mithdril_moc
+    - mithdril_kim
+    requirements: "\u0110\xE1nh b\u1EA1i Guardian of the Storm (Mini boss)."
+    type: quest_type_002
+--- !u!114 &796283844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796283840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
+--- !u!1 &801462015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801462016}
+  - component: {fileID: 801462019}
+  - component: {fileID: 801462018}
+  - component: {fileID: 801462017}
+  m_Layer: 0
+  m_Name: quest_004
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &801462016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801462015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801462017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801462015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &801462018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801462015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 4: \u0110\xE1nh B\u1EA1i \u0110\u1ED9i Qu\xE2n Qu\xE1i
+      V\u1EADt T\u1EA1i V\xF9ng \u0110\u1EA5t L\u1EEDa"
+    description: "Trong khi chu\u1EA9n b\u1ECB cho cu\u1ED9c \u0111\u1ED1i \u0111\u1EA7u
+      v\u1EDBi H\u1ECFa Long Ignivor, ng\u01B0\u1EDDi ch\u01A1i ph\xE1t hi\u1EC7n
+      ra m\u1ED9t \u0111\u1ED9i qu\xE2n qu\xE1i v\u1EADt \u0111ang b\u1EA3o v\u1EC7
+      khu v\u1EF1c n\xE0y. Nhi\u1EC7m v\u1EE5 l\xE0 ti\xEAu di\u1EC7t ch\xFAng \u0111\u1EC3
+      l\xE0m suy y\u1EBFu s\u1EE9c m\u1EA1nh c\u1EE7a H\u1ECFa Long."
+    reward:
+    - 300 XP
+    - mthdril_hoa
+    requirements: "Ti\xEAu di\u1EC7t 20 qu\xE1i v\u1EADt l\u1EEDa (Fire Elementals
+      v\xE0 Magma Golems)."
+    type: quest_type_002
+--- !u!114 &801462019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801462015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &802669182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7037,6 +7768,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4502592042031614, guid: 8379f308d5dcffd4ab2f3ee5959a1076, type: 3}
   m_PrefabInstance: {fileID: 1205401916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &842066068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 842066069}
+  - component: {fileID: 842066072}
+  - component: {fileID: 842066071}
+  - component: {fileID: 842066070}
+  m_Layer: 0
+  m_Name: quest_003
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &842066069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842066068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842066070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842066068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &842066071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842066068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 3: Ti\xEAu Di\u1EC7t L\u0169 Qu\xE1i V\u1EADt Y\u1EBFu
+      \u1EDE Ngo\u1EA1i Vi"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i nh\u1EADn nhi\u1EC7m v\u1EE5 ti\xEAu
+      di\u1EC7t l\u0169 qu\xE1i v\u1EADt nh\u1ECF \u0111ang t\xE0n ph\xE1 khu v\u1EF1c
+      xung quanh l\xE0ng."
+    reward:
+    - 200 XP
+    - cuoc_dao_quang
+    - sat_thuong
+    requirements: "Ti\xEAu di\u1EC7t 10 con Goblin v\xE0 5 con Wolf."
+    type: quest_type_001
+--- !u!114 &842066072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842066068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &845149531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8152,7 +8967,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1931042135}
-  - {fileID: 493104022}
   - {fileID: 1125752492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9403,7 +10217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1125752492
 Transform:
   m_ObjectHideFlags: 0
@@ -9437,7 +10251,6 @@ MonoBehaviour:
     type: 1
     description: 
     attributes:
-      attributeId: 
       health: 0
       strength: 0
       resistance: 0
@@ -9445,8 +10258,8 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     rate: 0
-    properties: 
-    time: 0
+    properties: 0
+    createTime: 0
     usingTime: 0
 --- !u!114 &1125752494
 MonoBehaviour:
@@ -10534,6 +11347,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4776272554816088, guid: 94a3318e328358d4095f16b054b14180, type: 3}
   m_PrefabInstance: {fileID: 1209058626}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1212599641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212599642}
+  - component: {fileID: 1212599645}
+  - component: {fileID: 1212599644}
+  - component: {fileID: 1212599643}
+  m_Layer: 0
+  m_Name: quest_005
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212599642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212599641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212599643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212599641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &1212599644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212599641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 5: Kh\xE1m Ph\xE1 Hang \u0110\u1ED9ng B\u0103ng Gi\xE1"
+    description: "T\u1EA1i v\xF9ng \u0111\u1EA5t b\u0103ng, ng\u01B0\u1EDDi ch\u01A1i
+      kh\xE1m ph\xE1 ra m\u1ED9t hang \u0111\u1ED9ng b\u0103ng gi\xE1 ch\u1EE9a \u0111\u1EA7y
+      qu\xE1i v\u1EADt b\u0103ng. Vi\u1EC7c ti\xEAu di\u1EC7t ch\xFAng s\u1EBD gi\xFAp
+      gi\u1EA3m b\u1EDBt nguy c\u01A1 khi \u0111\u1ED1i \u0111\u1EA7u v\u1EDBi B\u0103ng
+      Long Gelidra."
+    reward:
+    - 400 XP
+    - mithdril_thuy
+    requirements: "Ti\xEAu di\u1EC7t 15 qu\xE1i v\u1EADt b\u0103ng trong hang \u0111\u1ED9ng
+      (Frost Elementals v\xE0 Yeti)."
+    type: quest_type_002
+--- !u!114 &1212599645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212599641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!4 &1213082323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8338988566280778637, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -11302,6 +12200,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071750753398162, guid: a397f10d7b785064e9d0f7b5ab603003, type: 3}
   m_PrefabInstance: {fileID: 1306528217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1292347127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292347128}
+  - component: {fileID: 1292347131}
+  - component: {fileID: 1292347130}
+  - component: {fileID: 1292347129}
+  m_Layer: 0
+  m_Name: go_thanh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1292347128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292347127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1292347129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292347127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "G\u1ED7 th\xE1nh"
+    type: 0
+    description: "G\u1ED7 t\u1EEB nh\u1EEFng c\xE2y c\u1ED5 th\u1EE5 trong r\u1EEBng
+      th\xE1nh, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED cao c\u1EA5p"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate: 0.1
+    properties: 1
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1292347130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292347127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1292347131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292347127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1303973001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14379,6 +15366,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
   m_PrefabInstance: {fileID: 644168275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618829492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618829493}
+  - component: {fileID: 1618829496}
+  - component: {fileID: 1618829495}
+  - component: {fileID: 1618829494}
+  m_Layer: 0
+  m_Name: quest_002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1618829493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618829492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618829494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618829492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &1618829495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618829492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 2: Thu Th\u1EADp Th\u1EA3o D\u01B0\u1EE3c Ch\u1EEFa
+      B\u1EC7nh"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i c\u1EA7n thu th\u1EADp th\u1EA3o d\u01B0\u1EE3c
+      \u0111\u1EC3 ch\u1EBF thu\u1ED1c ch\u1EEFa b\u1EC7nh cho ch\xEDnh m\xECnh ho\u1EB7c
+      \u0111\u1EC3 chu\u1EA9n b\u1ECB cho c\xE1c cu\u1ED9c chi\u1EBFn s\u1EAFp t\u1EDBi."
+    reward:
+    - 150 XP
+    - giap
+    - kiem_go
+    requirements: "Thu th\u1EADp 10 c\xE2y c\u1ECF linh chi t\u1EEB khu r\u1EEBng
+      g\u1EA7n l\xE0ng."
+    type: quest_type_001
+--- !u!114 &1618829496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618829492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &1620231523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14442,6 +15514,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4504554105475284, guid: 344cf0c3e19298f43895cc0857021250, type: 3}
   m_PrefabInstance: {fileID: 749351305}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1625545549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625545550}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1625545550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625545549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 86249276}
+  - {fileID: 1292347128}
+  - {fileID: 1637584447}
+  m_Father: {fileID: 2058619556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1627759880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14512,6 +15618,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
   m_PrefabInstance: {fileID: 1627759880}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1637584446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637584447}
+  - component: {fileID: 1637584450}
+  - component: {fileID: 1637584449}
+  - component: {fileID: 1637584448}
+  m_Layer: 0
+  m_Name: da_tho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637584447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637584446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1637584448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637584446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "G\u1ED7 th\xE1nh"
+    type: 0
+    description: "G\u1ED7 t\u1EEB nh\u1EEFng c\xE2y c\u1ED5 th\u1EE5 trong r\u1EEBng
+      th\xE1nh, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED cao c\u1EA5p"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate: 0.1
+    properties: 1
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1637584449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637584446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1637584450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637584446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1647917290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4651050137903364, guid: 8e8f8660f45621a4a804df622b985183, type: 3}
@@ -17110,6 +18305,88 @@ Transform:
   - {fileID: 1219633052}
   m_Father: {fileID: 1452412711}
   m_LocalEulerAnglesHint: {x: 0, y: -107.73401, z: 0}
+--- !u!1 &1918023384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918023385}
+  - component: {fileID: 1918023388}
+  - component: {fileID: 1918023387}
+  - component: {fileID: 1918023386}
+  m_Layer: 0
+  m_Name: quest_008
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918023385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918023384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918023386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918023384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &1918023387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918023384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 8: \u0110\xE1nh B\u1EA1i H\u1ECFa Long Ignivor"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
+      v\u1EDBi H\u1ECFa Long Ignivor \u1EDF V\xF9ng \u0110\u1EA5t L\u1EEDa \u0111\u1EC3
+      thu th\u1EADp M\u1EA3nh V\u1EE1 L\u1EEDa."
+    reward:
+    - 1200 XP
+    - hon_hoa
+    requirements: "\u0110\xE1nh b\u1EA1i H\u1ECFa Long Ignivor."
+    type: quest_type_003
+--- !u!114 &1918023388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918023384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!4 &1920617005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4191413475911042, guid: ed5f82224b99b30438c4330a2dca3429, type: 3}
@@ -17255,7 +18532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1931042135
 Transform:
   m_ObjectHideFlags: 0
@@ -18114,6 +19391,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4007895067663058, guid: f36916143c7509543b1b8d40091baa24, type: 3}
   m_PrefabInstance: {fileID: 876297803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2010425719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010425720}
+  - component: {fileID: 2010425723}
+  - component: {fileID: 2010425722}
+  - component: {fileID: 2010425721}
+  m_Layer: 0
+  m_Name: quest_006
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2010425720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010425719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010425721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010425719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &2010425722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010425719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 6: \u0110\xE1nh B\u1EA1i K\u1EBB Canh Gi\u1EEF T\xE0n
+      T\xEDch"
+    description: "Tr\u01B0\u1EDBc khi c\xF3 th\u1EC3 ti\u1EBFp c\u1EADn Th\u1ED5
+      Long Terramorph, ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\xE1nh b\u1EA1i
+      k\u1EBB canh gi\u1EEF h\u1EBBm n\xFAi c\u1ED5 \u0111\u1EA1i \u1EDF v\xF9ng
+      \u0111\u1EA5t \u0111\xE1 kh\xF4 c\u1EB1n. \u0110\xE2y l\xE0 m\u1ED9t sinh v\u1EADt
+      kh\u1ED5ng l\u1ED3 \u0111\u01B0\u1EE3c Th\u1ED5 Long tri\u1EC7u h\u1ED3i \u0111\u1EC3
+      b\u1EA3o v\u1EC7 l\xE3nh th\u1ED5 c\u1EE7a m\xECnh, v\u1EDBi s\u1EE9c m\u1EA1nh
+      \u0111i\u1EC1u khi\u1EC3n \u0111\xE1 v\xE0 \u0111\u1EA5t, bi\u1EBFn h\u1EBBm
+      n\xFAi th\xE0nh m\u1ED9t ph\xE1o \u0111\xE0i b\u1EA5t kh\u1EA3 x\xE2m ph\u1EA1m."
+    reward:
+    - 600 XP
+    - mithdril_tho
+    requirements: "\u0110\xE1nh b\u1EA1i Guardian of the Canyon (Mini boss)."
+    type: quest_type_002
+--- !u!114 &2010425723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010425719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!4 &2015440406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4438656222355180, guid: 4047ab01be7298e4e827f73bf31ba088, type: 3}
@@ -18623,6 +19988,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38688660962a01e41a8b7c8ad0493167, type: 3}
+--- !u!1 &2058619555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058619556}
+  m_Layer: 0
+  m_Name: InitData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058619556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058619555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 553.632, y: 6.609723, z: 375.65524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 493104022}
+  - {fileID: 458791540}
+  - {fileID: 1625545550}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2058882583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4776272554816088, guid: 94a3318e328358d4095f16b054b14180, type: 3}
@@ -19159,6 +20558,88 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93a135b5c8137e5468cb55d97a43df67, type: 3}
+--- !u!1 &2144662988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144662989}
+  - component: {fileID: 2144662992}
+  - component: {fileID: 2144662991}
+  - component: {fileID: 2144662990}
+  m_Layer: 0
+  m_Name: quest_0010
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2144662989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144662988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458791540}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144662990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144662988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &2144662991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144662988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd1ffd2ce712d499d5efb246653a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+    title: "Nhi\u1EC7m V\u1EE5 10: \u0110\xE1nh B\u1EA1i M\u1ED9c Long Verdantus"
+    description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
+      v\u1EDBi M\u1ED9c Long Verdantus \u1EDF V\xF9ng \u0110\u1EA5t R\u1EEBng \u0111\u1EC3
+      thu th\u1EADp M\u1EA3nh V\u1EE1 R\u1EEBng."
+    reward:
+    - 1200 XP
+    - hon_tho
+    requirements: "\u0110\xE1nh b\u1EA1i M\u1ED9c Long Verdantus."
+    type: quest_type_003
+--- !u!114 &2144662992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144662988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveQuestToFirebase: 1
 --- !u!1001 &2145756730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21404,7 +22885,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1006356111}
+    m_TransformParent: {fileID: 2058619556}
     m_Modifications:
     - target: {fileID: 2809867701842812377, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_Name
@@ -21412,19 +22893,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809867701842812377, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3779828794178384785, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.52667236
+      value: -2.347107
       objectReference: {fileID: 0}
     - target: {fileID: 3779828794178384785, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.844676
+      value: 1.6275597
       objectReference: {fileID: 0}
     - target: {fileID: 3779828794178384785, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.27475
+      value: 9.206299
       objectReference: {fileID: 0}
     - target: {fileID: 3779828794178384785, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21476,7 +22957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6906442850506609369, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: item.properties
-      value: Test
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6906442850506609369, guid: 8e9e96fd35ef0a34f9e5c1ba3d075c7c, type: 3}
       propertyPath: item.description
@@ -21545,3 +23026,4 @@ SceneRoots:
   - {fileID: 1139451239}
   - {fileID: 1006356111}
   - {fileID: 37379492}
+  - {fileID: 2058619556}
