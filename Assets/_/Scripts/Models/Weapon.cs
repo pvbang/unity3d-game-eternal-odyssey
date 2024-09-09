@@ -1,23 +1,25 @@
+using System.Collections.Generic;
+
 [System.Serializable]
 public class Weapon
 {
     public string name;
     public int level;
-    public float damage;
+    public List<float> damage;
     public float resistance;
     public float attack_speed;
     public float crit;
     public string description;
     public Effect effect;
-    public MaterialsUpdate materials_update;
+    public List<MaterialsUpdate> materials_update;
     public Skills skills;
-    public string type;
+    public Element type;
     public int time;
 
     public Weapon()
     {}
 
-    public Weapon(string name, int level, float damage, float resistance, float attack_speed, float crit, string description, Effect effect, MaterialsUpdate materials_update, Skills skills, string type, int time)
+    public Weapon(string name, int level, List<float> damage, float resistance, float attack_speed, float crit, string description, Effect effect, List<MaterialsUpdate> materials_update, Skills skills, Element type, int time)
     {
         this.name = name;
         this.level = level;
