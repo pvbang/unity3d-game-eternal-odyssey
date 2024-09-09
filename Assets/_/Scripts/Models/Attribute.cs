@@ -1,7 +1,6 @@
 [System.Serializable]
 public class Attribute
 {
-    public string attributeId;
     public float health;
     public float strength;
     public float resistance;
@@ -15,17 +14,6 @@ public class Attribute
 
     public Attribute(float health, float strength, float resistance, float speed, float intelligence, float crit)
     {
-        this.health = health;
-        this.strength = strength;
-        this.resistance = resistance;
-        this.speed = speed;
-        this.intelligence = intelligence;
-        this.crit = crit;
-    }
-
-    public Attribute(string attributeId, float health, float strength, float resistance, float speed, float intelligence, float crit)
-    {
-        this.attributeId = attributeId;
         this.health = health;
         this.strength = strength;
         this.resistance = resistance;
