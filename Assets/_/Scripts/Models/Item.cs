@@ -1,37 +1,36 @@
-﻿[System.Serializable]
-public enum ItemType
-{
-    Normal,
-    Rare,
-    Legendary
-}
+﻿using System.Collections.Generic;
 
+public enum Properties
+{
+    Buff, Create
+}
 [System.Serializable]
 public class Item
 {
     public string itemId;
     public string name;
-    public ItemType type; // Sử dụng enum ItemType thay vì string
+    public Rare type; // Sử dụng enum ItemType thay vì string
     public string description;
     public Attribute attributes;
-    public float rate;
-    public string properties; // Buff, Material
-    public float time;
+    public List<float> rate; //List này có 2 giá trị VD 75%-85%
+    public Properties properties; // Buff, Material
+    public List<string> location; //Địa điểm có thể tìm thấy //id cây hoặc mỏ quặng...
+    public float createTime;
     public float usingTime;
 
     public Item()
     {
     }
 
-    public Item(string name, ItemType type, string description, Attribute attributes, float rate, string properties, float time, float usingTime)
+    public Item(string name, Rare type, string description, Attribute attributes, List<float> rate, Properties properties, float createTime, float usingTime)
     {
         this.name = name;
-        this.type = type; // Sử dụng ItemType thay vì string
+        this.type = type;
         this.description = description;
         this.attributes = attributes;
         this.rate = rate;
         this.properties = properties;
-        this.time = time;
+        this.createTime = createTime;
         this.usingTime = usingTime;
     }
 
