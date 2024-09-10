@@ -1,9 +1,17 @@
 ﻿using System.Collections.Generic;
 
+public enum Rare
+{
+    Normal,
+    Rare,
+    Legendary
+}
+
 public enum Properties
 {
     Buff, Create
 }
+
 [System.Serializable]
 public class Item
 {
