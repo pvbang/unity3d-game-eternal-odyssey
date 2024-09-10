@@ -1136,6 +1136,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4504554105475284, guid: 344cf0c3e19298f43895cc0857021250, type: 3}
   m_PrefabInstance: {fileID: 1526936604}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &73239411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73239412}
+  - component: {fileID: 73239415}
+  - component: {fileID: 73239414}
+  - component: {fileID: 73239413}
+  m_Layer: 0
+  m_Name: da_quy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73239412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73239411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73239413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73239411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "\u0110\xE1 qu\xFD"
+    type: 1
+    description: "G\u1ED7 t\u1EEB nh\u1EEFng c\xE2y c\u1ED5 th\u1EE5 trong r\u1EEBng
+      th\xE1nh, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED cao c\u1EA5p"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location: []
+    createTime: 0
+    usingTime: 0
+--- !u!114 &73239414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73239411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &73239415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73239411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &73926320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4191413475911042, guid: ed5f82224b99b30438c4330a2dca3429, type: 3}
@@ -1486,8 +1578,11 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate: 0.75
+    rate:
+    - 0.75
+    - 0.85
     properties: 1
+    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &86249278
@@ -1762,6 +1857,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93a135b5c8137e5468cb55d97a43df67, type: 3}
+--- !u!1 &143532093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143532094}
+  - component: {fileID: 143532097}
+  - component: {fileID: 143532096}
+  - component: {fileID: 143532095}
+  m_Layer: 0
+  m_Name: mithril_kim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143532094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143532093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143532095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143532093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: Mithril kim
+    type: 2
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED professional"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.002
+    - 0.003
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &143532096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143532093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &143532097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143532093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &155585964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,6 +2255,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4360581081656686, guid: 70b6d0c9364cc7a498b08b095cf258ba, type: 3}
   m_PrefabInstance: {fileID: 1857431935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &205928971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205928972}
+  - component: {fileID: 205928975}
+  - component: {fileID: 205928974}
+  - component: {fileID: 205928973}
+  m_Layer: 0
+  m_Name: quang_mithril_thuy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &205928972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205928971}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &205928973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205928971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng mithril th\u1EE7y"
+    type: 1
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &205928974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205928971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &205928975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205928971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &210709602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3385,6 +3666,106 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93a135b5c8137e5468cb55d97a43df67, type: 3}
+--- !u!1 &369591675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369591676}
+  - component: {fileID: 369591679}
+  - component: {fileID: 369591678}
+  - component: {fileID: 369591677}
+  m_Layer: 0
+  m_Name: kiem_lon_lv1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369591676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369591675}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 873531752}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369591677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369591675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!114 &369591678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369591675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d3642a65dba6f419cabf68f4c97d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveWeaponToFirebase: 0
+--- !u!114 &369591679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369591675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421c1840e64ee4a42aa75f7c2f1d68d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon:
+    name: Origin Greatsword
+    level: 1
+    damage:
+    - 50
+    - 60
+    resistance: 0
+    attack_speed: 1
+    crit: 0.05
+    description: 
+    effect:
+      name: 
+      list_index_effect_id: []
+    materials_update:
+    - materialId: 
+      itemId: quang_mithdril_kim
+      quantity: 
+    - materialId: 
+      itemId: sat_tinh_luyen
+      quantity: 
+    - materialId: 
+      itemId: go_gia_co
+      quantity: 
+    skills:
+      name: 
+      damage: 0
+    type: 0
+    time: 0
 --- !u!1001 &382716445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4925,6 +5306,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3b66b5f6d4c2c41a5d98c834f9bf8a, type: 3}
+--- !u!1 &528638725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528638726}
+  - component: {fileID: 528638729}
+  - component: {fileID: 528638728}
+  - component: {fileID: 528638727}
+  m_Layer: 0
+  m_Name: mithril_thuy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528638726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528638725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528638727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528638725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Mithril th\u1EE7y"
+    type: 2
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED professional"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.002
+    - 0.003
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &528638728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528638725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &528638729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528638725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &530835285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -6878,6 +7352,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8379f308d5dcffd4ab2f3ee5959a1076, type: 3}
+--- !u!1 &766821063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766821064}
+  - component: {fileID: 766821067}
+  - component: {fileID: 766821066}
+  - component: {fileID: 766821065}
+  m_Layer: 0
+  m_Name: long_vu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766821064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766821063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766821065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766821063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "L\xF4ng V\u0169 C\u1ED5 \u0110\u1EA1i "
+    type: 2
+    description: "M\u1ED9t lo\u1EA1i l\xF4ng v\u0169 hi\u1EBFm t\u1EEB qu\xE1i v\u1EADt
+      bay, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o trang ph\u1EE5c v\xE0 c\xE1c v\u1EADt
+      ph\u1EA9m buff t\u1ED1c \u0111\u1ED9."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 1
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &766821066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766821063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &766821067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766821063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &767666784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8214,6 +8781,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4275966805485982, guid: 9000e31c84559634b8f9ce44b2636f4c, type: 3}
   m_PrefabInstance: {fileID: 74029265}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &873531751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873531752}
+  m_Layer: 0
+  m_Name: weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &873531752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873531751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 553.632, y: 6.609723, z: 375.65524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 369591676}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &875031910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8337,6 +8936,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36916143c7509543b1b8d40091baa24, type: 3}
+--- !u!1 &878657259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878657260}
+  - component: {fileID: 878657263}
+  - component: {fileID: 878657262}
+  - component: {fileID: 878657261}
+  m_Layer: 0
+  m_Name: mithril_hoa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878657260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878657259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878657261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878657259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Mithril h\u1ECFa"
+    type: 2
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED professional"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.002
+    - 0.003
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &878657262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878657259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &878657263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878657259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &879426865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4947662018757878, guid: f4e6ccfc0f9f2de43b1f6ab60a2e5f44, type: 3}
@@ -10257,8 +10949,9 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate: 0
+    rate: []
     properties: 0
+    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1125752494
@@ -10882,6 +11575,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4756003171135936, guid: 64b9fdd8926ce144fbdc31c4044b55f1, type: 3}
   m_PrefabInstance: {fileID: 2122094865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1164701601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164701602}
+  - component: {fileID: 1164701605}
+  - component: {fileID: 1164701604}
+  - component: {fileID: 1164701603}
+  m_Layer: 0
+  m_Name: quang_mithril_kim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164701602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164701601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164701603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164701601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng mithril kim"
+    type: 1
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1164701604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164701601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1164701605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164701601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1165910460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4868598521721778, guid: 5c11b6a454fa5fd458d541957f1de507, type: 3}
@@ -11627,6 +12413,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94a3318e328358d4095f16b054b14180, type: 3}
+--- !u!1 &1241331266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241331267}
+  - component: {fileID: 1241331270}
+  - component: {fileID: 1241331269}
+  - component: {fileID: 1241331268}
+  m_Layer: 0
+  m_Name: quang_mithril_moc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1241331267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241331266}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1241331268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng mithril m\u1ED9c"
+    type: 1
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1241331269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1241331270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241331266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1241369131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12200,6 +13079,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071750753398162, guid: a397f10d7b785064e9d0f7b5ab603003, type: 3}
   m_PrefabInstance: {fileID: 1306528217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1285356888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285356889}
+  - component: {fileID: 1285356892}
+  - component: {fileID: 1285356891}
+  - component: {fileID: 1285356890}
+  m_Layer: 0
+  m_Name: xuong_quai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285356889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285356888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285356890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285356888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "X\u01B0\u01A1ng Qu\xE1i V\u1EADt"
+    type: 0
+    description: "X\u01B0\u01A1ng c\u1EE7a qu\xE1i v\u1EADt, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED v\xE0 c\xF4ng c\u1EE5."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.35
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1285356891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285356888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1285356892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285356888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &1292347127
 GameObject:
   m_ObjectHideFlags: 0
@@ -12249,7 +13221,7 @@ MonoBehaviour:
   item:
     itemId: 
     name: "G\u1ED7 th\xE1nh"
-    type: 0
+    type: 1
     description: "G\u1ED7 t\u1EEB nh\u1EEFng c\xE2y c\u1ED5 th\u1EE5 trong r\u1EEBng
       th\xE1nh, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED cao c\u1EA5p"
     attributes:
@@ -12259,8 +13231,11 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate: 0.1
+    rate:
+    - 0.1
+    - 0.15
     properties: 1
+    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1292347130
@@ -13067,6 +14042,98 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3b66b5f6d4c2c41a5d98c834f9bf8a, type: 3}
+--- !u!1 &1330898709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1330898710}
+  - component: {fileID: 1330898713}
+  - component: {fileID: 1330898712}
+  - component: {fileID: 1330898711}
+  m_Layer: 0
+  m_Name: vang
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1330898710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330898709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330898711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330898709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "V\xE0ng"
+    type: 1
+    description: "Thu th\u1EADp t\u1EEB m\u1ECF qu\u1EB7ng, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED v\xE0 \xE1o gi\xE1p c\u1EA5p trung."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.05
+    - 0.1
+    properties: 1
+    location: []
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1330898712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330898709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1330898713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330898709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1331974981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4776272554816088, guid: 94a3318e328358d4095f16b054b14180, type: 3}
@@ -13148,6 +14215,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4438656222355180, guid: 4047ab01be7298e4e827f73bf31ba088, type: 3}
   m_PrefabInstance: {fileID: 1735632378}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1365414797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365414798}
+  - component: {fileID: 1365414801}
+  - component: {fileID: 1365414800}
+  - component: {fileID: 1365414799}
+  m_Layer: 0
+  m_Name: mithril_moc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1365414798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365414797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1365414799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365414797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Mithril m\u1ED9c"
+    type: 2
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED professional"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.002
+    - 0.003
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1365414800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365414797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1365414801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365414797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1371551722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13870,6 +15030,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4811437788955060, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
   m_PrefabInstance: {fileID: 1426146499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1439796368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439796369}
+  - component: {fileID: 1439796372}
+  - component: {fileID: 1439796371}
+  - component: {fileID: 1439796370}
+  m_Layer: 0
+  m_Name: mithril_tho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439796369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439796368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439796370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439796368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Mithril th\u1ED5"
+    type: 2
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED professional"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.002
+    - 0.003
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1439796371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439796368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1439796372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439796368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1440901349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4866800480449944, guid: 2ac9bf91aae386d4e879dc4eeaf3c678, type: 3}
@@ -14973,6 +16226,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
   m_PrefabInstance: {fileID: 1527350130}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1543261133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543261134}
+  - component: {fileID: 1543261137}
+  - component: {fileID: 1543261136}
+  - component: {fileID: 1543261135}
+  m_Layer: 0
+  m_Name: hon_ngoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543261134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543261133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543261135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543261133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "H\u1ED3n Ng\u1ECDc"
+    type: 1
+    description: "Thu th\u1EADp t\u1EEB c\xE1c con r\u1ED3ng, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED \u0111\u1EB7c bi\u1EC7t v\xE0 n\xE2ng c\u1EA5p
+      v\u0169 kh\xED."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1543261136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543261133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1543261137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543261133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1547035424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15529,7 +16875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625545550
 Transform:
   m_ObjectHideFlags: 0
@@ -15546,6 +16892,26 @@ Transform:
   - {fileID: 86249276}
   - {fileID: 1292347128}
   - {fileID: 1637584447}
+  - {fileID: 73239412}
+  - {fileID: 1928858263}
+  - {fileID: 1330898710}
+  - {fileID: 1874625415}
+  - {fileID: 1974500471}
+  - {fileID: 205928972}
+  - {fileID: 1241331267}
+  - {fileID: 1164701602}
+  - {fileID: 143532094}
+  - {fileID: 1365414798}
+  - {fileID: 528638726}
+  - {fileID: 878657260}
+  - {fileID: 1439796369}
+  - {fileID: 1963423014}
+  - {fileID: 1285356889}
+  - {fileID: 2052290439}
+  - {fileID: 1903829397}
+  - {fileID: 1543261134}
+  - {fileID: 1729768569}
+  - {fileID: 766821064}
   m_Father: {fileID: 2058619556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1627759880
@@ -15666,7 +17032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemId: 
-    name: "G\u1ED7 th\xE1nh"
+    name: "\u0110\xE1 th\xF4"
     type: 0
     description: "G\u1ED7 t\u1EEB nh\u1EEFng c\xE2y c\u1ED5 th\u1EE5 trong r\u1EEBng
       th\xE1nh, d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED cao c\u1EA5p"
@@ -15677,8 +17043,11 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate: 0.1
+    rate:
+    - 0.8
+    - 0.9
     properties: 1
+    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1637584449
@@ -16351,6 +17720,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fc122e3f8d06d43a1eb4f5ac1238cc, type: 3}
+--- !u!1 &1729768568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729768569}
+  - component: {fileID: 1729768572}
+  - component: {fileID: 1729768571}
+  - component: {fileID: 1729768570}
+  m_Layer: 0
+  m_Name: mau_rong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1729768569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729768568}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729768570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729768568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "M\xE1u R\u1ED3ng"
+    type: 2
+    description: "Thu th\u1EADp t\u1EEB c\xE1c con r\u1ED3ng, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o c\xE1c lo\u1EA1i thu\u1ED1c m\u1EA1nh v\xE0 n\xE2ng c\u1EA5p
+      v\u0169 kh\xED."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 1
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1729768571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729768568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1729768572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729768568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1731356567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075882751740782, guid: c9fc122e3f8d06d43a1eb4f5ac1238cc, type: 3}
@@ -18002,6 +19464,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
+--- !u!1 &1874625414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874625415}
+  - component: {fileID: 1874625418}
+  - component: {fileID: 1874625417}
+  - component: {fileID: 1874625416}
+  m_Layer: 0
+  m_Name: quang_mithril_hoa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874625415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874625414}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874625416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874625414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng mithril h\u1ECFa"
+    type: 1
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1874625417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874625414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1874625418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874625414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1882958575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4602000202983218, guid: aa91054e6f5bee946ba66c9a32a3a5b9, type: 3}
@@ -18200,6 +19755,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4316652776831010, guid: 9b3d693a654a56c43b2249ca7efee293, type: 3}
   m_PrefabInstance: {fileID: 1897117993}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1903829396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903829397}
+  - component: {fileID: 1903829400}
+  - component: {fileID: 1903829399}
+  - component: {fileID: 1903829398}
+  m_Layer: 0
+  m_Name: mong_rong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1903829397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903829396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1903829398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903829396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "M\xF3ng Vu\u1ED1t R\u1ED3ng"
+    type: 2
+    description: "Thu th\u1EADp t\u1EEB c\xE1c con r\u1ED3ng, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED \u0111\u1EB7c bi\u1EC7t v\xE0 n\xE2ng c\u1EA5p
+      v\u0169 kh\xED."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 1
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1903829399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903829396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1903829400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903829396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1910500451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18392,6 +20040,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4191413475911042, guid: ed5f82224b99b30438c4330a2dca3429, type: 3}
   m_PrefabInstance: {fileID: 1850482098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1928858262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928858263}
+  - component: {fileID: 1928858266}
+  - component: {fileID: 1928858265}
+  - component: {fileID: 1928858264}
+  m_Layer: 0
+  m_Name: sat_tho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1928858263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928858262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928858264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928858262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "S\u1EAFt th\xF4"
+    type: 0
+    description: "Thu th\u1EADp t\u1EEB m\u1ECF qu\u1EB7ng, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED v\xE0 \xE1o gi\xE1p c\u1EA5p trung."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.7
+    - 0.8
+    properties: 1
+    location: []
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1928858265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928858262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1928858266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928858262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1930441247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18860,6 +20600,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4627547270634096, guid: 93a135b5c8137e5468cb55d97a43df67, type: 3}
   m_PrefabInstance: {fileID: 1655056048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963423013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963423014}
+  - component: {fileID: 1963423017}
+  - component: {fileID: 1963423016}
+  - component: {fileID: 1963423015}
+  m_Layer: 0
+  m_Name: da_quai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963423014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963423013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963423015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963423013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Da Qu\xE1i V\u1EADt"
+    type: 0
+    description: "Da thu th\u1EADp t\u1EEB qu\xE1i v\u1EADt, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o \xE1o gi\xE1p v\xE0 trang ph\u1EE5c c\u01A1 b\u1EA3n."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.3
+    - 0.4
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1963423016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963423013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1963423017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963423013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1968779695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4316652776831010, guid: 9b3d693a654a56c43b2249ca7efee293, type: 3}
@@ -19036,6 +20869,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa91054e6f5bee946ba66c9a32a3a5b9, type: 3}
+--- !u!1 &1974500470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974500471}
+  - component: {fileID: 1974500474}
+  - component: {fileID: 1974500473}
+  - component: {fileID: 1974500472}
+  m_Layer: 0
+  m_Name: quang_mithril_tho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1974500471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974500470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974500472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974500470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng mithril th\u1ED5"
+    type: 1
+    description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
+      lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.25
+    - 0.3
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &1974500473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974500470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &1974500474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974500470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1978163305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19927,6 +21853,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c11b6a454fa5fd458d541957f1de507, type: 3}
+--- !u!1 &2052290438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052290439}
+  - component: {fileID: 2052290442}
+  - component: {fileID: 2052290441}
+  - component: {fileID: 2052290440}
+  m_Layer: 0
+  m_Name: mong_quai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2052290439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052290438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052290440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052290438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemId: 
+    name: "M\xF3ng vu\u1ED1t qu\xE1i v\u1EADt"
+    type: 1
+    description: "X\u01B0\u01A1ng c\u1EE7a qu\xE1i v\u1EADt, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o v\u0169 kh\xED v\xE0 c\xF4ng c\u1EE5."
+    attributes:
+      health: 0
+      strength: 0
+      resistance: 0
+      speed: 0
+      intelligence: 0
+      crit: 0
+    rate:
+    - 0.03
+    - 0.07
+    properties: 1
+    location:
+    - 0
+    createTime: 0
+    usingTime: 0
+--- !u!114 &2052290441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052290438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemToFirebase: 1
+--- !u!114 &2052290442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052290438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &2054507948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23027,3 +25046,4 @@ SceneRoots:
   - {fileID: 1006356111}
   - {fileID: 37379492}
   - {fileID: 2058619556}
+  - {fileID: 873531752}
