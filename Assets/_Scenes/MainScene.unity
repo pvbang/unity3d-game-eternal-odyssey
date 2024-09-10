@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "\u0110\xE1 qu\xFD"
@@ -1138,11 +1139,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &73239414
@@ -1157,7 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &73239415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1467,6 @@ GameObject:
   m_Component:
   - component: {fileID: 86249276}
   - component: {fileID: 86249279}
-  - component: {fileID: 86249278}
   - component: {fileID: 86249277}
   m_Layer: 0
   m_Name: go_cung
@@ -1507,9 +1502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 1
   item:
     itemId: 
-    name: "G\u1ED7 c\u1EE9ng"
+    name: "G\u1ED7 C\u1EE9ng"
     type: 0
     description: "Nguy\xEAn li\u1EC7u c\u01A1 b\u1EA3n t\u1EEB ch\u1EB7t c\xE2y,
       d\xF9ng \u0111\u1EC3 x\xE2y d\u1EF1ng nh\xE0 c\u1EEDa, ch\u1EBF t\u1EA1o v\u0169
@@ -1521,26 +1517,9 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.75
-    - 0.85
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
---- !u!114 &86249278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86249275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &86249279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,6 +1825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: Mithril kim
@@ -1859,12 +1839,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.002
-    - 0.003
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &143532096
@@ -1879,7 +1854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &143532097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2208,7 +2182,6 @@ GameObject:
   m_Component:
   - component: {fileID: 205928972}
   - component: {fileID: 205928975}
-  - component: {fileID: 205928974}
   - component: {fileID: 205928973}
   m_Layer: 0
   m_Name: quang_mithril_thuy
@@ -2244,9 +2217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
-    name: "Qu\u1EB7ng mithril th\u1EE7y"
+    name: "Qu\u1EB7ng Mithril Th\u1EE7y"
     type: 1
     description: "Nhi\u1EC1u lo\u1EA1i, m\u1ED7i lo\u1EA1i 1 c\xF4ng d\u1EE5ng, 5
       lo\u1EA1i ch\u1EBF t\u1EA1o 5 v\u0169 kh\xED c\u01A1 b\u1EA3n"
@@ -2257,27 +2231,9 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
---- !u!114 &205928974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205928971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &205928975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,6 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Mithril th\u1EE7y"
@@ -5240,12 +5197,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.002
-    - 0.003
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &528638728
@@ -5260,7 +5212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &528638729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7273,6 +7224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "L\xF4ng V\u0169 C\u1ED5 \u0110\u1EA1i "
@@ -7287,11 +7239,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 1
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &766821066
@@ -7306,7 +7254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &766821067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8857,6 +8804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Mithril h\u1ECFa"
@@ -8870,12 +8818,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.002
-    - 0.003
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &878657262
@@ -8890,7 +8833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &878657263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10856,6 +10798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: 
@@ -10868,9 +10811,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate: []
     properties: 0
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1125752494
@@ -10885,7 +10826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1125752495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11540,6 +11480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Qu\u1EB7ng mithril kim"
@@ -11553,12 +11494,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1164701604
@@ -11573,7 +11509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1164701605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12378,6 +12313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Qu\u1EB7ng mithril m\u1ED9c"
@@ -12391,12 +12327,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1241331269
@@ -12411,7 +12342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1241331270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13044,6 +12974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "X\u01B0\u01A1ng Qu\xE1i V\u1EADt"
@@ -13057,12 +12988,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.35
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1285356891
@@ -13077,7 +13003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1285356892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13137,6 +13062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "G\u1ED7 th\xE1nh"
@@ -13150,11 +13076,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.1
-    - 0.15
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1292347130
@@ -13169,7 +13091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1292347131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14007,6 +13928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "V\xE0ng"
@@ -14020,11 +13942,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.05
-    - 0.1
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1330898712
@@ -14039,7 +13957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1330898713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14180,6 +14097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Mithril m\u1ED9c"
@@ -14193,12 +14111,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.002
-    - 0.003
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1365414800
@@ -14213,7 +14126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1365414801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14995,6 +14907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Mithril th\u1ED5"
@@ -15008,12 +14921,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.002
-    - 0.003
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1439796371
@@ -15028,7 +14936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1439796372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16191,6 +16098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "H\u1ED3n Ng\u1ECDc"
@@ -16205,11 +16113,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1543261136
@@ -16224,7 +16128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1543261137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16794,7 +16697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1625545550
 Transform:
   m_ObjectHideFlags: 0
@@ -16949,6 +16852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "\u0110\xE1 th\xF4"
@@ -16962,11 +16866,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.8
-    - 0.9
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1637584449
@@ -16981,7 +16881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1637584450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17685,6 +17584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "M\xE1u R\u1ED3ng"
@@ -17699,11 +17599,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 1
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1729768571
@@ -17718,7 +17614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1729768572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19429,6 +19324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Qu\u1EB7ng mithril h\u1ECFa"
@@ -19442,12 +19338,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1874625417
@@ -19462,7 +19353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1874625418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19720,6 +19610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "M\xF3ng Vu\u1ED1t R\u1ED3ng"
@@ -19734,11 +19625,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 1
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1903829399
@@ -19753,7 +19640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1903829400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20005,6 +19891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "S\u1EAFt th\xF4"
@@ -20018,11 +19905,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.7
-    - 0.8
     properties: 1
-    location: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1928858265
@@ -20037,7 +19920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1928858266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20565,6 +20447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Da Qu\xE1i V\u1EADt"
@@ -20578,12 +20461,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.3
-    - 0.4
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1963423016
@@ -20598,7 +20476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1963423017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20834,6 +20711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "Qu\u1EB7ng mithril th\u1ED5"
@@ -20847,12 +20725,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.25
-    - 0.3
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &1974500473
@@ -20867,7 +20740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &1974500474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21818,6 +21690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: 0
   item:
     itemId: 
     name: "M\xF3ng vu\u1ED1t qu\xE1i v\u1EADt"
@@ -21831,12 +21704,7 @@ MonoBehaviour:
       speed: 0
       intelligence: 0
       crit: 0
-    rate:
-    - 0.03
-    - 0.07
     properties: 1
-    location:
-    - 0
     createTime: 0
     usingTime: 0
 --- !u!114 &2052290441
@@ -21851,7 +21719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemToFirebase: 1
 --- !u!114 &2052290442
 MonoBehaviour:
   m_ObjectHideFlags: 0

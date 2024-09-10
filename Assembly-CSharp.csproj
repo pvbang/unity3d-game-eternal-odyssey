@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{C8A9DC61-D822-9895-68F1-A5557CB630B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -144,6 +143,7 @@
     <Compile Include="Assets\Sketchfab For Unity\Scripts\SketchfabImporter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\_\Scripts\_\PrefabsManager.cs" />
     <Compile Include="Assets\_\Scripts\Models\MaterialsUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\_\Scripts\Core\AudioManager.cs" />
@@ -170,7 +170,6 @@
     <Compile Include="Assets\_\Scripts\Models\IndexEffect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
-    <Compile Include="Assets\_\Scripts\_\SetPrefabs.cs" />
     <Compile Include="Assets\_\Scripts\Characters\CharacterBase.cs" />
     <Compile Include="Assets\_\Scripts\Models\QuestWorld.cs" />
     <Compile Include="Assets\_\Scripts\UI\UIManager.cs" />
