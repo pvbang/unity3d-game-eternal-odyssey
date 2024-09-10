@@ -11,11 +11,6 @@ public class WeaponManager : MonoBehaviour
 
     DatabaseReference databaseReference;
 
-    void Awake()
-    {
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
-
     private void Start()
     {
         if(saveWeaponToFirebase) {
@@ -27,7 +22,7 @@ public class WeaponManager : MonoBehaviour
     {
         string json = JsonUtility.ToJson(weapon);
         string weaponId = gameObject.name;
-        databaseReference.Child("weapons").Child(weaponId).SetRawJsonValueAsync(json);
+        FirebaseManager.instance.databaseReference.Child("weapons").Child(weaponId).SetRawJsonValueAsync(json);
         Debug.Log("Item has been saved successfully!");
     }
 
