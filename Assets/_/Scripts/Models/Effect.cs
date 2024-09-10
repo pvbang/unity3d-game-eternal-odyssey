@@ -3,15 +3,15 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Effect
 {
-    public string name;
+    public string description;
     public List<IndexEffect> list_index_effect_id;
     public Effect()
     {
     }
 
-    public Effect(string name, List<IndexEffect> list_index_effect_id)
+    public Effect(string description, List<IndexEffect> list_index_effect_id)
     {
-        this.name = name;
+        this.description = description;
         this.list_index_effect_id = list_index_effect_id;
     }
 }
