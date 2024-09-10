@@ -33,5 +33,4 @@ public class Item
         this.createTime = createTime;
         this.usingTime = usingTime;
     }
-
 }

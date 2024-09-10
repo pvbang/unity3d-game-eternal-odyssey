@@ -5,7 +5,6 @@ using Firebase.Database;
 using Firebase.Extensions;
 using UnityEngine;
 using System.IO;
-using static UnityEditor.Progress;
 public class WeaponManager : MonoBehaviour
 {
     public bool saveWeaponToFirebase = false;
@@ -27,7 +26,7 @@ public class WeaponManager : MonoBehaviour
     public void CreateNewWeapon(Weapon weapon)
     {
         string json = JsonUtility.ToJson(weapon);
-        string weaponId = RandomManager.GenerateRandomID();
+        string weaponId = gameObject.name;
         databaseReference.Child("weapons").Child(weaponId).SetRawJsonValueAsync(json);
         Debug.Log("Item has been saved successfully!");
     }
