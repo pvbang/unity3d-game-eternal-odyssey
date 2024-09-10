@@ -13,13 +13,9 @@ public enum ListProperties
 [System.Serializable]
 public class Enemy 
 {
+    public string enemyId;
     public string name;
-    public float health;
-    public float speed;
-    public float strength;
-    public float resistance;
-    public float intelligence;
-    public float crit;
+    public Attribute attribute;
     public Skills skill;
     public Element type;
     public ListProperties properties;
@@ -28,15 +24,21 @@ public class Enemy
     public Enemy()
     { }
 
-    public Enemy(string name, float health, float speed, float strength, float resistance, float intelligence, float crit, Skills skill, Element type, ListProperties properties, List<string> rewards)
+    public Enemy(string name, Attribute attribute, Skills skill, Element type, ListProperties properties, List<string> rewards)
     {
         this.name = name;
-        this.health = health;
-        this.speed = speed;
-        this.strength = strength;
-        this.resistance = resistance;
-        this.intelligence = intelligence;
-        this.crit = crit;
+        this.attribute = attribute;
+        this.skill = skill;
+        this.type = type;
+        this.properties = properties;
+        this.rewards = rewards;
+    }
+
+    public Enemy(string enemyId, string name, Attribute attribute, Skills skill, Element type, ListProperties properties, List<string> rewards)
+    {
+        this.enemyId = enemyId;
+        this.name = name;
+        this.attribute = attribute;
         this.skill = skill;
         this.type = type;
         this.properties = properties;
