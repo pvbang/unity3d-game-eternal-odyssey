@@ -67,6 +67,7 @@
     <Compile Include="Assets\SapphiArt\SapphiArtchan\Scripts\AnimationManagerUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\_\Scripts\Controllers\Enemy\EnemyList.cs" />
     <Compile Include="Assets\_\Scripts\Firebase\FirebaseInit.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Sketchfab For Unity\Scripts\SketchfabUI.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Sketchfab For Unity\Scripts\SketchfabLogger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\_\Scripts\Controllers\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\_\Scripts\Systems\UpgradeSystem.cs" />
     <Compile Include="Assets\_\Scripts\Systems\QuestSystem.cs" />
     <Compile Include="Assets\SapphiArt\SapphiArtchan\Scripts\SapphiArtChan_AnimManager.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Assets\Sketchfab For Unity\Scripts\AssetBrowser\SketchfabBrowserManager.cs" />
     <Compile Include="Assets\SimpleAssets\Common\Scripts\Animation\CharacterAnimation.cs" />
     <Compile Include="Assets\_\Scripts\Firebase\Effect\EffectManager.cs" />
+    <Compile Include="Assets\_\Scripts\Models\ItemData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\_\Scripts\Systems\HealthSystem.cs" />
     <Compile Include="Assets\_\Scripts\Models\Skills.cs" />
@@ -138,11 +141,13 @@
     <Compile Include="Assets\_\Scripts\Systems\LevelSystem.cs" />
     <Compile Include="Assets\_\Scripts\Models\HouseFeature.cs" />
     <Compile Include="Assets\_\Scripts\Models\Element.cs" />
+    <Compile Include="Assets\_\Scripts\Models\Rate.cs" />
     <Compile Include="Assets\_\Scripts\Models\Effect.cs" />
     <Compile Include="Assets\_\Scripts\Characters\PlayerCharacter.cs" />
     <Compile Include="Assets\Sketchfab For Unity\Scripts\SketchfabImporter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\_\Scripts\_\PrefabsManager.cs" />
     <Compile Include="Assets\_\Scripts\Models\MaterialsUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\_\Scripts\Core\AudioManager.cs" />
@@ -164,13 +169,11 @@
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\_\Scripts\Core\GameManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\_\Scripts\Models\Rare.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\_\Scripts\Models\IndexEffect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
-    <Compile Include="Assets\_\Scripts\_\SetPrefabs.cs" />
     <Compile Include="Assets\_\Scripts\Characters\CharacterBase.cs" />
     <Compile Include="Assets\_\Scripts\Models\QuestWorld.cs" />
     <Compile Include="Assets\_\Scripts\UI\UIManager.cs" />
