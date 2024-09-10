@@ -1,10 +1,13 @@
+using System.Collections.Generic;
+
 [System.Serializable]
 public class Attribute
 {
-    public float health;
-    public float strength;
+    public List<float> health;
+    public List<float> damage;
     public float resistance;
-    public float speed;
+    public float attackSpeed;
+    public float runSpeed;
     public float intelligence;
     public float crit;
 
@@ -12,12 +15,13 @@ public class Attribute
     {
     }
 
-    public Attribute(float health, float strength, float resistance, float speed, float intelligence, float crit)
+    public Attribute( List<float> health, List<float> damage, float resistance, float attackSpeed, float runSpeed, float intelligence, float crit)
     {
         this.health = health;
-        this.strength = strength;
+        this.damage = damage;
         this.resistance = resistance;
-        this.speed = speed;
+        this.attackSpeed = attackSpeed;
+        this.runSpeed = runSpeed;
         this.intelligence = intelligence;
         this.crit = crit;
     }
