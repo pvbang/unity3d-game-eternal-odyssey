@@ -1,19 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Firebase;
-using Firebase.Database;
 
 public class ItemManager : MonoBehaviour
 {
     public bool saveItemToFirebase = false;
-
-    DatabaseReference databaseReference;
-
-    void Awake()
-    {
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
 
     private void Start()
     {
@@ -29,8 +18,7 @@ public class ItemManager : MonoBehaviour
         Debug.Log(json);
 
         string itemId = RandomManager.GenerateRandomID();
-        databaseReference.Child("items").Child(itemId).SetRawJsonValueAsync(json);
-        //databaseReference.Child("users").Child(itemId).Child("test").SetValueAsync(item.name);
+        FirebaseManager.instance.databaseReference.Child("items").Child(itemId).SetRawJsonValueAsync(json);
 
         Debug.Log("Item has been saved successfully!");
     }
