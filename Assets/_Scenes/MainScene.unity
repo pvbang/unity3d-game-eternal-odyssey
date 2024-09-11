@@ -1145,6 +1145,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &73239414
@@ -1507,7 +1508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 1
+  save: 0
   item:
     itemId: 
     name: "G\u1ED7 C\u1EE9ng"
@@ -1528,6 +1529,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &86249279
@@ -1855,6 +1857,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &143532096
@@ -1963,6 +1966,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4811437788955060, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
   m_PrefabInstance: {fileID: 1827577813}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &172741231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172741232}
+  - component: {fileID: 172741233}
+  m_Layer: 0
+  m_Name: pvbang
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &172741232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172741231}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006356111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &172741233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172741231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d8306ee894c314f97e94c4d9936c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &173020326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4360581081656686, guid: 70b6d0c9364cc7a498b08b095cf258ba, type: 3}
@@ -2252,6 +2299,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &205928975
@@ -2540,6 +2588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 13: \u0110\u1ED1i M\u1EB7t V\u1EDBi S\u1EF1 Th\u1EADt
       (Reveal the Truth)"
     description: "Khi c\xE1c Linh H\u1ED3n R\u1ED3ng \u0111\u01B0\u1EE3c h\u1EE3p
@@ -2549,10 +2598,11 @@ MonoBehaviour:
       h\u1ECD b\xE2y gi\u1EDD l\xE0 \u0111\xE1nh b\u1EA1i Nihiloth \u0111\u1EC3 c\u1EE9u
       Aeloria."
     reward:
-    - hon_vua
+      xp: 0
+      rewardItem: []
     requirements: "Chi\u1EBFn \u0111\u1EA5u v\xE0 \u0111\xE1nh b\u1EA1i H\u1EAFc
       Long Nihiloth."
-    type: quest_type_004
+    type: 0
 --- !u!114 &249337583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3412,15 +3462,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 9: \u0110\xE1nh B\u1EA1i B\u0103ng Long Gelidra"
     description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
       v\u1EDBi B\u0103ng Long Gelidra \u1EDF V\xF9ng \u0110\u1EA5t B\u0103ng \u0111\u1EC3
       thu th\u1EADp M\u1EA3nh V\u1EE1 B\u0103ng."
     reward:
-    - 1200 XP
-    - hon_thuy
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i B\u0103ng Long Gelidra."
-    type: quest_type_003
+    type: 0
 --- !u!114 &357916439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3661,7 +3712,7 @@ MonoBehaviour:
     weaponId: 
     name: Origin Greatsword
     level: 1
-    attribute:
+    attributes:
       health:
         from: 0
         to: 0
@@ -3675,20 +3726,41 @@ MonoBehaviour:
       crit: 0
     description: 
     effect:
+      name: 
+      type: 0
       description: 
-      list_index_effect_id: []
-    materials_update:
-    - itemId: quang_mithdril_kim
-      quantity: 
-    - itemId: sat_tinh_luyen
-      quantity: 
-    - itemId: go_gia_co
-      quantity: 
+      rate: 0
+      time: 0
+      playerAttribute:
+        health:
+          from: 0
+          to: 0
+        damage:
+          from: 0
+          to: 0
+        resistance: 0
+        attackSpeed: 0
+        runSpeed: 0
+        intelligence: 0
+        crit: 0
+      enemyAttribute:
+        health:
+          from: 0
+          to: 0
+        damage:
+          from: 0
+          to: 0
+        resistance: 0
+        attackSpeed: 0
+        runSpeed: 0
+        intelligence: 0
+        crit: 0
+    materials: []
     skills:
       name: 
       damage: 0
-    type: 0
-    time: 0
+    properties: 0
+    createTime: 0
 --- !u!1001 &382716445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4645,16 +4717,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 12: K\xEDch Ho\u1EA1t T\u1EBF \u0110\xE0n Thi\xEAng"
     description: "Sau khi thu th\u1EADp \u0111\u1EE7 b\u1ED1n M\u1EA3nh V\u1EE1 C\u1ED5
       \u0110\u1EA1i, ng\u01B0\u1EDDi ch\u01A1i \u0111\u1EBFn T\u1EBF \u0110\xE0n
       Thi\xEAng \u0111\u1EC3 k\xEDch ho\u1EA1t s\u1EE9c m\u1EA1nh c\u1EE7a nh\xE0
       vua."
     reward:
-    - 1500 XP
+      xp: 0
+      rewardItem: []
     requirements: "H\u1EE3p nh\u1EA5t c\xE1c M\u1EA3nh V\u1EE1 C\u1ED5 \u0110\u1EA1i
       t\u1EA1i T\u1EBF \u0110\xE0n Thi\xEAng."
-    type: quest_type_004
+    type: 0
 --- !u!114 &490687486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4904,6 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 1: Kh\xE1m Ph\xE1 Ng\xF4i L\xE0ng B\u1ECB B\u1ECF
       Hoang"
     description: "Ng\u01B0\u1EDDi ch\u01A1i b\u1EAFt \u0111\u1EA7u cu\u1ED9c h\xE0nh
@@ -4912,14 +4987,12 @@ MonoBehaviour:
       \u0111\u1EC3 t\xECm hi\u1EC3u nh\u1EEFng g\xEC \u0111\xE3 x\u1EA3y ra v\u1EDBi
       c\u01B0 d\xE2n \u1EDF \u0111\xE2y."
     reward:
-    - 100 XP
-    - mau
-    - riu
-    - kiem_danh_quai
+      xp: 0
+      rewardItem: []
     requirements: "Thu th\u1EADp 5 m\u1EA3nh nh\u1EADt k\xFD b\u1ECB r\xE1ch \u0111\u1EC3
       gh\xE9p l\u1EA1i v\xE0 \u0111\u1ECDc \u0111\u01B0\u1EE3c c\xE2u chuy\u1EC7n
       v\u1EC1 ng\xF4i l\xE0ng."
-    type: quest_type_001
+    type: 0
 --- !u!114 &506418667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5228,6 +5301,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &528638728
@@ -5684,16 +5758,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 11: \u0110\xE1nh B\u1EA1i L\xF4i Long Zephyros"
     description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
       v\u1EDBi L\xF4i Long Zephyros \u1EDF V\xF9ng \u0110\u1EA5t B\xE3o \u0111\u1EC3
       thu th\u1EADp M\u1EA3nh V\u1EE1 S\u1EA5m S\xE9t."
     reward:
-    - 1200 XP
-    - hon_kim
-    - hon_moc
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i L\xF4i Long Zephyros."
-    type: quest_type_003
+    type: 0
 --- !u!114 &628032212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5820,6 +5894,7 @@ Transform:
   - {fileID: 185862706}
   - {fileID: 2003931977}
   - {fileID: 688602387}
+  - {fileID: 1772351115}
   - {fileID: 1868610451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7275,6 +7350,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &766821066
@@ -7739,6 +7815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 7: \u0110\xE1nh B\u1EA1i K\u1EBB Canh Gi\u1EEF T\xE0n
       T\xEDch"
     description: "Tr\u01B0\u1EDBc khi c\xF3 th\u1EC3 ti\u1EBFp c\u1EADn L\xF4i Long
@@ -7748,11 +7825,10 @@ MonoBehaviour:
       Long tri\u1EC7u h\u1ED3i \u0111\u1EC3 b\u1EA3o v\u1EC7 l\xE3nh th\u1ED5 c\u1EE7a
       m\xECnh."
     reward:
-    - 600 XP
-    - mithdril_moc
-    - mithdril_kim
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i Guardian of the Storm (Mini boss)."
-    type: quest_type_002
+    type: 0
 --- !u!114 &796283844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7826,6 +7902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 4: \u0110\xE1nh B\u1EA1i \u0110\u1ED9i Qu\xE2n Qu\xE1i
       V\u1EADt T\u1EA1i V\xF9ng \u0110\u1EA5t L\u1EEDa"
     description: "Trong khi chu\u1EA9n b\u1ECB cho cu\u1ED9c \u0111\u1ED1i \u0111\u1EA7u
@@ -7834,11 +7911,11 @@ MonoBehaviour:
       khu v\u1EF1c n\xE0y. Nhi\u1EC7m v\u1EE5 l\xE0 ti\xEAu di\u1EC7t ch\xFAng \u0111\u1EC3
       l\xE0m suy y\u1EBFu s\u1EE9c m\u1EA1nh c\u1EE7a H\u1ECFa Long."
     reward:
-    - 300 XP
-    - mthdril_hoa
+      xp: 0
+      rewardItem: []
     requirements: "Ti\xEAu di\u1EC7t 20 qu\xE1i v\u1EADt l\u1EEDa (Fire Elementals
       v\xE0 Magma Golems)."
-    type: quest_type_002
+    type: 0
 --- !u!114 &801462019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8252,17 +8329,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 3: Ti\xEAu Di\u1EC7t L\u0169 Qu\xE1i V\u1EADt Y\u1EBFu
       \u1EDE Ngo\u1EA1i Vi"
     description: "Ng\u01B0\u1EDDi ch\u01A1i nh\u1EADn nhi\u1EC7m v\u1EE5 ti\xEAu
       di\u1EC7t l\u0169 qu\xE1i v\u1EADt nh\u1ECF \u0111ang t\xE0n ph\xE1 khu v\u1EF1c
       xung quanh l\xE0ng."
     reward:
-    - 200 XP
-    - cuoc_dao_quang
-    - sat_thuong
+      xp: 0
+      rewardItem: []
     requirements: "Ti\xEAu di\u1EC7t 10 con Goblin v\xE0 5 con Wolf."
-    type: quest_type_001
+    type: 0
 --- !u!114 &842066072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8859,6 +8936,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &878657262
@@ -9516,7 +9594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1931042135}
-  - {fileID: 1125752492}
+  - {fileID: 172741232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1006706145 stripped
@@ -10474,6 +10552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101539071}
   - component: {fileID: 1101539072}
+  - component: {fileID: 1101539073}
   m_Layer: 0
   m_Name: FirebaseManager
   m_TagString: Untagged
@@ -10506,6 +10585,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41c4a89431fe6824c9c0a31d70aa6090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1101539073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101539070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64df3b4ec91972b4eac3c98cf03f0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1101910298
@@ -10792,99 +10883,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
   m_PrefabInstance: {fileID: 1121087453}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1125752491
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125752492}
-  - component: {fileID: 1125752495}
-  - component: {fileID: 1125752494}
-  - component: {fileID: 1125752493}
-  m_Layer: 0
-  m_Name: Test1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1125752492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125752491}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1125752493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125752491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 1
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    createTime: 0
-    usingTime: 0
---- !u!114 &1125752494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125752491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1125752495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125752491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1695502807786733843, guid: c73a559184154c75991d095521bdea87, type: 3}
 --- !u!4 &1129345370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4681897337901454, guid: 38688660962a01e41a8b7c8ad0493167, type: 3}
@@ -11545,6 +11543,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1164701604
@@ -12097,6 +12096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 5: Kh\xE1m Ph\xE1 Hang \u0110\u1ED9ng B\u0103ng Gi\xE1"
     description: "T\u1EA1i v\xF9ng \u0111\u1EA5t b\u0103ng, ng\u01B0\u1EDDi ch\u01A1i
       kh\xE1m ph\xE1 ra m\u1ED9t hang \u0111\u1ED9ng b\u0103ng gi\xE1 ch\u1EE9a \u0111\u1EA7y
@@ -12104,11 +12104,11 @@ MonoBehaviour:
       gi\u1EA3m b\u1EDBt nguy c\u01A1 khi \u0111\u1ED1i \u0111\u1EA7u v\u1EDBi B\u0103ng
       Long Gelidra."
     reward:
-    - 400 XP
-    - mithdril_thuy
+      xp: 0
+      rewardItem: []
     requirements: "Ti\xEAu di\u1EC7t 15 qu\xE1i v\u1EADt b\u0103ng trong hang \u0111\u1ED9ng
       (Frost Elementals v\xE0 Yeti)."
-    type: quest_type_002
+    type: 0
 --- !u!114 &1212599645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12383,6 +12383,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1241331269
@@ -13049,6 +13050,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1285356891
@@ -13086,7 +13088,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1292347128}
   - component: {fileID: 1292347131}
-  - component: {fileID: 1292347130}
   - component: {fileID: 1292347129}
   m_Layer: 0
   m_Name: go_thanh
@@ -13122,7 +13123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 1
+  save: 0
   item:
     itemId: 
     name: "G\u1ED7 Th\xE1nh"
@@ -13142,20 +13143,9 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
---- !u!114 &1292347130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292347127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ea9355edb01b34999eba314fb565b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1292347131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14013,6 +14003,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1330898712
@@ -14187,6 +14178,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1365414800
@@ -15002,6 +14994,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1439796371
@@ -16199,6 +16192,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1543261136
@@ -16679,18 +16673,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 2: Thu Th\u1EADp Th\u1EA3o D\u01B0\u1EE3c Ch\u1EEFa
       B\u1EC7nh"
     description: "Ng\u01B0\u1EDDi ch\u01A1i c\u1EA7n thu th\u1EADp th\u1EA3o d\u01B0\u1EE3c
       \u0111\u1EC3 ch\u1EBF thu\u1ED1c ch\u1EEFa b\u1EC7nh cho ch\xEDnh m\xECnh ho\u1EB7c
       \u0111\u1EC3 chu\u1EA9n b\u1ECB cho c\xE1c cu\u1ED9c chi\u1EBFn s\u1EAFp t\u1EDBi."
     reward:
-    - 150 XP
-    - giap
-    - kiem_go
+      xp: 0
+      rewardItem: []
     requirements: "Thu th\u1EADp 10 c\xE2y c\u1ECF linh chi t\u1EEB khu r\u1EEBng
       g\u1EA7n l\xE0ng."
-    type: quest_type_001
+    type: 0
 --- !u!114 &1618829496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16782,7 +16776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625545550
 Transform:
   m_ObjectHideFlags: 0
@@ -16957,6 +16951,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1637584449
@@ -17695,6 +17690,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1729768571
@@ -18043,6 +18039,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
   m_PrefabInstance: {fileID: 3515378427147054831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772351114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772351115}
+  m_Layer: 0
+  m_Name: =============
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772351115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772351114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 642480420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1781180789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19439,6 +19466,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1874625417
@@ -19731,6 +19759,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1903829399
@@ -19923,15 +19952,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 8: \u0110\xE1nh B\u1EA1i H\u1ECFa Long Ignivor"
     description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
       v\u1EDBi H\u1ECFa Long Ignivor \u1EDF V\xF9ng \u0110\u1EA5t L\u1EEDa \u0111\u1EC3
       thu th\u1EADp M\u1EA3nh V\u1EE1 L\u1EEDa."
     reward:
-    - 1200 XP
-    - hon_hoa
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i H\u1ECFa Long Ignivor."
-    type: quest_type_003
+    type: 0
 --- !u!114 &1918023388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20016,6 +20046,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1928858265
@@ -20577,6 +20608,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1963423016
@@ -20846,6 +20878,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &1974500473
@@ -21288,6 +21321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 6: \u0110\xE1nh B\u1EA1i K\u1EBB Canh Gi\u1EEF T\xE0n
       T\xEDch"
     description: "Tr\u01B0\u1EDBc khi c\xF3 th\u1EC3 ti\u1EBFp c\u1EADn Th\u1ED5
@@ -21299,10 +21333,10 @@ MonoBehaviour:
       \u0111i\u1EC1u khi\u1EC3n \u0111\xE1 v\xE0 \u0111\u1EA5t, bi\u1EBFn h\u1EBBm
       n\xFAi th\xE0nh m\u1ED9t ph\xE1o \u0111\xE0i b\u1EA5t kh\u1EA3 x\xE2m ph\u1EA1m."
     reward:
-    - 600 XP
-    - mithdril_tho
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i Guardian of the Canyon (Mini boss)."
-    type: quest_type_002
+    type: 0
 --- !u!114 &2010425723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21830,6 +21864,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 1
+    materials: []
     createTime: 0
     usingTime: 0
 --- !u!114 &2052290441
@@ -22547,15 +22582,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
+    questId: 0
     title: "Nhi\u1EC7m V\u1EE5 10: \u0110\xE1nh B\u1EA1i M\u1ED9c Long Verdantus"
     description: "Ng\u01B0\u1EDDi ch\u01A1i ph\u1EA3i \u0111\u1ED1i \u0111\u1EA7u
       v\u1EDBi M\u1ED9c Long Verdantus \u1EDF V\xF9ng \u0110\u1EA5t R\u1EEBng \u0111\u1EC3
       thu th\u1EADp M\u1EA3nh V\u1EE1 R\u1EEBng."
     reward:
-    - 1200 XP
-    - hon_tho
+      xp: 0
+      rewardItem: []
     requirements: "\u0110\xE1nh b\u1EA1i M\u1ED9c Long Verdantus."
-    type: quest_type_003
+    type: 0
 --- !u!114 &2144662992
 MonoBehaviour:
   m_ObjectHideFlags: 0

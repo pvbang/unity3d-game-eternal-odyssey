@@ -1,25 +1,37 @@
+﻿using System.Collections.Generic;
+
 [System.Serializable]
 public class World 
 {
-    public string WorldId;
-    public string WorldName;
-    public string WorldCode;
-    public QuestWorld questWorld;
-    public HouseWorld HouseWorld;
-    public PlayerWorld PlayerWorld;
-    public BuildingWorld BuildingWorld;
+    public string worldId;
+    public string name;                 // Tên thế giới
+    public string code;                 // Mã để vào thế giới
+    public QuestWorld questWorld;       // List các quest đang làm / đã hoàn thành
+    public HouseWorld houseWorld;       // List các nhà đã xây + level của nhà đó
+    public PlayerWorld playerWorld;     // Thông tin người chơi trong thế giới
+    public BuildingWorld buildingWorld; // Chưa hiểu lắm :v
 
     public World()
     { }
 
-    public World(string worldId, string worldName, string worldCode, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, BuildingWorld buildingWorld)
+    public World(string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, BuildingWorld buildingWorld)
     {
-        WorldId = worldId;
-        WorldName = worldName;
-        WorldCode = worldCode;
+        this.name = name;
+        this.code = code;
         this.questWorld = questWorld;
-        HouseWorld = houseWorld;
-        PlayerWorld = playerWorld;
-        BuildingWorld = buildingWorld;
+        this.houseWorld = houseWorld;
+        this.playerWorld = playerWorld;
+        this.buildingWorld = buildingWorld;
+    }
+
+    public World(string worldId, string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, BuildingWorld buildingWorld)
+    {
+        this.worldId = worldId;
+        this.name = name;
+        this.code = code;
+        this.questWorld = questWorld;
+        this.houseWorld = houseWorld;
+        this.playerWorld = playerWorld;
+        this.buildingWorld = buildingWorld;
     }
 }
