@@ -1,8 +1,8 @@
-[System.Serializable]
+﻿[System.Serializable]
 public class MaterialsUpdate
 {
-    public string itemId;
-    public string quantity;
+    public string itemId;       // id của item
+    public string quantity;     // số lượng cần để có thể update
 
     public MaterialsUpdate()
     {

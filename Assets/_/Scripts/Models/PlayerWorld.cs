@@ -1,18 +1,18 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 [System.Serializable]
 public class PlayerWorld 
 {
-    public List<string> inventorys;
-    public string inGame;
-    public string userId;
+    public string userId;                   // ID của user
+    public List<string> inventorys;         // List các item trong túi
+    public string inGame;                   // Trạng thái của người chơi (đang chơi, nghỉ, offline)
 
     public PlayerWorld() { }
 
-    public PlayerWorld(List<string> inventorys, string inGame, string userId)
+    public PlayerWorld(string userId, List<string> inventorys, string inGame)
     {
+        this.userId = userId;
         this.inventorys = inventorys;
         this.inGame = inGame;
-        this.userId = userId;
     }
 }

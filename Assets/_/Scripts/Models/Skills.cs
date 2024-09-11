@@ -1,14 +1,16 @@
-[System.Serializable]
+﻿[System.Serializable]
+
 public class Skills
 {
-   public string name;
-   public int damage;
-   public Skills()
-   {}
+    public string name;         // Tên skill
+    public float damage;        // Sát thương của skill
 
-   public Skills(string name, int damage)
-   {
-    this.name = name;
-    this.damage = damage;
-   }
+    public Skills()
+    {}
+
+    public Skills(string name, float damage)
+    {
+        this.name = name;
+        this.damage = damage;
+    }
 }

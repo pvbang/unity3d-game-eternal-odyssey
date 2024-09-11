@@ -10,8 +10,7 @@ public class ItemManager : MonoBehaviour
     // cách gọi hàm: StartCoroutine(ItemManager.Add(item));
     public static IEnumerator Add(Item item)
     {
-        ItemData itemData = new(item);
-        string json = JsonUtility.ToJson(itemData);
+        string json = JsonUtility.ToJson(item);
 
         var task = FirebaseManager.instance.databaseReference.
             Child("items").
@@ -74,7 +73,6 @@ public class ItemManager : MonoBehaviour
     public static IEnumerator Update(Item item)
     {
         string json = JsonUtility.ToJson(item);
-        Debug.Log(json);
 
         var task = FirebaseManager.instance.databaseReference.
             Child("items").
@@ -94,24 +92,25 @@ public class ItemManager : MonoBehaviour
     }
 
 
-    // cập nhật một số trường của item
-    // cách gọi hàm: StartCoroutine(ItemManager.UpdateFields("id", new { name = "new name", price = 100 }));
-    public static IEnumerator UpdateFields(string itemId, object fields)
+    // cập nhật một hoặc nhiều trường của item
+    // cách gọi hàm: StartCoroutine(ItemManager.UpdateFields("itemId", new Dictionary<string, object> { {"fieldName", fieldValue}, ... }));
+    public static IEnumerator UpdateFields(string itemId, Dictionary<string, object> fieldsToUpdate)
     {
-        var task = FirebaseManager.instance.databaseReference.
-            Child("items").
-            Child(itemId).
-            UpdateChildrenAsync((IDictionary<string, object>)fields);
+        Debug.Log("UpdateFields");
+        var task = FirebaseManager.instance.databaseReference
+            .Child("items")
+            .Child(itemId)
+            .UpdateChildrenAsync(fieldsToUpdate);
 
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.IsFaulted)
         {
-            Debug.LogError("Lỗi cập nhật item");
+            Debug.LogError("Lỗi cập nhật các trường của item");
         }
         else if (task.IsCompleted)
         {
-            Debug.Log("Cập nhật item thành công");
+            Debug.Log("Cập nhật các trường của item thành công");
         }
     }
 

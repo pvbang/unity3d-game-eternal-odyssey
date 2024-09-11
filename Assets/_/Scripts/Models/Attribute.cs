@@ -1,15 +1,14 @@
-using System.Collections.Generic;
+﻿[System.Serializable]
 
-[System.Serializable]
 public class Attribute
 {
-    public Rate health;
-    public Rate damage;
-    public float resistance;
-    public float attackSpeed;
-    public float runSpeed;
-    public float intelligence;
-    public float crit;
+    public Rate health;                 // Máu
+    public Rate damage;                 // Sát thương
+    public float resistance;            // Chống chịu
+    public float attackSpeed;           // Tốc độ tấn công
+    public float runSpeed;              // Tốc độ chạy
+    public float intelligence;          // Trí tuệ ? cái ni để làm chi hè
+    public float crit;                  // Tỉ lệ chí mạng
 
     public Attribute()
     {
