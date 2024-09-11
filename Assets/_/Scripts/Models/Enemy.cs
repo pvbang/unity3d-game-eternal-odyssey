@@ -1,45 +1,34 @@
-using System.Collections.Generic;
+﻿[System.Serializable]
 
-public enum ListProperties
-{
-    Minions,
-    Elite,
-    Champion,
-    MiniBoss,
-    Boss,
-    FinalBoss
-}
-
-[System.Serializable]
 public class Enemy 
 {
     public string enemyId;
-    public string name;
-    public Attribute attribute;
-    public Skills skill;
-    public Element type;
-    public ListProperties properties;
-    public List<string> rewards;
+    public string name;                 // Tên quái vật
+    public Attribute attributes;        // Chỉ số của quái vật
+    public Skills skills;               
+    public EnemyType type;              // Loại quái vật
+    public Element properties;          // Thuộc tính của quái vật (Kim, Mộc, Thủy, Hỏa, Thổ)
+    public Reward rewards;              // Phần thưởng khi đánh quái vật
 
     public Enemy()
     { }
 
-    public Enemy(string name, Attribute attribute, Skills skill, Element type, ListProperties properties, List<string> rewards)
+    public Enemy(string name, Attribute attributes, Skills skills, EnemyType type, Element properties, Reward rewards)
     {
         this.name = name;
-        this.attribute = attribute;
-        this.skill = skill;
+        this.attributes = attributes;
+        this.skills = skills;
         this.type = type;
         this.properties = properties;
         this.rewards = rewards;
     }
 
-    public Enemy(string enemyId, string name, Attribute attribute, Skills skill, Element type, ListProperties properties, List<string> rewards)
+    public Enemy(string enemyId, string name, Attribute attributes, Skills skills, EnemyType type, Element properties, Reward rewards)
     {
         this.enemyId = enemyId;
         this.name = name;
-        this.attribute = attribute;
-        this.skill = skill;
+        this.attributes = attributes;
+        this.skills = skills;
         this.type = type;
         this.properties = properties;
         this.rewards = rewards;
