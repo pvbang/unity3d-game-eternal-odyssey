@@ -9,12 +9,12 @@ public class World
     public QuestWorld questWorld;       // List các quest đang làm / đã hoàn thành
     public HouseWorld houseWorld;       // List các nhà đã xây + level của nhà đó
     public PlayerWorld playerWorld;     // Thông tin người chơi trong thế giới
-    public BuildingWorld buildingWorld; // Chưa hiểu lắm :v
+    public List<BuildingWorld> buildingWorld; // Chưa hiểu lắm :v
 
     public World()
     { }
 
-    public World(string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, BuildingWorld buildingWorld)
+    public World(string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, List<BuildingWorld> buildingWorld)
     {
         this.name = name;
         this.code = code;
@@ -24,7 +24,7 @@ public class World
         this.buildingWorld = buildingWorld;
     }
 
-    public World(string worldId, string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, BuildingWorld buildingWorld)
+    public World(string worldId, string name, string code, QuestWorld questWorld, HouseWorld houseWorld, PlayerWorld playerWorld, List<BuildingWorld> buildingWorld)
     {
         this.worldId = worldId;
         this.name = name;
