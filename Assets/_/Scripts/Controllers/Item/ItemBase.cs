@@ -1,13 +1,17 @@
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class ItemBase : MonoBehaviour
 {
     [Header("Save To Database")]
     public bool save = false;
-    
+
     [Header("Item Information")]
     public Item item;
+
+    [HideInInspector]
+    public List<string> itemIds = new();   // Danh sách itemId từ Firebase
 
     private void Start()
     {
@@ -20,7 +24,7 @@ public class ItemBase : MonoBehaviour
         if (save)
         {
             // nếu item này chưa nhập vào id thì sẽ lấy id của gameObject, không thì sẽ lấy id mình nhập vào của item
-            if (item.itemId == "")
+            if (string.IsNullOrEmpty(item.itemId))
             {
                 item.itemId = gameObject.name;
             }
