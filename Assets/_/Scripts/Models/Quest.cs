@@ -2,7 +2,7 @@
 
 public class Quest
 {
-    public int questId;
+    public string questId;
     public string title;                // Tiêu đề nhiệm vụ
     public string description;          // Mô tả nhiệm vụ
     public Reward reward;               // Phần thưởng khi hoàn thành nhiệm vụ
@@ -21,7 +21,7 @@ public class Quest
         this.type = type;
     }
 
-    public Quest(int questId, string title, string description, Reward reward, string requirements, QuestType type)
+    public Quest(string questId, string title, string description, Reward reward, string requirements, QuestType type)
     {
         this.questId = questId;
         this.title = title;
