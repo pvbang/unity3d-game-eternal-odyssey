@@ -2,7 +2,7 @@
 [System.Serializable]
 public class BuildingWorld                  // Đang xây dựng item hoặc nhà nào đó trong thế giới
 {
-    public string buildingId;                // ID của item hoặc nhà
+    public string buildingId;               // ID của item hoặc nhà
     public DateTime startAt;                // Thời gian bắt đầu xây dựng
     public DateTime endAt;                  // Thời gian kết thúc xây dựng
     public Status status;                   // Trạng thái xây dựng 
