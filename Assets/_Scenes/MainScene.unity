@@ -472,6 +472,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4047657194821814, guid: b79b83d11a775684889f7af98f7d3284, type: 3}
   m_PrefabInstance: {fileID: 1019593058}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &22360679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22360680}
+  - component: {fileID: 22360682}
+  - component: {fileID: 22360681}
+  m_Layer: 0
+  m_Name: buff_dame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &22360680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22360679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22360681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22360679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "N\u01B0\u1EDBc ma thu\u1EADt - Dame"
+    type: 1
+    description: "M\u1ED9t v\u1EADt ph\u1EA9m ph\xE9p thu\u1EADt c\xF3 kh\u1EA3 n\u0103ng
+      gia t\u0103ng s\xE1t th\u01B0\u01A1ng cho nh\xE2n v\u1EADt ho\u1EB7c v\u0169
+      kh\xED. C\xF3 th\u1EC3 mua t\u1EEB NPC."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 50
+        to: 50
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 2
+    materials: []
+    createTime: 0
+    usingTime: 30
+  itemIds: []
+--- !u!114 &22360682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22360679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &29306636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
@@ -1096,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &73239412
 Transform:
   m_ObjectHideFlags: 0
@@ -1124,12 +1207,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "\u0110\xE1 Qu\xFD (Gemstone)"
+    type: 1
+    description: "Nh\u1EEFng vi\xEAn \u0111\xE1 qu\xFD l\u1EA5p l\xE1nh ch\u1EE9a
+      \u0111\u1EF1ng s\u1EE9c m\u1EA1nh t\u1EF1 nhi\xEAn. \u0110\u01B0\u1EE3c d\xF9ng
+      \u0111\u1EC3 c\u01B0\u1EDDng h\xF3a v\u0169 kh\xED v\xE0 trang b\u1ECB, ho\u1EB7c
+      l\xE0m nguy\xEAn li\u1EC7u cho ph\xE9p thu\u1EADt \u0111\u1EB7c bi\u1EC7t.  "
     attributes:
       health:
         from: 0
@@ -1143,9 +1229,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 0
-    materials:
-    - itemId: da_quy
-      quantity: 
+    materials: []
     createTime: 0
     usingTime: 0
   itemIds:
@@ -1473,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &86249276
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,11 +1588,12 @@ MonoBehaviour:
   save: 1
   item:
     itemId: go_cung
-    name: "G\u1ED7 C\u1EE9ng"
+    name: "G\u1ED7 C\u1EE9ng (Hardwood)"
     type: 0
-    description: "Nguy\xEAn li\u1EC7u c\u01A1 b\u1EA3n t\u1EEB ch\u1EB7t c\xE2y,
-      d\xF9ng \u0111\u1EC3 x\xE2y d\u1EF1ng nh\xE0 c\u1EEDa, ch\u1EBF t\u1EA1o v\u0169
-      kh\xED c\u01A1 b\u1EA3n v\xE0 c\xE1c v\u1EADt ph\u1EA9m ph\xF2ng th\u1EE7."
+    description: "Lo\u1EA1i g\u1ED7 n\xE0y \u0111\u01B0\u1EE3c l\u1EA5y t\u1EEB c\xE1c
+      c\xE2y c\u1ED5 th\u1EE5, c\u1EE9ng nh\u01B0 \u0111\xE1 nh\u01B0ng l\u1EA1i
+      d\u1EC5 ch\u1EBF t\xE1c. Th\u01B0\u1EDDng \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng
+      \u0111\u1EC3 l\xE0m v\u0169 kh\xED v\xE0 khi\xEAn ch\u1ED1ng ch\u1ECBu t\u1ED1t."
     attributes:
       health:
         from: 0
@@ -1522,16 +1607,48 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 0
-    materials:
-    - itemId: da_quy
-      quantity: 
+    materials: []
     createTime: 0
     usingTime: 0
   itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
   - da_quy
   - da_tho
+  - day_thung
+  - gach_da
   - go_cung
+  - go_gia_co
   - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - sat_tinh_luyen
+  - tinh_chat_quai
+  - vai_linh_thu
+  - vang
+  - xuong_quai
 --- !u!114 &86249279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,6 +1672,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4651050137903364, guid: 8e8f8660f45621a4a804df622b985183, type: 3}
   m_PrefabInstance: {fileID: 1973793228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &105160228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105160229}
+  - component: {fileID: 105160231}
+  - component: {fileID: 105160230}
+  m_Layer: 0
+  m_Name: sat_tinh_luyen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &105160229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105160228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105160230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105160228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "S\u1EAFt tinh luy\u1EC7n"
+    type: 0
+    description: "Kim lo\u1EA1i \u0111\xE3 qua x\u1EED l\xFD, r\u1EA5t m\u1EA1nh
+      v\xE0 ch\u1EAFc ch\u1EAFn, d\xF9ng \u0111\u1EC3 t\u1EA1o ra c\xE1c trang b\u1ECB
+      cao c\u1EA5p."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 1
+    materials:
+    - itemId: sat_tho
+      quantity: 3
+    createTime: 10
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &105160231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105160228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &105262459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6ca2e7de9439c349a19e1da23c07812, type: 3}
@@ -1813,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &143532094
 Transform:
   m_ObjectHideFlags: 0
@@ -1841,12 +2075,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: Mithril Kim
+    type: 2
+    description: "Kim lo\u1EA1i qu\xFD c\xF3 t\xEDnh ch\u1EA5t m\u1EA1nh m\u1EBD
+      v\xE0 si\xEAu b\u1EC1n, \u0111\u01B0\u1EE3c d\xF9ng \u0111\u1EC3 t\u1EA1o n\xEAn
+      nh\u1EEFng b\u1ED9 gi\xE1p kh\xF4ng th\u1EC3 xuy\xEAn th\u1EE7ng."
     attributes:
       health:
         from: 0
@@ -2226,87 +2462,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4360581081656686, guid: 70b6d0c9364cc7a498b08b095cf258ba, type: 3}
   m_PrefabInstance: {fileID: 1857431935}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &205928971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 205928972}
-  - component: {fileID: 205928975}
-  - component: {fileID: 205928973}
-  m_Layer: 0
-  m_Name: quang_mithril_thuy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &205928972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205928971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1625545550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &205928973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205928971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    materials: []
-    createTime: 0
-    usingTime: 0
-  itemIds: []
---- !u!114 &205928975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205928971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
 --- !u!1001 &210325251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3876,6 +4031,89 @@ MonoBehaviour:
       damage: 0
     properties: 0
     createTime: 0
+--- !u!1 &374445625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374445626}
+  - component: {fileID: 374445628}
+  - component: {fileID: 374445627}
+  m_Layer: 0
+  m_Name: king_soul
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &374445626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374445625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374445627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374445625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "M\u1EA3nh Linh H\u1ED3n Nh\xE0 Vua (The King's Soul Fragment)"
+    type: 2
+    description: "M\u1ED9t ph\u1EA7n c\u1EE7a linh h\u1ED3n nh\xE0 vua c\u1ED5 \u0111\u1EA1i,
+      mang s\u1EE9c m\u1EA1nh b\xED \u1EA9n v\xE0 c\xF3 th\u1EC3 m\u1EDF kh\xF3a
+      nh\u1EEFng kh\u1EA3 n\u0103ng \u0111\u1EB7c bi\u1EC7t."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &374445628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374445625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &382716445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4162,6 +4400,88 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36916143c7509543b1b8d40091baa24, type: 3}
+--- !u!1 &409487053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409487054}
+  - component: {fileID: 409487056}
+  - component: {fileID: 409487055}
+  m_Layer: 0
+  m_Name: hon_tho
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &409487054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409487053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &409487055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409487053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Linh H\u1ED3n Th\u1ED5"
+    type: 0
+    description: "Linh h\u1ED3n h\u1EC7 Th\u1ED5, c\u01B0\u1EDDng h\xF3a v\u1EADt
+      ph\u1EA9m ph\xF2ng th\u1EE7 v\xE0 s\u1EE9c m\u1EA1nh \u0111\u1EA5t."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &409487056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409487053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &412546437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4945775876562746, guid: 92cc6d2406e4cc547a83ad74708c2d87, type: 3}
@@ -4828,6 +5148,125 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d818a769a879f845b8a0184912ed5dd, type: 3}
+--- !u!1 &482226315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482226316}
+  - component: {fileID: 482226318}
+  - component: {fileID: 482226317}
+  m_Layer: 0
+  m_Name: go_gia_co
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &482226316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482226315}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482226317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482226315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "G\u1ED7 Gia C\u1ED1 (Reinforced Wood)"
+    type: 0
+    description: "G\u1ED7 \u0111\xE3 \u0111\u01B0\u1EE3c gia c\u1ED1 th\xEAm b\u1EB1ng
+      kim lo\u1EA1i, t\u0103ng \u0111\u1ED9 b\u1EC1n v\xE0 kh\u1EA3 n\u0103ng ch\u1ECBu
+      l\u1EF1c."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 1
+    materials:
+    - itemId: go_cung
+      quantity: 1
+    - itemId: sat_tho
+      quantity: 1
+    createTime: 10
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &482226318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482226315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &483063670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4553526217403480, guid: 4a3b66b5f6d4c2c41a5d98c834f9bf8a, type: 3}
@@ -5506,7 +5945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &528638726
 Transform:
   m_ObjectHideFlags: 0
@@ -5534,12 +5973,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "Mithril Th\u1EE7y"
+    type: 2
+    description: "Lo\u1EA1i Mithril ch\u1EE9a s\u1EE9c m\u1EA1nh c\u1EE7a n\u01B0\u1EDBc,
+      c\xF3 kh\u1EA3 n\u0103ng l\xE0m d\u1ECBu ho\u1EB7c t\u1EA1o ra c\u01A1n b\xE3o
+      d\u1EEF d\u1ED9i."
     attributes:
       health:
         from: 0
@@ -5575,6 +6016,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
   m_PrefabInstance: {fileID: 3515378427626589883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &538826716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538826717}
+  - component: {fileID: 538826719}
+  - component: {fileID: 538826718}
+  m_Layer: 0
+  m_Name: buff_resistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &538826717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538826716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &538826718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538826716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "N\u01B0\u1EDBc ma thu\u1EADt - Tank"
+    type: 1
+    description: "V\u1EADt ph\u1EA9m ph\xE9p thu\u1EADt gi\xFAp gia t\u0103ng kh\u1EA3
+      n\u0103ng ph\xF2ng th\u1EE7. C\xF3 th\u1EC3 mua t\u1EEB NPC."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 50
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 2
+    materials: []
+    createTime: 0
+    usingTime: 30
+  itemIds: []
+--- !u!114 &538826719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538826716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &542866434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4125127838298710, guid: 58c1fb7d3a3c2d6458afaab92dd77586, type: 3}
@@ -6895,6 +7418,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4023013654594124, guid: 86263e8355f96ba4ab9fdf4e96c2090f, type: 3}
   m_PrefabInstance: {fileID: 712292938}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &719901979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719901980}
+  - component: {fileID: 719901982}
+  - component: {fileID: 719901981}
+  m_Layer: 0
+  m_Name: buff_hp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &719901980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719901979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719901981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719901979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "N\u01B0\u1EDBc ma thu\u1EADt - HP"
+    type: 1
+    description: "M\u1ED9t v\u1EADt ph\u1EA9m t\u0103ng l\u01B0\u1EE3ng m\xE1u t\u1ED1i
+      \u0111a c\u1EE7a nh\xE2n v\u1EADt. C\xF3 th\u1EC3 mua t\u1EEB NPC."
+    attributes:
+      health:
+        from: 50
+        to: 50
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 2
+    materials: []
+    createTime: 0
+    usingTime: 30
+  itemIds: []
+--- !u!114 &719901982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719901979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &725667899
 GameObject:
   m_ObjectHideFlags: 0
@@ -7623,7 +8228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &766821064
 Transform:
   m_ObjectHideFlags: 0
@@ -7651,12 +8256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "L\xF4ng V\u0169 C\u1ED5 \u0110\u1EA1i (Ancient Feather)"
+    type: 2
+    description: "L\xF4ng c\u1EE7a c\xE1c lo\xE0i chim huy\u1EC1n tho\u1EA1i, nh\u1EB9
+      nh\u01B0 kh\xF4ng kh\xED v\xE0 mang s\u1EE9c m\u1EA1nh th\u1EA7n b\xED."
     attributes:
       health:
         from: 0
@@ -8064,6 +8670,125 @@ Transform:
   - {fileID: 1344019937}
   m_Father: {fileID: 1174709690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &791963024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791963025}
+  - component: {fileID: 791963027}
+  - component: {fileID: 791963026}
+  m_Layer: 0
+  m_Name: vai_linh_thu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &791963025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791963024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791963026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791963024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "V\u1EA3i Linh Th\xFA (Beast Fabric)"
+    type: 1
+    description: "V\u1EA3i \u0111\u01B0\u1EE3c d\u1EC7t t\u1EEB l\xF4ng c\u1EE7a
+      c\xE1c lo\xE0i th\xFA linh thi\xEAng, c\xF3 t\xEDnh n\u0103ng \u0111\u1EB7c
+      bi\u1EC7t."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 1
+    materials:
+    - itemId: long_soi
+      quantity: 1
+    - itemId: da_quai
+      quantity: 1
+    createTime: 20
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &791963027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791963024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &796283840
 GameObject:
   m_ObjectHideFlags: 0
@@ -8346,6 +9071,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
   m_PrefabInstance: {fileID: 810957513}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &814123437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814123438}
+  - component: {fileID: 814123440}
+  - component: {fileID: 814123439}
+  m_Layer: 0
+  m_Name: hon_hoa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &814123438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814123437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814123439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814123437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Linh H\u1ED3n H\u1ECFa"
+    type: 2
+    description: "Linh h\u1ED3n h\u1EC7 H\u1ECFa, mang s\u1EE9c m\u1EA1nh b\xF9ng
+      ch\xE1y v\xE0 ph\xE1 h\u1EE7y."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &814123440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814123437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &815436341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1227585121509832, guid: 58c1fb7d3a3c2d6458afaab92dd77586, type: 3}
@@ -9186,7 +9993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &878657260
 Transform:
   m_ObjectHideFlags: 0
@@ -9214,12 +10021,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "Mithril H\u1ECFa"
+    type: 2
+    description: "Qu\u1EB7ng Mithril \u0111\xE3 h\u1EA5p th\u1EE5 s\u1EE9c m\u1EA1nh
+      c\u1EE7a l\u1EEDa, c\xF3 kh\u1EA3 n\u0103ng thi\xEAu \u0111\u1ED1t m\u1ECDi
+      th\u1EE9. R\u1EA5t th\xEDch h\u1EE3p \u0111\u1EC3 t\u1EA1o ra v\u0169 kh\xED
+      h\u1EC7 l\u1EEDa."
     attributes:
       health:
         from: 0
@@ -9647,6 +10457,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071750753398162, guid: a397f10d7b785064e9d0f7b5ab603003, type: 3}
   m_PrefabInstance: {fileID: 601883281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &975798949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975798950}
+  - component: {fileID: 975798952}
+  - component: {fileID: 975798951}
+  m_Layer: 0
+  m_Name: qua_nhot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &975798950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975798949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975798951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975798949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Qu\u1EA3 nh\xF3t"
+    type: 0
+    description: "D\xF9ng \u0111\u1EC3 h\u1ED3i ph\u1EE5c HP sau c\xE1c tr\u1EADn
+      chi\u1EBFn, Thu ho\u1EA1ch t\u1EEB c\xE2y nh\xF3t ho\u1EB7c tr\u1ED3ng"
+    attributes:
+      health:
+        from: 20
+        to: 50
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 2
+    materials: []
+    createTime: 0
+    usingTime: -1
+  itemIds: []
+--- !u!114 &975798952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975798949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &976257582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4294453333628334, guid: e1ad20f44ad21f6448a11f707d185806, type: 3}
@@ -9917,6 +10809,7 @@ Transform:
   m_Children:
   - {fileID: 1931042135}
   - {fileID: 172741232}
+  - {fileID: 1829090966}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1006706145 stripped
@@ -10324,6 +11217,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4023013654594124, guid: 86263e8355f96ba4ab9fdf4e96c2090f, type: 3}
   m_PrefabInstance: {fileID: 1042624952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1047931877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047931878}
+  - component: {fileID: 1047931880}
+  - component: {fileID: 1047931879}
+  m_Layer: 0
+  m_Name: hon_moc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1047931878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047931877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047931879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047931877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Linh H\u1ED3n M\u1ED9c"
+    type: 2
+    description: "Linh h\u1ED3n h\u1EC7 M\u1ED9c, gi\xFAp c\u01B0\u1EDDng h\xF3a
+      c\xE1c v\u1EADt ph\u1EA9m thi\xEAn v\u1EC1 t\u1ED1c \u0111\u1ED9 v\xE0 linh
+      ho\u1EA1t."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1047931880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047931877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1048176023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
@@ -11804,87 +12780,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4756003171135936, guid: 64b9fdd8926ce144fbdc31c4044b55f1, type: 3}
   m_PrefabInstance: {fileID: 2122094865}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1164701601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1164701602}
-  - component: {fileID: 1164701605}
-  - component: {fileID: 1164701603}
-  m_Layer: 0
-  m_Name: quang_mithril_kim
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1164701602
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164701601}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1625545550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1164701603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164701601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    materials: []
-    createTime: 0
-    usingTime: 0
-  itemIds: []
---- !u!114 &1164701605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164701601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
 --- !u!4 &1165910460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4868598521721778, guid: 5c11b6a454fa5fd458d541957f1de507, type: 3}
@@ -12006,6 +12901,171 @@ Transform:
   - {fileID: 1374169897}
   m_Father: {fileID: 642480420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1179392434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179392435}
+  - component: {fileID: 1179392437}
+  - component: {fileID: 1179392436}
+  m_Layer: 0
+  m_Name: hon_thuy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1179392435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179392434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179392436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179392434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Linh H\u1ED3n Th\u1EE7y"
+    type: 2
+    description: "Linh h\u1ED3n h\u1EC7 Th\u1EE7y, mang s\u1EE9c m\u1EA1nh \u0111i\u1EC1u
+      khi\u1EC3n n\u01B0\u1EDBc, th\xEDch h\u1EE3p cho v\u0169 kh\xED h\u1EC7 th\u1EE7y."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1179392437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179392434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
+--- !u!1 &1184525862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184525863}
+  - component: {fileID: 1184525865}
+  - component: {fileID: 1184525864}
+  m_Layer: 0
+  m_Name: mithril
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1184525863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184525862}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184525864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184525862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Qu\u1EB7ng Mithril"
+    type: 1
+    description: "Kim lo\u1EA1i huy\u1EC1n tho\u1EA1i v\u1EDBi \u0111\u1ED9 c\u1EE9ng
+      cao v\xE0 kh\u1EA3 n\u0103ng ch\u1ECBu nhi\u1EC7t, \u0111\u01B0\u1EE3c d\xF9ng
+      \u0111\u1EC3 r\xE8n v\u0169 kh\xED v\xE0 \xE1o gi\xE1p c\u1EF1c m\u1EA1nh."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1184525865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184525862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1191104137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4868598521721778, guid: 5c11b6a454fa5fd458d541957f1de507, type: 3}
@@ -12082,6 +13142,89 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8379f308d5dcffd4ab2f3ee5959a1076, type: 3}
+--- !u!1 &1203740431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203740432}
+  - component: {fileID: 1203740434}
+  - component: {fileID: 1203740433}
+  m_Layer: 0
+  m_Name: buff_speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1203740432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203740431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203740433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203740431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "N\u01B0\u1EDBc ma thu\u1EADt - Speed"
+    type: 1
+    description: "V\u1EADt ph\u1EA9m ph\xE9p thu\u1EADt gi\xFAp t\u0103ng t\u1ED1c
+      \u0111\u1ED9 di chuy\u1EC3n ho\u1EB7c t\u1ED1c \u0111\u1ED9 t\u1EA5n c\xF4ng.
+      C\xF3 th\u1EC3 mua t\u1EEB NPC."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 50
+      runSpeed: 50
+      intelligence: 0
+      crit: 0
+    properties: 2
+    materials: []
+    createTime: 0
+    usingTime: 30
+  itemIds: []
+--- !u!114 &1203740434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203740431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1203947777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12683,87 +13826,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94a3318e328358d4095f16b054b14180, type: 3}
---- !u!1 &1241331266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241331267}
-  - component: {fileID: 1241331270}
-  - component: {fileID: 1241331268}
-  m_Layer: 0
-  m_Name: quang_mithril_moc
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1241331267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241331266}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1625545550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241331268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241331266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    materials: []
-    createTime: 0
-    usingTime: 0
-  itemIds: []
---- !u!114 &1241331270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241331266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
 --- !u!1001 &1241369131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13364,7 +14426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1285356889
 Transform:
   m_ObjectHideFlags: 0
@@ -13392,12 +14454,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
+    name: "X\u01B0\u01A1ng Qu\xE1i V\u1EADt (Monster Bone)"
     type: 0
-    description: 
+    description: "X\u01B0\u01A1ng c\u1EE7a nh\u1EEFng con qu\xE1i v\u1EADt \u0111\xE1ng
+      s\u1EE3, c\xF3 th\u1EC3 d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED
+      v\xE0 b\xF9a ph\xE9p."
     attributes:
       health:
         from: 0
@@ -13414,7 +14478,11 @@ MonoBehaviour:
     materials: []
     createTime: 0
     usingTime: 0
-  itemIds: []
+  itemIds:
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
 --- !u!114 &1285356892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13445,7 +14513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1292347128
 Transform:
   m_ObjectHideFlags: 0
@@ -13473,12 +14541,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
+    itemId: go_thanh
+    name: "G\u1ED7 Th\xE1nh (Sacred Wood)"
+    type: 1
+    description: "\u0110\u01B0\u1EE3c l\u1EA5y t\u1EEB c\xE2y linh thi\xEAng, mang
+      trong m\xECnh m\u1ED9t lo\u1EA1i n\u0103ng l\u01B0\u1EE3ng th\u1EA7n b\xED.
+      G\u1ED7 Th\xE1nh th\u01B0\u1EDDng \u0111\u01B0\u1EE3c d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o c\xE1c v\u1EADt ph\u1EA9m ma thu\u1EADt v\xE0 x\xE2y d\u1EF1ng
+      \u0111\u1EC1n th\u1EDD."
     attributes:
       health:
         from: 0
@@ -13492,9 +14564,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 0
-    materials:
-    - itemId: 
-      quantity: 
+    materials: []
     createTime: 0
     usingTime: 0
   itemIds: []
@@ -14306,7 +15376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330898710
 Transform:
   m_ObjectHideFlags: 0
@@ -14334,12 +15404,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "V\xE0ng"
+    type: 1
+    description: "Kim lo\u1EA1i qu\xFD hi\u1EBFm, \u0111\u01B0\u1EE3c d\xF9ng \u0111\u1EC3
+      trao \u0111\u1ED5i, mua b\xE1n v\u1EADt ph\u1EA9m hi\u1EBFm, v\xE0 n\xE2ng
+      c\u1EA5p c\xF4ng tr\xECnh cao c\u1EA5p."
     attributes:
       health:
         from: 0
@@ -14504,7 +15576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1365414798
 Transform:
   m_ObjectHideFlags: 0
@@ -14532,12 +15604,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "Mithril M\u1ED9c"
+    type: 2
+    description: "Lo\u1EA1i qu\u1EB7ng \u0111\u1EB7c bi\u1EC7t c\xF3 t\xEDnh linh
+      ho\u1EA1t v\xE0 \u0111\xE0n h\u1ED3i, th\xEDch h\u1EE3p cho v\u0169 kh\xED
+      c\u1EA7n \u0111\u1ED9 m\u1EC1m d\u1EBBo v\xE0 t\u1ED1c \u0111\u1ED9."
     attributes:
       health:
         from: 0
@@ -15307,7 +16381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1439796369
 Transform:
   m_ObjectHideFlags: 0
@@ -15335,12 +16409,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "Mithril Th\u1ED5"
+    type: 2
+    description: "Qu\u1EB7ng Mithril h\u1EA5p th\u1EE5 s\u1EE9c m\u1EA1nh \u0111\u1EA5t,
+      mang t\xEDnh \u1ED5n \u0111\u1ECBnh v\xE0 v\u1EEFng ch\u1EAFc. Th\xEDch h\u1EE3p
+      cho c\xE1c v\u1EADt ph\u1EA9m ph\xF2ng th\u1EE7."
     attributes:
       health:
         from: 0
@@ -15437,6 +16513,88 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac9bf91aae386d4e879dc4eeaf3c678, type: 3}
+--- !u!1 &1451612406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451612407}
+  - component: {fileID: 1451612409}
+  - component: {fileID: 1451612408}
+  m_Layer: 0
+  m_Name: ban_ve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1451612407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451612406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451612408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451612406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "B\u1EA3n v\u1EBD nh\xE0"
+    type: 0
+    description: "B\u1EA3n thi\u1EBFt k\u1EBF chi ti\u1EBFt \u0111\u1EC3 x\xE2y d\u1EF1ng
+      v\xE0 n\xE2ng c\u1EA5p c\xE1c ng\xF4i nh\xE0 v\xE0 c\xF4ng tr\xECnh."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1451612409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451612406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &1452412710
 GameObject:
   m_ObjectHideFlags: 0
@@ -16527,7 +17685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1543261134
 Transform:
   m_ObjectHideFlags: 0
@@ -16555,12 +17713,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "H\u1ED3n Ng\u1ECDc (Soul Gem)"
+    type: 1
+    description: "Vi\xEAn ng\u1ECDc ch\u1EE9a linh h\u1ED3n c\u1EE7a c\xE1c sinh
+      v\u1EADt, d\xF9ng \u0111\u1EC3 c\u01B0\u1EDDng h\xF3a v\xE0 tri\u1EC7u h\u1ED3i."
     attributes:
       health:
         from: 0
@@ -17123,6 +18282,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071750753398162, guid: a397f10d7b785064e9d0f7b5ab603003, type: 3}
   m_PrefabInstance: {fileID: 701374842}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1623030282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623030283}
+  - component: {fileID: 1623030285}
+  - component: {fileID: 1623030284}
+  m_Layer: 0
+  m_Name: long_soi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1623030283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623030282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623030284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623030282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "L\xF4ng s\xF3i"
+    type: 0
+    description: "L\xF4ng c\u1EE7a nh\u1EEFng con s\xF3i hoang d\xE3, d\xF9ng \u0111\u1EC3
+      ch\u1EBF t\u1EA1o trang ph\u1EE5c ho\u1EB7c v\u1EADt ph\u1EA9m t\u0103ng s\u1EE9c
+      m\u1EA1nh."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1623030285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623030282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1623237329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4504554105475284, guid: 344cf0c3e19298f43895cc0857021250, type: 3}
@@ -17143,7 +18385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1625545550
 Transform:
   m_ObjectHideFlags: 0
@@ -17163,11 +18405,7 @@ Transform:
   - {fileID: 73239412}
   - {fileID: 1928858263}
   - {fileID: 1330898710}
-  - {fileID: 1874625415}
-  - {fileID: 1974500471}
-  - {fileID: 205928972}
-  - {fileID: 1241331267}
-  - {fileID: 1164701602}
+  - {fileID: 1184525863}
   - {fileID: 143532094}
   - {fileID: 1365414798}
   - {fileID: 528638726}
@@ -17180,6 +18418,25 @@ Transform:
   - {fileID: 1543261134}
   - {fileID: 1729768569}
   - {fileID: 766821064}
+  - {fileID: 1623030283}
+  - {fileID: 1685212361}
+  - {fileID: 1047931878}
+  - {fileID: 1179392435}
+  - {fileID: 814123438}
+  - {fileID: 409487054}
+  - {fileID: 1451612407}
+  - {fileID: 975798950}
+  - {fileID: 22360680}
+  - {fileID: 538826717}
+  - {fileID: 719901980}
+  - {fileID: 1203740432}
+  - {fileID: 1705547809}
+  - {fileID: 1765570675}
+  - {fileID: 482226316}
+  - {fileID: 105160229}
+  - {fileID: 791963025}
+  - {fileID: 2014428355}
+  - {fileID: 374445626}
   m_Father: {fileID: 2058619556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1627759880
@@ -17269,7 +18526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1637584447
 Transform:
   m_ObjectHideFlags: 0
@@ -17297,12 +18554,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
-    itemId: 
-    name: 
+    itemId: da_tho
+    name: "\u0110\xE1 Th\xF4 (Rough Stone)"
     type: 0
-    description: 
+    description: "Lo\u1EA1i \u0111\xE1 c\u01A1 b\u1EA3n, c\xF3 th\u1EC3 t\xECm th\u1EA5y
+      \u1EDF h\u1EA7u h\u1EBFt m\u1ECDi n\u01A1i. D\xF9ng \u0111\u1EC3 x\xE2y d\u1EF1ng
+      v\xE0 n\xE2ng c\u1EA5p c\u01A1 s\u1EDF h\u1EA1 t\u1EA7ng ho\u1EB7c t\u1EA1o
+      ra nh\u1EEFng v\u1EADt ph\u1EA9m \u0111\u01A1n gi\u1EA3n."
     attributes:
       health:
         from: 0
@@ -17319,7 +18579,11 @@ MonoBehaviour:
     materials: []
     createTime: 0
     usingTime: 0
-  itemIds: []
+  itemIds:
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
 --- !u!114 &1637584450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18713,6 +19977,89 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89ca865f86e3dc2488ee42d89ed63524, type: 3}
+--- !u!1 &1685212360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685212361}
+  - component: {fileID: 1685212363}
+  - component: {fileID: 1685212362}
+  m_Layer: 0
+  m_Name: hon_kim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1685212361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685212360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685212362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685212360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Linh H\u1ED3n Kim"
+    type: 2
+    description: "Linh h\u1ED3n h\u1EC7 Kim lo\u1EA1i, \u0111\u01B0\u1EE3c d\xF9ng
+      \u0111\u1EC3 c\u01B0\u1EDDng h\xF3a v\u1EADt ph\u1EA9m c\xF3 t\xEDnh ch\u1EA5t
+      kim lo\u1EA1i."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &1685212363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685212360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1693690756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18892,6 +20239,122 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
   m_PrefabInstance: {fileID: 976550728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1705547808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705547809}
+  - component: {fileID: 1705547811}
+  - component: {fileID: 1705547810}
+  m_Layer: 0
+  m_Name: day_thung
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1705547809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705547808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705547810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705547808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "D\xE2y th\u1EEBng"
+    type: 0
+    description: "M\u1ED9t d\u1EE5ng c\u1EE5 h\u1EEFu \xEDch d\xF9ng \u0111\u1EC3
+      leo tr\xE8o, b\u1EABy, ho\u1EB7c x\xE2y d\u1EF1ng."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 1
+    materials:
+    - itemId: go_cung
+      quantity: 3
+    createTime: 30
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1705547811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705547808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1711791679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -19034,7 +20497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1729768569
 Transform:
   m_ObjectHideFlags: 0
@@ -19062,12 +20525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "M\xE1u R\u1ED3ng (Dragon Blood)"
+    type: 2
+    description: "M\xE1u c\u1EE7a r\u1ED3ng ch\u1EE9a \u0111\u1EF1ng ph\xE9p thu\u1EADt
+      c\u1ED5 x\u01B0a, \u0111\u01B0\u1EE3c d\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o
+      thu\u1ED1c ti\xEAn v\xE0 v\u1EADt ph\u1EA9m ma thu\u1EADt.  "
     attributes:
       health:
         from: 0
@@ -19419,6 +20884,122 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
   m_PrefabInstance: {fileID: 3515378427147054831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1765570674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765570675}
+  - component: {fileID: 1765570677}
+  - component: {fileID: 1765570676}
+  m_Layer: 0
+  m_Name: gach_da
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1765570675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765570674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765570676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765570674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "G\u1EA1ch \u0110\xE1 (Stone Brick)"
+    type: 0
+    description: "G\u1EA1ch l\xE0m t\u1EEB \u0111\xE1, d\xF9ng \u0111\u1EC3 x\xE2y
+      d\u1EF1ng c\xF4ng tr\xECnh v\u1EEFng ch\u1EAFc."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 1
+    materials:
+    - itemId: da_tho
+      quantity: 2
+    createTime: 5
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1765570677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765570674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1 &1772351114
 GameObject:
   m_ObjectHideFlags: 0
@@ -19928,6 +21509,96 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
+--- !u!1 &1829090965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829090966}
+  - component: {fileID: 1829090967}
+  m_Layer: 0
+  m_Name: ObjectReward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829090966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829090965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006356111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829090967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829090965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2644f2f802a564842af4d23101b357ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward:
+    xp: 0
+    rewardItem:
+    - itemId: ban_ve
+      rate:
+        from: 0
+        to: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - day_thung
+  - gach_da
+  - go_cung
+  - go_gia_co
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - sat_tinh_luyen
+  - tinh_chat_quai
+  - vai_linh_thu
+  - vang
+  - xuong_quai
 --- !u!1001 &1829387378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20797,87 +22468,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
---- !u!1 &1874625414
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1874625415}
-  - component: {fileID: 1874625418}
-  - component: {fileID: 1874625416}
-  m_Layer: 0
-  m_Name: quang_mithril_hoa
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1874625415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874625414}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1625545550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1874625416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874625414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    materials: []
-    createTime: 0
-    usingTime: 0
-  itemIds: []
---- !u!114 &1874625418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874625414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
 --- !u!4 &1882958575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4602000202983218, guid: aa91054e6f5bee946ba66c9a32a3a5b9, type: 3}
@@ -21093,7 +22683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1903829397
 Transform:
   m_ObjectHideFlags: 0
@@ -21121,12 +22711,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "M\xF3ng Vu\u1ED1t R\u1ED3ng (Dragon Claw)"
+    type: 2
+    description: "M\xF3ng vu\u1ED1t c\u1EE7a r\u1ED3ng, mang s\u1EE9c m\u1EA1nh v\xE0
+      s\u1EF1 t\xE0n ph\xE1 kh\u1EE7ng khi\u1EBFp. D\xF9ng \u0111\u1EC3 t\u1EA1o
+      ra v\u0169 kh\xED huy\u1EC1n tho\u1EA1i."
     attributes:
       health:
         from: 0
@@ -21422,7 +23014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1928858263
 Transform:
   m_ObjectHideFlags: 0
@@ -21450,12 +23042,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
+    name: "S\u1EAFt Th\xF4 (Raw Iron)"
     type: 0
-    description: 
+    description: "Kim lo\u1EA1i ch\u01B0a qua x\u1EED l\xFD, l\xE0 nguy\xEAn li\u1EC7u
+      ch\xEDnh \u0111\u1EC3 r\xE8n v\u0169 kh\xED v\xE0 \xE1o gi\xE1p c\u01A1 b\u1EA3n."
     attributes:
       health:
         from: 0
@@ -21469,9 +23062,7 @@ MonoBehaviour:
       intelligence: 0
       crit: 0
     properties: 0
-    materials:
-    - itemId: da_quy
-      quantity: 
+    materials: []
     createTime: 0
     usingTime: 0
   itemIds:
@@ -22008,7 +23599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1963423014
 Transform:
   m_ObjectHideFlags: 0
@@ -22036,12 +23627,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
+    name: "Da Qu\xE1i V\u1EADt (Monster Hide)"
     type: 0
-    description: 
+    description: "Da c\u1EE7a c\xE1c lo\xE0i qu\xE1i v\u1EADt, b\u1EC1n v\xE0 ch\u1EAFc
+      ch\u1EAFn. D\xF9ng \u0111\u1EC3 ch\u1EBF t\u1EA1o \xE1o gi\xE1p v\xE0 v\u1EADt
+      ph\u1EA9m \u0111\u1EB7c bi\u1EC7t."
     attributes:
       health:
         from: 0
@@ -22253,95 +23846,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa91054e6f5bee946ba66c9a32a3a5b9, type: 3}
---- !u!1 &1974500470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1974500471}
-  - component: {fileID: 1974500474}
-  - component: {fileID: 1974500472}
-  m_Layer: 0
-  m_Name: quang_mithril_tho
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1974500471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974500470}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1625545550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1974500472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974500470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  item:
-    itemId: 
-    name: 
-    type: 0
-    description: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    properties: 0
-    materials:
-    - itemId: da_tho
-      quantity: 
-    - itemId: go_cung
-      quantity: 
-    createTime: 0
-    usingTime: 0
-  itemIds:
-  - da_quy
-  - da_tho
-  - go_cung
-  - go_thanh
---- !u!114 &1974500474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974500470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs: []
 --- !u!1001 &1978163305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22778,6 +24282,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2014428354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014428355}
+  - component: {fileID: 2014428357}
+  - component: {fileID: 2014428356}
+  m_Layer: 0
+  m_Name: tinh_chat_quai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2014428355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014428354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2014428356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014428354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Tinh Ch\u1EA5t Qu\xE1i V\u1EADt (Monster Essence)"
+    type: 1
+    description: "Chi\u1EBFt xu\u1EA5t t\u1EEB s\u1EE9c m\u1EA1nh c\u1EE7a qu\xE1i
+      v\u1EADt, d\xF9ng \u0111\u1EC3 c\u01B0\u1EDDng h\xF3a trang b\u1ECB ho\u1EB7c
+      ch\u1EBF t\u1EA1o v\u1EADt ph\u1EA9m huy\u1EC1n b\xED."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds: []
+--- !u!114 &2014428357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014428354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &2015440406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4438656222355180, guid: 4047ab01be7298e4e827f73bf31ba088, type: 3}
@@ -23286,7 +24873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2052290439
 Transform:
   m_ObjectHideFlags: 0
@@ -23314,12 +24901,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: 0
+  save: 1
   item:
     itemId: 
-    name: 
-    type: 0
-    description: 
+    name: "M\xF3ng vu\u1ED1t qu\xE1i v\u1EADt"
+    type: 1
+    description: "M\xF3ng vu\u1ED1t s\u1EAFc nh\u1ECDn c\u1EE7a qu\xE1i v\u1EADt,
+      th\xEDch h\u1EE3p \u0111\u1EC3 ch\u1EBF t\u1EA1o v\u0169 kh\xED c\xF3 t\xEDnh
+      s\xE1t th\u01B0\u01A1ng cao.  "
     attributes:
       health:
         from: 0
@@ -25966,6 +27555,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1523105215682071874, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: itemIds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523105215682071874, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: itemIds.Array.data[0]
+      value: da_quy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523105215682071874, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: itemIds.Array.data[1]
+      value: da_quy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523105215682071874, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: itemIds.Array.data[2]
+      value: go_cung
+      objectReference: {fileID: 0}
     - target: {fileID: 6444227712757754319, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
       propertyPath: m_Name
       value: System

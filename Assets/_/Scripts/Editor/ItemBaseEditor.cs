@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 [CustomEditor(typeof(ItemBase))]
 public class ItemBaseEditor : Editor
