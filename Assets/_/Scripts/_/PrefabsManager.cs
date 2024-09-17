@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PrefabsManager : MonoBehaviour
 {
-    public GameObject[] prefabs;
+    public List<GameObject> prefabs = new List<GameObject>();
 
     private void Awake()
     {
-        if (prefabs.Length == 0)
-        {
-            prefabs[0] = gameObject;
-        }
+        //if (prefabs.Count == 0)
+        //{
+        //    prefabs.Add(gameObject);
+        //}
     }
 
     // Lấy tất cả prefab
     public GameObject[] GetPrefabs()
     {
-        return prefabs;
+        return prefabs.ToArray();
     }
 
     // Lấy prefab theo tên
@@ -37,15 +37,24 @@ public class PrefabsManager : MonoBehaviour
     // Lấy prefab theo index
     public GameObject GetPrefab(int index)
     {
-        return prefabs[index];
+        if (index >= 0 && index < prefabs.Count)
+        {
+            return prefabs[index];
+        }
+
+        return null; // Trả về null nếu index không hợp lệ
     }
 
     // Lấy prefab đầu tiên
     public GameObject GetPrefab()
     {
-        return prefabs[0];
-    }
+        if (prefabs.Count > 0)
+        {
+            return prefabs[0];
+        }
 
+        return null; // Trả về null nếu không có prefab nào
+    }
 
     //////////////////////////////////////////////////////////////////////////
 
@@ -61,7 +70,10 @@ public class PrefabsManager : MonoBehaviour
     // Set active theo index
     public void SetActive(int index, bool active)
     {
-        prefabs[index].SetActive(active);
+        if (index >= 0 && index < prefabs.Count)
+        {
+            prefabs[index].SetActive(active);
+        }
     }
 
     // Set active theo tên

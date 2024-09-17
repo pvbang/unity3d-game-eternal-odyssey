@@ -4,6 +4,6 @@
 
 public class RewardItem
 {
-    public List<string> itemId;
+    public string itemId;
     public Rate rate;               // Tỉ lệ rơi item này
 }
