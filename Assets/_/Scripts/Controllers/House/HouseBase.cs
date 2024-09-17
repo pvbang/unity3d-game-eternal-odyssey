@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HouseList : MonoBehaviour
+public class HouseBase : MonoBehaviour
 {
     [Header("Save To Database")]
     public bool save = false;
@@ -25,7 +25,7 @@ public class HouseList : MonoBehaviour
             }
 
             // thêm house vào database
-            StartCoroutine(HouseManager.AddHouse(house));
+            StartCoroutine(HouseManager.Add(house));
         }
     }
 }
