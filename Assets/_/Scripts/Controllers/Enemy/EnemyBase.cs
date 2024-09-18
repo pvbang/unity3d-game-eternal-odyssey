@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class EnemyList : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
     [Header("Save To Database")]
     public bool save = false;
 
     [Header("Item Information")]
     public Enemy enemy;
+
+    private RewardManager rewardManager;
+
+    private void Awake()
+    {
+        rewardManager = gameObject.GetComponent<RewardManager>();
+    }
 
     private void Start()
     {
@@ -24,8 +31,15 @@ public class EnemyList : MonoBehaviour
             {
                 enemy.enemyId = gameObject.name;
             }
+
+            // nếu rewardManager khác null thì sẽ lấy reward từ rewardManager
+            if (rewardManager != null)
+            {
+                enemy.reward = rewardManager.GetReward();
+            }
+
             // thêm enemy vào database
-            StartCoroutine(EnemyManager.AddEnemy(enemy));
+            StartCoroutine(EnemyManager.Add(enemy));
         }
     }
 }
