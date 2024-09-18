@@ -5,6 +5,8 @@ using UnityEngine;
 using System.Collections.Generic;
 public class QuestManager : MonoBehaviour
 {
+    public List<string> questIds = new();
+
     // thêm quest mới vào database
     // cách gọi hàm: StartCoroutine(ItemManager.AddQuest(item));
     public static IEnumerator AddQuest(Quest quest)
