@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class QuestList: MonoBehaviour
@@ -9,6 +10,8 @@ public class QuestList: MonoBehaviour
     [Header("Item Information")]
     public Quest quest;
 
+    [HideInInspector]
+    public List<string> questIds = new();   // Danh sách itemId từ Firebase
     private void Start()
     {
         if (quest == null)
