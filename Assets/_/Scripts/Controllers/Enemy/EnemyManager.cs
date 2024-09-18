@@ -7,8 +7,8 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     // thêm enemy mới vào database
-    // cách gọi hàm: StartCoroutine(EnemyManager.AddEnemy(enemy));
-    public static IEnumerator AddEnemy(Enemy enemy)
+    // cách gọi hàm: StartCoroutine(EnemyManager.Add(enemy));
+    public static IEnumerator Add(Enemy enemy)
     {
         string json = JsonUtility.ToJson(enemy);
 
