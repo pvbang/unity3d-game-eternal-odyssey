@@ -9,11 +9,11 @@ public class EnemyBase : MonoBehaviour
     [Header("Item Information")]
     public Enemy enemy;
 
-    private RewardManager rewardManager;
+    private RewardBase rewardBase;
 
     private void Awake()
     {
-        rewardManager = gameObject.GetComponent<RewardManager>();
+        rewardBase = gameObject.GetComponent<RewardBase>();
     }
 
     private void Start()
@@ -33,9 +33,9 @@ public class EnemyBase : MonoBehaviour
             }
 
             // nếu rewardManager khác null thì sẽ lấy reward từ rewardManager
-            if (rewardManager != null)
+            if (rewardBase != null)
             {
-                enemy.reward = rewardManager.GetReward();
+                enemy.reward = rewardBase.GetReward();
             }
 
             // thêm enemy vào database

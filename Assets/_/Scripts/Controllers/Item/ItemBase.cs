@@ -13,12 +13,12 @@ public class ItemBase : MonoBehaviour
     [HideInInspector]
     public List<string> itemIds = new();   // Danh sách itemId từ Firebase
 
-    private MaterialsUpdateManager materialsUpdateManager;
+    private MaterialsUpdateBase materialsUpdateBase;
 
     private void Awake()
     {
-        // lấy materialsUpdateManager từ cùng gameObject ni
-        materialsUpdateManager = gameObject.GetComponent<MaterialsUpdateManager>();
+        // lấy materialsUpdateBase từ cùng gameObject ni
+        materialsUpdateBase = gameObject.GetComponent<MaterialsUpdateBase>();
     }
 
     private void Start()
@@ -37,10 +37,10 @@ public class ItemBase : MonoBehaviour
                 item.itemId = gameObject.name;
             }
 
-            // nếu materialsUpdateManager không null thì lấy materialsUpdate từ materialsUpdateManager
-            if (materialsUpdateManager != null)
+            // nếu materialsUpdateBase không null thì lấy materialsUpdate từ materialsUpdateBase
+            if (materialsUpdateBase != null)
             {
-                item.materials = materialsUpdateManager.GetMaterialsUpdate();
+                item.materials = materialsUpdateBase.GetMaterialsUpdate();
             }
 
             // thêm item vào database
