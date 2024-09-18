@@ -24,6 +24,8 @@ public class RewardEditor : Editor
             }
         }
 
+        GUILayout.Space(5);
+        
         if (rewardManager.itemIds.Count > 0)
         {
             foreach (var _reward in rewardManager.reward.rewardItem)
