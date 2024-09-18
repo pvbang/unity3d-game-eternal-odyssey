@@ -1683,7 +1683,6 @@ GameObject:
   - component: {fileID: 105160229}
   - component: {fileID: 105160231}
   - component: {fileID: 105160230}
-  - component: {fileID: 105160232}
   m_Layer: 0
   m_Name: sat_tinh_luyen
   m_TagString: Untagged
@@ -1788,57 +1787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
---- !u!114 &105160232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105160228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ad685cd725ff948b43942dbf1680e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!4 &105262459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6ca2e7de9439c349a19e1da23c07812, type: 3}
@@ -2244,50 +2192,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4811437788955060, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
   m_PrefabInstance: {fileID: 1827577813}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &172741231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 172741232}
-  - component: {fileID: 172741233}
-  m_Layer: 0
-  m_Name: pvbang
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &172741232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172741231}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &172741233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172741231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d8306ee894c314f97e94c4d9936c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &173020326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4360581081656686, guid: 70b6d0c9364cc7a498b08b095cf258ba, type: 3}
@@ -5209,7 +5113,6 @@ GameObject:
   - component: {fileID: 482226316}
   - component: {fileID: 482226318}
   - component: {fileID: 482226317}
-  - component: {fileID: 482226319}
   m_Layer: 0
   m_Name: go_gia_co
   m_TagString: Untagged
@@ -5314,57 +5217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
---- !u!114 &482226319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482226315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ad685cd725ff948b43942dbf1680e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!4 &483063670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4553526217403480, guid: 4a3b66b5f6d4c2c41a5d98c834f9bf8a, type: 3}
@@ -8779,7 +8631,6 @@ GameObject:
   - component: {fileID: 791963025}
   - component: {fileID: 791963027}
   - component: {fileID: 791963026}
-  - component: {fileID: 791963028}
   m_Layer: 0
   m_Name: vai_linh_thu
   m_TagString: Untagged
@@ -8884,57 +8735,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
---- !u!114 &791963028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791963024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ad685cd725ff948b43942dbf1680e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!1 &796283840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10952,12 +10752,7 @@ Transform:
   m_LocalPosition: {x: 550.75824, y: 12.081959, z: 375.5868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1931042135}
-  - {fileID: 172741232}
-  - {fileID: 1829090966}
-  - {fileID: 1928541743}
-  - {fileID: 1123062047}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1006706145 stripped
@@ -12329,86 +12124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922269697862426, guid: 7a3b4e0ce3105e340a61cb9472530255, type: 3}
   m_PrefabInstance: {fileID: 1121087453}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1123062046
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1123062047}
-  - component: {fileID: 1123062049}
-  - component: {fileID: 1123062048}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1123062047
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123062046}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1123062048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123062046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2644f2f802a564842af4d23101b357ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds: []
---- !u!114 &1123062049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123062046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7854681639a2e43921e6fba34384c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  enemy:
-    enemyId: 
-    name: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    skills: []
-    type: 0
-    properties: 0
-    reward:
-      xp: 0
-      rewardItem: []
 --- !u!4 &1129345370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4681897337901454, guid: 38688660962a01e41a8b7c8ad0493167, type: 3}
@@ -20478,7 +20193,6 @@ GameObject:
   - component: {fileID: 1705547809}
   - component: {fileID: 1705547811}
   - component: {fileID: 1705547810}
-  - component: {fileID: 1705547812}
   m_Layer: 0
   m_Name: day_thung
   m_TagString: Untagged
@@ -20582,57 +20296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
---- !u!114 &1705547812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705547808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ad685cd725ff948b43942dbf1680e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!4 &1711791679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -21173,7 +20836,6 @@ GameObject:
   - component: {fileID: 1765570675}
   - component: {fileID: 1765570677}
   - component: {fileID: 1765570676}
-  - component: {fileID: 1765570678}
   m_Layer: 0
   m_Name: gach_da
   m_TagString: Untagged
@@ -21277,57 +20939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
---- !u!114 &1765570678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765570674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ad685cd725ff948b43942dbf1680e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!1 &1772351114
 GameObject:
   m_ObjectHideFlags: 0
@@ -21837,131 +21448,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
---- !u!1 &1829090965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1829090966}
-  - component: {fileID: 1829090968}
-  - component: {fileID: 1829090969}
-  m_Layer: 0
-  m_Name: Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1829090966
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829090965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1829090968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829090965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7854681639a2e43921e6fba34384c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  save: 0
-  enemy:
-    enemyId: 
-    name: 
-    attributes:
-      health:
-        from: 0
-        to: 0
-      damage:
-        from: 0
-        to: 0
-      resistance: 0
-      attackSpeed: 0
-      runSpeed: 0
-      intelligence: 0
-      crit: 0
-    skills: []
-    type: 0
-    properties: 0
-    reward:
-      xp: 0
-      rewardItem: []
---- !u!114 &1829090969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829090965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b63a13e242ed3304baff707ce8ea3900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reward:
-    xp: 0
-    rewardItem:
-    - itemId: ban_ve
-      rate:
-        from: 0
-        to: 0
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!1001 &1829387378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23360,90 +22846,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4191413475911042, guid: ed5f82224b99b30438c4330a2dca3429, type: 3}
   m_PrefabInstance: {fileID: 1850482098}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1928541742
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1928541743}
-  - component: {fileID: 1928541744}
-  m_Layer: 0
-  m_Name: MaterialsUpdate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1928541743
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928541742}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1928541744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928541742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922d84acc6a8e9e44981397c996a97c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialsUpdate: []
-  itemIds:
-  - ban_ve
-  - buff_dame
-  - buff_hp
-  - buff_resistance
-  - buff_speed
-  - da_quai
-  - da_quy
-  - da_tho
-  - day_thung
-  - gach_da
-  - go_cung
-  - go_gia_co
-  - go_thanh
-  - hon_hoa
-  - hon_kim
-  - hon_moc
-  - hon_ngoc
-  - hon_tho
-  - hon_thuy
-  - king_soul
-  - long_soi
-  - long_vu
-  - mau_rong
-  - mithril
-  - mithril_hoa
-  - mithril_kim
-  - mithril_moc
-  - mithril_tho
-  - mithril_thuy
-  - mong_quai
-  - mong_rong
-  - qua_nhot
-  - sat_tho
-  - sat_tinh_luyen
-  - tinh_chat_quai
-  - vai_linh_thu
-  - vang
-  - xuong_quai
 --- !u!1 &1928858262
 GameObject:
   m_ObjectHideFlags: 0
@@ -23654,50 +23056,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38688660962a01e41a8b7c8ad0493167, type: 3}
---- !u!1 &1931042134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1931042135}
-  - component: {fileID: 1931042136}
-  m_Layer: 0
-  m_Name: InitUser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1931042135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931042134}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006356111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1931042136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931042134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4331d7d14d158384dad24536a557e1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1942444854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4071750753398162, guid: a397f10d7b785064e9d0f7b5ab603003, type: 3}
@@ -27994,65 +27352,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &328177442226204127
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6444227712757754319, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_Name
-      value: System
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 552.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.445
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 378.77295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709374424507399316, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7667913746767699085, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-    - {fileID: 9184435439008601094, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
 --- !u!1 &1024740475093294834
 GameObject:
   m_ObjectHideFlags: 0
@@ -28129,6 +27428,63 @@ Transform:
   - {fileID: 2005165657}
   m_Father: {fileID: 1139451239}
   m_LocalEulerAnglesHint: {x: 0, y: -113.788, z: 0}
+--- !u!1001 &2128614541729745010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 571848353787293557, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_Name
+      value: System
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 552.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 378.77295
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574774924265394666, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
 --- !u!224 &2328227861406741035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30734,7 +30090,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1372618692}
   - {fileID: 2091286987}
-  - {fileID: 328177442226204127}
+  - {fileID: 2128614541729745010}
   - {fileID: 642480420}
   - {fileID: 5461510855101677796}
   - {fileID: 526286983}
