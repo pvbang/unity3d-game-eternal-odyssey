@@ -1662,6 +1662,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
+--- !u!1 &92950361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92950362}
+  - component: {fileID: 92950363}
+  m_Layer: 0
+  m_Name: pvbang
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &92950362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92950361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006356111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92950363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92950361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d8306ee894c314f97e94c4d9936c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &95149573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -2544,6 +2588,129 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4286209532176036, guid: bb94340bd6b78c044b8b6f772e321649, type: 3}
   m_PrefabInstance: {fileID: 76868702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &226615743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226615744}
+  - component: {fileID: 226615746}
+  - component: {fileID: 226615745}
+  m_Layer: 0
+  m_Name: nhat_ky_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &226615744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226615743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226615745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226615743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "B\u1ED1n Con R\u1ED3ng Th\u1EE9c Gi\u1EA5c"
+    type: 0
+    description: "Ngay sau s\u1EF1 bi\u1EBFn m\u1EA5t c\u1EE7a Vua Th\xE1nh, b\u1ED1n
+      con r\u1ED3ng c\u1ED5 \u0111\u1EA1i \u0111\xE3 th\u1EE9c gi\u1EA5c t\u1EEB
+      gi\u1EA5c ng\u1EE7 ng\xE0n n\u0103m c\u1EE7a ch\xFAng. M\u1ED7i con r\u1ED3ng
+      n\u1EAFm gi\u1EEF quy\u1EC1n ki\u1EC3m so\xE1t m\u1ED9t v\xF9ng \u0111\u1EA5t
+      c\u1EE7a v\u01B0\u01A1ng qu\u1ED1c. Ignivor, H\u1ECFa Long, \u0111\xE3 bi\u1EBFn
+      v\xF9ng \u0111\u1EA5t ph\xEDa nam th\xE0nh m\u1ED9t bi\u1EC3n l\u1EEDa; Gelidra,
+      B\u0103ng Long, \u0111\xE3 \u0111\xF3ng b\u0103ng nh\u1EEFng v\xF9ng \u0111\u1EA5t
+      ph\xEDa b\u1EAFc; Verdantus, M\u1ED9c Long, bao tr\xF9m nh\u1EEFng khu r\u1EEBng
+      v\u1EDBi s\u1EE9c m\u1EA1nh sinh tr\u01B0\u1EDFng v\xF4 t\u1EADn; v\xE0 Zephyros,
+      L\xF4i Long, \u0111\xE3 t\u1EA1o ra nh\u1EEFng c\u01A1n b\xE3o v\xF4 t\u1EADn
+      \u1EDF v\xF9ng \u0111\u1EA5t ph\xEDa t\xE2y"
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &226615746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226615743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &233488983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4776272554816088, guid: 94a3318e328358d4095f16b054b14180, type: 3}
@@ -2753,8 +2920,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &249337583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,6 +2936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!4 &251063276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4569873704234660, guid: 3c3b0773e182ad847a706394ac5af117, type: 3}
@@ -3695,8 +3865,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &357916439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,6 +3881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &359741763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5347,8 +5520,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &490687486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5361,6 +5536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1 &496232894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,8 +5780,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &506418667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,6 +5796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &506795212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6479,8 +6658,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &628032212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6493,6 +6674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!4 &633700138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -8802,8 +8984,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &796283844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8816,6 +9000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1 &801462015
 GameObject:
   m_ObjectHideFlags: 0
@@ -8883,8 +9068,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &801462019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8897,6 +9084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &802669182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9391,8 +9579,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &842066072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9405,6 +9595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &845149531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10658,6 +10849,129 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4811437788955060, guid: 756bd484e6f626047a701d6c3d7cfd1e, type: 3}
   m_PrefabInstance: {fileID: 1147883051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1000494238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000494239}
+  - component: {fileID: 1000494241}
+  - component: {fileID: 1000494240}
+  m_Layer: 0
+  m_Name: nhat_ky_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1000494239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000494238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000494240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000494238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "L\u1EDDi Ti\xEAn Tri C\u1ED5 X\u01B0a"
+    type: 0
+    description: "L\u1EDDi ti\xEAn tri c\u1ED5 x\u01B0a \u0111\xE3 d\u1EF1 b\xE1o
+      v\u1EC1 s\u1EF1 tr\u1ED7i d\u1EADy c\u1EE7a b\u1ED1n con r\u1ED3ng. Trong th\u1EDDi
+      kh\u1EAFc m\xE0 v\u01B0\u01A1ng qu\u1ED1c b\u1ECB chia c\u1EAFt, ch\u1EC9 c\xF3
+      m\u1ED9t nh\xF3m nh\u1EEFng V\u1EC7 Binh Th\xE1nh \u0111\u01B0\u1EE3c l\u1EF1a
+      ch\u1ECDn m\u1EDBi c\xF3 th\u1EC3 c\u1EE9u r\u1ED7i Aeloria. H\u1ECD ph\u1EA3i
+      \u0111\u1ED1i m\u1EB7t v\u1EDBi b\u1ED1n con r\u1ED3ng, \u0111\xE1nh b\u1EA1i
+      ch\xFAng v\xE0 thu th\u1EADp b\u1ED1n M\u1EA3nh V\u1EE1 C\u1ED5 \u0110\u1EA1i.
+      Nh\u1EEFng m\u1EA3nh v\u1EE1 n\xE0y, khi \u0111\u01B0\u1EE3c h\u1EE3p nh\u1EA5t
+      t\u1EA1i T\u1EBF \u0110\xE0n Thi\xEAng, s\u1EBD gi\u1EA3i ph\xF3ng s\u1EE9c
+      m\u1EA1nh c\u1EE7a Vua Th\xE1nh \u0111\u1EC3 kh\xF4i ph\u1EE5c h\xF2a b\xECnh
+      cho v\u01B0\u01A1ng qu\u1ED1c"
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1000494241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000494238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1001857962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -10752,7 +11066,8 @@ Transform:
   m_LocalPosition: {x: 550.75824, y: 12.081959, z: 375.5868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 92950362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1006706145 stripped
@@ -11531,6 +11846,130 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4756003171135936, guid: 64b9fdd8926ce144fbdc31c4044b55f1, type: 3}
   m_PrefabInstance: {fileID: 1267680589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1074812154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074812155}
+  - component: {fileID: 1074812157}
+  - component: {fileID: 1074812156}
+  m_Layer: 0
+  m_Name: nhat_ky_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1074812155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074812154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074812156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074812154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "L\u1EDDi Nh\u1EAFn G\u1EEDi T\u1EEB Ng\u01B0\u1EDDi Cu\u1ED1i C\xF9ng"
+    type: 0
+    description: "Ta l\xE0 ng\u01B0\u1EDDi cu\u1ED1i c\xF9ng trong nh\xF3m V\u1EC7
+      Binh Th\xE1nh nguy\xEAn b\u1EA3n. Ch\xFAng t\xF4i \u0111\xE3 chi\u1EBFn \u0111\u1EA5u
+      qua t\u1EEBng v\xF9ng \u0111\u1EA5t, nh\u01B0ng gi\u1EDD ch\u1EC9 c\xF2n ta.
+      B\u0103ng Long Gelidra \u0111\xE3 b\u1ECB \u0111\xE1nh b\u1EA1i, M\u1ED9c Long
+      Verdantus b\u1ECB khu\u1EA5t ph\u1EE5c, v\xE0 gi\u1EDD ch\u1EC9 c\xF2n l\u1EA1i
+      L\xF4i Long Zephyros. Nh\u01B0ng ta kh\xF4ng ch\u1EAFc li\u1EC7u ta c\xF3 th\u1EC3
+      ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 n\xE0y m\u1ED9t m\xECnh hay kh\xF4ng. N\u1EBFu
+      ai \u0111\xF3 \u0111\u1ECDc \u0111\u01B0\u1EE3c nh\u1EEFng d\xF2ng n\xE0y,
+      h\xE3y gi\xFAp ta ho\xE0n t\u1EA5t s\u1EE9 m\u1EC7nh, thu th\u1EADp t\u1EA5t
+      c\u1EA3 c\xE1c M\u1EA3nh V\u1EE1 C\u1ED5 \u0110\u1EA1i v\xE0 \u0111em ch\xFAng
+      v\u1EC1 T\u1EBF \u0110\xE0n Thi\xEAng. \u0110\xE2y l\xE0 hy v\u1ECDng cu\u1ED1i
+      c\xF9ng c\u1EE7a ch\xFAng ta"
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1074812157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074812154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1079749315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4945775876562746, guid: 92cc6d2406e4cc547a83ad74708c2d87, type: 3}
@@ -13503,8 +13942,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &1212599645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13517,6 +13958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!4 &1213082323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8338988566280778637, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -14524,6 +14966,126 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: []
+--- !u!1 &1299799120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299799121}
+  - component: {fileID: 1299799123}
+  - component: {fileID: 1299799122}
+  m_Layer: 0
+  m_Name: nhat_ky_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1299799121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299799120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299799122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299799120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "Nh\u1EEFng V\u1EC7 Binh Th\xE1nh \u0110\u1EA7u Ti\xEAn"
+    type: 0
+    description: "T\xF4i \u0111\xE3 ch\u1EE9ng ki\u1EBFn cu\u1ED9c chi\u1EBFn \u0111\u1EA7u
+      ti\xEAn gi\u1EEFa nh\u1EEFng V\u1EC7 Binh Th\xE1nh v\xE0 H\u1ECFa Long Ignivor.
+      L\u1EEDa bao tr\xF9m c\u1EA3 chi\u1EBFn tr\u01B0\u1EDDng, nh\u01B0ng h\u1ECD
+      \u0111\xE3 chi\u1EBFn \u0111\u1EA5u v\u1EDBi s\u1EF1 can tr\u01B0\u1EDDng v\xE0
+      l\xF2ng d\u0169ng c\u1EA3m. D\xF9 ch\xFAng t\xF4i \u0111\xE3 l\u1EA5y \u0111\u01B0\u1EE3c
+      M\u1EA3nh V\u1EE1 L\u1EEDa, c\xE1i gi\xE1 ph\u1EA3i tr\u1EA3 l\xE0 v\xF4 c\xF9ng
+      l\u1EDBn. Ch\u1EC9 c\xF3 r\u1EA5t \xEDt V\u1EC7 Binh Th\xE1nh s\u1ED1ng s\xF3t,
+      v\xE0 nh\u1EEFng con r\u1ED3ng kh\xE1c ng\xE0y c\xE0ng m\u1EA1nh h\u01A1n"
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1299799123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299799120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!1001 &1303973001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15390,6 +15952,128 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4776272554816088, guid: 94a3318e328358d4095f16b054b14180, type: 3}
   m_PrefabInstance: {fileID: 778356146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1333056369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1333056370}
+  - component: {fileID: 1333056372}
+  - component: {fileID: 1333056371}
+  m_Layer: 0
+  m_Name: nhat_ky_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1333056370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333056369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1625545550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333056371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333056369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555352a2d3a9604bac9400520272814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 1
+  item:
+    itemId: 
+    name: "S\u1EF1 Bi\u1EBFn M\u1EA5t C\u1EE7a Vua Th\xE1nh"
+    type: 0
+    description: "Ng\xE0y m\xE0 Vua Th\xE1nh bi\u1EBFn m\u1EA5t, c\u1EA3 Aeloria
+      ch\xECm trong b\xF3ng t\u1ED1i. Nh\xE0 vua \u0111\xE3 \u0111i v\xE0o T\u1EBF
+      \u0110\xE0n Thi\xEAng, n\u01A1i s\u1EE9c m\u1EA1nh c\u1EE7a ng\xE0i \u0111\u01B0\u1EE3c
+      phong \u1EA5n, \u0111\u1EC3 th\u1EF1c hi\u1EC7n m\u1ED9t nghi l\u1EC5 b\xED
+      \u1EA9n. Ch\xFAng t\xF4i \u0111\xE3 ch\u1EDD \u0111\u1EE3i su\u1ED1t \u0111\xEAm,
+      nh\u01B0ng ng\xE0i kh\xF4ng bao gi\u1EDD tr\u1EDF l\u1EA1i. V\u01B0\u01A1ng
+      qu\u1ED1c nhanh ch\xF3ng r\u01A1i v\xE0o h\u1ED7n lo\u1EA1n khi s\u1EE9c m\u1EA1nh
+      c\u1EE7a ng\xE0i bi\u1EBFn m\u1EA5t. C\xE1c v\xF9ng \u0111\u1EA5t b\u1EAFt
+      \u0111\u1EA7u chia c\u1EAFt, v\xE0 nh\u1EEFng th\u1EBF l\u1EF1c \u0111en t\u1ED1i
+      tr\u1ED7i d\u1EADy."
+    attributes:
+      health:
+        from: 0
+        to: 0
+      damage:
+        from: 0
+        to: 0
+      resistance: 0
+      attackSpeed: 0
+      runSpeed: 0
+      intelligence: 0
+      crit: 0
+    properties: 0
+    materials: []
+    createTime: 0
+    usingTime: 0
+  itemIds:
+  - ban_ve
+  - buff_dame
+  - buff_hp
+  - buff_resistance
+  - buff_speed
+  - da_quai
+  - da_quy
+  - da_tho
+  - go_cung
+  - go_thanh
+  - hon_hoa
+  - hon_kim
+  - hon_moc
+  - hon_ngoc
+  - hon_tho
+  - hon_thuy
+  - king_soul
+  - long_soi
+  - long_vu
+  - mau_rong
+  - mithril
+  - mithril_hoa
+  - mithril_kim
+  - mithril_moc
+  - mithril_tho
+  - mithril_thuy
+  - mong_quai
+  - mong_rong
+  - qua_nhot
+  - sat_tho
+  - vang
+  - xuong_quai
+--- !u!114 &1333056372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333056369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbacdace943c8419d4c3fc25764b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: []
 --- !u!4 &1334841896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4719097417255182, guid: a3b1ceba998f4d4419d82dc582c290dd, type: 3}
@@ -18153,8 +18837,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &1618829496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18167,6 +18853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &1620231523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18369,6 +19056,11 @@ Transform:
   - {fileID: 409487054}
   - {fileID: 1451612407}
   - {fileID: 975798950}
+  - {fileID: 1333056370}
+  - {fileID: 226615744}
+  - {fileID: 1000494239}
+  - {fileID: 1299799121}
+  - {fileID: 1074812155}
   - {fileID: 22360680}
   - {fileID: 538826717}
   - {fileID: 719901980}
@@ -22827,8 +23519,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &1918023388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22841,6 +23535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!4 &1920617005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4191413475911042, guid: ed5f82224b99b30438c4330a2dca3429, type: 3}
@@ -24073,8 +24768,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &2010425723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24087,6 +24784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1 &2014428354
 GameObject:
   m_ObjectHideFlags: 0
@@ -25478,8 +26176,10 @@ MonoBehaviour:
     reward:
       xp: 0
       rewardItem: []
-    requirements: 
+    requirements: []
+    completionConditions: []
     type: 0
+  questIds: []
 --- !u!114 &2144662992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25492,6 +26192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc63a77228f3f4eaaa77d7112bde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questIds: []
 --- !u!1001 &2145756730
 PrefabInstance:
   m_ObjectHideFlags: 0
