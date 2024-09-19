@@ -11,7 +11,7 @@ public class QuestList: MonoBehaviour
     public Quest quest;
 
     [HideInInspector]
-    public List<string> questIds = new();   // Danh sách itemId từ Firebase
+    public List<string> questIds = new();   // Danh sách questId từ Firebase
     private void Start()
     {
         if (quest == null)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class WeaponList : MonoBehaviour
@@ -8,7 +9,8 @@ public class WeaponList : MonoBehaviour
 
     [Header("Item Information")]
     public Weapon weapon;
-
+    [HideInInspector]
+    public List<string> weaponIds = new();   // Danh sách questId từ Firebase
     private void Start()
     {
         if (weapon == null)
@@ -24,8 +26,7 @@ public class WeaponList : MonoBehaviour
             {
                 weapon.weaponId = gameObject.name;
             }
-
-            // thêm item vào database
+            // thêm weapon vào database
             StartCoroutine(WeaponManager.AddWeapon(weapon));
         }
     }
