@@ -22,7 +22,6 @@ public class WeaponManager : MonoBehaviour
         if (task.IsFaulted)
         {
             Debug.LogError("Lỗi thêm weapon");
-
         }
         else if (task.IsCompleted)
         {
