@@ -5,7 +5,7 @@ public class Effect
     public string name;             
     public EffectType type;             // Loại hiệu ứng (Health, Damage, Resistance, AttackSpeed, RunSpeed, Intelligence, Crit)
     public string description;
-    public float rate;   // (%)         // Tỉ lệ kích hoạt động của hiệu ứng                
+    public float rate;   // (%)         // Tỉ lệ kích hoạt của hiệu ứng                
     public float time;   // (giây)      // Thời gian tồn tại của hiệu ứng                  
     public Attribute playerAttribute;   // Thuộc tính của player sau khi áp dụng hiệu ứng
     public Attribute enemyAttribute;    // Thuộc tính của enemy sau khi áp dụng hiệu ứng
