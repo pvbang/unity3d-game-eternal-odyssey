@@ -30,6 +30,9 @@ public class WorldManager : MonoBehaviour
     }
 
 
+    // thêm world mới
+
+
     // lấy thông tin world từ id
     // cách gọi hàm: WorldManager.GetworldById("id", world => { Debug.Log(world); });
     public static void GetWorldById(string worldId, Action<World> callback)
@@ -135,4 +138,6 @@ public class WorldManager : MonoBehaviour
             Debug.Log("Xóa world thành công");
         }
     }
+
+
 }
