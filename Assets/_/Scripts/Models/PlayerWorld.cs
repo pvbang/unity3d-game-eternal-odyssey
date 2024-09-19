@@ -3,16 +3,16 @@
 [System.Serializable]
 public class PlayerWorld 
 {
-    public string userId;                   // ID của user
-    public List<string> inventorys;         // List các item trong túi
-    public string inGame;                   // Trạng thái của người chơi (đang chơi, nghỉ, offline)
+    public string userId;                       // ID của user
+    public List<Inventory> inventorys;          // List các item trong túi
+    public PlayerStatus playerStatus;           // Trạng thái của người chơi (đang chơi, nghỉ, offline)
 
     public PlayerWorld() { }
 
-    public PlayerWorld(string userId, List<string> inventorys, string inGame)
+    public PlayerWorld(string userId, List<Inventory> inventorys, PlayerStatus playerStatus)
     {
         this.userId = userId;
         this.inventorys = inventorys;
-        this.inGame = inGame;
+        this.playerStatus = playerStatus;
     }
 }
