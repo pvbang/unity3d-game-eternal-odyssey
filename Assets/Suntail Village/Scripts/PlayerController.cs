@@ -168,19 +168,19 @@ namespace Suntail
         //Check where the controller is now and identify the texture of the component
         private void GroundChecker()
         {
-            Ray checkerRay = new Ray(transform.position + (Vector3.up * 0.1f), Vector3.down);
+            //Ray checkerRay = new Ray(transform.position + (Vector3.up * 0.1f), Vector3.down);
 
-            if (Physics.Raycast(checkerRay, out _groundHit, groundCheckDistance))
-            {
-                if (_groundHit.collider.GetComponent<Terrain>())
-                {
-                    _currentTexture = _terrainLayers[GetTerrainTexture(transform.position)].diffuseTexture;
-                }
-                if (_groundHit.collider.GetComponent<Renderer>())
-                {
-                    _currentTexture = GetRendererTexture();
-                }
-            }
+            //if (Physics.Raycast(checkerRay, out _groundHit, groundCheckDistance))
+            //{
+            //    if (_groundHit.collider.GetComponent<Terrain>())
+            //    {
+            //        _currentTexture = _terrainLayers[GetTerrainTexture(transform.position)].diffuseTexture;
+            //    }
+            //    if (_groundHit.collider.GetComponent<Renderer>())
+            //    {
+            //        _currentTexture = GetRendererTexture();
+            //    }
+            //}
         }
 
         //Play a footstep sound depending on the specific texture
