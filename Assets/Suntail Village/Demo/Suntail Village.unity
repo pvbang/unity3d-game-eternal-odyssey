@@ -77197,7 +77197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7879280262174986692, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8948507211155965556, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -91008,6 +91008,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1496348908}
     m_Modifications:
+    - target: {fileID: 1892732904877998614, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378754439121651372, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182508964840044029, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7763919350002976179, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -91195,6 +91207,14 @@ PrefabInstance:
     - target: {fileID: 7763919351582024763, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
       propertyPath: m_Name
       value: House_5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012392351526224133, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304956478412596948, guid: ae9415ad7fec27a448644e2f12297c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -202553,7 +202573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!192 &359703992
 OcclusionArea:
   m_ObjectHideFlags: 0
@@ -493855,6 +493875,10 @@ PrefabInstance:
     - target: {fileID: 4414363817295493523, guid: e73c8cba896afb648a91c6ef7d52fa12, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 1536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922914258886368901, guid: e73c8cba896afb648a91c6ef7d52fa12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1148804,8 +1148828,8 @@ Transform:
   m_GameObject: {fileID: 2115660798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69, y: 13.13, z: 95}
-  m_LocalScale: {x: 12, y: 12, z: 12}
+  m_LocalPosition: {x: 134.9, y: 13.13, z: 130.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 489909357}
