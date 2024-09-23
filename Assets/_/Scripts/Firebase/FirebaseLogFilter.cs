@@ -20,5 +20,15 @@ public class FirebaseLogFilter : MonoBehaviour
             // Không hiển thị log này
             return;
         }
+
+        if (logString.Contains("The referenced script on this Behaviour (Game Object 'Indoor Volume') is missing!"))
+        {
+            return;
+        }
+
+        if (logString.Contains("The referenced script on this Behaviour (Game Object 'Indoor Volume') is missing!"))
+        {
+            return;
+        }
     }
 }
