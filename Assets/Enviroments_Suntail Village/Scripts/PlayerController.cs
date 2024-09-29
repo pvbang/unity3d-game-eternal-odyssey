@@ -46,8 +46,8 @@ namespace Suntail
         [Tooltip("Footstep source")]
         [SerializeField] private AudioSource footstepSource;
 
-        [Tooltip("Distance for ground texture checker")]
-        [SerializeField] private float groundCheckDistance = 1.0f;
+        //[Tooltip("Distance for ground texture checker")]
+        //[SerializeField] private float groundCheckDistance = 1.0f;
 
         [Tooltip("Footsteps playing rate")]
         [SerializeField] [Range(1f, 2f)] private float footstepRate = 1f;
