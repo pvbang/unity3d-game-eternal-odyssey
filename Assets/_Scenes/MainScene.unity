@@ -79939,7 +79939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1611802598114923860, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: walkSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1611802598114923860, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: runMultiplier
@@ -79979,11 +79979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3810384679533872105, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.222126
+      value: 0.3268242
       objectReference: {fileID: 0}
     - target: {fileID: 3810384679533872105, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.0225964
+      value: -3.8507748
       objectReference: {fileID: 0}
     - target: {fileID: 3810384679533872105, guid: 616213421fa24e04cb70909b50bbb1f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -371832,6 +371832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactersObject: {fileID: 744724727}
+  isPressKey: 0
 --- !u!1001 &666335796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -671621,10 +671622,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0, z: 0.3}
-  ShoulderOffset: {x: 0.25, y: 1.5, z: 0}
+  ShoulderOffset: {x: 0.25, y: 1.5, z: 2.17}
   VerticalArmLength: -0.7
   CameraSide: 1
-  CameraDistance: 3
+  CameraDistance: 6
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
@@ -1182996,11 +1182997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.222126
+      value: 0.3268242
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.0225964
+      value: -3.8507748
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1184227,7 +1184228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: MoveSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: JumpHeight
