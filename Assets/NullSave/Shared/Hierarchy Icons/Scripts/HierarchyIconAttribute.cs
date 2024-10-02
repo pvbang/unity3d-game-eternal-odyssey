@@ -2,8 +2,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-public class HierarchyIconAttribute : Attribute
+[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
+public class HierarchyIconAttribute : System.Attribute
 {
 
     #region Variables
