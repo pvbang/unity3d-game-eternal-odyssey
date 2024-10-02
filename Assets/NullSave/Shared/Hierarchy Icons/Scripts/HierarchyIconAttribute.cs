@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-public class HierarchyIconAttribute : Attribute
+public class HierarchyIconAttribute : System.Attribute
 {
 
     #region Variables
