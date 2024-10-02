@@ -1,178 +1,4 @@
-﻿//using System;
-//using UnityEngine;
-
-//public class CharacterPlayerController : MonoBehaviour
-//{
-//    private Animator playerAnimator;
-//    public Transform charactersObject;
-
-//    public bool isPressKey = false;
-
-//    private string idle = "idle";
-//    private string stop = "stop";
-
-//    private string walk_up = "walk_up";
-//    //private string walk_left = "walk_left";
-//    //private string walk_right = "walk_right";
-
-//    private string run_up = "run_up";
-//    //private string run_down = "run_down";
-
-//    private string sprint = "sprint";
-
-//    private string jump = "jump";
-//    private string jump_attack = "jump_attack";
-
-//    private string attack = "attack";
-//    private string combo = "combo";
-
-//    private string defend = "defend";
-
-
-//    private void Start()
-//    {
-//        if (charactersObject == null)
-//        {
-//            charactersObject = transform.Find("Characters");
-//        }
-
-//        CharacterObjectController characterObjectController = charactersObject.GetComponent<CharacterObjectController>();
-//        if (characterObjectController != null)
-//        {
-//            playerAnimator = characterObjectController.GetActiveCharacterAnimator();
-//        }
-//    }
-
-
-//    void Update()
-//    {
-//        GetKeyInput();
-//    }
-
-
-//    // Hàm kiểm tra tổ hợp phím
-//    private bool IsKeyHeld(params KeyCode[] keys)
-//    {
-//        foreach (KeyCode key in keys)
-//        {
-//            if (Input.GetKey(key)) return true;
-//        }
-//        return false;
-//    }
-
-//    // Hàm kiểm tra tổ hợp phím thả ra
-//    private bool IsKeyReleased(params KeyCode[] keys)
-//    {
-//        foreach (KeyCode key in keys)
-//        {
-//            if (Input.GetKeyUp(key)) return true;
-//        }
-//        return false;
-//    }
-
-//    // Hàm lấy input từ bàn phím và điều khiển trạng thái
-//    public void GetKeyInput()
-//    {
-//        // Kiểm tra nếu đang nhấn các phím điều hướng
-//        bool isMoving = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-//                        Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow);
-
-//        // Kiểm tra nếu đang nhấn Shift
-//        bool isShiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-//        // Nếu đang di chuyển và giữ Shift -> Chạy nhanh
-//        if (isMoving && isShiftHeld)
-//        {
-//            Debug.Log("Up + Shift");
-//            TriggerAnimation(sprint);
-//        }
-//        // Nếu chỉ đang di chuyển mà không giữ Shift -> Đi bộ
-//        else if (isMoving)
-//        {
-//            Debug.Log("Up");
-//            TriggerAnimation(walk_up);
-//        }
-//        // Nhảy và tấn công (Space + Chuột trái)
-//        else if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Mouse0))
-//        {
-//            Debug.Log("Jump Attack");
-//            TriggerAnimation(jump_attack);
-//        }
-//        // Nhảy
-//        else if (Input.GetKey(KeyCode.Space))
-//        {
-//            TriggerAnimation(jump);
-//        }
-//        // Tấn công (Chuột trái)
-//        else if (Input.GetKey(KeyCode.Mouse0))
-//        {
-//            TriggerAnimation(attack);
-//        }
-//        // Combo (Chuột phải)
-//        else if (Input.GetKey(KeyCode.Mouse1))
-//        {
-//            TriggerAnimation(combo);
-//        }
-//        // Phòng thủ (Ctrl)
-//        else if (IsKeyHeld(KeyCode.LeftControl, KeyCode.RightControl))
-//        {
-//            TriggerAnimation(defend);
-//        }
-//        else
-//        {
-//            // Nếu không nhấn phím nào, reset tất cả trạng thái
-//            if (isPressKey)  // Chỉ reset nếu trước đó có nhấn phím
-//            {
-//                isPressKey = false;
-//                Debug.Log("Resetting all triggers to idle");
-//                ResetAllTriggers();
-//            }
-
-//            // Đặt trạng thái nhân vật về `idle`
-//            playerAnimator.SetBool(idle, true);
-//        }
-
-//        // Dừng lại khi thả phím
-//        if (IsKeyReleased(
-//                KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.DownArrow,
-//                KeyCode.W, KeyCode.A, KeyCode.D, KeyCode.S,
-//                KeyCode.LeftShift, KeyCode.RightShift, KeyCode.LeftAlt, KeyCode.RightAlt,
-//                KeyCode.Space, KeyCode.LeftControl, KeyCode.RightControl,
-//                KeyCode.Mouse0, KeyCode.Mouse1))
-//        {
-//            isPressKey = false;
-//            playerAnimator.SetTrigger(stop);
-//            ResetAllTriggers();  // Reset tất cả trigger khi thả phím
-//        }
-//    }
-
-
-//    // Hàm gọi trigger và cập nhật trạng thái
-//    private void TriggerAnimation(string triggerName)
-//    {
-//        if (!isPressKey)
-//        {
-//            isPressKey = true;
-//            playerAnimator.SetBool(idle, false);
-//            playerAnimator.SetTrigger(triggerName);
-//        }
-//    }
-
-//    private void ResetAllTriggers()
-//    {
-//        playerAnimator.ResetTrigger(stop);
-//        playerAnimator.ResetTrigger(walk_up);
-//        playerAnimator.ResetTrigger(run_up);
-//        playerAnimator.ResetTrigger(sprint);
-//        playerAnimator.ResetTrigger(jump);
-//        playerAnimator.ResetTrigger(jump_attack);
-//        playerAnimator.ResetTrigger(attack);
-//        playerAnimator.ResetTrigger(combo);
-//        playerAnimator.ResetTrigger(defend);
-//    }
-
-//}
-
+﻿using Firebase.Auth;
 using System;
 using UnityEngine;
 
@@ -181,9 +7,6 @@ public class CharacterPlayerController : MonoBehaviour
     private Animator playerAnimator;
     public Transform charactersObject;
 
-    private bool isPressKey = false;
-
-    // Quản lý trạng thái bằng enum thay cho string
     private enum CharacterState
     {
         Idle,
@@ -205,7 +28,11 @@ public class CharacterPlayerController : MonoBehaviour
         DashLeft,
         DashRight,
         Die,
-
+        DieRecovered,
+        Dizzy,
+        GetHit,
+        EquipmentChange,
+        Victory,
     }
 
     // Biến để theo dõi trạng thái hành động hiện tại
@@ -253,9 +80,12 @@ public class CharacterPlayerController : MonoBehaviour
     {
         // Kiểm tra các trạng thái di chuyển
         bool isMoving = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                        Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow);
+                        Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) ||
+                        Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
         bool isShiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        bool isAltHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
         // Quản lý trạng thái tiếp theo
         CharacterState nextAction = CharacterState.Idle;
@@ -265,11 +95,47 @@ public class CharacterPlayerController : MonoBehaviour
         {
             nextAction = CharacterState.Sprint;
         }
+        else if (Input.GetKey(KeyCode.R) && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
+        {
+            nextAction = CharacterState.RollUp;
+        }
+        else if (Input.GetKey(KeyCode.R) && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)))
+        {
+            nextAction = CharacterState.RollDown;
+        }
+        else if (Input.GetKey(KeyCode.R) && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)))
+        {
+            nextAction = CharacterState.RollLeft;
+        }
+        else if (Input.GetKey(KeyCode.R) && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
+        {
+            nextAction = CharacterState.RollRight;
+        }
+        else if (isAltHeld && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
+        {
+            nextAction = CharacterState.DashUp;
+        }
+        else if (isAltHeld && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)))
+        {
+            nextAction = CharacterState.DashDown;
+        }
+        else if (isAltHeld && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)))
+        {
+            nextAction = CharacterState.DashLeft;
+        }
+        else if (isAltHeld && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
+        {
+            nextAction = CharacterState.DashRight;
+        }
+        else if (Input.GetKey(KeyCode.Q))
+        {
+            nextAction = CharacterState.Slide;
+        }
         else if (isMoving)
         {
             nextAction = CharacterState.Walk;
         }
-        else if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Mouse0))
+        else if (Input.GetKey(KeyCode.Space) && (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J)))
         {
             nextAction = CharacterState.JumpAttack;
         }
@@ -277,15 +143,15 @@ public class CharacterPlayerController : MonoBehaviour
         {
             nextAction = CharacterState.Jump;
         }
-        else if (Input.GetKey(KeyCode.Mouse0))
-        {
-            nextAction = CharacterState.Attack;
-        }
-        else if (Input.GetKey(KeyCode.Mouse1))
+        else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))
         {
             nextAction = CharacterState.Combo;
         }
-        else if (IsKeyHeld(KeyCode.LeftControl, KeyCode.RightControl))
+        //else if (Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.I))
+        //{
+        //    nextAction = CharacterState.Combo;
+        //}
+        else if (isCtrlHeld)
         {
             nextAction = CharacterState.Defend;
         }
@@ -293,28 +159,28 @@ public class CharacterPlayerController : MonoBehaviour
         // Nếu hành động thay đổi, gọi hàm chuyển trạng thái
         if (nextAction != currentAction)
         {
-            currentAction = nextAction;
-            SetCharacterState(currentAction);
+            SetCharacterState(nextAction);
         }
 
         // Dừng lại khi thả phím và không nhấn phím nào khác
         if (IsKeyReleased(KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.DownArrow,
-                          KeyCode.W, KeyCode.A, KeyCode.D, KeyCode.S, KeyCode.LeftShift, KeyCode.RightShift,
-                          KeyCode.LeftAlt, KeyCode.RightAlt, KeyCode.Space, KeyCode.LeftControl, KeyCode.RightControl,
+                          KeyCode.W, KeyCode.A, KeyCode.D, KeyCode.S, KeyCode.J, KeyCode.I, KeyCode.R, KeyCode.Q,
+                          KeyCode.LeftShift, KeyCode.RightShift,
+                          KeyCode.LeftAlt, KeyCode.RightAlt, 
+                          KeyCode.LeftControl, KeyCode.RightControl,
+                          KeyCode.Space, 
                           KeyCode.Mouse0, KeyCode.Mouse1))
         {
-            isPressKey = false;
-            currentAction = CharacterState.Idle;
             playerAnimator.SetTrigger("stop");
             ResetAllTriggers();
             playerAnimator.SetBool("idle", true);
+            currentAction = CharacterState.Idle;
         }
     }
 
     // Hàm quản lý trạng thái Animator
     private void SetCharacterState(CharacterState state)
     {
-        isPressKey = true;
         playerAnimator.SetBool("idle", false);
 
         // Reset tất cả trigger trước khi set trigger mới
@@ -324,28 +190,102 @@ public class CharacterPlayerController : MonoBehaviour
         {
             case CharacterState.Walk:
                 playerAnimator.SetTrigger("run_up");
+                currentAction = CharacterState.Walk;
                 break;
             case CharacterState.Sprint:
                 playerAnimator.SetTrigger("sprint");
+                currentAction = CharacterState.Sprint;
                 break;
             case CharacterState.Jump:
                 playerAnimator.SetTrigger("jump");
+                currentAction = CharacterState.Jump;
                 break;
             case CharacterState.JumpAttack:
                 playerAnimator.SetTrigger("jump_attack");
+                currentAction = CharacterState.JumpAttack;
                 break;
             case CharacterState.Attack:
                 playerAnimator.SetTrigger("attack");
+                currentAction = CharacterState.Attack;
                 break;
             case CharacterState.Combo:
                 playerAnimator.SetTrigger("combo");
+                currentAction = CharacterState.Combo;
                 break;
             case CharacterState.Defend:
                 playerAnimator.SetTrigger("defend");
+                currentAction = CharacterState.Defend;
                 break;
+            case CharacterState.DefendHit:
+                playerAnimator.SetTrigger("defend_hit");
+                currentAction = CharacterState.DefendHit;
+                break;
+            case CharacterState.RollUp:
+                playerAnimator.SetTrigger("roll_up");
+                currentAction = CharacterState.RollUp;
+                break;
+            case CharacterState.RollDown:
+                playerAnimator.SetTrigger("roll_back");
+                currentAction = CharacterState.RollDown;
+                break;
+            case CharacterState.RollLeft:
+                playerAnimator.SetTrigger("roll_left");
+                currentAction = CharacterState.RollLeft;
+                break;
+            case CharacterState.RollRight:
+                playerAnimator.SetTrigger("roll_right");
+                currentAction = CharacterState.RollRight;
+                break;
+            case CharacterState.Slide:
+                playerAnimator.SetTrigger("slide");
+                currentAction = CharacterState.Slide;
+                break;
+            case CharacterState.DashUp:
+                playerAnimator.SetTrigger("dash_up");
+                currentAction = CharacterState.DashUp;
+                break;
+            case CharacterState.DashDown:
+                playerAnimator.SetTrigger("dash_back");
+                currentAction = CharacterState.DashDown;
+                break;
+            case CharacterState.DashLeft:
+                playerAnimator.SetTrigger("dash_left");
+                currentAction = CharacterState.DashLeft;
+                break;
+            case CharacterState.DashRight:
+                playerAnimator.SetTrigger("dash_right");
+                currentAction = CharacterState.DashRight;
+                break;
+            case CharacterState.Die:
+                playerAnimator.SetTrigger("die");
+                currentAction = CharacterState.Die;
+                break;
+            case CharacterState.DieRecovered:
+                playerAnimator.SetTrigger("die_recovered");
+                currentAction = CharacterState.DieRecovered;
+                break;
+            case CharacterState.Dizzy:
+                playerAnimator.SetTrigger("dizzy");
+                currentAction = CharacterState.Dizzy;
+                break;
+            case CharacterState.GetHit:
+                playerAnimator.SetTrigger("get_hit");
+                currentAction = CharacterState.GetHit;
+                break;
+            case CharacterState.EquipmentChange:
+                playerAnimator.SetTrigger("equipment_change");
+                currentAction = CharacterState.EquipmentChange;
+                break;
+            case CharacterState.Victory:
+                playerAnimator.SetTrigger("victory");
+                currentAction = CharacterState.Victory;
+                break;
+
             default:
                 playerAnimator.SetBool("idle", true);
+                currentAction = CharacterState.Idle;
                 break;
+
         }
     }
 
@@ -360,6 +300,22 @@ public class CharacterPlayerController : MonoBehaviour
         playerAnimator.ResetTrigger("attack");
         playerAnimator.ResetTrigger("combo");
         playerAnimator.ResetTrigger("defend");
+        playerAnimator.ResetTrigger("defend_hit");
+        playerAnimator.ResetTrigger("roll_up");
+        playerAnimator.ResetTrigger("roll_back");
+        playerAnimator.ResetTrigger("roll_left");
+        playerAnimator.ResetTrigger("roll_right");
+        playerAnimator.ResetTrigger("slide");
+        playerAnimator.ResetTrigger("dash_up");
+        playerAnimator.ResetTrigger("dash_back");
+        playerAnimator.ResetTrigger("dash_left");
+        playerAnimator.ResetTrigger("dash_right");
+        playerAnimator.ResetTrigger("die");
+        playerAnimator.ResetTrigger("die_recovered");
+        playerAnimator.ResetTrigger("dizzy");
+        playerAnimator.ResetTrigger("get_hit");
+        playerAnimator.ResetTrigger("equipment_change");
+        playerAnimator.ResetTrigger("victory");
     }
 }
 
