@@ -193,7 +193,19 @@ public class CharacterPlayerController : MonoBehaviour
         JumpAttack,
         Attack,
         Combo,
-        Defend
+        Defend,
+        DefendHit,
+        RollUp,
+        RollDown,
+        RollLeft,
+        RollRight,
+        Slide,
+        DashUp,
+        DashDown,
+        DashLeft,
+        DashRight,
+        Die,
+
     }
 
     // Biến để theo dõi trạng thái hành động hiện tại
