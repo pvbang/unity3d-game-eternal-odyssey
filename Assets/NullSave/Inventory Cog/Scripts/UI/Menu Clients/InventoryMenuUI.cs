@@ -36,9 +36,17 @@ namespace NullSave.TOCK.Inventory
 
         private void Start()
         {
-            Inventory.onThemeWindowOpened?.Invoke(gameObject);
-            onOpen?.Invoke();
+            if (Inventory != null)
+            {
+                Inventory.onThemeWindowOpened?.Invoke(gameObject);
+                onOpen?.Invoke();
+            }
+            else
+            {
+                Debug.LogError("Inventory is not assigned or found. Please check the setup.");
+            }
         }
+
 
         public void Update()
         {
