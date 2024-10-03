@@ -40,6 +40,7 @@ namespace Suntail
         [Header("Keybinds")]
         [SerializeField] private KeyCode jumpKey = KeyCode.Space;
         [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
+        [SerializeField] private KeyCode runKey2 = KeyCode.RightShift;
 
 
         [Header("Footsteps")]
@@ -126,7 +127,7 @@ namespace Suntail
 
             _moveDirection = transform.forward * _verticalMovement + transform.right * _horizontalMovement;
             
-            _isRunning = Input.GetKey(runKey);
+            _isRunning = Input.GetKey(runKey) || Input.GetKey(runKey2);
             _currentSpeed = walkSpeed * (_isRunning ? runMultiplier : 1f);
             _characterController.Move(_moveDirection * _currentSpeed * Time.deltaTime);
 
