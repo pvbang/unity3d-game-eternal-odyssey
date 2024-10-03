@@ -10,7 +10,7 @@ namespace NullSave.TOCK
         {
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
-            SceneManager.LoadScene(sceneName);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
 
     }
