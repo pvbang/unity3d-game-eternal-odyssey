@@ -2,11 +2,8 @@
 using UnityEditor;
 using UnityEngine;
 
-<<<<<<< HEAD
 [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
-=======
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
->>>>>>> 37fb3ef183d6e3a349385d2bc13d450ba00e3fe6
+
 public class HierarchyIconAttribute : System.Attribute
 {
 
