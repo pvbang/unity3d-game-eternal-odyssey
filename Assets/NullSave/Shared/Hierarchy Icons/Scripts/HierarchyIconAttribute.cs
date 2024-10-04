@@ -2,8 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
-
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
 public class HierarchyIconAttribute : System.Attribute
 {
 
