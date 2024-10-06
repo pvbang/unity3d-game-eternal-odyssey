@@ -24,4 +24,13 @@ public class Attribute
         this.intelligence = intelligence;
         this.crit = crit;
     }
+
+    public Rate Health { get => health; set => health = value; }
+    public Rate Damage { get => damage; set => damage = value; }
+    public float Resistance { get => resistance; set => resistance = value; }
+    public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
+    public float RunSpeed { get => runSpeed; set => runSpeed = value; }
+    public float Intelligence { get => intelligence; set => intelligence = value; }
+    public float Crit { get => crit; set => crit = value; }
+
 }
