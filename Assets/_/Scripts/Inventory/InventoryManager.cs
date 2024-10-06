@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject inventoryPanel;
-    public Button closeButton;
 
     private bool isOpenInventory = false;
     // Update is called once per frame
@@ -16,7 +15,6 @@ public class InventoryManager : MonoBehaviour
         inventoryPanel.SetActive(false);
 
         // Gán sự kiện cho nút CloseButton
-        closeButton.onClick.AddListener(CloseInventory);
     }
 
     private void Update()
@@ -28,12 +26,5 @@ public class InventoryManager : MonoBehaviour
             isOpenInventory = !isOpenInventory;
             inventoryPanel.SetActive(isOpenInventory);
         }
-    }
-
-    // Hàm đóng Inventory khi bấm nút Close
-    public void CloseInventory()
-    {
-        isOpenInventory = false;
-        inventoryPanel.SetActive(false);
     }
 }

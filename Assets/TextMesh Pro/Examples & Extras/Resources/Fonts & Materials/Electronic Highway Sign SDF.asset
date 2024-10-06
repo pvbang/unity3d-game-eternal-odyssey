@@ -150,6 +150,7 @@ MonoBehaviour:
     m_StrikethroughOffset: 46
     m_StrikethroughThickness: 2.0571427
     m_TabWidth: 88
+<<<<<<< HEAD
   m_GlyphTable:
   - m_Index: 3
     m_Metrics:
@@ -342,11 +343,16 @@ MonoBehaviour:
     m_Unicode: 116
     m_GlyphIndex: 87
     m_Scale: 1
+=======
+  m_GlyphTable: []
+  m_CharacterTable: []
+>>>>>>> 9ab278a9da865d8816cb444da928a9ba6e37a616
   m_AtlasTextures:
   - {fileID: 28981121099961358}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1
+<<<<<<< HEAD
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -405,6 +411,14 @@ MonoBehaviour:
     m_Y: 946
     m_Width: 1023
     m_Height: 77
+=======
+  m_UsedGlyphRects: []
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 0
+    m_Width: 1023
+    m_Height: 1023
+>>>>>>> 9ab278a9da865d8816cb444da928a9ba6e37a616
   m_fontInfo:
     Name: Electronic Highway Sign
     PointSize: 144
@@ -518,9 +532,9 @@ Texture2D:
   m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
   serializedVersion: 2
-  m_Width: 1024
-  m_Height: 1024
-  m_CompleteImageSize: 1048576
+  m_Width: 0
+  m_Height: 0
+  m_CompleteImageSize: 0
   m_MipsStripped: 0
   m_TextureFormat: 1
   m_MipCount: 1
