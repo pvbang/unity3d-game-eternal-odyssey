@@ -150,6 +150,7 @@ MonoBehaviour:
     m_StrikethroughOffset: 23.2
     m_StrikethroughThickness: 4.482422
     m_TabWidth: 18
+<<<<<<< HEAD
   m_GlyphTable:
   - m_Index: 3
     m_Metrics:
@@ -361,11 +362,16 @@ MonoBehaviour:
     m_Unicode: 8230
     m_GlyphIndex: 401
     m_Scale: 1
+=======
+  m_GlyphTable: []
+  m_CharacterTable: []
+>>>>>>> 9ab278a9da865d8816cb444da928a9ba6e37a616
   m_AtlasTextures:
   - {fileID: 28256370963634744}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1
+<<<<<<< HEAD
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -447,6 +453,13 @@ MonoBehaviour:
   - m_X: 455
     m_Y: 0
     m_Width: 568
+=======
+  m_UsedGlyphRects: []
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 0
+    m_Width: 1023
+>>>>>>> 9ab278a9da865d8816cb444da928a9ba6e37a616
     m_Height: 1023
   m_fontInfo:
     Name: Oswald
@@ -561,9 +574,9 @@ Texture2D:
   m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
   serializedVersion: 2
-  m_Width: 1024
-  m_Height: 1024
-  m_CompleteImageSize: 1048576
+  m_Width: 0
+  m_Height: 0
+  m_CompleteImageSize: 0
   m_MipsStripped: 0
   m_TextureFormat: 1
   m_MipCount: 1
