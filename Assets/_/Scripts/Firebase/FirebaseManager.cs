@@ -8,6 +8,9 @@ public class FirebaseManager : MonoBehaviour
 
     public DatabaseReference databaseReference;
 
+    public string currentWorldId = "K08WVUV49BS31M8WV1VXOXD4EJH98S";  // World hiện tại
+    public string currentUserId = "user01";   // User hiện tại
+
     private void Awake()
     {
         FirebaseManager.instance = this;
@@ -37,5 +40,11 @@ public class FirebaseManager : MonoBehaviour
     public void SignOut()
     {
         FirebaseAuth.DefaultInstance.SignOut();
+    }
+
+    public void SetWorldAndUser(string worldId, string userId)
+    {
+        currentWorldId = worldId;
+        currentUserId = userId;
     }
 }
