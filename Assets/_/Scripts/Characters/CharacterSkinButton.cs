@@ -5,11 +5,38 @@ using UnityEngine.UI;
 
 public class CharacterSkinButton : BaseButton
 {
-    public Image checkedImage;
-    public Image uncheckImage;
+    public bool isCheck = false;
+    public Sprite checkedImage;
+    public Sprite uncheckImage;
+
+    public Image checkImage;
+    public GameObject skinObject;
+
+    private void Update()
+    {
+        if (skinObject == null) return;
+
+        if (isCheck)
+        {
+            skinObject.SetActive(true);
+        }
+        else
+        {
+            skinObject.SetActive(false);
+        }
+    }
 
     protected override void OnClick()
     {
-        throw new System.NotImplementedException();
+        if (checkImage.sprite == checkedImage)
+        {
+            isCheck = false;
+            checkImage.sprite = uncheckImage;
+        }
+        else
+        {
+            isCheck = true; 
+            checkImage.sprite = checkedImage;
+        }
     }
 }
