@@ -35,19 +35,20 @@ public class ItemManager : MonoBehaviour
 
     // lấy thông tin item từ id
     // cách gọi hàm: ItemManager.GetItemById("id", item => { Debug.Log(item); });
+    // Lấy thông tin chi tiết của item từ `items`
     public static void GetItemById(string itemId, Action<Item> callback)
     {
-        var taskRef = FirebaseManager.instance.databaseReference
+        var itemRef = FirebaseManager.instance.databaseReference
             .Child("items")
             .Child(itemId);
 
-        var task = taskRef.GetValueAsync();
+        var task = itemRef.GetValueAsync();
 
         task.ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
-                Debug.Log("Lỗi lấy thông tin item từ id: " + itemId + " | Exception: " + task.Exception);
+                Debug.LogError($"Lỗi lấy thông tin item từ id: {itemId} | Exception: {task.Exception}");
                 callback(null);
                 return;
             }
@@ -59,16 +60,18 @@ public class ItemManager : MonoBehaviour
                 if (snapshot.Exists)
                 {
                     Item item = JsonUtility.FromJson<Item>(snapshot.GetRawJsonValue());
+                    Debug.Log($"Đã lấy được thông tin chi tiết của item: {item.name}");
                     callback(item);
                 }
                 else
                 {
-                    Debug.Log("Không tìm thấy item từ id: " + itemId);
+                    Debug.LogWarning($"Không tìm thấy item từ id: {itemId}");
                     callback(null);
                 }
             }
         });
     }
+
 
     // lấy thông tin tất cả items
     // cách gọi hàm: ItemManager.GetItems(items => { Debug.Log(items); });
