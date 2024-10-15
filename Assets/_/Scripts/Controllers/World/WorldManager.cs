@@ -71,6 +71,42 @@ public class WorldManager : MonoBehaviour
     }
 
 
+    // lấy danh sách tất cả world
+    // cách gọi hàm: WorldManager.GetAllWorlds(worlds => { Debug.Log(worlds); });
+    public static void GetAllWorlds(Action<List<World>> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child("worlds");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy danh sách tất cả world: " + task.Exception);
+                callback(null);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                List<World> worlds = new List<World>();
+
+                foreach (var child in snapshot.Children)
+                {
+                    World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+                    worlds.Add(world);
+                }
+
+                callback(worlds);
+            }
+        });
+    }
+
+
     // cập nhật giá trị của world
     // cách gọi hàm: StartCoroutine(WorldManager.UpdateWorld(world));
     public static IEnumerator UpdateWorld(World world)
