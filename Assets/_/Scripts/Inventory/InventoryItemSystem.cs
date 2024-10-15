@@ -10,11 +10,14 @@ public class InventoryItemSystem : MonoBehaviour
     public List<Inventory> inventory = new List<Inventory>();  // Danh sách các vật phẩm trong kho
     public Dictionary<string, Item> itemDetails = new Dictionary<string, Item>();  // Lưu trữ chi tiết thông tin vật phẩm
     public Action onInventoryUpdated;  // Delegate để cập nhật UI hoặc xử lý logic khi Inventory được tải xong
+
+    public static InventoryItemSystem instance;  // Singleton cho InventoryItemSystem
+    public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
     void Start()
     {
         // Lấy worldId và userId từ GameManager
-        string worldId = FirebaseManager.instance.currentWorldId;
-        string userId = FirebaseManager.instance.currentUserId;
+        string worldId = "AU0NOXSIN7BZ9PQ1GL6XUZDSYHWB9O";
+        string userId = "zpNXdXDhdPRkzY3nUtV7VqnHK3S2";
 
         if (!string.IsNullOrEmpty(worldId) && !string.IsNullOrEmpty(userId))
         {
@@ -23,6 +26,18 @@ public class InventoryItemSystem : MonoBehaviour
         else
         {
             Debug.LogError("World ID hoặc User ID không hợp lệ.");
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -114,9 +129,6 @@ public class InventoryItemSystem : MonoBehaviour
             }
         });
     }
-
-
-
     private void LoadItemDetails()
     {
         foreach (var playerItem in inventory)
@@ -132,9 +144,63 @@ public class InventoryItemSystem : MonoBehaviour
 
                         // Cập nhật UI mỗi khi có một Item mới được thêm vào chi tiết
                         onInventoryUpdated?.Invoke();
+                        Debug.Log("Đã gọi onInventoryUpdated sau khi thêm thông tin chi tiết.");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item: {playerItem.itemId}");
                     }
                 });
             }
+            else
+            {
+                // Nếu đã có thông tin chi tiết, cũng gọi onInventoryUpdated để cập nhật UI
+                onInventoryUpdated?.Invoke();
+                Debug.Log("Đã gọi onInventoryUpdated khi đã có thông tin chi tiết sẵn.");
+            }
+        }
+    }
+
+
+    // Thêm vật phẩm vào Inventory từ Ground
+    public void AddItemToInventory(string itemId)
+    {
+        var groundItem = groundItems.Find(i => i.itemId == itemId);
+        if (groundItem != null)
+        {
+            var inventoryItem = inventory.Find(i => i.itemId == itemId);
+            if (inventoryItem != null)
+            {
+                inventoryItem.quantity += groundItem.quantity;  // Cộng dồn số lượng vào Inventory nếu đã có sẵn
+            }
+            else
+            {
+                inventory.Add(new Inventory(itemId, groundItem.quantity));  // Thêm item mới vào Inventory
+            }
+
+            groundItems.Remove(groundItem);  // Xóa khỏi GroundItems
+            Debug.Log($"Đã thêm item {itemId} vào Inventory.");
+        }
+    }
+
+    // Xóa vật phẩm khỏi Inventory và thêm vào Ground
+    public void RemoveItemFromInventory(string itemId)
+    {
+        var inventoryItem = inventory.Find(i => i.itemId == itemId);
+        if (inventoryItem != null)
+        {
+            var groundItem = groundItems.Find(i => i.itemId == itemId);
+            if (groundItem != null)
+            {
+                groundItem.quantity += inventoryItem.quantity;  // Cộng dồn số lượng vào GroundItems nếu đã có sẵn
+            }
+            else
+            {
+                groundItems.Add(new Inventory(itemId, inventoryItem.quantity));  // Thêm item mới vào GroundItems
+            }
+
+            inventory.Remove(inventoryItem);  // Xóa khỏi Inventory
+            Debug.Log($"Đã xóa item {itemId} khỏi Inventory.");
         }
     }
 }
