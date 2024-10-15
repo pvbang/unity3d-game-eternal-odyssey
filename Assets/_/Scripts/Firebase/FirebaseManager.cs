@@ -8,8 +8,8 @@ public class FirebaseManager : MonoBehaviour
 
     public DatabaseReference databaseReference;
 
-    public string currentWorldId = "K08WVUV49BS31M8WV1VXOXD4EJH98S";  // World hiện tại
-    public string currentUserId = "user01";   // User hiện tại
+    public string currentWorldId = "AU0NOXSIN7BZ9PQ1GL6XUZDSYHWB9O";  // World hiện tại
+    public string currentUserId = "zpNXdXDhdPRkzY3nUtV7VqnHK3S2";   // User hiện tại
 
     private void Awake()
     {

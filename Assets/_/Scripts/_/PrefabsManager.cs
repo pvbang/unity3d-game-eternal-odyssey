@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PrefabsManager : MonoBehaviour
 {
     public List<GameObject> prefabs = new List<GameObject>();
-
+    public Sprite Icon;
     private void Awake()
     {
         //if (prefabs.Count == 0)
