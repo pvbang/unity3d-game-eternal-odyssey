@@ -2,7 +2,6 @@
 
 public enum PlayerStatus
 {
-    Playing,            // Đang chơi
-    Resting,            // Nghỉ
+    Online,             // Đang chơi
     Offline             // Offline
 }

@@ -24,10 +24,8 @@ public class Content : MonoBehaviour
     // tạo nhiều item vào list
     public void AddContent(List<Transform> contentList)
     {
-        Debug.Log("content 1");
         foreach (Transform content in contentList)
         {
-            Debug.Log("content");
             Instantiate(content, transform);
         }
     }

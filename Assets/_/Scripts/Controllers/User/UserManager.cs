@@ -155,4 +155,55 @@ public class UserManager : MonoBehaviour
             }
         });
     }
+
+
+    // thêm notification cho user
+    // cách gọi hàm: StartCoroutine(UserManager.AddNotification(userId, notification));
+    public static IEnumerator AddNotification(string userId, Notification notification)
+    {
+        string json = JsonUtility.ToJson(notification);
+
+        var task = FirebaseManager.instance.databaseReference.
+            Child("users").
+            Child(userId).
+            Child("notifications").
+            Child(RandomManager.GenerateRandomID()).
+            SetRawJsonValueAsync(json);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi thêm notification cho user");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Thêm notification cho user thành công");
+        }
+    }
+
+
+    // sửa trạng thái của notification
+    // cách gọi hàm: StartCoroutine(UserManager.UpdateNotification(userId, notificationId, status));
+    public static IEnumerator UpdateNotification(string userId, string notificationId, NotificationStatus status)
+    {
+        var task = FirebaseManager.instance.databaseReference.
+            Child("users").
+            Child(userId).
+            Child("notifications").
+            Child(notificationId).
+            Child("status").
+            SetValueAsync(status);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi sửa trạng thái của notification");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Sửa trạng thái của notification thành công");
+        }
+    }
 }
