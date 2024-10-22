@@ -10,27 +10,45 @@ public class WorldManager : MonoBehaviour
     // cách gọi hàm: StartCoroutine(WorldManager.AddWorld(world));
     public static IEnumerator AddWorld(World world)
     {
+        //// Kiểm tra xem worldId đã tồn tại trong Firebase chưa
+        //var checkTask = FirebaseManager.instance.databaseReference
+        //    .Child(ConstantManager.FIREBASE_WORLDS)
+        //    .Child(world.worldId)
+        //    .GetValueAsync();
+
+        //yield return new WaitUntil(() => checkTask.IsCompleted);
+
+        //if (checkTask.IsFaulted)
+        //{
+        //    Debug.LogError("Lỗi khi kiểm tra worldId");
+        //    yield break; // Dừng coroutine nếu xảy ra lỗi
+        //}
+
+        //if (checkTask.Result.Exists)
+        //{
+        //    NotificationManager.instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
+        //    yield break; // Dừng coroutine nếu worldId đã tồn tại
+        //}
+
+        // Nếu không tồn tại, tiến hành thêm world mới
         string json = JsonUtility.ToJson(world);
 
-        var task = FirebaseManager.instance.databaseReference.
-            Child("worlds").
-            Child(world.worldId).
-            SetRawJsonValueAsync(json);
+        var addTask = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(world.worldId)
+            .SetRawJsonValueAsync(json);
 
-        yield return new WaitUntil(() => task.IsCompleted);
+        yield return new WaitUntil(() => addTask.IsCompleted);
 
-        if (task.IsFaulted)
+        if (addTask.IsFaulted)
         {
-            Debug.LogError("Lỗi thêm world");
+            NotificationManager.instance.ShowNotification("Lỗi khi tạo thế giới", NotificationType.Error);
         }
-        else if (task.IsCompleted)
+        else
         {
-            Debug.Log("Thêm world thành công");
+            NotificationManager.instance.ShowNotification("Tạo Thế giới thành công!", NotificationType.Notification);
         }
     }
-
-
-    // thêm world mới
 
 
     // lấy thông tin world từ id
@@ -107,6 +125,50 @@ public class WorldManager : MonoBehaviour
     }
 
 
+    // lấy danh sách các world của mình
+    // cách gọi hàm: WorldManager.GetMyWorlds(worlds => { Debug.Log(worlds); });
+    public static void GetMyWorlds(Action<List<World>> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child("worlds");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy danh sách các world của mình: " + task.Exception);
+                callback(null);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                List<World> worlds = new List<World>();
+
+                foreach (var child in snapshot.Children)
+                {
+                    World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+
+                    foreach (PlayerWorld playerWorld in world.playerWorld)
+                    {
+                        if (playerWorld.userId == FirebaseManager.instance.GetUserId())
+                        {
+                            worlds.Add(world);
+                            break;
+                        }
+                    }
+                }
+
+                callback(worlds);
+            }
+        });
+    }
+
+
     // cập nhật giá trị của world
     // cách gọi hàm: StartCoroutine(WorldManager.UpdateWorld(world));
     public static IEnumerator UpdateWorld(World world)
@@ -159,9 +221,9 @@ public class WorldManager : MonoBehaviour
     public static IEnumerator DeleteWorld(string worldId)
     {
         var task = FirebaseManager.instance.databaseReference.
-            Child("worlds").
+            Child(ConstantManager.FIREBASE_WORLDS).
             Child(worldId).
-            RemoveValueAsync();
+            SetValueAsync(null);
 
         yield return new WaitUntil(() => task.IsCompleted);
 
@@ -175,5 +237,59 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+    // Thêm người chơi vào world (thêm bản thân vào playerWorld bằng worldId)
+    // cách gọi hàm: StartCoroutine(WorldManager.AddPlayerToWorld(worldId));
+    public static IEnumerator AddPlayerToWorld(string worldId)
+    {
+        // Lấy userId của người chơi hiện tại
+        string userId = FirebaseManager.instance.GetUserId();
 
+        // Kiểm tra xem worldId có tồn tại trong Firebase không
+        var checkWorldTask = FirebaseManager.instance.databaseReference
+            .Child("worlds")
+            .Child(worldId)
+            .GetValueAsync();
+
+        yield return new WaitUntil(() => checkWorldTask.IsCompleted);
+
+        if (checkWorldTask.IsFaulted)
+        {
+            Debug.LogError("Lỗi khi kiểm tra worldId");
+            yield break; // Dừng nếu có lỗi khi kiểm tra
+        }
+
+        if (!checkWorldTask.Result.Exists)
+        {
+            NotificationManager.instance.ShowNotification("Không tìm thấy thế giới", NotificationType.Error);
+            yield break; // Dừng nếu worldId không tồn tại
+        }
+
+        // Nếu worldId tồn tại, tạo đối tượng PlayerWorld mới
+        PlayerWorld playerWorld = new PlayerWorld
+        {
+            userId = userId,
+            role = Role.Member,
+            inventorys = new List<Inventory>(),
+            playerDetails = new PlayerDetails()
+        };
+
+        // Thêm người chơi vào world
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child("worlds")
+            .Child(worldId)
+            .Child("playerWorld")
+            .SetValueAsync(playerWorld);
+
+        yield return new WaitUntil(() => taskRef.IsCompleted);
+
+        if (taskRef.IsFaulted)
+        {
+            Debug.LogError("Lỗi thêm người chơi vào world");
+        }
+        else
+        {
+            PlayerPrefs.SetString("worldId", worldId);
+            NotificationManager.instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
+        }
+    }
 }
