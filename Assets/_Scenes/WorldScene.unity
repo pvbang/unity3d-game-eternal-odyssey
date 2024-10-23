@@ -6228,7 +6228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InviteWorld: {fileID: 1622746558}
-  playersContent: {fileID: 0}
+  playersContent: {fileID: 1585892627}
 --- !u!1 &1056578032
 GameObject:
   m_ObjectHideFlags: 0
@@ -10853,6 +10853,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2534900138642624478, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.439987
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791477358219372484, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.439987
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138270421491830960, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.439987
+      objectReference: {fileID: 0}
     - target: {fileID: 8250833654023223934, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
       propertyPath: m_Camera
       value: 
@@ -11302,7 +11314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1770196263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11388,9 +11400,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192094953ca2e5d4abd13e1365ab4160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  namePlayer: {fileID: 0}
-  sprites: []
+  avatar: {fileID: 1100650963}
+  namePlayer: {fileID: 1564284547}
+  sprites:
+  - {fileID: 21300000, guid: c7af5fcfaed096949a55d7b5666fe0bc, type: 3}
+  - {fileID: 21300000, guid: 5ead2888df906e942bb8769d98ee22ed, type: 3}
+  - {fileID: 21300000, guid: 1ec1006a366b5af4e936ee1b3ad241c9, type: 3}
+  - {fileID: 21300000, guid: 4258644fcccff5f42a7064f2c24fe70b, type: 3}
+  - {fileID: 21300000, guid: c02cd05ddfec0814d9a95b9b9b4cb02b, type: 3}
+  - {fileID: 21300000, guid: 255cabbc8da37f64ab62d1bf13814f99, type: 3}
+  - {fileID: 21300000, guid: 4823de6618c2f4346a4add320b1848a9, type: 3}
+  - {fileID: 21300000, guid: 2fc328a28cc7e934aa2dc0712c31adbb, type: 3}
+  - {fileID: 21300000, guid: ae664bbc8866af846a43d1b612667193, type: 3}
+  - {fileID: 21300000, guid: 431d7d69246bbb3448fa77e1214690e3, type: 3}
 --- !u!1 &1771770744
 GameObject:
   m_ObjectHideFlags: 0
