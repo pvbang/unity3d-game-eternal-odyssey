@@ -6,7 +6,6 @@ public class CharacterPlayerController : MonoBehaviour
 {
     private Animator playerAnimator;
     public Transform charactersObject;
-
     private enum CharacterState
     {
         Idle,
@@ -54,6 +53,10 @@ public class CharacterPlayerController : MonoBehaviour
 
     void Update()
     {
+        if (InventoryManager.isOpenInventory)
+        {
+            return;
+        }
         GetKeyInput();
     }
 

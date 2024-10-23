@@ -13,21 +13,8 @@ public class InventoryItemSystem : MonoBehaviour
 
     public static InventoryItemSystem instance;  // Singleton cho InventoryItemSystem
     public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
-    void Start()
-    {
-        // Lấy worldId và userId từ GameManager
-        string worldId = "AU0NOXSIN7BZ9PQ1GL6XUZDSYHWB9O";
-        string userId = "zpNXdXDhdPRkzY3nUtV7VqnHK3S2";
 
-        if (!string.IsNullOrEmpty(worldId) && !string.IsNullOrEmpty(userId))
-        {
-            LoadInventoryDetailsFromFirebase(worldId, userId);
-        }
-        else
-        {
-            Debug.LogError("World ID hoặc User ID không hợp lệ.");
-        }
-    }
+    public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
 
     private void Awake()
     {
@@ -41,141 +28,112 @@ public class InventoryItemSystem : MonoBehaviour
         }
     }
 
-    // Thêm vật phẩm vào Inventory
-    public void AddItem(string worldId, string userId, string idItem, int quantity)
+    private void Start()
     {
-        // Tìm item trong danh sách hiện tại
-        Inventory item = inventory.Find(i => i.itemId == idItem);
-        if (item != null)
+        // Tải thông tin chi tiết của item từ Firebase
+        LoadItemDetails(() =>
         {
-            item.quantity += quantity;
-        }
-        else
-        {
-            inventory.Add(new Inventory { itemId = idItem, quantity = quantity });
-        }
+            Debug.Log("Đã tải xong thông tin item từ Firebase.");
 
-        // Tự động lấy thông tin chi tiết nếu chưa có trong Dictionary
-        if (!itemDetails.ContainsKey(idItem))
-        {
-            ItemManager.GetItemById(idItem, (itemData) =>
+            // Sau khi đã có thông tin chi tiết, tải danh sách Inventory từ Firebase
+            LoadInventoryFromFirebase(inventoryList =>
             {
-                if (itemData != null)
-                {
-                    itemDetails.Add(idItem, itemData);
-                    onInventoryUpdated?.Invoke();  // Gọi delegate cập nhật UI khi tải xong
-                }
+                this.inventory = inventoryList;  // Gán danh sách inventory
+                Debug.Log("Đã tải xong danh sách inventory từ Firebase.");
+                onInventoryUpdated?.Invoke();  // Gọi hàm để cập nhật UI
             });
-        }
-        else
-        {
-            onInventoryUpdated?.Invoke();  // Gọi delegate cập nhật UI nếu đã có thông tin
-        }
+        });
     }
 
-
-    // Xóa vật phẩm khỏi Inventory
-    public void RemoveItem(string itemInventoryId, int Quantity)
+    // Hàm lấy thông tin chi tiết của Inventory từ Firebase
+    public static void LoadInventoryFromFirebase(Action<List<Inventory>> callback)
     {
-        Inventory item = inventory.Find(i => i.itemId == itemInventoryId);
-        if (item != null)
-        {
-            item.quantity -= Quantity;
-            if (item.quantity <= 0)
-                inventory.Remove(item);
-        }
-    }
-
-    // Hàm lấy thông tin chi tiết của Inventory
-    public void LoadInventoryDetailsFromFirebase(string worldId, string userId)
-    {
-        // Đường dẫn tới Inventory của người chơi
-        var inventoryRef = FirebaseManager.instance.databaseReference
+        var taskRef = FirebaseManager.instance.databaseReference
             .Child("worlds")
-            .Child(worldId)
-            .Child("userId")
-            .Child(userId)
-            .Child("inventory");
+            .Child("GY99YQGNYFI8KTIMPEELYTDPY8IO3Q")
+            .Child("playerWorld")
+            .Child("1")
+            .Child("inventorys");
 
-        Debug.Log($"Đang tải chi tiết thông tin inventory từ world: {worldId}, user: {userId}, inventory: {inventoryRef}");
+        var task = taskRef.GetValueAsync();
 
-        // Lấy dữ liệu Inventory từ Firebase
-        inventoryRef.GetValueAsync().ContinueWith(task =>
+        task.ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
-                Debug.LogError("Lỗi khi tải dữ liệu Inventory từ Firebase: " + task.Exception);
+                Debug.Log("Lỗi lấy danh sách inventory: " + task.Exception);
+                callback(null);  // Trả về null trong trường hợp lỗi
                 return;
             }
 
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                inventory.Clear();
 
-                foreach (DataSnapshot itemSnapshot in snapshot.Children)
+                List<Inventory> inventoryList = new List<Inventory>();
+
+                foreach (var child in snapshot.Children)
                 {
-                    // Lấy `itemId` và `quantity` từ Inventory của người chơi
-                    string itemId = itemSnapshot.Child("itemId").Value.ToString();
-                    int quantity = int.Parse(itemSnapshot.Child("quantity").Value.ToString());
+                    Inventory tempInventory = JsonUtility.FromJson<Inventory>(child.GetRawJsonValue());
 
-                    // Thêm vào danh sách Inventory
-                    inventory.Add(new Inventory(itemId, quantity));
-                    Debug.Log($"Lấy item {itemId} từ Inventory với số lượng: {quantity}");
-                }
-
-                // Sau khi có danh sách Inventory, tải thông tin chi tiết từng Item
-                LoadItemDetails();
-            }
-        });
-    }
-    private void LoadItemDetails()
-    {
-        foreach (var playerItem in inventory)
-        {
-            if (!itemDetails.ContainsKey(playerItem.itemId))
-            {
-                ItemManager.GetItemById(playerItem.itemId, (itemData) =>
-                {
-                    if (itemData != null)
+                    // Kiểm tra nếu itemId tồn tại trong itemDetails
+                    if (instance.itemDetails.TryGetValue(tempInventory.itemId, out Item itemDetail))
                     {
-                        itemDetails.Add(playerItem.itemId, itemData);
-                        Debug.Log($"Đã lấy thông tin chi tiết của Item: {itemData.name}");
-
-                        // Cập nhật UI mỗi khi có một Item mới được thêm vào chi tiết
-                        onInventoryUpdated?.Invoke();
-                        Debug.Log("Đã gọi onInventoryUpdated sau khi thêm thông tin chi tiết.");
+                        // Tạo Inventory mới với đối tượng Item đầy đủ và số lượng
+                        Inventory completeInventory = new Inventory(itemDetail, tempInventory.quantity);
+                        inventoryList.Add(completeInventory);
                     }
                     else
                     {
-                        Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item: {playerItem.itemId}");
+                        Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {tempInventory.itemId}");
                     }
-                });
+                }
+
+                callback(inventoryList);  // Trả về danh sách inventory qua callback
             }
-            else
-            {
-                // Nếu đã có thông tin chi tiết, cũng gọi onInventoryUpdated để cập nhật UI
-                onInventoryUpdated?.Invoke();
-                Debug.Log("Đã gọi onInventoryUpdated khi đã có thông tin chi tiết sẵn.");
-            }
-        }
+        });
     }
 
+    // Phương thức để tải thông tin chi tiết của các item từ Firebase
+    public void LoadItemDetails(Action callback)
+    {
+        ItemManager.GetItems(items =>
+        {
+            if (items == null)
+            {
+                Debug.LogError("Không thể tải thông tin items từ Firebase.");
+                return;
+            }
+
+            // Lưu các item vào itemDetails dictionary
+            foreach (var item in items)
+            {
+                if (!itemDetails.ContainsKey(item.itemId))
+                {
+                    itemDetails.Add(item.itemId, item);
+                }
+            }
+
+            isDataLoaded = true;
+            callback?.Invoke();
+            Debug.Log("Đã tải xong tất cả các item từ Firebase.");
+        });
+    }
 
     // Thêm vật phẩm vào Inventory từ Ground
     public void AddItemToInventory(string itemId)
     {
-        var groundItem = groundItems.Find(i => i.itemId == itemId);
+        var groundItem = groundItems.Find(i => i.item.itemId == itemId);
         if (groundItem != null)
         {
-            var inventoryItem = inventory.Find(i => i.itemId == itemId);
+            var inventoryItem = inventory.Find(i => i.item.itemId == itemId);
             if (inventoryItem != null)
             {
                 inventoryItem.quantity += groundItem.quantity;  // Cộng dồn số lượng vào Inventory nếu đã có sẵn
             }
             else
             {
-                inventory.Add(new Inventory(itemId, groundItem.quantity));  // Thêm item mới vào Inventory
+                inventory.Add(new Inventory(groundItem.item, groundItem.quantity));  // Thêm item mới vào Inventory với thông tin đầy đủ
             }
 
             groundItems.Remove(groundItem);  // Xóa khỏi GroundItems
@@ -186,17 +144,17 @@ public class InventoryItemSystem : MonoBehaviour
     // Xóa vật phẩm khỏi Inventory và thêm vào Ground
     public void RemoveItemFromInventory(string itemId)
     {
-        var inventoryItem = inventory.Find(i => i.itemId == itemId);
+        var inventoryItem = inventory.Find(i => i.item.itemId == itemId);
         if (inventoryItem != null)
         {
-            var groundItem = groundItems.Find(i => i.itemId == itemId);
+            var groundItem = groundItems.Find(i => i.item.itemId == itemId);
             if (groundItem != null)
             {
                 groundItem.quantity += inventoryItem.quantity;  // Cộng dồn số lượng vào GroundItems nếu đã có sẵn
             }
             else
             {
-                groundItems.Add(new Inventory(itemId, inventoryItem.quantity));  // Thêm item mới vào GroundItems
+                groundItems.Add(new Inventory(inventoryItem.item, inventoryItem.quantity));  // Thêm item mới vào GroundItems
             }
 
             inventory.Remove(inventoryItem);  // Xóa khỏi Inventory
