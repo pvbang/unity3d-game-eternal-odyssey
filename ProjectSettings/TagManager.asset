@@ -9,6 +9,8 @@ TagManager:
   - Door
   - _Player
   - _Enemy
+  - InventorySlot
+  - GroundSlot
   layers:
   - Default
   - TransparentFX
@@ -54,4 +56,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1303664713
+    locked: 0
+  - name: UI Inventory
+    uniqueID: 2724676781
+    locked: 0
+  - name: ItemSlot
+    uniqueID: 2105399123
     locked: 0
