@@ -164,9 +164,9 @@ public class UserManager : MonoBehaviour
         string json = JsonUtility.ToJson(notification);
 
         var task = FirebaseManager.instance.databaseReference.
-            Child("users").
+            Child(ConstantManager.FIREBASE_USERS).
             Child(userId).
-            Child("notifications").
+            Child(ConstantManager.FIREBASE_USERS_NOTIFICATIONS).
             Child(RandomManager.GenerateRandomID()).
             SetRawJsonValueAsync(json);
 
@@ -180,6 +180,48 @@ public class UserManager : MonoBehaviour
         {
             Debug.Log("Thêm notification cho user thành công");
         }
+    }
+
+    // lấy userId từ username
+    // cách gọi hàm: UserManager.GetUserIdByUsername("username", userId => { Debug.Log(userId); });
+
+    public static void GetUserIdByUsername(string username, System.Action<string> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child("users")
+            .OrderByChild("username")
+            .EqualTo(username);
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy userId từ username: " + task.Exception);
+                callback(null);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    foreach (var child in snapshot.Children)
+                    {
+                        string userId = child.Key;
+                        callback(userId);
+                        return;
+                    }
+                }
+                else
+                {
+                    callback(null);
+                }
+            }
+        });
     }
 
 

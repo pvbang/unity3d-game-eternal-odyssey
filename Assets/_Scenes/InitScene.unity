@@ -1308,7 +1308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234}
+  m_AnchoredPosition: {x: 0, y: -265}
   m_SizeDelta: {x: 877, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &495566280
@@ -8749,6 +8749,7 @@ GameObject:
   - component: {fileID: 1874478147}
   - component: {fileID: 1874478150}
   - component: {fileID: 1874478151}
+  - component: {fileID: 1874478152}
   m_Layer: 5
   m_Name: LoginButton
   m_TagString: Untagged
@@ -8774,7 +8775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234}
+  m_AnchoredPosition: {x: 0, y: -265}
   m_SizeDelta: {x: 777, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874478147
@@ -8890,6 +8891,23 @@ MonoBehaviour:
   usernameText: {fileID: 1690172285}
   passwordText: {fileID: 326775553}
   UI: {fileID: 255458692}
+--- !u!114 &1874478152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874478145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3a81e7df89cca40852ae8f65870e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyName: 
+  dataType: 0
+  stringValue: 
+  intValue: 0
+  floatValue: 0
 --- !u!1 &1874701200
 GameObject:
   m_ObjectHideFlags: 0
@@ -9094,7 +9112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234}
+  m_AnchoredPosition: {x: 0, y: -265}
   m_SizeDelta: {x: 777, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &2080447036
