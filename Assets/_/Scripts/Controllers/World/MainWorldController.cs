@@ -53,18 +53,41 @@ public class MainWorldController : MonoBehaviour
         if (!data.Exists) return;
 
         List<World> worlds = new List<World>();
+        string userId = FirebaseManager.instance.GetUserId();
 
         foreach (DataSnapshot child in data.Children)
         {
+            //World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+            //Debug.Log($"Raw JSON: {child.GetRawJsonValue()}");
+            //print(world.worldId);
+
+            //foreach (PlayerWorld playerWorld in world.playerWorld)
+            //{
+            //    print(playerWorld.userId);
+            //    if (playerWorld.userId == userId)
+            //    {
+            //        worlds.Add(world);
+            //        break;
+            //    }
+            //}
+
+            // Parse World object từ JSON
             World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
 
-            foreach (PlayerWorld playerWorld in world.playerWorld)
+            // Khởi tạo danh sách PlayerWorld từ dictionary
+            world.playerWorld = new List<PlayerWorld>();
+
+            foreach (DataSnapshot playerSnapshot in child.Child("playerWorld").Children)
             {
-                if (playerWorld.userId == FirebaseManager.instance.GetUserId())
-                {
-                    worlds.Add(world);
-                    break;
-                }
+                // Chuyển từng phần tử trong dictionary thành PlayerWorld object
+                PlayerWorld player = JsonUtility.FromJson<PlayerWorld>(playerSnapshot.GetRawJsonValue());
+                world.playerWorld.Add(player);
+            }
+
+            // Kiểm tra nếu người chơi hiện tại thuộc thế giới này
+            if (world.playerWorld.Any(p => p.userId == userId))
+            {
+                worlds.Add(world);
             }
         }
 

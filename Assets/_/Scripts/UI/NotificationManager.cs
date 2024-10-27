@@ -32,6 +32,14 @@ public class NotificationManager : MonoBehaviour
         notificationObject.SetActive(true);
     }
 
+    public void ShowNotification2(string notificationId, string content, NotificationType notificationType)
+    {
+        notificationUI.SetContent(content);
+        notificationUI.SetNotificationType(notificationType);
+        notificationUI.SetNotificationId(notificationId);
+        notificationObject.SetActive(true);
+    }
+
     public void HideNotification()
     {
         notificationObject.SetActive(false);
@@ -61,7 +69,7 @@ public class NotificationManager : MonoBehaviour
         if (!data.Exists || !data.HasChild(ConstantManager.FIREBASE_USERS_NOTIFICATIONS)) return;
 
         // Thử lấy dữ liệu và ép kiểu một cách an toàn
-        List<Notification> notifications = new List<Notification>();
+        //List<Notification> notifications = new List<Notification>();
 
         foreach (DataSnapshot child in data.Child(ConstantManager.FIREBASE_USERS_NOTIFICATIONS).Children)
         {
@@ -69,16 +77,18 @@ public class NotificationManager : MonoBehaviour
             Notification notification = JsonUtility.FromJson<Notification>(child.GetRawJsonValue());
             if (notification != null)
             {
-                notifications.Add(notification);
+                //notifications.Add(notification); 
+                if (notification.status == NotificationStatus.Read) continue;
+                ShowNotification2(child.Key, notification.content, notification.notificationType);
             }
         }
 
-        // Duyệt qua danh sách thông báo và hiển thị
-        foreach (var notification in notifications)
-        {
-            if (notification.status == NotificationStatus.Read) continue;
-            ShowNotification(notification.content, notification.notificationType);
-        }
+        //// Duyệt qua danh sách thông báo và hiển thị
+        //foreach (var notification in notifications)
+        //{
+        //    if (notification.status == NotificationStatus.Read) continue;
+        //    ShowNotification2(notification. notification.content, notification.notificationType);
+        //}
     }
 
 
