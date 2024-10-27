@@ -175,10 +175,12 @@ public class UserManager : MonoBehaviour
         if (task.IsFaulted)
         {
             Debug.LogError("Lỗi thêm notification cho user");
+            NotificationManager.instance.ShowNotification("Lỗi gửi lời mời gia nhập vào Thế giới", NotificationType.Warning);
         }
         else if (task.IsCompleted)
         {
             Debug.Log("Thêm notification cho user thành công");
+            NotificationManager.instance.ShowNotification("Gửi lời mời gia nhập thế giới thành công.", NotificationType.Notification);
         }
     }
 
@@ -229,13 +231,15 @@ public class UserManager : MonoBehaviour
     // cách gọi hàm: StartCoroutine(UserManager.UpdateNotification(userId, notificationId, status));
     public static IEnumerator UpdateNotification(string userId, string notificationId, NotificationStatus status)
     {
+        int statusValue = (int)status;
+
         var task = FirebaseManager.instance.databaseReference.
             Child("users").
             Child(userId).
             Child("notifications").
             Child(notificationId).
             Child("status").
-            SetValueAsync(status);
+            SetValueAsync(statusValue);
 
         yield return new WaitUntil(() => task.IsCompleted);
 

@@ -31,7 +31,7 @@ public class RoomWorldController : MonoBehaviour
 
         Notification notification = new Notification();
         notification.fromUserId = FirebaseManager.instance.GetUserId();
-        notification.content = $"Bạn nhận được lời mời gia nhập thế giới từ {PlayerPrefs.GetString(ConstantManager.FIREBASE_USERS_USERNAME)}";
+        notification.content = $"Bạn nhận được lời mời gia nhập thế giới từ {PlayerPrefs.GetString(ConstantManager.FIREBASE_USERS_USERNAME)} | Mã gia nhập thế giới: {PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID)}";
         notification.status = NotificationStatus.Unread;
         notification.notificationType = NotificationType.Invitation;
         notification.time = TimeManager.Now();
