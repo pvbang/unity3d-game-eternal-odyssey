@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,10 +15,16 @@ public class NotificationUI : MonoBehaviour
     public Transform buttonCancel;
 
     public NotificationType notificationType;
+    public string notificationId = "";
 
     public void SetContent(string content)
     {
         this.content.text = content;
+    }
+
+    public void SetNotificationId(string notificationId)
+    {
+        this.notificationId = notificationId;
     }
 
     public void SetNotificationType(NotificationType notificationType)
@@ -36,6 +42,8 @@ public class NotificationUI : MonoBehaviour
                 buttonConfirm.gameObject.SetActive(false);
                 buttonVerify.gameObject.SetActive(false);
                 buttonCancel.gameObject.SetActive(false);
+
+                StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
                 break;
             case NotificationType.DeleteWorld:
                 buttonAccept.gameObject.SetActive(false);
@@ -60,9 +68,12 @@ public class NotificationUI : MonoBehaviour
         buttonAccept.gameObject.SetActive(false);
         buttonReject.gameObject.SetActive(false);
         buttonConfirm.gameObject.SetActive(false);
+        buttonVerify.gameObject.SetActive(false);
+        buttonCancel.gameObject.SetActive(false);
 
         content.text = "";
         notificationType = NotificationType.Notification;
+        notificationId = "";
     }
 
     public void CloseNotification()
@@ -80,6 +91,20 @@ public class NotificationUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public string GetContent()
+    {
+        return content.text;
+    }
+
+    // Hàm tách mã gia nhập thế giới từ nội dung thông báo: $"Bạn nhận được lời mời gia nhập thế giới từ {PlayerPrefs.GetString(ConstantManager.FIREBASE_USERS_USERNAME)} | Mã gia nhập thế giới: {PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID)}";
+    public string GetWorldIdFromContent()
+    {
+        print(content.text);
+        string[] splitContent = content.text.Split('|');
+        string worldId = splitContent[1].Trim().Split(':')[1].Trim();
+        return worldId;
+    }
+
     public void ButtonAction()
     {
         string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
@@ -87,8 +112,10 @@ public class NotificationUI : MonoBehaviour
         switch (notificationType)
         {
             case NotificationType.Invitation:
-                if (worldId == "") break;
-                StartCoroutine(WorldManager.AddPlayerToWorld(worldId));
+                string _worldId = GetWorldIdFromContent();
+                print(_worldId);
+                if (_worldId == "") break;
+                StartCoroutine(WorldManager.AddPlayerToWorld(_worldId));
                 break;
             case NotificationType.DeleteWorld:
                 if (worldId == "") break;
