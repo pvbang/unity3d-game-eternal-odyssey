@@ -20,6 +20,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Sprite normalBackgroundSprite;
     public Sprite rareBackgroundSprite;
     public Sprite legendaryBackgroundSprite;
+    Color colorDefault = new Color(0f, 0f, 0f, 163f / 255f); 
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -31,7 +32,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         switch (item.type)
         {
             case ItemType.Normal:
-                backgroundImage.sprite = normalBackgroundSprite;
+                backgroundImage.color = colorDefault;
                 break;
             case ItemType.Rare:
                 backgroundImage.sprite = rareBackgroundSprite;
@@ -40,7 +41,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 backgroundImage.sprite = legendaryBackgroundSprite;
                 break;
             default:
-                backgroundImage.sprite = normalBackgroundSprite;
+                backgroundImage.color = colorDefault;
                 break;
         }
     }
@@ -67,13 +68,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (inventorySystem == null)
             {
-                Debug.LogError("inventorySystem chưa được gán");
+                Debug.Log("inventorySystem chưa được gán");
                 return;
             }
 
             if (groundSystem == null)
             {
-                Debug.LogError("groundSystem chưa được gán");
+                Debug.Log("groundSystem chưa được gán");
                 return;
             }
 
@@ -87,9 +88,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
               
                 // Cập nhật UI Ground và xóa item khỏi Inventory UI
                 GroundItemUI groundUI = FindObjectOfType<GroundItemUI>();
+                InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                inventoryUI.UpdateInventoryUI(inventorySystem.inventory);
+
                 if (groundUI != null)
                 {
                     groundUI.UpdateGroundUI(groundSystem.GetGroundItems());
+
                 }
                 else
                 {
