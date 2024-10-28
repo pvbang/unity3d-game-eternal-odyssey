@@ -38,6 +38,7 @@ public class NotificationManager : MonoBehaviour
         notificationUI.SetNotificationType(notificationType);
         notificationUI.SetNotificationId(notificationId);
         notificationObject.SetActive(true);
+        notificationUI.ShowNotification(notificationId, content, notificationType);
     }
 
     public void HideNotification()
@@ -78,8 +79,10 @@ public class NotificationManager : MonoBehaviour
             if (notification != null)
             {
                 //notifications.Add(notification); 
-                if (notification.status == NotificationStatus.Read) continue;
-                ShowNotification2(child.Key, notification.content, notification.notificationType);
+                if (notification.status != NotificationStatus.Read)
+                {
+                    ShowNotification2(child.Key, notification.content, notification.notificationType);
+                }
             }
         }
 
