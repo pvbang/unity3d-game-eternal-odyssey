@@ -15,6 +15,11 @@ public class InventoryUI : MonoBehaviour
     public IconManager iconManager;
     private List<Inventory> inventoryItem;
     public ItemInfoDisplay itemInfoDisplay;
+    public TextMeshProUGUI totalItem;
+    public GameObject emptySlotPrefab;  // Prefab cho slot trống
+
+    private int maxSlots = 35;
+
     private void Start()
     {
         if (inventorySystem == null)
@@ -39,7 +44,7 @@ public class InventoryUI : MonoBehaviour
 
         yield return new WaitUntil(() => inventorySystem.isDataLoaded);
 
-        InventoryItemSystem.LoadInventoryFromFirebase(inventoryItem_ => inventoryItem = inventoryItem_);
+        inventorySystem.LoadInventoryFromFirebase(inventoryItem_ => inventoryItem = inventoryItem_);
 
         float timeout = 30f;
         float elapsedTime = 0f;
@@ -56,6 +61,7 @@ public class InventoryUI : MonoBehaviour
             yield break;
         }
 
+        totalItem.text = inventoryItem.Count.ToString();
         // Khi dữ liệu đã được tải, cập nhật Inventory UI
         UpdateInventoryUI(inventoryItem);
     }
@@ -75,33 +81,45 @@ public class InventoryUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Tạo slot mới cho mỗi item trong Inventory
-        foreach (var playerItem in inventory)
-        {
-            if (playerItem == null) continue;
+        int itemCount = inventory.Count;
 
+        for (int i = 0; i < maxSlots; i++)
+        {
             GameObject slot = Instantiate(inventorySlotPrefab, inventoryPanel);
 
-            // Gán tag cho slot để nhận diện
-            slot.tag = "InventorySlot";
+            if (i < inventory.Count && inventory[i] != null)
+            {
+                var playerItem = inventory[i];
 
-            // Cập nhật icon và số lượng
-            var itemIcon = slot.transform.Find("ItemIcon").GetComponent<Image>();
-            itemIcon.sprite = iconManager.GetIcon(playerItem.item.itemId);
+                // Hiển thị item trong slot
+                var itemIcon = slot.transform.Find("ItemIcon").GetComponent<Image>();
+                itemIcon.sprite = iconManager.GetIcon(playerItem.item.itemId);
+                itemIcon.enabled = true;  // Hiển thị icon item
 
-            var quantityText = slot.transform.Find("ItemQuantity").GetComponent<TextMeshProUGUI>();
-            quantityText.text = $"x{playerItem.quantity}";
+                var quantityText = slot.transform.Find("ItemQuantity").GetComponent<TextMeshProUGUI>();
+                quantityText.text = $"x{playerItem.quantity}";
 
-            // Gán DraggableItem để cho phép kéo thả
-            var draggableItem = slot.GetComponent<DraggableItem>();
-            draggableItem.inventorySystem = FindObjectOfType<InventoryItemSystem>();
-            draggableItem.groundSystem = groundSystem;
-            draggableItem.item = playerItem.item;
-            draggableItem.itemId = playerItem.item.itemId;
-            draggableItem.quantity = playerItem.quantity;
+                // Gán DraggableItem để cho phép kéo thả
+                var draggableItem = slot.GetComponent<DraggableItem>();
+                draggableItem.inventorySystem = inventorySystem;
+                draggableItem.groundSystem = groundSystem;
+                draggableItem.item = playerItem.item;
+                draggableItem.itemId = playerItem.item.itemId;
+                draggableItem.quantity = playerItem.quantity;
 
-            Button button = slot.AddComponent<Button>();
-            button.onClick.AddListener(() => OnClickItem(playerItem.item));
+                // Thêm sự kiện click cho item
+                Button button = slot.AddComponent<Button>();
+                button.onClick.AddListener(() => OnClickItem(playerItem.item));
+            }
+            else
+            {
+                // Đối với các slot trống, không hiển thị icon và quantity
+                var itemIcon = slot.transform.Find("ItemIcon").GetComponent<Image>();
+                itemIcon.enabled = false;  // Tắt icon cho các ô trống
+
+                var quantityText = slot.transform.Find("ItemQuantity").GetComponent<TextMeshProUGUI>();
+                quantityText.enabled = false;  // Tắt hiển thị số lượng
+            }
 
             slot.transform.SetParent(inventoryPanel);
         }
