@@ -137,30 +137,16 @@ public class MainWorldController : MonoBehaviour
         world.status = Status.NotStarted;
         world.startAt = TimeManager.Now();
 
-        PlayerWorld playerWorld = new();
-        playerWorld.userId = FirebaseManager.instance.GetUserId();
-        playerWorld.role = Role.RoomOwner;
-        playerWorld.inventorys = new List<Inventory>();
-
-        Inventory inventory = new();
-        inventory.itemId = "mithril";
-        inventory.quantity = 3;
-
-        Inventory inventory2 = new();
-        inventory2.itemId = "mithril_hoa";
-        inventory2.quantity = 5;
-
-        Inventory inventory3 = new();
-        inventory3.itemId = "mithril_thuy";
-        inventory3.quantity = 2;
-
-        playerWorld.inventorys.Add(inventory);
-        playerWorld.inventorys.Add(inventory2);
-        playerWorld.inventorys.Add(inventory3);
-
-        world.playerWorld.Add(playerWorld);
-
         StartCoroutine(WorldManager.AddWorld(world));
+
+        // delay để cập nhật xong thông tin người chơi
+        StartCoroutine(DelayLoadScene());
+        StartCoroutine(WorldManager.AddPlayerToWorld(UIMainWorld.GetCodeWorld()));
+    }
+
+    IEnumerator DelayLoadScene()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
 

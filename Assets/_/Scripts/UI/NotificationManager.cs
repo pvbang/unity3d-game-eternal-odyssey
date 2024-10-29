@@ -27,17 +27,19 @@ public class NotificationManager : MonoBehaviour
 
     public void ShowNotification(string content, NotificationType notificationType)
     {
-        notificationUI.SetContent(content);
-        notificationUI.SetNotificationType(notificationType);
-        notificationObject.SetActive(true);
+        //notificationUI.SetContent(content);
+        //notificationUI.SetNotificationType(notificationType);
+        //notificationObject.SetActive(true);
+        notificationUI.ShowNotification(content, notificationType);
     }
 
     public void ShowNotification2(string notificationId, string content, NotificationType notificationType)
     {
-        notificationUI.SetContent(content);
-        notificationUI.SetNotificationType(notificationType);
-        notificationUI.SetNotificationId(notificationId);
-        notificationObject.SetActive(true);
+        //notificationUI.SetContent(content);
+        //notificationUI.SetNotificationType(notificationType);
+        //notificationUI.SetNotificationId(notificationId);
+        //notificationObject.SetActive(true);
+        notificationUI.ShowNotification2(notificationId, content, notificationType);
     }
 
     public void HideNotification()
@@ -78,8 +80,10 @@ public class NotificationManager : MonoBehaviour
             if (notification != null)
             {
                 //notifications.Add(notification); 
-                if (notification.status == NotificationStatus.Read) continue;
-                ShowNotification2(child.Key, notification.content, notification.notificationType);
+                if (notification.status != NotificationStatus.Read)
+                {
+                    ShowNotification2(child.Key, notification.content, notification.notificationType);
+                }
             }
         }
 
