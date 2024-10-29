@@ -62,7 +62,7 @@ public class NotificationUI : MonoBehaviour
     //    StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
     //}
 
-    public void ShowNotification(string notificationId, string content, NotificationType notificationType)
+    public void ShowNotification(string content, NotificationType notificationType)
     {
         SetContent(content);
         SetNotificationType(notificationType);
@@ -93,6 +93,12 @@ public class NotificationUI : MonoBehaviour
         }
 
         gameObject.SetActive(true);
+    }
+
+
+    public void ShowNotification2(string notificationId, string content, NotificationType notificationType)
+    {
+        ShowNotification(content, notificationType);
         StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
     }
 
