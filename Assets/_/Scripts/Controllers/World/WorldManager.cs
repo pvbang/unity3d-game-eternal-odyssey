@@ -301,6 +301,24 @@ public class WorldManager : MonoBehaviour
         playerWorld.inventorys = new List<Inventory>();
         playerWorld.playerDetails = new PlayerDetails();
 
+        //
+        Inventory inventory = new();
+        inventory.itemId = "mithril";
+        inventory.quantity = 3;
+
+        Inventory inventory2 = new();
+        inventory2.itemId = "mithril_hoa";
+        inventory2.quantity = 5;
+
+        Inventory inventory3 = new();
+        inventory3.itemId = "mithril_thuy";
+        inventory3.quantity = 2;
+
+        playerWorld.inventorys.Add(inventory);
+        playerWorld.inventorys.Add(inventory2);
+        playerWorld.inventorys.Add(inventory3);
+
+        // Chuyển đối tượng PlayerWorld thành chuỗi JSON
         string json = JsonUtility.ToJson(playerWorld);
 
         var taskRef = FirebaseManager.instance.databaseReference
@@ -321,6 +339,90 @@ public class WorldManager : MonoBehaviour
             Debug.Log("Thêm người chơi vào world thành công");
             PlayerPrefs.SetString(ConstantManager.FIREBASE_WORLDS_ID, worldId);
             NotificationManager.instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
+        }
+    }
+
+    // Cập nhật trạng thái của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerStatus(worldId, userId, PlayerStatus.Online));
+    public static IEnumerator UpdatePlayerStatus(string worldId, string userId, PlayerStatus playerStatus)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerStatus", playerStatus }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật trạng thái của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật trạng thái của người chơi trong world thành công");
+        }
+    }
+
+    // Cập nhật skin của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerSkin(worldId, userId, skin));
+    public static IEnumerator UpdatePlayerSkin(string worldId, string userId, string skin)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerDetails/skin", skin }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật skin của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật skin của người chơi trong world thành công");
+        }
+    }
+
+    // Cập nhật tên của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerName(worldId, userId, name));
+    public static IEnumerator UpdatePlayerName(string worldId, string userId, string name)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerDetails/name", name }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật tên của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật tên của người chơi trong world thành công");
         }
     }
 }

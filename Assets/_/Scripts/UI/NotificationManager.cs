@@ -27,18 +27,19 @@ public class NotificationManager : MonoBehaviour
 
     public void ShowNotification(string content, NotificationType notificationType)
     {
-        notificationUI.SetContent(content);
-        notificationUI.SetNotificationType(notificationType);
-        notificationObject.SetActive(true);
+        //notificationUI.SetContent(content);
+        //notificationUI.SetNotificationType(notificationType);
+        //notificationObject.SetActive(true);
+        notificationUI.ShowNotification(content, notificationType);
     }
 
     public void ShowNotification2(string notificationId, string content, NotificationType notificationType)
     {
-        notificationUI.SetContent(content);
-        notificationUI.SetNotificationType(notificationType);
-        notificationUI.SetNotificationId(notificationId);
-        notificationObject.SetActive(true);
-        notificationUI.ShowNotification(notificationId, content, notificationType);
+        //notificationUI.SetContent(content);
+        //notificationUI.SetNotificationType(notificationType);
+        //notificationUI.SetNotificationId(notificationId);
+        //notificationObject.SetActive(true);
+        notificationUI.ShowNotification2(notificationId, content, notificationType);
     }
 
     public void HideNotification()
