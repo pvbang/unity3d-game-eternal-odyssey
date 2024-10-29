@@ -11,12 +11,13 @@ public class PlayerFigure
     public string helmet;           // Mũ bảo hiểm
     public string shoes;            // Giày
     public string shoulder;         // Áo choàng
+    public string pelvis;           // Túi đồ đeo lưng
 
     public PlayerFigure()
     {
     }
 
-    public PlayerFigure(string bell, string cloth, string crown, string face, string glove, string hair, string helmet, string shoes, string shoulder)
+    public PlayerFigure(string bell, string cloth, string crown, string face, string glove, string hair, string helmet, string shoes, string shoulder, string pelvis)
     {
         this.bell = bell;
         this.cloth = cloth;
@@ -27,6 +28,7 @@ public class PlayerFigure
         this.helmet = helmet;
         this.shoes = shoes;
         this.shoulder = shoulder;
+        this.pelvis = pelvis;
     }
 
     public string Bell { get => bell; set => bell = value; }
@@ -38,6 +40,7 @@ public class PlayerFigure
     public string Helmet { get => helmet; set => helmet = value; }
     public string Shoes { get => shoes; set => shoes = value; }
     public string Shoulder { get => shoulder; set => shoulder = value; }
+    public string Pelvis { get => pelvis; set => pelvis = value; }
 
 
 }
