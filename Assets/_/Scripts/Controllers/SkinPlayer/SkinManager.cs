@@ -25,7 +25,7 @@ public class SkinManager : MonoBehaviour
         // Ghép các tên lại thành một chuỗi, cách nhau bởi dấu phẩy
         string activeSkinNamesString = string.Join(",", activeSkinNames);
 
-        return activeSkinNamesString;
+        return activeSkinNamesString; 
     }
 
     // Hàm cập nhật skin 
