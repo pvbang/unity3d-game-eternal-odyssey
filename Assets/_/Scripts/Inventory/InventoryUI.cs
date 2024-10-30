@@ -19,9 +19,9 @@ public class InventoryUI : MonoBehaviour
     public Slider quantitySlider;         // Slider điều chỉnh số lượng
     public Button splitButton;            // Nút để tách item
     private Inventory selectedItem;       // Lưu trữ item được chọn hiện tại
-
     private GameObject currentlySelectedSlot = null;
     private Inventory selectedInventoryItem = null;
+
     private void Start()
     {
         if (inventorySystem == null)
