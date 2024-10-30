@@ -12,7 +12,21 @@ public class CharacterSkinButton : BaseButton
     public Image checkImage;
     public GameObject skinObject;
 
-    private void Update()
+    private void Awake()
+    {
+        if (isCheck)
+        {
+            checkImage.sprite = checkedImage;
+            //skinObject.SetActive(true);
+        }
+        else
+        {
+            checkImage.sprite = uncheckImage;
+            //skinObject.SetActive(false);
+        }
+    }
+
+    private void UpdateUI()
     {
         if (skinObject == null) return;
 
@@ -28,15 +42,18 @@ public class CharacterSkinButton : BaseButton
 
     protected override void OnClick()
     {
+        print("CharacterSkinButton OnClick");
         if (checkImage.sprite == checkedImage)
         {
             isCheck = false;
             checkImage.sprite = uncheckImage;
+            UpdateUI();
         }
         else
         {
             isCheck = true; 
             checkImage.sprite = checkedImage;
+            UpdateUI();
         }
     }
 }

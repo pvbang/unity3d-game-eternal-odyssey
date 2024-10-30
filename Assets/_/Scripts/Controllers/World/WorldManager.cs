@@ -10,22 +10,25 @@ public class WorldManager : MonoBehaviour
     // cách gọi hàm: StartCoroutine(WorldManager.AddWorld(world));
     public static IEnumerator AddWorld(World world)
     {
-        print("AddWorld");
-        // 1. Kiểm tra sự tồn tại của bảng (key) FIREBASE_WORLDS
-        var worldListCheckTask = FirebaseManager.instance.databaseReference
+        // 1. Kiểm tra và lấy dữ liệu bảng FIREBASE_WORLDS, đồng thời kiểm tra sự tồn tại của worldId
+        var worldDataTask = FirebaseManager.instance.databaseReference
             .Child(ConstantManager.FIREBASE_WORLDS)
             .GetValueAsync();
 
-        yield return new WaitUntil(() => worldListCheckTask.IsCompleted);
+        yield return new WaitUntil(() => worldDataTask.IsCompleted);
 
-        if (worldListCheckTask.IsFaulted)
+        // Xử lý lỗi nếu không lấy được dữ liệu
+        if (worldDataTask.IsFaulted)
         {
-            Debug.LogError("Lỗi khi kiểm tra bảng FIREBASE_WORLDS.");
-            yield break; // Dừng nếu có lỗi xảy ra
+            Debug.LogError("Lỗi khi kiểm tra và lấy dữ liệu bảng FIREBASE_WORLDS.");
+            yield break; // Dừng nếu có lỗi
         }
 
-        // Nếu bảng chưa tồn tại, khởi tạo bảng trống
-        if (worldListCheckTask.Result.Value == null)
+        // 2. Lấy dữ liệu của bảng và kiểm tra worldId
+        var worldDataSnapshot = worldDataTask.Result;
+
+        // Nếu bảng FIREBASE_WORLDS chưa tồn tại, khởi tạo bảng trống
+        if (worldDataSnapshot.Value == null)
         {
             var initTask = FirebaseManager.instance.databaseReference
                 .Child(ConstantManager.FIREBASE_WORLDS)
@@ -38,30 +41,24 @@ public class WorldManager : MonoBehaviour
                 NotificationManager.instance.ShowNotification("Lỗi khi tạo bảng mới", NotificationType.Error);
                 yield break; // Dừng nếu không thể khởi tạo bảng
             }
+            else
+            {
+                Debug.Log("Bảng FIREBASE_WORLDS được tạo thành công.");
+            }
         }
-
-        print("worldId: " + world.worldId);
-        // 2. Tiếp tục kiểm tra sự tồn tại của worldId
-        var checkTask = FirebaseManager.instance.databaseReference
-            .Child(ConstantManager.FIREBASE_WORLDS)
-            .Child(world.worldId)
-            .GetValueAsync();
-
-        yield return new WaitUntil(() => checkTask.IsCompleted);
-
-        if (checkTask.IsFaulted)
+        else
         {
-            Debug.LogError("Lỗi khi kiểm tra worldId.");
-            yield break; // Dừng nếu có lỗi xảy ra
+            // Nếu bảng đã tồn tại, kiểm tra sự tồn tại của worldId
+            if (worldDataSnapshot.HasChild(world.worldId))
+            {
+                NotificationManager.instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
+                yield break; // Dừng nếu worldId đã tồn tại
+            }
         }
 
-        if (checkTask.Result.Exists)
-        {
-            NotificationManager.instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
-            yield break; // Dừng nếu worldId đã tồn tại
-        }
+        // Nếu qua được các bước kiểm tra, tiếp tục thực hiện các thao tác khác...
+        Debug.Log("worldId không tồn tại, có thể tiếp tục.");
 
-        print("Add world");
         // 3. Nếu không tồn tại, tiến hành thêm world mới
         string json = JsonUtility.ToJson(world);
 
@@ -304,6 +301,24 @@ public class WorldManager : MonoBehaviour
         playerWorld.inventorys = new List<Inventory>();
         playerWorld.playerDetails = new PlayerDetails();
 
+        //
+        Inventory inventory = new();
+        inventory.itemId = "mithril";
+        inventory.quantity = 3;
+
+        Inventory inventory2 = new();
+        inventory2.itemId = "mithril_hoa";
+        inventory2.quantity = 5;
+
+        Inventory inventory3 = new();
+        inventory3.itemId = "mithril_thuy";
+        inventory3.quantity = 2;
+
+        playerWorld.inventorys.Add(inventory);
+        playerWorld.inventorys.Add(inventory2);
+        playerWorld.inventorys.Add(inventory3);
+
+        // Chuyển đối tượng PlayerWorld thành chuỗi JSON
         string json = JsonUtility.ToJson(playerWorld);
 
         var taskRef = FirebaseManager.instance.databaseReference
@@ -324,6 +339,90 @@ public class WorldManager : MonoBehaviour
             Debug.Log("Thêm người chơi vào world thành công");
             PlayerPrefs.SetString(ConstantManager.FIREBASE_WORLDS_ID, worldId);
             NotificationManager.instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
+        }
+    }
+
+    // Cập nhật trạng thái của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerStatus(worldId, userId, PlayerStatus.Online));
+    public static IEnumerator UpdatePlayerStatus(string worldId, string userId, PlayerStatus playerStatus)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerStatus", playerStatus }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật trạng thái của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật trạng thái của người chơi trong world thành công");
+        }
+    }
+
+    // Cập nhật skin của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerSkin(worldId, userId, skin));
+    public static IEnumerator UpdatePlayerSkin(string worldId, string userId, string skin)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerDetails/skin", skin }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật skin của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật skin của người chơi trong world thành công");
+        }
+    }
+
+    // Cập nhật tên của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerName(worldId, userId, name));
+    public static IEnumerator UpdatePlayerName(string worldId, string userId, string name)
+    {
+        Dictionary<string, object> fieldsToUpdate = new Dictionary<string, object>
+        {
+            { "playerDetails/name", name }
+        };
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật tên của người chơi trong world");
+        }
+        else
+        {
+            Debug.Log("Cập nhật tên của người chơi trong world thành công");
         }
     }
 }

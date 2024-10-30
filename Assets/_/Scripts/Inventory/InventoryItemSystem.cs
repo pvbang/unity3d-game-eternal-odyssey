@@ -13,13 +13,12 @@ public class InventoryItemSystem : MonoBehaviour
     public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
 
     public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
-    //public string userId = FirebaseManager.instance.GetUserId();
+    public string userId = FirebaseManager.instance.GetUserId();
 
-    public string userId = "eohRBpwf47gQwrBMokvUltDXTnZ2";
-    public string worldId = "345678";
+    public string worldId;
     private void Awake()
     {
-        //worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
         if (instance == null)
         {
             instance = this;
