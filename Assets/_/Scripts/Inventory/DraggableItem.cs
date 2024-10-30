@@ -94,7 +94,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 if (groundUI != null)
                 {
                     groundUI.UpdateGroundUI(groundSystem.GetGroundItems());
-
                 }
                 else
                 {
