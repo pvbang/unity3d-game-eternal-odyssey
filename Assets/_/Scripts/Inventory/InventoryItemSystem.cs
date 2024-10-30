@@ -13,12 +13,12 @@ public class InventoryItemSystem : MonoBehaviour
     public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
 
     public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
-    public string userId = FirebaseManager.instance.GetUserId();
-
-    public string worldId;
+    //public string userId = FirebaseManager.instance.GetUserId();
+    public string userId = "eZ9WfraAURZQE8iwrNO0xSDkiRt2";
+    public string worldId = "123456";
     private void Awake()
     {
-        worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        //worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
         if (instance == null)
         {
             instance = this;
@@ -86,8 +86,6 @@ public class InventoryItemSystem : MonoBehaviour
             {
                 
                 DataSnapshot snapshot = task.Result;
-                Debug.Log("Snapshot từ Firebase: " + snapshot.ChildrenCount + " items found.");
-
                 List<Inventory> inventoryList = new List<Inventory>();
 
                 foreach (var child in snapshot.Children)
@@ -95,7 +93,7 @@ public class InventoryItemSystem : MonoBehaviour
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
 
                     Debug.Log($"PlayerWorld UserID: {playerworld.userId}, {userId}");
-                    if (playerworld.userId == userId)
+                    if (playerworld.userId == "eZ9WfraAURZQE8iwrNO0xSDkiRt2")
                     {
                         inventoryList = playerworld.inventorys;
                         break;
@@ -143,15 +141,8 @@ public class InventoryItemSystem : MonoBehaviour
         var groundItem = groundItems.Find(i => i.item.itemId == itemId);
         if (groundItem != null)
         {
-            var inventoryItem = inventory.Find(i => i.item.itemId == itemId);
-            if (inventoryItem != null)
-            {
-                inventoryItem.quantity += groundItem.quantity;  // Cộng dồn số lượng vào Inventory nếu đã có sẵn
-            }
-            else
-            {
-                inventory.Add(new Inventory(groundItem.item, groundItem.quantity));  // Thêm item mới vào Inventory với thông tin đầy đủ
-            }
+            // Thêm item mới vào Inventory mà không cộng dồn
+            inventory.Add(new Inventory(groundItem.item, groundItem.quantity));
 
             groundItems.Remove(groundItem);
 
