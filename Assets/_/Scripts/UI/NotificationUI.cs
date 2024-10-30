@@ -32,8 +32,41 @@ public class NotificationUI : MonoBehaviour
         this.notificationType = notificationType;
     }
 
-    private void OnEnable()
+    //private void OnEnable()
+    //{
+    //    switch (notificationType)
+    //    {
+    //        case NotificationType.Invitation:
+    //            buttonAccept.gameObject.SetActive(true);
+    //            buttonReject.gameObject.SetActive(true);
+    //            buttonConfirm.gameObject.SetActive(false);
+    //            buttonVerify.gameObject.SetActive(false);
+    //            buttonCancel.gameObject.SetActive(false);
+    //            break;
+    //        case NotificationType.DeleteWorld:
+    //            buttonAccept.gameObject.SetActive(false);
+    //            buttonReject.gameObject.SetActive(false);
+    //            buttonConfirm.gameObject.SetActive(false);
+    //            buttonVerify.gameObject.SetActive(true);
+    //            buttonCancel.gameObject.SetActive(true);
+    //            break;
+    //        default:
+    //            buttonAccept.gameObject.SetActive(false);
+    //            buttonReject.gameObject.SetActive(false);
+    //            buttonConfirm.gameObject.SetActive(true);
+    //            buttonVerify.gameObject.SetActive(false);
+    //            buttonCancel.gameObject.SetActive(false);
+    //            break;
+
+    //    }
+    //    StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
+    //}
+
+    public void ShowNotification(string content, NotificationType notificationType)
     {
+        SetContent(content);
+        SetNotificationType(notificationType);
+
         switch (notificationType)
         {
             case NotificationType.Invitation:
@@ -42,8 +75,6 @@ public class NotificationUI : MonoBehaviour
                 buttonConfirm.gameObject.SetActive(false);
                 buttonVerify.gameObject.SetActive(false);
                 buttonCancel.gameObject.SetActive(false);
-
-                StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
                 break;
             case NotificationType.DeleteWorld:
                 buttonAccept.gameObject.SetActive(false);
@@ -59,22 +90,30 @@ public class NotificationUI : MonoBehaviour
                 buttonVerify.gameObject.SetActive(false);
                 buttonCancel.gameObject.SetActive(false);
                 break;
-
         }
+
+        gameObject.SetActive(true);
     }
 
-    private void OnDisable()
+
+    public void ShowNotification2(string notificationId, string content, NotificationType notificationType)
     {
-        buttonAccept.gameObject.SetActive(false);
-        buttonReject.gameObject.SetActive(false);
-        buttonConfirm.gameObject.SetActive(false);
-        buttonVerify.gameObject.SetActive(false);
-        buttonCancel.gameObject.SetActive(false);
-
-        content.text = "";
-        notificationType = NotificationType.Notification;
-        notificationId = "";
+        ShowNotification(content, notificationType);
+        StartCoroutine(UserManager.UpdateNotification(FirebaseManager.instance.GetUserId(), notificationId, NotificationStatus.Read));
     }
+
+    //private void OnDisable()
+    //{
+    //    buttonAccept.gameObject.SetActive(false);
+    //    buttonReject.gameObject.SetActive(false);
+    //    buttonConfirm.gameObject.SetActive(false);
+    //    buttonVerify.gameObject.SetActive(false);
+    //    buttonCancel.gameObject.SetActive(false);
+
+    //    content.text = "";
+    //    notificationType = NotificationType.Notification;
+    //    notificationId = "";
+    //}
 
     public void CloseNotification()
     {

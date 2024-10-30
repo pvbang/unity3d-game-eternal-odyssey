@@ -13,12 +13,14 @@ public class SceneManager : MonoBehaviour
 
     public void LoadScene()
     {
+        WaitingManager.instance.ShowWaiting();
         UnityEngine.SceneManagement.SceneManager.LoadScene(loadSceneName);
     }
 
 
     public static void LoadScene(string sceneName)
     {
+        WaitingManager.instance.ShowWaiting();
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
