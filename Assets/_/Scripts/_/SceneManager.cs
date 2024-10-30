@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -13,15 +14,36 @@ public class SceneManager : MonoBehaviour
 
     public void LoadScene()
     {
-        WaitingManager.instance.ShowWaiting();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(loadSceneName);
+        StartCoroutine(LoadSceneAsync(loadSceneName));
     }
 
 
-    public static void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
+        StartCoroutine(LoadSceneAsync(sceneName));
+    }
+
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        // Hiển thị Waiting UI để người chơi biết game đang tải
         WaitingManager.instance.ShowWaiting();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
+        // Bắt đầu load scene mới ở chế độ async
+        AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+
+        // Đảm bảo scene chỉ chuyển đổi sau khi load xong
+        asyncLoad.allowSceneActivation = false;
+
+        // Chờ đến khi scene mới load xong 90% trở lên
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                // Sau khi load xong, cho phép chuyển cảnh
+                asyncLoad.allowSceneActivation = true;
+            }
+            yield return null;
+        }
     }
 
 }
