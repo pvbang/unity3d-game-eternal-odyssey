@@ -19,9 +19,9 @@ public class InventoryUI : MonoBehaviour
     public Slider quantitySlider;         // Slider điều chỉnh số lượng
     public Button splitButton;            // Nút để tách item
     private Inventory selectedItem;       // Lưu trữ item được chọn hiện tại
-
     private GameObject currentlySelectedSlot = null;
     private Inventory selectedInventoryItem = null;
+
     private void Start()
     {
         if (inventorySystem == null)
@@ -70,11 +70,14 @@ public class InventoryUI : MonoBehaviour
 
         yield return new WaitUntil(() => inventorySystem.isDataLoaded);
 
+        Debug.Log("Đã vào đây");
         inventorySystem.LoadInventoryFromFirebase(inventoryList =>
         {
+            Debug.Log("Đã vào đây 1");
             List<Inventory> inventoryListItem = new List<Inventory>();
             foreach (var item in inventoryList)
             {
+                Debug.Log("Đã vào đây 2");
                 if (inventorySystem.itemDetails.TryGetValue(item.itemId, out Item itemDetail))
                 {
                     Inventory completeInventory = new Inventory(itemDetail, item.quantity);
