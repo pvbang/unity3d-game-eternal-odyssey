@@ -95,7 +95,7 @@ public class InventoryItemSystem : MonoBehaviour
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
 
                     Debug.Log($"PlayerWorld UserID: {playerworld.userId}, {userId}");
-                    if (playerworld.userId == "eohRBpwf47gQwrBMokvUltDXTnZ2")
+                    if (playerworld.userId == userId)
                     {
                         inventoryList = playerworld.inventorys;
                         break;
