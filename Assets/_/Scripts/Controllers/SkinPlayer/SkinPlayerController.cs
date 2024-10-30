@@ -35,7 +35,7 @@ public class SkinPlayerController : BaseButton
         // delay để cập nhật xong thông tin người chơi
         StartCoroutine(DelayLoadScene());
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        sceneManager.LoadScene("MainScene");
     }
 
     IEnumerator DelayLoadScene()
