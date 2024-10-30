@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
+using System.Text;  // Để ghép chuỗi JSON
 
 public class WorldManager : MonoBehaviour
 {
@@ -59,13 +61,57 @@ public class WorldManager : MonoBehaviour
         // Nếu qua được các bước kiểm tra, tiếp tục thực hiện các thao tác khác...
         Debug.Log("worldId không tồn tại, có thể tiếp tục.");
 
+        //// Tạo Dictionary từ List<PlayerWorld> với userId làm key
+        //Dictionary<string, PlayerWorld> playerWorldDict = new();
+        //foreach (var player in world.playerWorld)
+        //{
+        //    playerWorldDict[player.userId] = player;
+        //    print(player.userId);
+        //}
+
+        //// Tạo một lớp trung gian để giữ nguyên cấu trúc của World
+        //WorldWithDictionary worldData = new WorldWithDictionary(world)
+        //{
+        //    playerWorld = playerWorldDict
+        //};
+
         // 3. Nếu không tồn tại, tiến hành thêm world mới
-        string json = JsonUtility.ToJson(world);
+        // 1. Tạo JSON thủ công cho playerWorld
+        StringBuilder playerWorldJson = new StringBuilder();
+        playerWorldJson.Append("{");
+
+        for (int i = 0; i < world.playerWorld.Count; i++)
+        {
+            PlayerWorld player = world.playerWorld[i];
+
+            // Chuyển PlayerWorld sang JSON
+            string playerJson = JsonUtility.ToJson(player);
+
+            // Thêm userId làm key cho JSON
+            playerWorldJson.Append($"\"{player.userId}\": {playerJson}");
+
+            // Thêm dấu phẩy nếu chưa phải phần tử cuối
+            if (i < world.playerWorld.Count - 1)
+            {
+                playerWorldJson.Append(",");
+            }
+        }
+
+        playerWorldJson.Append("}");
+
+        // 2. Tạo JSON cho các phần còn lại của world
+        string worldJson = JsonUtility.ToJson(world);
+        Debug.Log("World JSON trước khi kết hợp: " + worldJson);
+
+        // 3. Ghép JSON của playerWorld vào JSON của world
+        string finalJson = MergeJson(worldJson, playerWorldJson.ToString());
+        Debug.Log("Final JSON: " + finalJson);
+
 
         var addTask = FirebaseManager.instance.databaseReference
             .Child(ConstantManager.FIREBASE_WORLDS)
             .Child(world.worldId)
-            .SetRawJsonValueAsync(json);
+            .SetRawJsonValueAsync(finalJson);
 
         yield return new WaitUntil(() => addTask.IsCompleted);
 
@@ -79,6 +125,18 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+    private static string MergeJson(string worldJson, string playerWorldJson)
+    {
+        // Bỏ dấu ngoặc cuối của world JSON
+        int lastBraceIndex = worldJson.LastIndexOf('}');
+        if (lastBraceIndex == -1) return worldJson;  // Tránh lỗi nếu JSON không hợp lệ
+
+        // Ghép JSON của playerWorld vào
+        string mergedJson = worldJson.Substring(0, lastBraceIndex) +
+                            ", \"playerWorld\": " + playerWorldJson + "}";
+
+        return mergedJson;
+    }
 
     // lấy thông tin world từ id
     // cách gọi hàm: WorldManager.GetworldById("id", world => { Debug.Log(world); });
@@ -424,5 +482,32 @@ public class WorldManager : MonoBehaviour
         {
             Debug.Log("Cập nhật tên của người chơi trong world thành công");
         }
+    }
+}
+
+
+public class WorldWithDictionary
+{
+    public string worldId;
+    public string name;
+    public string code;
+    public List<QuestWorld> questWorld;
+    public List<HouseWorld> houseWorld;
+    public Dictionary<string, PlayerWorld> playerWorld;  // Dictionary để lưu với userId làm key
+    public List<BuildingWorld> buildingWorld;
+    public Status status;
+    public string startAt;
+
+    // Constructor để khởi tạo từ đối tượng World ban đầu
+    public WorldWithDictionary(World world)
+    {
+        worldId = world.worldId;
+        name = world.name;
+        code = world.code;
+        questWorld = world.questWorld;
+        houseWorld = world.houseWorld;
+        buildingWorld = world.buildingWorld;
+        status = world.status;
+        startAt = world.startAt;
     }
 }

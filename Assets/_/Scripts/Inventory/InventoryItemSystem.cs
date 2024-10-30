@@ -15,7 +15,7 @@ public class InventoryItemSystem : MonoBehaviour
     public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
     //public string userId = FirebaseManager.instance.GetUserId();
     public string userId = "eZ9WfraAURZQE8iwrNO0xSDkiRt2";
-    public string worldId = "123456";
+    public string worldId = "12321323";
     private void Awake()
     {
         //worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
@@ -37,7 +37,7 @@ public class InventoryItemSystem : MonoBehaviour
             {
                 // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
                 List<Inventory> completedInventoryList = new List<Inventory>();
-
+                Debug.Log($"Đã vào đây 1 {inventoryList.Count}");
                 foreach (var inventoryItem in inventoryList)
                 {
                     // Kiểm tra xem itemDetails có chứa itemId này không
@@ -84,9 +84,10 @@ public class InventoryItemSystem : MonoBehaviour
 
             if (task.IsCompleted)
             {
-                
                 DataSnapshot snapshot = task.Result;
                 List<Inventory> inventoryList = new List<Inventory>();
+
+                Debug.Log($"Tổng số user: {snapshot.ChildrenCount}");
 
                 foreach (var child in snapshot.Children)
                 {

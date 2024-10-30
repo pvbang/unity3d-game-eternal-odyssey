@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class ManagerInventory : MonoBehaviour
 {
     // Start is called before the first frame update
     public static IEnumerator DeleteItem(string itemId, int quantity, string worldId, string userId)
