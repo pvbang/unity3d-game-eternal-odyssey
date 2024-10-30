@@ -7,13 +7,14 @@ public class InventoryItemSystem : MonoBehaviour
 {
     public List<Inventory> inventory = new List<Inventory>();  // Danh sách các vật phẩm trong kho
     public Dictionary<string, Item> itemDetails = new Dictionary<string, Item>();  // Lưu trữ chi tiết thông tin vật phẩm
-    public Action onInventoryUpdated;  // Delegate để cập nhật UI hoặc xử lý logic khi Inventory được tải xong
+    public Action onInventoryUpdated; 
 
     public static InventoryItemSystem instance;  // Singleton cho InventoryItemSystem
     public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
 
     public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
     public string userId = FirebaseManager.instance.GetUserId();
+
     public string worldId;
     private void Awake()
     {
@@ -32,18 +33,18 @@ public class InventoryItemSystem : MonoBehaviour
     {
         LoadItemDetails(() =>
         {
-            Debug.Log("Đã tải xong thông tin item từ Firebase.");
             LoadInventoryFromFirebase(inventoryList =>
             {
+                // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
+                List<Inventory> completedInventoryList = new List<Inventory>();
 
                 foreach (var inventoryItem in inventoryList)
                 {
-                    // Kiểm tra nếu itemId tồn tại trong itemDetails
+                    // Kiểm tra xem itemDetails có chứa itemId này không
                     if (instance.itemDetails.TryGetValue(inventoryItem.itemId, out Item itemDetail))
                     {
-                        // Tạo Inventory mới với đối tượng Item đầy đủ và số lượng
                         Inventory completeInventory = new Inventory(itemDetail, inventoryItem.quantity);
-                        inventoryList.Add(completeInventory);
+                        completedInventoryList.Add(completeInventory);
                     }
                     else
                     {
@@ -51,10 +52,14 @@ public class InventoryItemSystem : MonoBehaviour
                     }
                 }
 
-                this.inventory = inventoryList; 
+                // Gán danh sách hoàn thiện vào inventory
+                this.inventory = completedInventoryList;
+
                 Debug.Log("Đã tải xong danh sách inventory từ Firebase.");
                 onInventoryUpdated?.Invoke();
             });
+
+
         });
     }
 
@@ -67,7 +72,6 @@ public class InventoryItemSystem : MonoBehaviour
             .Child("playerWorld");
 
         var task = taskRef.GetValueAsync();
-
 
         task.ContinueWith(task =>
         {
@@ -82,6 +86,7 @@ public class InventoryItemSystem : MonoBehaviour
             {
                 
                 DataSnapshot snapshot = task.Result;
+                Debug.Log("Snapshot từ Firebase: " + snapshot.ChildrenCount + " items found.");
 
                 List<Inventory> inventoryList = new List<Inventory>();
 
@@ -89,13 +94,17 @@ public class InventoryItemSystem : MonoBehaviour
                 {
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
 
-                    // Kiểm tra nếu itemId tồn tại trong itemDetails
+                    Debug.Log($"PlayerWorld UserID: {playerworld.userId}, {userId}");
                     if (playerworld.userId == userId)
                     {
                         inventoryList = playerworld.inventorys;
-
-                       
+                        break;
                     }  
+                }
+
+                if (inventoryList == null || inventoryList.Count == 0)
+                {
+                    Debug.LogWarning("Không tìm thấy inventory hoặc inventory trống.");
                 }
                 callback(inventoryList);  // Trả về danh sách inventory qua callback
             }
