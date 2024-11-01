@@ -14,13 +14,11 @@ public class InventoryUI : MonoBehaviour
     private List<Inventory> inventoryItem;
     public ItemInfoDisplay itemInfoDisplay;
     public TextMeshProUGUI totalItem;
-    Color colorDefault = new Color(248f / 255f, 248f / 255f, 248f / 255f, 81f / 255f); 
     public TMP_InputField quantityInput;  // Ô để hiển thị số lượng
     public Slider quantitySlider;         // Slider điều chỉnh số lượng
     public Button splitButton;            // Nút để tách item
     private Inventory selectedItem;       // Lưu trữ item được chọn hiện tại
     private GameObject currentlySelectedSlot = null;
-    private Inventory selectedInventoryItem = null;
 
     private void Start()
     {
@@ -43,20 +41,24 @@ public class InventoryUI : MonoBehaviour
     private void UpdateQuantityFromSlider(float value)
     {
         quantityInput.text = Mathf.FloorToInt(value).ToString(); // Cập nhật ô số lượng theo slider
+
     }
 
     private void SplitItem()
     {
         if (selectedItem == null) return;
-
         int splitQuantity = int.Parse(quantityInput.text);
         if (splitQuantity <= 0 || splitQuantity >= selectedItem.quantity) return;
 
         selectedItem.quantity -= splitQuantity;
 
+        // Tạo item mới với số lượng đã tách
+        Debug.Log($"Check quantity item {splitQuantity} {selectedItem.item.name}");
         Inventory newItem = new Inventory(selectedItem.item, splitQuantity);
         inventorySystem.inventory.Add(newItem);
-        inventorySystem.onInventoryUpdated?.Invoke();  // Cập nhật lại UI
+
+        // Cập nhật lại UI
+        UpdateInventoryUI(inventorySystem.inventory);
 
         // Reset lựa chọn
         selectedItem = null;
@@ -70,18 +72,14 @@ public class InventoryUI : MonoBehaviour
 
         yield return new WaitUntil(() => inventorySystem.isDataLoaded);
 
-        Debug.Log("Đã vào đây");
         inventorySystem.LoadInventoryFromFirebase(inventoryList =>
         {
-            Debug.Log("Đã vào đây 1");
             List<Inventory> inventoryListItem = new List<Inventory>();
             foreach (var item in inventoryList)
             {
-                Debug.Log("Đã vào đây 2");
                 if (inventorySystem.itemDetails.TryGetValue(item.itemId, out Item itemDetail))
                 {
                     Inventory completeInventory = new Inventory(itemDetail, item.quantity);
-                    Debug.Log($"Thêm item vào inventory: {completeInventory.item.itemId} x{completeInventory.quantity}");
                     inventoryListItem.Add(completeInventory);
                 }
                 else
@@ -115,8 +113,6 @@ public class InventoryUI : MonoBehaviour
     }
     public void UpdateInventoryUI(List<Inventory> inventory)
     {
-        Debug.Log("Cập nhật Inventory UI");
-
         if (inventory == null || inventory.Count == 0)
         {
             Debug.LogWarning("Inventory trống hoặc không có dữ liệu.");
@@ -157,7 +153,7 @@ public class InventoryUI : MonoBehaviour
         // Ẩn background đã chọn trước đó
         if (currentlySelectedSlot != null)
         {
-            var previousSelected = currentlySelectedSlot.transform.Find("Selected");
+            var previousSelected = currentlySelectedSlot.transform.Find("BackgroundSelected");
             if (previousSelected != null)
             {
                 previousSelected.gameObject.SetActive(false);
@@ -165,12 +161,13 @@ public class InventoryUI : MonoBehaviour
         }
 
         // Hiển thị background của item hiện tại
-        var selectedBackground = slot.transform.Find("Selected");
+        var selectedBackground = slot.transform.Find("BackgroundSelected");
         if (selectedBackground != null)
         {
             selectedBackground.gameObject.SetActive(true);
         }
 
+        // Cập nhật thông tin chi tiết của item nếu có `itemInfoDisplay`
         if (itemInfoDisplay != null)
         {
             itemInfoDisplay.ShowItemInfo(item.item);
@@ -181,7 +178,9 @@ public class InventoryUI : MonoBehaviour
         quantitySlider.maxValue = item.quantity;
         quantitySlider.value = item.quantity;
 
-        selectedInventoryItem = item;
+        // Lưu trạng thái item hiện tại
         currentlySelectedSlot = slot;
+        selectedItem = item;
     }
+
 }
