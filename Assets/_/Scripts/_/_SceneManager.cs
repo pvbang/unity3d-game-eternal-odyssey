@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SceneManager : MonoBehaviour
+public class _SceneManager : MonoBehaviour
 {
     [HideInInspector]
     public List<string> sceneNames = new();
