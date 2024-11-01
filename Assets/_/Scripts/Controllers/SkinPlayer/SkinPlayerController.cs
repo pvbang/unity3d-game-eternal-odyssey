@@ -7,7 +7,7 @@ public class SkinPlayerController : BaseButton
 {
     public TMP_InputField namePlayer;
     public SkinManager skinManager;
-    public SceneManager sceneManager;
+    public _SceneManager sceneManager;
 
     // Cập nhật tên người chơi
     public void UpdateNamePlayer()

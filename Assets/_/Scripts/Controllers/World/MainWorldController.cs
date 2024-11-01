@@ -22,12 +22,25 @@ public class MainWorldController : MonoBehaviour
         UIMainWorld = GetComponent<UIMainWorld>();
     }
 
+    private DatabaseReference referenceGames;
+
     private void Start()
     {
         if (!FirebaseManager.instance.IsLogin()) return;
 
-        DatabaseReference referenceGames = FirebaseManager.instance.databaseReference.Child(ConstantManager.FIREBASE_WORLDS);
+        referenceGames = FirebaseManager.instance.databaseReference.Child(ConstantManager.FIREBASE_WORLDS);
+
+        // Đăng ký sự kiện
         referenceGames.ValueChanged += HandleValueChangedWorlds;
+    }
+
+    private void OnDisable()
+    {
+        // Hủy đăng ký sự kiện để tránh việc sự kiện còn tồn tại khi chuyển scene
+        if (referenceGames != null)
+        {
+            referenceGames.ValueChanged -= HandleValueChangedWorlds;
+        }
     }
 
     void HandleValueChangedWorlds(object sender, ValueChangedEventArgs args)
