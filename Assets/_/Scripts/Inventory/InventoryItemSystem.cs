@@ -13,12 +13,12 @@ public class InventoryItemSystem : MonoBehaviour
     public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
 
     public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
-    //public string userId = FirebaseManager.instance.GetUserId();
-    public string userId = "eZ9WfraAURZQE8iwrNO0xSDkiRt2";
-    public string worldId = "12321323";
+    public string userId;
+    public string worldId;
     private void Awake()
     {
-        //worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        userId = FirebaseManager.instance.GetUserId();
         if (instance == null)
         {
             instance = this;
@@ -28,7 +28,6 @@ public class InventoryItemSystem : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void Start()
     {
         LoadItemDetails(() =>
@@ -37,7 +36,7 @@ public class InventoryItemSystem : MonoBehaviour
             {
                 // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
                 List<Inventory> completedInventoryList = new List<Inventory>();
-                Debug.Log($"Đã vào đây 1 {inventoryList.Count}");
+
                 foreach (var inventoryItem in inventoryList)
                 {
                     // Kiểm tra xem itemDetails có chứa itemId này không
@@ -58,8 +57,6 @@ public class InventoryItemSystem : MonoBehaviour
                 Debug.Log("Đã tải xong danh sách inventory từ Firebase.");
                 onInventoryUpdated?.Invoke();
             });
-
-
         });
     }
 
@@ -93,8 +90,7 @@ public class InventoryItemSystem : MonoBehaviour
                 {
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
 
-                    Debug.Log($"PlayerWorld UserID: {playerworld.userId}, {userId}");
-                    if (playerworld.userId == "eZ9WfraAURZQE8iwrNO0xSDkiRt2")
+                    if (playerworld.userId == userId)
                     {
                         inventoryList = playerworld.inventorys;
                         break;
@@ -137,50 +133,73 @@ public class InventoryItemSystem : MonoBehaviour
     }
 
     // Thêm vật phẩm vào Inventory từ Ground
-    public void AddItemToInventory(string itemId)
+    public void AddItemToInventory(string itemId, int quantity)
+{
+    // Tìm item trong groundItems dựa vào itemId
+    var groundItem = groundItems.Find(i => i.item.itemId == itemId);
+    if (groundItem != null)
     {
-        var groundItem = groundItems.Find(i => i.item.itemId == itemId);
-        if (groundItem != null)
+        // Kiểm tra xem item có tồn tại trong inventory không
+        var existingItem = inventory.Find(i => i.item.itemId == itemId);
+
+        if (existingItem != null)
         {
-            // Thêm item mới vào Inventory mà không cộng dồn
-            inventory.Add(new Inventory(groundItem.item, groundItem.quantity));
+            existingItem.quantity += quantity;
+        }
+        else
+        {
+            // Nếu không có item trùng, thêm item mới vào Inventory
+            inventory.Add(new Inventory(groundItem.item, quantity));
+        }
 
+        // Giảm số lượng trong groundItems hoặc xóa nếu quantity = 0
+        groundItem.quantity -= quantity;
+        if (groundItem.quantity <= 0)
+        {
             groundItems.Remove(groundItem);
+        }
 
-            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-            if (inventoryUI != null)
-            {
-                inventoryUI.UpdateInventoryUI(inventory);
-            }
-
-            Debug.Log($"Đã thêm item {itemId} vào Inventory.");
+        // Cập nhật lại UI
+        InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+        if (inventoryUI != null)
+        {
+            inventoryUI.UpdateInventoryUI(inventory);
         }
     }
+}
+
+
 
     // Xóa vật phẩm khỏi Inventory và thêm vào Ground
-    public void RemoveItemFromInventory(string itemId)
+    public void RemoveItemFromInventory(string itemId, int quantityToRemove)
     {
         var inventoryItem = inventory.Find(i => i.item.itemId == itemId);
         if (inventoryItem != null)
         {
-            var groundItem = groundItems.Find(i => i.item.itemId == itemId);
-            if (groundItem != null)
+            inventoryItem.quantity -= quantityToRemove;
+
+            if (inventoryItem.quantity <= 0)
             {
-                groundItem.quantity += inventoryItem.quantity;  // Cộng dồn số lượng vào GroundItems nếu đã có sẵn
-            }
-            else
-            {
-                groundItems.Add(new Inventory(inventoryItem.item, inventoryItem.quantity));  // Thêm item mới vào GroundItems
+                inventory.Remove(inventoryItem);
             }
 
+            // Cập nhật lại UI Inventory
             InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
             if (inventoryUI != null)
             {
                 inventoryUI.UpdateInventoryUI(inventory);
             }
 
-            inventory.Remove(inventoryItem);  // Xóa khỏi Inventory
-            Debug.Log($"Đã xóa item {itemId} khỏi Inventory.");
         }
     }
+    public void UpdateItemQuantity(string itemId, int newQuantity)
+    {
+        var inventoryItem = inventory.Find(i => i.item.itemId == itemId);
+        if (inventoryItem != null)
+        {
+            inventoryItem.quantity = newQuantity;
+            onInventoryUpdated?.Invoke();
+        }
+    }
+
 }
