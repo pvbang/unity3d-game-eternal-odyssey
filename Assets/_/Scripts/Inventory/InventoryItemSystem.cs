@@ -16,9 +16,14 @@ public class InventoryItemSystem : MonoBehaviour
     //public string userId = FirebaseManager.instance.GetUserId();
     public string userId = "eZ9WfraAURZQE8iwrNO0xSDkiRt2";
     public string worldId = "12321323";
+
     private void Awake()
     {
         //worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+
+        Debug.Log(PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID));
+        Debug.Log(FirebaseManager.instance.GetUserId());
+
         if (instance == null)
         {
             instance = this;
