@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class RoomWorldController : MonoBehaviour
 {
     public TMP_InputField InviteWorld;
     public Content playersContent;
+    public _SceneManager sceneManager;
+
+    private DatabaseReference referenceGames;
 
     private void OnEnable()
     {
@@ -17,15 +21,29 @@ public class RoomWorldController : MonoBehaviour
         string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
         if (string.IsNullOrEmpty(worldId)) return;
 
-        DatabaseReference referenceGames = FirebaseManager.instance.databaseReference.Child(ConstantManager.FIREBASE_WORLDS).Child(worldId).Child(ConstantManager.FIREBASE_WORLDS_PLAYERS);
+        referenceGames = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS);
+
+        // Đăng ký sự kiện
         referenceGames.ValueChanged += HandleValueChangedRoomWorld;
+    }
+
+    private void OnDisable()
+    {
+        // Hủy đăng ký sự kiện để tránh việc sự kiện còn tồn tại khi chuyển scene
+        if (referenceGames != null)
+        {
+            referenceGames.ValueChanged -= HandleValueChangedRoomWorld;
+        }
     }
 
     public void AddNotification()
     {
         if (InviteWorld.text.Length <= 0)
         {
-            Debug.Log("idUser is null or empty");
+            NotificationManager.instance.ShowNotification("Vui lòng nhập tên người chơi", NotificationType.Notification);
             return;
         }
 
@@ -63,7 +81,6 @@ public class RoomWorldController : MonoBehaviour
 
         if (userId == "")
         {
-            Debug.Log("Không tìm thấy user");
             NotificationManager.instance.ShowNotification("Không tìm thấy user", NotificationType.Notification);
             yield break;
         }
@@ -149,4 +166,42 @@ public class RoomWorldController : MonoBehaviour
         playersContent.DestroyContents();
         playersContent.AddContent(contentList);
     }
+
+
+    public IEnumerator GetNamePlayerCoroutine()
+    {
+        string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        string userId = FirebaseManager.instance.GetUserId();
+
+        string _playerName = "";
+        bool checkCallback = false;
+
+        WorldManager.GetPlayerName(worldId, userId, _name => {
+            _playerName = _name;
+            checkCallback = true;
+        });
+
+        // Chờ đến khi tên được cập nhật
+        yield return new WaitUntil(() => checkCallback);
+
+        _playerName = _playerName.Replace("\"", "");
+
+        if (string.IsNullOrEmpty(_playerName))
+        {
+            sceneManager.LoadScene("SkinPlayer");
+        }
+        else
+        {
+            sceneManager.LoadScene("MainScene");
+        }
+    }
+
+
+    public void GetNamePlayer()
+    {
+        StartCoroutine(GetNamePlayerCoroutine());
+
+    }
+
+
 }

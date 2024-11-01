@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SceneManager))]
+[CustomEditor(typeof(_SceneManager))]
 public class SceneManagerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        SceneManager sceneManager = (SceneManager)target;
+        _SceneManager sceneManager = (_SceneManager)target;
 
         GUILayout.Space(5); 
 

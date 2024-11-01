@@ -59,7 +59,6 @@ public class WorldManager : MonoBehaviour
         }
 
         // Nếu qua được các bước kiểm tra, tiếp tục thực hiện các thao tác khác...
-        Debug.Log("worldId không tồn tại, có thể tiếp tục.");
 
         //// Tạo Dictionary từ List<PlayerWorld> với userId làm key
         //Dictionary<string, PlayerWorld> playerWorldDict = new();
@@ -101,11 +100,9 @@ public class WorldManager : MonoBehaviour
 
         // 2. Tạo JSON cho các phần còn lại của world
         string worldJson = JsonUtility.ToJson(world);
-        Debug.Log("World JSON trước khi kết hợp: " + worldJson);
 
         // 3. Ghép JSON của playerWorld vào JSON của world
         string finalJson = MergeJson(worldJson, playerWorldJson.ToString());
-        Debug.Log("Final JSON: " + finalJson);
 
 
         var addTask = FirebaseManager.instance.databaseReference
@@ -482,6 +479,50 @@ public class WorldManager : MonoBehaviour
         {
             Debug.Log("Cập nhật tên của người chơi trong world thành công");
         }
+    }
+
+
+    // Lấy tên của người chơi trong world
+    // cách gọi hàm: WorldManager.GetPlayerName(worldId, userId, name => { Debug.Log(name); });
+    public static void GetPlayerName(string worldId, string userId, Action<string> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .Child("name");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy tên của người chơi trong world: " + task.Exception);
+                callback("");
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    string name = snapshot.GetRawJsonValue();
+                    callback(name);
+                }
+                else
+                {
+                    Debug.Log("Không tìm thấy tên của người chơi trong world");
+                    callback("");
+                }
+            }
+        });
+
+        callback("");
     }
 }
 

@@ -4,6 +4,8 @@ using System.Linq;
 public class ConstantManager
 {
     // Bang
+    public static string SPECIAL_CHARACTER = "######~~~###~~~pvbang~~~###~~~######";
+
     public static string FIREBASE_USERS = "users";
     public static string FIREBASE_USERS_USERNAME = "username";
     public static string FIREBASE_USERS_STATUS = "status";
