@@ -2,16 +2,16 @@
 
 public class Rate
 {
-    public float from;
-    public float to;
+    public int from;
+    public int to;
 
     public Rate()
     {
-        from = 0f;
-        to = 0f;
+        from = 0;
+        to = 0;
     }
 
-    public Rate(float from, float to)
+    public Rate(int from, int to)
     {
         this.from = from;
         this.to = to;
