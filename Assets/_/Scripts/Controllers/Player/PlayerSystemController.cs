@@ -43,14 +43,14 @@ public class PlayerSystemController : MonoBehaviour
     }
 
     // Nhận sát thương
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) return;
 
         Attribute attribute = playerDetails.attribute;
 
-        float currentHealth = attribute.health.current;
+        int currentHealth = attribute.health.current;
         currentHealth -= damage;
         if (currentHealth < 0) currentHealth = 0;
 
@@ -64,14 +64,14 @@ public class PlayerSystemController : MonoBehaviour
 
 
     // Hồi máu
-    public void Heal(float heal)
+    public void Heal(int heal)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) return;
 
         Attribute attribute = playerDetails.attribute;
 
-        float currentHealth = attribute.health.current;
+        int currentHealth = attribute.health.current;
         currentHealth += heal;
         if (currentHealth > attribute.health.max) currentHealth = attribute.health.max;
 
@@ -84,22 +84,22 @@ public class PlayerSystemController : MonoBehaviour
     }
 
     // Hàm buff tăng sát thương trong khoảng thời gian nhất định
-    public void BuffDamage(float buff, float duration)
+    public void BuffDamage(int buff, float duration)
     {
         StartCoroutine(BuffDamageCoroutine(buff, duration));
     }
 
-    private IEnumerator BuffDamageCoroutine(float buff, float duration)
+    private IEnumerator BuffDamageCoroutine(int buff, float duration)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) yield break;
 
         Attribute attribute = playerDetails.attribute;
 
-        float currentDame = attribute.Damage.from;
+        int currentDame = attribute.Damage.from;
         currentDame *= (buff / 100);
 
-        float maxDame = attribute.Damage.to;
+        int maxDame = attribute.Damage.to;
         maxDame *= (buff / 100);
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
@@ -123,18 +123,18 @@ public class PlayerSystemController : MonoBehaviour
 
 
     // Hàm buff tăng máu tạm thời trong một khoảng thời gian
-    public void BuffHealth(float buffHealth, float duration)
+    public void BuffHealth(int buffHealth, float duration)
     {
         StartCoroutine(BuffHealthCoroutine(buffHealth, duration));
     }
 
-    private IEnumerator BuffHealthCoroutine(float buffHealth, float duration)
+    private IEnumerator BuffHealthCoroutine(int buffHealth, float duration)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) yield break;
         Attribute attribute = playerDetails.attribute;
 
-        float originalMaxHealth = attribute.health.max;
+        int originalMaxHealth = attribute.health.max;
         attribute.health.max += buffHealth;
         attribute.health.current += buffHealth;
 
@@ -159,7 +159,7 @@ public class PlayerSystemController : MonoBehaviour
 
 
     // Hàm buff tăng máu vĩnh viễn
-    public void BuffMaxHealth(float buffHealth)
+    public void BuffMaxHealth(int buffHealth)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) return;
@@ -179,7 +179,7 @@ public class PlayerSystemController : MonoBehaviour
     }
 
     // Hàm debuff giảm máu vĩnh viễn
-    public void DebuffMaxHealth(float debuffHealth)
+    public void DebuffMaxHealth(int debuffHealth)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) return;
@@ -202,19 +202,19 @@ public class PlayerSystemController : MonoBehaviour
     }
 
     // Hàm debuff giảm máu tạm thời trong một khoảng thời gian
-    public void DebuffHealth(float debuffHealth, float duration)
+    public void DebuffHealth(int debuffHealth, float duration)
     {
         StartCoroutine(DebuffHealthCoroutine(debuffHealth, duration));
     }
 
-    private IEnumerator DebuffHealthCoroutine(float debuffHealth, float duration)
+    private IEnumerator DebuffHealthCoroutine(int debuffHealth, float duration)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) yield break;
 
         Attribute attribute = playerDetails.attribute;
 
-        float originalMaxHealth = attribute.health.max;
+        int originalMaxHealth = attribute.health.max;
         attribute.health.max -= debuffHealth;
         if (attribute.health.current > attribute.health.max)
         {
@@ -241,19 +241,19 @@ public class PlayerSystemController : MonoBehaviour
     }
 
     // Buff tăng chống chịu trong khoảng thời gian nhất định
-    public void BuffResistance(float buff, float duration)
+    public void BuffResistance(int buff, float duration)
     {
         StartCoroutine(BuffResistanceCoroutine(buff, duration));
     }
 
-    private IEnumerator BuffResistanceCoroutine(float buff, float duration)
+    private IEnumerator BuffResistanceCoroutine(int buff, float duration)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
         if (playerDetails == null) yield break;
 
         Attribute attribute = playerDetails.attribute;
 
-        float currentResistance = attribute.resistance;
+        int currentResistance = attribute.resistance;
         currentResistance *= (buff / 100);
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
@@ -289,6 +289,8 @@ public class PlayerSystemController : MonoBehaviour
 
         float currentSpeed = attribute.runSpeed;
         currentSpeed *= (buff / 100);
+        // làm tròn đến 2 chữ số thập phân
+        currentSpeed = Mathf.Round(currentSpeed * 100f) / 100f;
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
         {
@@ -322,6 +324,8 @@ public class PlayerSystemController : MonoBehaviour
 
         float currentAttackSpeed = attribute.attackSpeed;
         currentAttackSpeed *= (buff / 100);
+        // làm tròn đến 2 chữ số thập phân
+        currentAttackSpeed = Mathf.Round(currentAttackSpeed * 100f) / 100f;
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
         {
@@ -356,6 +360,8 @@ public class PlayerSystemController : MonoBehaviour
 
         float currentCriticalChance = attribute.crit;
         currentCriticalChance *= (buff / 100);
+        // làm tròn đến 2 chữ số thập phân
+        currentCriticalChance = Mathf.Round(currentCriticalChance * 100f) / 100f;
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
         {
@@ -390,6 +396,8 @@ public class PlayerSystemController : MonoBehaviour
 
         float currentIntelligence = attribute.intelligence;
         currentIntelligence *= (buff / 100);
+        // làm tròn đến 2 chữ số thập phân
+        currentIntelligence = Mathf.Round(currentIntelligence * 100f) / 100f;
 
         Dictionary<string, object> changedValue = new Dictionary<string, object>
         {

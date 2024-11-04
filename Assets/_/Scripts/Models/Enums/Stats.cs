@@ -2,16 +2,16 @@
 
 public class Stats
 {
-    public float current;
-    public float max;
+    public int current;
+    public int max;
 
     public Stats()
     {
-        current = 100f;
-        max = 100f;
+        current = 100;
+        max = 100;
     }
 
-    public Stats(float current, float max)
+    public Stats(int current, int max)
     {
         this.current = current;
         this.max = max;

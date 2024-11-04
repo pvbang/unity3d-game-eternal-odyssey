@@ -14,7 +14,7 @@ public class PlayerDetails
     public PlayerDetails()
     {
         level = Level.Level_1;
-        experience = new Stats(0f, 100f);
+        experience = new Stats(0, 100);
         attribute = new Attribute();
     }
 
