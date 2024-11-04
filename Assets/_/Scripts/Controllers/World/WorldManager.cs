@@ -524,6 +524,102 @@ public class WorldManager : MonoBehaviour
 
         callback("");
     }
+
+
+    // Lấy skin của người chơi trong world
+    // cách gọi hàm: WorldManager.GetPlayerSkin(worldId, userId, skin => { Debug.Log(skin); });
+    public static void GetPlayerSkin(string worldId, string userId, Action<string> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .Child("skin");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy skin của người chơi trong world: " + task.Exception);
+                callback("");
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    string skin = snapshot.GetRawJsonValue();
+                    callback(skin);
+                }
+                else
+                {
+                    Debug.Log("Không tìm thấy skin của người chơi trong world");
+                    callback("");
+                }
+            }
+        });
+
+        callback("");
+    }
+
+
+    // cập nhật thuộc tính của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerDetails(worldId, userId, playerDetails));
+    public static IEnumerator UpdatePlayerDetails(string worldId, string userId, PlayerDetails playerDetails)
+    {
+        string json = JsonUtility.ToJson(playerDetails);
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .SetRawJsonValueAsync(json);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật thuộc tính của người chơi trong world");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Cập nhật thuộc tính của người chơi trong world thành công");
+        }
+    }
+
+    // cập nhật một số thuộc tính của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerDetails(worldId, userId, new Dictionary<string, object> { {"fieldName", fieldValue}, ... }));
+    public static IEnumerator UpdateFieldsPlayerDetails(string worldId, string userId, Dictionary<string, object> fieldsToUpdate)
+    {
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật một số thuộc tính của người chơi trong world");
+        }
+        else if (task.IsCompleted)
+        {
+            //Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+        }
+    }
+
 }
 
 

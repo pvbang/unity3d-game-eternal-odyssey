@@ -81,6 +81,7 @@ public class RoomWorldController : MonoBehaviour
 
         if (userId == "")
         {
+            Debug.Log("Không tìm thấy user");
             NotificationManager.instance.ShowNotification("Không tìm thấy user", NotificationType.Notification);
             yield break;
         }

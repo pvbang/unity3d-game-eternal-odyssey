@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class pvbang : MonoBehaviour
 {
-    void Start()
+    private void OnEnable()
     {
-        World world = new World();
-
-        world.worldId = RandomManager.GenerateRandomID();
-        world.name = "Phòng Test Bằng";
-        world.code = "123456";
-
-        StartCoroutine(WorldManager.AddWorld(world));
-
+        PlayerSystemController.instance.TakeDamage(100);
     }
 
 }
