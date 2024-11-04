@@ -4,7 +4,7 @@ public class Attribute
 {
     public Stats health;                 // Máu
     public Rate damage;                 // Sát thương
-    public float resistance;            // Chống chịu
+    public int resistance;            // Chống chịu
     public float attackSpeed;           // Tốc độ tấn công
     public float runSpeed;              // Tốc độ chạy
     public float intelligence;          // Trí tuệ ? cái ni để làm chi hè
@@ -12,16 +12,16 @@ public class Attribute
 
     public Attribute()
     {
-        health = new Stats(1000f, 1000f);
-        damage = new Rate(45f, 55f);              
-        resistance = 20f;                   
+        health = new Stats(1000, 1000);
+        damage = new Rate(45, 55);              
+        resistance = 20;                   
         attackSpeed = 1.0f;                 
         runSpeed = 1.0f;                     
         intelligence = 10f;                 
         crit = 0.1f;                       
     }
 
-    public Attribute(Stats health, Rate damage, float resistance, float attackSpeed, float runSpeed, float intelligence, float crit)
+    public Attribute(Stats health, Rate damage, int resistance, float attackSpeed, float runSpeed, float intelligence, float crit)
     {
         this.health = health;
         this.damage = damage;
@@ -34,7 +34,7 @@ public class Attribute
 
     public Stats Health { get => health; set => health = value; }
     public Rate Damage { get => damage; set => damage = value; }
-    public float Resistance { get => resistance; set => resistance = value; }
+    public int Resistance { get => resistance; set => resistance = value; }
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public float RunSpeed { get => runSpeed; set => runSpeed = value; }
     public float Intelligence { get => intelligence; set => intelligence = value; }
