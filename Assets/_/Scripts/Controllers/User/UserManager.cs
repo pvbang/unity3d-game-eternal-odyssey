@@ -189,41 +189,51 @@ public class UserManager : MonoBehaviour
 
     public static void GetUserIdByUsername(string username, System.Action<string> callback)
     {
+        // Tham chiếu tới Firebase database, lấy đối tượng với username cụ thể
         var taskRef = FirebaseManager.instance.databaseReference
             .Child("users")
             .OrderByChild("username")
             .EqualTo(username);
 
+        // Bắt đầu nhiệm vụ lấy dữ liệu từ Firebase
         var task = taskRef.GetValueAsync();
 
-        task.ContinueWith(task =>
+        // Tiếp tục xử lý sau khi nhận được kết quả từ Firebase
+        task.ContinueWith(t =>
         {
-            if (task.IsFaulted)
+            // Kiểm tra nếu có lỗi trong quá trình thực hiện
+            if (t.IsFaulted || t.Exception != null)
             {
-                Debug.Log("Lỗi lấy userId từ username: " + task.Exception);
-                callback(null);
+                Debug.LogError("Lỗi lấy userId từ username: " + t.Exception);
+                callback(""); // Gọi callback với giá trị null trong trường hợp lỗi
                 return;
             }
 
-            if (task.IsCompleted)
+            // Kiểm tra nếu nhiệm vụ đã hoàn thành thành công
+            if (t.IsCompleted)
             {
-                DataSnapshot snapshot = task.Result;
+                DataSnapshot snapshot = t.Result;
 
-                if (snapshot.Exists)
+                // Kiểm tra nếu dữ liệu tồn tại trong snapshot
+                if (snapshot != null && snapshot.Exists && snapshot.ChildrenCount > 0)
                 {
+                    // Duyệt qua từng child (trường hợp chỉ có một user duy nhất với username đó)
                     foreach (var child in snapshot.Children)
                     {
                         string userId = child.Key;
-                        callback(userId);
+                        callback(userId); // Gọi callback với userId
                         return;
                     }
                 }
                 else
                 {
-                    callback(null);
+                    Debug.LogWarning("Không tìm thấy user nào với username: " + username);
+                    callback(""); // Gọi callback với giá trị null nếu không có user nào
                 }
             }
         });
+
+        callback(""); // Gọi callback với giá trị null nếu không có user nào
     }
 
 

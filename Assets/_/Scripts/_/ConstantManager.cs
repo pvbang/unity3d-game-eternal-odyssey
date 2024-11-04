@@ -14,6 +14,7 @@ public class ConstantManager
     public static string FIREBASE_WORLDS = "worlds";
     public static string FIREBASE_WORLDS_ID = "world_id";
     public static string FIREBASE_WORLDS_PLAYERS = "playerWorld";
+    public static string FIREBASE_WORLDS_PLAYER_DETAILS = "playerDetails";
 
 
     // Huan

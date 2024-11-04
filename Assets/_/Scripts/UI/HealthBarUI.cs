@@ -25,9 +25,12 @@ public class HealthBarUI : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void UpdateHealth(float currentHealth, float maxHealth)
     {
-        currentHealth = maxHealth;
+        this.currentHealth = currentHealth;
+        this.maxHealth = maxHealth;
+
+        healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthText();
     }
 
