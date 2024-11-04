@@ -94,16 +94,26 @@ public class PlayerAtributeUI : MonoBehaviour
             // Chuyển enum sang số nguyên và cộng thêm 1, sau đó kiểm tra giới hạn của enum
             int numberLevel = int.Parse(levelNumber);
 
+            float plus = 1.1f;
+
             int nextLevel = numberLevel + 1;
-            float nextMaxExperience = experience.max * 1.1f;
-            float maxHealth = health.max * 1.1f;
-            float fromDamage = attribute.damage.from * 1.1f;
-            float maxDamage = attribute.damage.to * 1.1f;
-            float resistance = attribute.resistance * 1.1f;
-            float attackSpeed = attribute.attackSpeed * 1.1f;
-            float runSpeed = attribute.runSpeed * 1.1f;
-            float intelligence = attribute.intelligence * 1.1f;
-            float crit = attribute.crit * 1.1f;
+            int nextMaxExperience = (int)(experience.max * plus);
+            int maxHealth = (int)(health.max * plus);
+            int fromDamage = (int)(attribute.damage.from * plus);
+            int maxDamage = (int)(attribute.damage.to * plus);
+            int resistance = (int)(attribute.resistance * plus);
+
+            float attackSpeed = attribute.attackSpeed * plus;
+            attackSpeed = (float)Math.Round(attackSpeed, 2);
+
+            float runSpeed = attribute.runSpeed * plus;
+            runSpeed = (float)Math.Round(runSpeed, 2);
+
+            float intelligence = attribute.intelligence * plus;
+            intelligence = (float)Math.Round(intelligence, 2);
+
+            float crit = attribute.crit * plus;
+            crit = (float)Math.Round(crit, 2);
 
             Attribute newAttribute = new Attribute(new Stats(maxHealth, maxHealth), new Rate(fromDamage, maxDamage), resistance, attackSpeed, runSpeed, intelligence, crit);
             UpdateLevel(nextLevel, nextMaxExperience, newAttribute);
@@ -122,7 +132,15 @@ public class PlayerAtributeUI : MonoBehaviour
             { "level", nextLevel },
             { "experience/current", 0f },
             { "experience/max", nextMaxExperience },
-            //{ "attribute", newAttribute }
+            { "attribute/health/current", newAttribute.health.current },
+            { "attribute/health/max", newAttribute.health.max },
+            { "attribute/damage/from", newAttribute.damage.from },
+            { "attribute/damage/to", newAttribute.damage.to },
+            { "attribute/resistance", newAttribute.resistance },
+            { "attribute/attackSpeed", newAttribute.attackSpeed },
+            { "attribute/runSpeed", newAttribute.runSpeed },
+            { "attribute/intelligence", newAttribute.intelligence },
+            { "attribute/crit", newAttribute.crit }
         };
 
         PlayerSystemController.instance.UpdatePlayer(changedValue);
