@@ -535,7 +535,7 @@ public class WorldManager : MonoBehaviour
             .Child(worldId)
             .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
             .Child(userId)
-            .Child("playerDetails")
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYER_DETAILS)
             .Child("skin");
 
         var task = taskRef.GetValueAsync();
