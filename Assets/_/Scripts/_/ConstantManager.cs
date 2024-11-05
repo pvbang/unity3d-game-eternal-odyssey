@@ -4,6 +4,9 @@ using System.Linq;
 public class ConstantManager
 {
     // Bang
+    public static string PLAYER_TAG = "_Player";
+    public static string ENEMY_TAG = "_Enemy";
+
     public static string SPECIAL_CHARACTER = "######~~~###~~~pvbang~~~###~~~######";
 
     public static string FIREBASE_USERS = "users";
