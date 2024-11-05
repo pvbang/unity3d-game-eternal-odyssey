@@ -64,14 +64,20 @@ public class PlayerSystemController : MonoBehaviour
 
 
     // Hồi máu
-    public void Heal(int heal)
+    public bool Heal(int heal)
     {
         PlayerDetails playerDetails = playerAtributeUI.GetPlayerDetails();
-        if (playerDetails == null) return;
+        if (playerDetails == null) return false;
 
         Attribute attribute = playerDetails.attribute;
 
         int currentHealth = attribute.health.current;
+        if (currentHealth > attribute.health.max)
+        {
+            Debug.Log("Máu đã đầy, không cần hồi máu thêm.");
+            return false; // Trả về false để biểu thị rằng không cần hồi máu
+        }
+
         currentHealth += heal;
         if (currentHealth > attribute.health.max) currentHealth = attribute.health.max;
 
@@ -81,6 +87,7 @@ public class PlayerSystemController : MonoBehaviour
         };
 
         UpdateValuePlayer(changedValue);
+        return true; // Trả về true để biểu thị rằng đã hồi máu thành công
     }
 
     // Hàm buff tăng sát thương trong khoảng thời gian nhất định
