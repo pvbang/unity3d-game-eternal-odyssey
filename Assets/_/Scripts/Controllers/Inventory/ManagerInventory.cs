@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firebase.Database;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -109,6 +110,91 @@ public class ManagerInventory : MonoBehaviour
                     callback(true, "Thêm item mới thành công: " + itemId);
                 }
             });
+        });
+    }
+
+    // Hàm cập nhật số lượng item với callback
+    public static void UpdateItemQuantity(string itemId, int newQuantity, string worldId, string userId, Action<bool> callback)
+    {
+        var inventoryRef = FirebaseManager.instance.databaseReference
+            .Child("worlds")
+            .Child(worldId)
+            .Child("playerWorld")
+            .Child(userId)
+            .Child("inventorys");
+
+        // Lấy dữ liệu inventory từ Firebase
+        inventoryRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Lỗi khi lấy thông tin inventory: " + task.Exception);
+                callback(false);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                bool itemUpdated = false;
+
+                foreach (var itemSnapshot in snapshot.Children)
+                {
+                    string currentItemId = itemSnapshot.Child("itemId").Value.ToString();
+
+                    if (currentItemId == itemId)
+                    {
+                        if (newQuantity > 0)
+                        {
+                            // Cập nhật số lượng nếu số lượng mới lớn hơn 0
+                            Dictionary<string, object> updateData = new Dictionary<string, object>
+                            {
+                                { "quantity", newQuantity }
+                            };
+
+                            inventoryRef.Child(itemSnapshot.Key).UpdateChildrenAsync(updateData).ContinueWith(updateTask =>
+                            {
+                                if (updateTask.IsFaulted)
+                                {
+                                    Debug.LogError("Lỗi khi cập nhật số lượng item: " + updateTask.Exception);
+                                    callback(false);
+                                }
+                                else
+                                {
+                                    Debug.Log("Cập nhật số lượng item thành công: " + itemId);
+                                    callback(true);
+                                }
+                            });
+                        }
+                        else
+                        {
+                            // Xóa item nếu số lượng mới <= 0
+                            inventoryRef.Child(itemSnapshot.Key).RemoveValueAsync().ContinueWith(removeTask =>
+                            {
+                                if (removeTask.IsFaulted)
+                                {
+                                    Debug.LogError("Lỗi khi xóa item: " + removeTask.Exception);
+                                    callback(false);
+                                }
+                                else
+                                {
+                                    Debug.Log("Xóa item thành công: " + itemId);
+                                    callback(true);
+                                }
+                            });
+                        }
+
+                        itemUpdated = true;
+                        break;
+                    }
+                }
+
+                if (!itemUpdated)
+                {
+                    Debug.LogWarning("Không tìm thấy item với ID: " + itemId + " trong inventory.");
+                    callback(false);
+                }
+            }
         });
     }
 }
