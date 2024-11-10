@@ -12,7 +12,6 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryPanel.SetActive(false);
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
