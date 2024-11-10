@@ -1,38 +1,13 @@
 ﻿using Firebase.Auth;
 using System;
 using UnityEngine;
+using StarterAssets;
 
 public class CharacterPlayerController : MonoBehaviour
 {
     private Animator playerAnimator;
     public Transform charactersObject;
-    private enum CharacterState
-    {
-        Idle,
-        Walk,
-        Sprint,
-        Jump,
-        JumpAttack,
-        Attack,
-        Combo,
-        Defend,
-        DefendHit,
-        RollUp,
-        RollDown,
-        RollLeft,
-        RollRight,
-        Slide,
-        DashUp,
-        DashDown,
-        DashLeft,
-        DashRight,
-        Die,
-        DieRecovered,
-        Dizzy,
-        GetHit,
-        EquipmentChange,
-        Victory,
-    }
+    public ThirdPersonController playerController;
 
     // Biến để theo dõi trạng thái hành động hiện tại
     private CharacterState currentAction = CharacterState.Idle;
@@ -96,7 +71,18 @@ public class CharacterPlayerController : MonoBehaviour
         // Đặt các điều kiện hành động theo thứ tự ưu tiên
         if (isMoving && isShiftHeld)
         {
-            nextAction = CharacterState.Sprint;
+            float stamina = PlayerPrefs.GetFloat(ConstantManager.PLAYER_STAMINA, 100f);
+            Debug.Log("Stamina: " + stamina);
+            if (stamina > 0.5)
+            {
+                nextAction = CharacterState.Sprint;
+                playerController.SprintSpeed = 10f;
+            }
+            else
+            {
+                nextAction = CharacterState.Walk;
+                playerController.SprintSpeed = 3f;
+            }
         }
         else if (Input.GetKey(KeyCode.R) && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
         {
@@ -182,7 +168,7 @@ public class CharacterPlayerController : MonoBehaviour
     }
 
     // Hàm quản lý trạng thái Animator
-    private void SetCharacterState(CharacterState state)
+    public void SetCharacterState(CharacterState state)
     {
         playerAnimator.SetBool("idle", false);
 

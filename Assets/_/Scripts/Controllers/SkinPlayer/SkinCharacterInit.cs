@@ -38,7 +38,6 @@ public class SkinCharacterInit : MonoBehaviour
         foreach (GameObject skinPrefab in skinPrefabs)
         {
             // Nếu tên của skinPrefab có trong danh sách skinNames thì kích hoạt, ngược lại thì tắt
-            Debug.Log($"SkinPrefab: {skinPrefab.name}");
             string skinName = skinPrefab.name;
             if (skinName == "pelvis") skinName = "Pelvis1";
             bool shouldBeActive = skinNames.Contains(skinName);
