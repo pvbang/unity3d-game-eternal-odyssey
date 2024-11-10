@@ -14,7 +14,7 @@ public class QuestManagerUI : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             isOpenQuestUI = !isOpenQuestUI;
             questUI.SetActive(isOpenQuestUI);
