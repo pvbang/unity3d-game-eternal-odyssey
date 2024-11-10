@@ -18,10 +18,10 @@ public class PlayerDamageHandle : MonoBehaviour
     {
         if (other.CompareTag(ConstantManager.SKILL_TAG))
         {
-            Debug.Log("PlayerDamageHandle");
             int damage = Random.Range(minDamage, maxDamage);
             PlayerSystemController.instance.TakeDamage(damage);
-            characterPlayerController.SetCharacterState(CharacterState.GetHit);
+            Debug.Log("PlayerDamageHandle");
+            //characterPlayerController.SetCharacterState(CharacterState.GetHit);
         }
     }
 
