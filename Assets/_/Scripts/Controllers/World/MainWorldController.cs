@@ -126,7 +126,58 @@ public class MainWorldController : MonoBehaviour
         ShowListAllWorlds(worlds);
     }
 
-    public void CreateWorld()
+
+    private void GetInitialQuests(Action<List<QuestWorld>> callback)
+    {
+        QuestManager.FetchListQuests((quests, questId) =>
+        {
+            if (quests == null)
+            {
+                Debug.Log("Không tìm thấy quest");
+                callback(null);
+                return;
+            }
+            List<QuestWorld> questWorlds = new List<QuestWorld>();
+            for (int i = 0; i<quests.Count; i++)
+            {
+                List<MaterialsUpdate> progress = new List<MaterialsUpdate>();
+
+                Quest quest = quests[i];
+                QuestWorld questWorld = new QuestWorld();
+                questWorld.questId = questId[i];
+                questWorld.status = Status.NotStarted;
+                foreach (MaterialsUpdate material in quest.completionConditions)
+                {
+                    progress.Add(new MaterialsUpdate(material.itemId, 0));
+                }
+                questWorld.progress_quest_world = progress;
+                questWorlds.Add(questWorld);
+            }
+            callback(questWorlds);
+        });
+    }
+
+    public IEnumerator LoadingListQuest()
+    {
+        bool checkCallback = false;
+        List<QuestWorld> listQuestWorlds = new List<QuestWorld>();
+        GetInitialQuests((questWorld) =>
+        {
+            if (questWorld == null)
+            {
+                Debug.Log("Không tìm thấy list quests");
+                return;
+            }
+            
+            listQuestWorlds = questWorld;
+            checkCallback = true;
+        });
+        yield return new WaitUntil(() => checkCallback);
+        print("List quest: " + listQuestWorlds.Count + ","+ listQuestWorlds);
+        CreateWorldCoroutine(listQuestWorlds);
+    }
+
+    public void CreateWorldCoroutine(List<QuestWorld> questWorlds)
     {
         if (string.IsNullOrEmpty(UIMainWorld.GetNameWorld()))
         {
@@ -175,9 +226,20 @@ public class MainWorldController : MonoBehaviour
         playerWorld.inventorys.Add(inventory2);
         playerWorld.inventorys.Add(inventory3);
 
+        world.questWorld = questWorlds;
         world.playerWorld.Add(playerWorld);
 
         StartCoroutine(WorldManager.AddWorld(world));
+    }
+
+    public void LoadingCompleteQuest()
+    {
+        StartCoroutine(LoadingListQuest());
+    }    
+
+    public void CreateWorld()
+    {
+        LoadingCompleteQuest();
     }
 
     /// <summary>
