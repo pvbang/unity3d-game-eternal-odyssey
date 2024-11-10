@@ -6,6 +6,10 @@ public class ConstantManager
     // Bang
     public static string PLAYER_TAG = "_Player";
     public static string ENEMY_TAG = "_Enemy";
+    public static string SKILL_TAG = "_Skill";
+
+    public static string PLAYER_LEVEL = "player_level";
+    public static string PLAYER_STAMINA = "player_stamina";
 
     public static string SPECIAL_CHARACTER = "######~~~###~~~pvbang~~~###~~~######";
 
