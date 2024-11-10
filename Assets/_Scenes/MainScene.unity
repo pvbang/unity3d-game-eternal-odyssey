@@ -195008,7 +195008,6 @@ GameObject:
   m_Component:
   - component: {fileID: 324663240}
   - component: {fileID: 324663243}
-  - component: {fileID: 324663242}
   - component: {fileID: 324663244}
   m_Layer: 5
   m_Name: Button Inventory
@@ -195038,18 +195037,6 @@ RectTransform:
   m_AnchoredPosition: {x: 71.7, y: 70}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &324663242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324663239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a978b0b1b1bcbfb4db99c0b0e735f621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &324663243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195103,15 +195090,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 324663239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e3801b205c6af4986df60b0f8ac8bf, type: 3}
+  m_Script: {fileID: 11500000, guid: e379c95c2eb65624499bd67f5a9bc700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questUI: {fileID: 850855371}
-  questListContainer: {fileID: 756149756}
-  questItemSystem: {fileID: 1474842337}
-  questSlotPrefab: {fileID: 941603556}
-  questTitleText: {fileID: 0}
-  questDescriptionText: {fileID: 0}
+  inventoryPanel: {fileID: 665535052}
 --- !u!1001 &324959649
 PrefabInstance:
   m_ObjectHideFlags: 0
