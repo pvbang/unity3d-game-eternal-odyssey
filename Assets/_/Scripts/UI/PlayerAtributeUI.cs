@@ -74,6 +74,9 @@ public class PlayerAtributeUI : MonoBehaviour
         string levelNumber = match.Value;
         txtLevel.text = levelNumber;
 
+        int numberLevel = int.Parse(levelNumber);
+        PlayerPrefs.SetInt(ConstantManager.PLAYER_LEVEL, numberLevel);
+
         // lấy tên
         txtName.text = playerDetails.name;
 
@@ -90,9 +93,6 @@ public class PlayerAtributeUI : MonoBehaviour
             {
                 yield break;
             }
-
-            // Chuyển enum sang số nguyên và cộng thêm 1, sau đó kiểm tra giới hạn của enum
-            int numberLevel = int.Parse(levelNumber);
 
             float plus = 1.1f;
 
