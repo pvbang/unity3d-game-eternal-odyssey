@@ -134,41 +134,39 @@ public class InventoryItemSystem : MonoBehaviour
 
     // Thêm vật phẩm vào Inventory từ Ground
     public void AddItemToInventory(string itemId, int quantity)
-{
-    // Tìm item trong groundItems dựa vào itemId
-    var groundItem = groundItems.Find(i => i.item.itemId == itemId);
-    if (groundItem != null)
     {
-        // Kiểm tra xem item có tồn tại trong inventory không
-        var existingItem = inventory.Find(i => i.item.itemId == itemId);
+        // Tìm item trong groundItems dựa vào itemId
+        var groundItem = groundItems.Find(i => i.item.itemId == itemId);
+        if (groundItem != null)
+        {
+            // Kiểm tra xem item có tồn tại trong inventory không
+            var existingItem = inventory.Find(i => i.item.itemId == itemId);
 
-        if (existingItem != null)
-        {
-            existingItem.quantity += quantity;
-        }
-        else
-        {
-            // Nếu không có item trùng, thêm item mới vào Inventory
-            inventory.Add(new Inventory(groundItem.item, quantity));
-        }
+            if (existingItem != null)
+            {
+                existingItem.quantity += quantity;
+            }
+            else
+            {
+                // Nếu không có item trùng, thêm item mới vào Inventory
+                inventory.Add(new Inventory(groundItem.item, quantity));
+            }
 
-        // Giảm số lượng trong groundItems hoặc xóa nếu quantity = 0
-        groundItem.quantity -= quantity;
-        if (groundItem.quantity <= 0)
-        {
-            groundItems.Remove(groundItem);
-        }
+            // Giảm số lượng trong groundItems hoặc xóa nếu quantity = 0
+            groundItem.quantity -= quantity;
+            if (groundItem.quantity <= 0)
+            {
+                groundItems.Remove(groundItem);
+            }
 
-        // Cập nhật lại UI
-        InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-        if (inventoryUI != null)
-        {
-            inventoryUI.UpdateInventoryUI(inventory);
+            // Cập nhật lại UI
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+            if (inventoryUI != null)
+            {
+                inventoryUI.UpdateInventoryUI(inventory);
+            }
         }
     }
-}
-
-
 
     // Xóa vật phẩm khỏi Inventory và thêm vào Ground
     public void RemoveItemFromInventory(string itemId, int quantityToRemove)

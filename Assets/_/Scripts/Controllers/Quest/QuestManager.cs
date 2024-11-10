@@ -68,6 +68,43 @@ public class QuestManager : MonoBehaviour
         });
     }
 
+    //lấy tất cả quests
+    public static void FetchListQuests(Action<List<Quest>, List<string>> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child("quests");
+        var task = taskRef.GetValueAsync();
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy thông tin list quest:" + task.Exception);
+                callback(null, null);
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Exists)
+                {
+                    List<Quest> quests = new List<Quest>();
+                    List<string> questIds = new List<string>();
+                    foreach (var child in snapshot.Children)
+                    {
+                        questIds.Add(child.Key);
+                        Quest quest = JsonUtility.FromJson<Quest>(child.GetRawJsonValue());
+                        quests.Add(quest);
+                    }
+                    callback(quests, questIds);
+                }
+                else
+                {
+                    Debug.Log("Không tìm thấy quest từ id");
+                    callback(null, null);
+                }
+            }
+        });
+    }
 
     // cập nhật giá trị của quest
     // cách gọi hàm: StartCoroutine(QuestManager.UpdateQuest(quest));
