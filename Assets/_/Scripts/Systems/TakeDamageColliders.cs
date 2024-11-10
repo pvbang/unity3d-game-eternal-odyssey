@@ -4,61 +4,94 @@ using UnityEngine;
 
 public class TakeDamageColliders : MonoBehaviour
 {
-    public int minDamage;
-    public int maxDamage;
+    public int minDamage = 0;
+    public int maxDamage = 0;
 
-    public bool playerDamageToEnemy = false;
-    public bool enemyDamageToPlayer = false;
+    private string objectTag;
 
-    // Hàm gọi khi 2 vật thể chưa collider bắt đầu va chạm
-    //private void OnCollisionEnter(Collider collision)
+    private void Awake()
+    {
+        // lấy ra tag của object này
+        Debug.Log("Tag: " + gameObject.tag);
+        objectTag = gameObject.tag;
+    }
+
+
+    private void TakeDamagePlayer()
+    {
+        Debug.Log("TakeDamagePlayer");
+        int damage = Random.Range(minDamage, maxDamage);
+        PlayerSystemController.instance.TakeDamage(damage);
+    }
+
+    private void TakeDamageEnemy()
+    {
+        Debug.Log("TakeDamageEnemy");
+        int damage = Random.Range(minDamage, maxDamage);
+    }
+
+
+    //void OnCollisionEnter(Collision collision)
     //{
-    //    Debug.Log("OnTriggerEnter");
-    //    if (playerDamageToEnemy)
+    //    Debug.Log("OnCollisionEnter");
+
+    //    if (collision.collider.CompareTag(ConstantManager.SKILL_TAG))
     //    {
-    //        if (collision.CompareTag(ConstantManager.ENEMY_TAG))
+    //        if (objectTag == ConstantManager.PLAYER_TAG)
     //        {
-    //            int damage = Random.Range(minDamage, maxDamage);
-    //            Debug.Log("Damage: " + damage);
-    //            //collision.GetComponent<EnemyController>().TakeDamage(damage);
+    //            TakeDamagePlayer();
+    //        }
+    //        else if (objectTag == ConstantManager.ENEMY_TAG)
+    //        {
+    //            TakeDamageEnemy();
     //        }
     //    }
-
-    //    if (enemyDamageToPlayer)
+    //    else if (collision.collider.CompareTag(ConstantManager.PLAYER_TAG))
     //    {
-    //        if (collision.CompareTag(ConstantManager.PLAYER_TAG))
+    //        if (objectTag == ConstantManager.SKILL_TAG)
     //        {
-    //            int damage = Random.Range(minDamage, maxDamage);
-    //            Debug.Log("Damage: " + damage);
-    //            //collision.GetComponent<PlayerController>().TakeDamage(damage);
+    //            TakeDamagePlayer();
+    //        }
+    //    }
+    //    else if (collision.collider.CompareTag(ConstantManager.ENEMY_TAG))
+    //    {
+    //        if (objectTag == ConstantManager.SKILL_TAG)
+    //        {
+    //            TakeDamageEnemy();
     //        }
     //    }
     //}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("OnCollisionEnter");
 
-        if (playerDamageToEnemy)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(ConstantManager.SKILL_TAG))
         {
-            if (collision.collider.CompareTag(ConstantManager.ENEMY_TAG))
+            if (objectTag == ConstantManager.PLAYER_TAG)
             {
-                int damage = Random.Range(minDamage, maxDamage);
-                Debug.Log("Damage: " + damage);
-                //collision.collider.GetComponent<EnemyController>().TakeDamage(damage);
+                TakeDamagePlayer();
+            }
+            else if (objectTag == ConstantManager.ENEMY_TAG)
+            {
+                TakeDamageEnemy();
             }
         }
-
-        if (enemyDamageToPlayer)
+        else if (other.CompareTag(ConstantManager.PLAYER_TAG))
         {
-            if (collision.collider.CompareTag(ConstantManager.PLAYER_TAG))
+            if (objectTag == ConstantManager.SKILL_TAG)
             {
-                int damage = Random.Range(minDamage, maxDamage);
-                Debug.Log("Damage: " + damage);
-                //collision.collider.GetComponent<PlayerController>().TakeDamage(damage);
+                TakeDamagePlayer();
+            }
+        }
+        else if (other.CompareTag(ConstantManager.ENEMY_TAG))
+        {
+            if (objectTag == ConstantManager.SKILL_TAG)
+            {
+                TakeDamageEnemy();
             }
         }
     }
+
 
     public void SetDamage(int min, int max)
     {
