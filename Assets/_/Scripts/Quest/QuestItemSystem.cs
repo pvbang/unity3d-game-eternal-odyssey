@@ -97,7 +97,13 @@ public class QuestItemSystem : MonoBehaviour
         {
             instance.LoadQuestFromFirebase((questWorlds) =>
             {
-                // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
+                Dictionary<string, int> questOrder = new Dictionary<string, int>();
+                for (int i = 0; i < questWorlds.Count; i++)
+                {
+                    questOrder[questWorlds[i].questId] = i;
+                }
+
+                // Tạo danh sách tạm để lưu các mục đã hoàn thiện
                 List<QuestWorld> completedQuestList = new List<QuestWorld>();
 
                 foreach (var questItem in questWorlds)
@@ -114,6 +120,7 @@ public class QuestItemSystem : MonoBehaviour
                         Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {questItem.questId}");
                     }
                 }
+                completedQuestList.Sort((a, b) => questOrder[a.questId].CompareTo(questOrder[b.questId]));
 
                 // Gán danh sách hoàn thiện vào inventory
                 Debug.Log("Đã cập nhật danh sách quest full:"+ completedQuestList);
