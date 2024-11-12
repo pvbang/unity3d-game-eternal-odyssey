@@ -8,23 +8,25 @@ using UnityEngine.UI;
 public class QuestUI : MonoBehaviour
 {
     public GameObject questUI;
+    private QuestDetailUI questDetailUI;
     public Transform questListContainer;
     public QuestItemSystem questItemSystem;
     public GameObject questSlotPrefab;           // Prefab đại diện cho mỗi quest
-    public Text questTitleText;       // Tiêu đề của nhiệm vụ
-    public Text questDescriptionText;
     public static bool isOpenQuestUI = false;
+    private GameObject selectedQuestItem;
+    private Color selectedColor;
+    private Color defaultColor;
+    public IconManager iconManager;
+
     private void Start()
     {
         questUI.SetActive(false);
-
-        // Gọi CompareQuestData để load dữ liệu từ Firebase
         QuestItemSystem.instance.onQuestUpdated += DisplayQuestList;
-
-        // Bắt đầu tải dữ liệu quest
         StartCoroutine(QuestItemSystem.instance.CompareQuestData());
-        // Hiển thị danh sách nhiệm vụ sau khi tải xong
         StartCoroutine(WaitForQuestDataAndDisplay());
+
+        UnityEngine.ColorUtility.TryParseHtmlString("#0081FF", out selectedColor); // Ví dụ: màu vàng cho item được chọn
+        UnityEngine.ColorUtility.TryParseHtmlString("#FFFFFF", out defaultColor);
     }
 
     private void Update()
@@ -66,23 +68,67 @@ public class QuestUI : MonoBehaviour
         foreach (var quest in QuestItemSystem.questsList)
         {
             GameObject questSlot = Instantiate(questSlotPrefab, questListContainer);
-            var questTitle = questSlot.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-            if (questTitle != null && quest.quest != null)
-                questTitle.text = quest.quest.title;
+            var questTitle = questSlot.transform.Find("Title").GetComponent<Text>();
+            questTitle.text = quest.quest.title;
+            var itemShow = questSlot.transform.Find("ItemShow");
 
-            var questDescription = questSlot.transform.Find("DescriptionTarget").GetComponent<TextMeshProUGUI>();
-            if (questTitle != null && quest.quest != null)
-                questDescription.text = quest.quest.target_description;
+            if (itemShow != null)
+            {
+                var itemIcon = itemShow.Find("Image").GetComponent<Image>();
+                if (itemIcon != null)
+                {
+                    //fetch icon quest
+                    switch (quest.quest.type)
+                    {
+                        case QuestType.NomalQuests:
+                            {
+                                itemIcon.sprite = iconManager.GetIcon("khoi_dau");
+                                break;
+                            }
+                        case QuestType.IntermediateQuests:
+                            {
+                                itemIcon.sprite = iconManager.GetIcon("trung_cap");
+                                break;
+                            }
+                        case QuestType.DragonQuests:
+                            {
+                                itemIcon.sprite = iconManager.GetIcon("danh_rong");
+                                break;
+                            }
+                        case QuestType.FinalQuest:
+                            {
+                                itemIcon.sprite = iconManager.GetIcon("king_soul");
+                                break;
+                            }
+                        default:
+                            {
+                                itemIcon.sprite = iconManager.GetIcon("khoi_dau");
+                                break;
+                            }
+                    }
+                }
+            }
 
-            var viewButton = questSlot.transform.Find("ButtonView").GetComponent<Button>();
-            //viewButton.onClick.AddListener(() => OnViewQuestDetails(quest));
+            Button questButton = questSlot.GetComponent<Button>();
+            questButton.onClick.AddListener(() => OnQuestItemClicked(quest, questSlot));
         }
     }
 
-    //private void OnViewQuestDetails(QuestWorld quest)
-    //{
-    //    // Cập nhật chi tiết của quest lên UI
-    //    questTitleText.text = quest.quest.title;
-    //    questDescriptionText.text = quest.quest.target_description;
-    //}
+    private void OnQuestItemClicked(QuestWorld quest, GameObject questSlot)
+    {
+        // Hiển thị chi tiết của nhiệm vụ
+        if (questDetailUI != null)
+        {
+            questDetailUI.SetQuestDetails(quest);
+        }
+
+        // Đổi màu của QuestItem khi được chọn
+        if (selectedQuestItem != null)
+        {
+            selectedQuestItem.GetComponent<Image>().color = defaultColor;
+        }
+
+        selectedQuestItem = questSlot;
+        selectedQuestItem.GetComponent<Image>().color = selectedColor;
+    }
 }
