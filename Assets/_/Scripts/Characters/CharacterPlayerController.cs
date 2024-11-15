@@ -72,7 +72,6 @@ public class CharacterPlayerController : MonoBehaviour
         if (isMoving && isShiftHeld)
         {
             float stamina = PlayerPrefs.GetFloat(ConstantManager.PLAYER_STAMINA, 100f);
-            Debug.Log("Stamina: " + stamina);
             if (stamina > 0.5)
             {
                 nextAction = CharacterState.Sprint;
