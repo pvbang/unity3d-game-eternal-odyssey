@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class QuestUI : MonoBehaviour
 {
     public GameObject questUI;
-    private QuestDetailUI questDetailUI;
+    public QuestDetailUI questDetailUI;
     public Transform questListContainer;
     public QuestItemSystem questItemSystem;
     public GameObject questSlotPrefab;           // Prefab đại diện cho mỗi quest
@@ -69,7 +69,7 @@ public class QuestUI : MonoBehaviour
         {
             GameObject questSlot = Instantiate(questSlotPrefab, questListContainer);
             var questTitle = questSlot.transform.Find("Title").GetComponent<Text>();
-            questTitle.text = quest.quest.title;
+            questTitle.text = $"{quest.quest.questId} - {quest.quest.title}";
             var itemShow = questSlot.transform.Find("ItemShow");
 
             if (itemShow != null)
