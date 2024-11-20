@@ -144,4 +144,20 @@ public class HealthBarUI : MonoBehaviour
         UpdateHealthText();
     }
 
+
+    // reset tất cả thông tin
+    public void ResetHealth()
+    {
+        maxHealth = 1000f;
+        currentHealth = maxHealth;
+        healthBar.fillAmount = currentHealth / maxHealth;
+        UpdateHealthText();
+    }
+
+
+    private void OnDisable()
+    {
+        ResetHealth();
+    }
+
 }

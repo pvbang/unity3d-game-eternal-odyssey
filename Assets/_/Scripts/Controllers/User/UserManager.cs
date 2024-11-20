@@ -175,12 +175,12 @@ public class UserManager : MonoBehaviour
         if (task.IsFaulted)
         {
             Debug.LogError("Lỗi thêm notification cho user");
-            NotificationManager.instance.ShowNotification("Lỗi gửi lời mời gia nhập vào Thế giới", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Lỗi gửi lời mời gia nhập vào Thế giới", NotificationType.Warning);
         }
         else if (task.IsCompleted)
         {
             Debug.Log("Thêm notification cho user thành công");
-            NotificationManager.instance.ShowNotification("Gửi lời mời gia nhập thế giới thành công.", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Gửi lời mời gia nhập thế giới thành công.", NotificationType.Notification);
         }
     }
 

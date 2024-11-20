@@ -38,21 +38,21 @@ public class LoginManager : BaseButton
         // không được để trống
         if ((usernameText.text.Length <= 0) | (passwordText.text.Length <= 0))
         {
-            NotificationManager.instance.ShowNotification("Bạn cần điền đủ thông tin", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Bạn cần điền đủ thông tin", NotificationType.Warning);
             return;
         }
 
         // username phải từ 4-30 ký tự
         if ((usernameText.text.Length < 4) | (usernameText.text.Length > 30))
         {
-            NotificationManager.instance.ShowNotification("Tên đăng nhập phải từ 4-30 ký tự", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Tên đăng nhập phải từ 4-30 ký tự", NotificationType.Warning);
             return;
         }
 
         // mật khẩu phải từ 6-20 ký tự
         if ((passwordText.text.Length < 6) | (passwordText.text.Length > 20))
         {
-            NotificationManager.instance.ShowNotification("Mật khẩu phải từ 6-20 ký tự", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Mật khẩu phải từ 6-20 ký tự", NotificationType.Warning);
             return;
         }
 
@@ -69,14 +69,14 @@ public class LoginManager : BaseButton
 
         if (task.IsFaulted)
         {
-            NotificationManager.instance.ShowNotification("Sai tài khoản hoặc mật khẩu", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Sai tài khoản hoặc mật khẩu", NotificationType.Warning);
         }
         else if (task.IsCompleted)
         {
             AuthResult result = task.Result;
             Debug.Log("Đăng nhập thành công: " + result.User.UserId);
             UI.GetComponent<InitUI>().StartGame_();
-            NotificationManager.instance.ShowNotification("Đăng nhập thành công", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Đăng nhập thành công", NotificationType.Notification);
             PlayerPrefs.SetString(ConstantManager.FIREBASE_USERS_USERNAME, username);
         }
     }
