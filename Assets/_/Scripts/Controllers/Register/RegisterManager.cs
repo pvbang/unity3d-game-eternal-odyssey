@@ -42,35 +42,35 @@ public class RegisterManager : BaseButton
         // không được để trống
         if ((usernameText.text.Length <= 0) | (passwordText.text.Length <= 0) && (confirmPasswordText.text.Length <= 0))
         {
-            NotificationManager.instance.ShowNotification("Bạn cần điền đủ thông tin", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Bạn cần điền đủ thông tin", NotificationType.Warning);
             return;
         }
 
         // username không được chưa @gmail.com
         if (usernameText.text.Contains("@gmail.com"))
         {
-            NotificationManager.instance.ShowNotification("Tên đăng nhập không được chứa định dạng email", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Tên đăng nhập không được chứa định dạng email", NotificationType.Warning);
             return;
         }
 
         // username phải từ 4-30 ký tự
         if ((usernameText.text.Length < 4) | (usernameText.text.Length > 30))
         {
-            NotificationManager.instance.ShowNotification("Tên đăng nhập phải từ 4-30 ký tự", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Tên đăng nhập phải từ 4-30 ký tự", NotificationType.Warning);
             return;
         }
 
         // mật khẩu phải từ 6-20 ký tự
         if ((passwordText.text.Length < 6) | (passwordText.text.Length > 20))
         {
-            NotificationManager.instance.ShowNotification("Mật khẩu phải từ 6-20 ký tự", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Mật khẩu phải từ 6-20 ký tự", NotificationType.Warning);
             return;
         }
 
         // mật khẩu phải giống nhau
         if (passwordText.text != confirmPasswordText.text)
         {
-            NotificationManager.instance.ShowNotification("Mật khẩu phải giống nhau", NotificationType.Warning);
+            NotificationManager.Instance.ShowNotification("Mật khẩu phải giống nhau", NotificationType.Warning);
             return;
         }
 
@@ -91,11 +91,11 @@ public class RegisterManager : BaseButton
         {
             if (task.Exception.Message.Contains("The email address is already in use by another account"))
             {
-                NotificationManager.instance.ShowNotification("Email đã tồn tại", NotificationType.Warning);
+                NotificationManager.Instance.ShowNotification("Email đã tồn tại", NotificationType.Warning);
             }
             else
             {
-                NotificationManager.instance.ShowNotification("Lỗi tạo tài khoản: " + task.Exception.Message, NotificationType.Warning);
+                NotificationManager.Instance.ShowNotification("Lỗi tạo tài khoản: " + task.Exception.Message, NotificationType.Warning);
             }
         }
         else if (task.IsCompleted)
@@ -109,7 +109,7 @@ public class RegisterManager : BaseButton
 
             FirebaseManager.instance.databaseReference.Child("users").Child(result.User.UserId).SetValueAsync(userInfo);
             UI.GetComponent<InitUI>().Login_();
-            NotificationManager.instance.ShowNotification("Tạo tài khoản thành công!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tạo tài khoản thành công!", NotificationType.Notification);
         }
     }
 

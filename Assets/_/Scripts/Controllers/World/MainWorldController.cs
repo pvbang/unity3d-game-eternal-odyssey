@@ -181,12 +181,12 @@ public class MainWorldController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(UIMainWorld.GetNameWorld()))
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập Tên thế giới!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập Tên thế giới!", NotificationType.Notification);
             return;
         }
         if (string.IsNullOrEmpty(UIMainWorld.GetCodeWorld()))
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập Mã thế giới!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập Mã thế giới!", NotificationType.Notification);
             return;
         }
 

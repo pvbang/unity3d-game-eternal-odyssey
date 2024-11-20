@@ -9,6 +9,9 @@ public class ConstantManager
     public static string SKILL_TAG = "_Skill";
     public static string WEAPON_TAG = "_Weapon";
 
+    public static string PLAYER_ANIMATION_TAG = "_PlayerAnimation";
+
+
     public static string PLAYER_LEVEL = "player_level";
     public static string PLAYER_STAMINA = "player_stamina";
 

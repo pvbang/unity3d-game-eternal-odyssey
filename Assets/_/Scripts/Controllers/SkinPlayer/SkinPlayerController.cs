@@ -25,7 +25,7 @@ public class SkinPlayerController : BaseButton
 
         if (name == null || name == "")
         {
-            NotificationManager.instance.ShowNotification("Tên không được để trống", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tên không được để trống", NotificationType.Notification);
             return;
         }
 

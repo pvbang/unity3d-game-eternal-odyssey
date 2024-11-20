@@ -1,38 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyDamageHandle : MonoBehaviour
 {
-    public int minDamage = 0;
-    public int maxDamage = 0;
+    private EnemyAtribute enemyAtribute;
 
-
-    void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.CompareTag(ConstantManager.SKILL_TAG))
-        {
-            Debug.Log("EnemyDamageHandle");
-            int damage = Random.Range(minDamage, maxDamage);
-            Debug.Log("Damage: " + damage);
-        }
+        enemyAtribute = GetComponent<EnemyAtribute>();
+    }
 
-        if (other.CompareTag(ConstantManager.WEAPON_TAG))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(ConstantManager.SKILL_TAG) || other.CompareTag(ConstantManager.WEAPON_TAG))
         {
-            if ((Input.GetKey(KeyCode.Space) && (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))) || (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J)))
-            {
-                Debug.Log("EnemyDamageHandle WEAPON_TAG");
-                int damage = Random.Range(minDamage, maxDamage);
-
-                Debug.Log("Damage: " + damage);
-            }
+            TakeDamageValue takeDamageValue = other.GetComponent<TakeDamageValue>();
+            if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
     }
 
-
-    public void SetDamage(int min, int max)
+    private void OnCollisionEnter(Collision collision)
     {
-        minDamage = min;
-        maxDamage = max;
+        if (collision.gameObject.CompareTag(ConstantManager.SKILL_TAG) || collision.gameObject.CompareTag(ConstantManager.WEAPON_TAG))
+        {
+            TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
+            if (takeDamageValue != null) TakeDamage(takeDamageValue);
+        }
+    }
+
+    private void TakeDamage(TakeDamageValue takeDamageValue)
+    {
+        int damage = Random.Range(takeDamageValue.minDamage, takeDamageValue.maxDamage);
+        Debug.Log($"Enemy took {damage} damage!");
+
+        enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
+        if (enemyAtribute.getCurrentHealth() <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

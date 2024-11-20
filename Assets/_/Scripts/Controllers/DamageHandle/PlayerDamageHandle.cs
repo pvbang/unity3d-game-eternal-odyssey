@@ -26,9 +26,9 @@ public class PlayerDamageHandle : MonoBehaviour
                 return;
             }
 
-            Debug.Log("PlayerDamageHandle");
+            //Debug.Log("PlayerDamageHandle");
             int damage = Random.Range(minDamage, maxDamage);
-            Debug.Log("Damage: " + damage);
+            //Debug.Log("Damage: " + damage);
             characterPlayerController.SetCharacterState(CharacterState.GetHit);
 
             if (damage <= 0)
