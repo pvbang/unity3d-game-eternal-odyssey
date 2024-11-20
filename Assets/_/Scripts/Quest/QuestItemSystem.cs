@@ -3,6 +3,7 @@ using NullSave.TOCK.Inventory;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestItemSystem : MonoBehaviour
@@ -106,7 +107,7 @@ public class QuestItemSystem : MonoBehaviour
                     if (instance.questDetails.TryGetValue(questItem.questId, out Quest questDetail))
                     {
                         QuestWorld completeInventory = new QuestWorld(questDetail, questItem.status, questItem.progress_quest_world);
-                        Debug.Log($"Đã tìm thấy thông tin chi tiết cho item với ID: {completeInventory} , id: {questItem.questId}");
+                        Debug.Log($"Đã tìm thấy thông tin chi tiết cho item với ID: {questItem.questId}");
                         completedQuestList.Add(completeInventory);
                     }
                     else
@@ -115,19 +116,21 @@ public class QuestItemSystem : MonoBehaviour
                     }
                 }
 
+                // **Sắp xếp danh sách hoàn thiện theo questId**
+                completedQuestList = completedQuestList.OrderBy(q => q.quest.questId).ToList();
+
                 // Gán danh sách hoàn thiện vào inventory
-                Debug.Log("Đã cập nhật danh sách quest full:"+ completedQuestList);
+                Debug.Log("Đã cập nhật danh sách quest full: " + completedQuestList);
                 questsList = completedQuestList;
                 onQuestUpdated?.Invoke();
 
                 checkCallback = true;
-            }
-            );
-        }
-        );
-        yield return new WaitUntil(() => checkCallback);
+            });
+        });
 
+        yield return new WaitUntil(() => checkCallback);
     }
+
     public QuestWorld GetQuestById(string questId)
     {
         // Lặp qua danh sách questWorld và tìm quest với questId phù hợp

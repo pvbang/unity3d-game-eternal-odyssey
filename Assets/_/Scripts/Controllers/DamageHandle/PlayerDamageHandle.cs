@@ -18,10 +18,25 @@ public class PlayerDamageHandle : MonoBehaviour
     {
         if (other.CompareTag(ConstantManager.SKILL_TAG))
         {
-            int damage = Random.Range(minDamage, maxDamage);
-            PlayerSystemController.instance.TakeDamage(damage);
+            bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+
+            if (isCtrlHeld)
+            {
+                Debug.Log("T có khiênnnn!!!");
+                return;
+            }
+
             Debug.Log("PlayerDamageHandle");
-            //characterPlayerController.SetCharacterState(CharacterState.GetHit);
+            int damage = Random.Range(minDamage, maxDamage);
+            Debug.Log("Damage: " + damage);
+            characterPlayerController.SetCharacterState(CharacterState.GetHit);
+
+            if (damage <= 0)
+            {
+                return;
+            }
+
+            PlayerSystemController.instance.TakeDamage(damage);
         }
     }
 

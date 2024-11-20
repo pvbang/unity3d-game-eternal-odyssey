@@ -15,19 +15,37 @@ public class QuestDetailUI : MonoBehaviour
     public Transform rewardIconContainer;
     public GameObject rewardIconPrefab;
     public Transform buttonContainer;
+
+    public GameObject prefabComplete;
+    public Transform containerComplete;
+    public Button buttonComplete;
+    public Button buttonAccept;
+
+    private GameObject instantiatedComplete;
+
     public void SetQuestDetails(QuestWorld quest)
     {
-        // Cập nhật mô tả nhiệm vụ
         questDescription.text = quest.quest.description;
         questDescriptionTarget.text = quest.quest.target_description;
 
-        // Xóa các icon cũ trong progressIconsContainer
+        if (!gameObject.activeSelf)
+        {
+            Debug.LogWarning("QuestDetailUI is inactive! Activating...");
+            gameObject.SetActive(true);
+        }
+
         foreach (Transform child in progressIconsContainer)
         {
             Destroy(child.gameObject);
         }
 
-        // Lấy questDetails từ QuestItemSystem để tìm completionConditions
+        foreach (Transform child in rewardIconContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        StartCoroutine(UpdateLayoutDelayed());
+
         if (QuestItemSystem.instance.questDetails.TryGetValue(quest.quest.questId, out Quest questDetail))
         {
             // Duyệt qua danh sách completionConditions và tạo icon
@@ -70,87 +88,178 @@ public class QuestDetailUI : MonoBehaviour
                 completionConditions.text = $"/{condition.quantity}";
             }
 
-            //check reward từ list quests
-            foreach (var rewardItem in questDetail.reward.rewardItem)
+            Debug.Log($"Số lượng item cũ trước khi dọn: {rewardIconContainer.childCount}");
+            foreach (Transform child in rewardIconContainer)
             {
-                GameObject slotReward = Instantiate(rewardIconPrefab, rewardIconContainer);
-                slotReward.SetActive(true);
-                var itemIconReward = slotReward.transform.Find("Icon").GetComponent<Image>();
-                // Kiểm tra iconManager và iconEnemys để lấy icon dựa trên itemId
-                if (iconManager != null && iconManager.GetIcon(rewardItem.itemId))
+                Destroy(child.gameObject);
+            }
+            Debug.Log("Đã dọn sạch các item cũ trong rewardIconContainer.");
+
+
+            //check reward từ list quests
+            if (questDetail.reward.rewardItem != null && questDetail.reward.rewardItem.Count > 0)
+            {
+                foreach (var rewardItem in questDetail.reward.rewardItem)
                 {
-                    itemIconReward.sprite = iconManager.GetIcon(rewardItem.itemId);
+                    Debug.Log($"Creating reward icon for itemId: {rewardItem.itemId} with quantity: {rewardItem.quantity}");
+                    GameObject slotReward = Instantiate(rewardIconPrefab, rewardIconContainer);
+                    slotReward.SetActive(true);
+                    var itemIconReward = slotReward.transform.Find("Icon").GetComponent<Image>();
+
+                    if (iconManager != null && iconManager.GetIcon(rewardItem.itemId))
+                    {
+                        itemIconReward.sprite = iconManager.GetIcon(rewardItem.itemId);
+                    }
+                    else if (iconEnemys != null && iconEnemys.GetIcon(rewardItem.itemId))
+                    {
+                        itemIconReward.sprite = iconEnemys.GetIcon(rewardItem.itemId);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Không tìm thấy icon cho itemId: {rewardItem.itemId}");
+                        continue;
+                    }
+
+                    var progressQuest = slotReward.transform.Find("Quantity").GetComponent<Text>();
+                    progressQuest.text = $"{rewardItem.quantity}";
                 }
-                else if (iconEnemys != null && iconEnemys.GetIcon(rewardItem.itemId))
-                {
-                    itemIconReward.sprite = iconEnemys.GetIcon(rewardItem.itemId);
-                }
-                else
-                {
-                    Debug.LogWarning($"Không tìm thấy icon cho itemId: {rewardItem.itemId}");
-                    continue;
-                }
-                var progressQuest = slotReward.transform.Find("Quantity").GetComponent<Text>();
-                progressQuest.text = $"{rewardItem.quantity}";            
+            }
+            else
+            {
+                Debug.LogWarning($"No rewards found for quest {quest.quest.questId}");
             }
 
             //check status quest để hiển thị button nhận
-            // Kiểm tra trạng thái nhiệm vụ
-            Transform buttonTransform = buttonContainer.Find("Complete");
-            Button button = buttonTransform.GetComponent<Button>();
-
             if (quest.status == Status.Complete)
             {
-                Debug.Log("Quest Completed");
-                button.gameObject.SetActive(false);
+                // Hiển thị prefabComplete và ẩn các nút
+                if (instantiatedComplete == null)
+                {
+                    instantiatedComplete = Instantiate(prefabComplete, containerComplete);
+
+                    RectTransform rectTransform = instantiatedComplete.GetComponent<RectTransform>();
+                    rectTransform.anchorMin = new Vector2(0.5f, 0);
+                    rectTransform.anchorMax = new Vector2(0.5f, 0);
+                    rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                    rectTransform.anchoredPosition = new Vector2(0, 60);
+                    rectTransform.sizeDelta = new Vector2(150, 115);
+                    rectTransform.localScale = Vector3.one;
+                }
+                instantiatedComplete.SetActive(true);
+                buttonComplete.gameObject.SetActive(false);
+                buttonAccept.gameObject.SetActive(false);
             }
-            else if (quest.status == Status.InProgess)
+            else
             {
-                button.gameObject.SetActive(true);
-                button.interactable = true;
-
-                bool allConditionsMet = true;
-                foreach (var condition in questDetail.completionConditions)
+                if (instantiatedComplete != null)
                 {
-                    int currentQuantity = quest.progress_quest_world.Find(p => p.itemId == condition.itemId)?.quantity ?? 0;
-                    if (currentQuantity < condition.quantity)
+                    instantiatedComplete.SetActive(false);
+                }
+                
+                if (quest.status == Status.InProgess)
+                {
+                    buttonComplete.gameObject.SetActive(true);
+                    buttonAccept.gameObject.SetActive(false);
+
+                    bool canReturnQuest = true;
+
+                    foreach (var condition in quest.quest.completionConditions)
                     {
-                        allConditionsMet = false;
-                        break;
+                        int currentQuantity = quest.progress_quest_world.Find(p => p.itemId == condition.itemId)?.quantity ?? 0;
+
+                        if (currentQuantity < condition.quantity)
+                        {
+                            canReturnQuest = false;
+                            break;
+                        }
                     }
-                }
 
-                // Nếu chưa hoàn thành điều kiện thì disable button
-                if (!allConditionsMet)
-                {
-                    button.interactable = false;
-                }
-            }
-            else if (quest.status == Status.NotStarted)
-            {
-                bool canStartQuest = true;
+                    buttonComplete.interactable = canReturnQuest;
 
-                foreach (var reqId in questDetail.requirements)
-                {
-                    // Kiểm tra xem có quest với questId trong questWorld không
-                    QuestWorld requiredQuest = QuestItemSystem.instance.GetQuestById(reqId); // Giả sử có phương thức GetQuestById
-                    if (requiredQuest == null || requiredQuest.status != Status.Complete)
+                    var buttonImage = buttonComplete.GetComponent<Image>();
+                    buttonImage.color = canReturnQuest ? new Color(1f, 1f, 1f, 1f) : new Color(0.7f, 0.7f, 0.7f, 1f);
+
+                    // Xử lý sự kiện nút "Trả nhiệm vụ"
+                    buttonComplete.onClick.RemoveAllListeners();
+                    buttonComplete.onClick.AddListener(() =>
                     {
-                        canStartQuest = false;
-                        break;
-                    }
+                        QuestWorldManager.CompleteQuest(quest.quest.questId, PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID), (success, message) =>
+                        {
+                            if (success)
+                            {
+                                Debug.Log($"Trả nhiệm vụ thành công: {quest.quest.questId}");
+                                quest.status = Status.Complete; // Cập nhật trạng thái nhiệm vụ
+
+                                // Làm mới giao diện, hiển thị trạng thái hoàn thành
+                                SetQuestDetails(quest);
+                            }
+                            else
+                            {
+                                Debug.LogError($"Lỗi trả nhiệm vụ: {message}");
+                            }
+                        });
+                    });
                 }
 
-                // Hiển thị nút và thiết lập khả năng tương tác dựa trên canStartQuest
-                button.gameObject.SetActive(true);
-                button.interactable = canStartQuest;
+                else if (quest.status == Status.NotStarted)
+                {
+                    buttonComplete.gameObject.SetActive(false);
+                    buttonAccept.gameObject.SetActive(true);
+
+                    bool canStartQuest = true;
+
+                    foreach (var reqId in quest.quest.requirements)
+                    {
+                        QuestWorld requiredQuest = QuestItemSystem.instance.GetQuestById(reqId);
+                        if (requiredQuest == null || requiredQuest.status != Status.Complete)
+                        {
+                            canStartQuest = false;
+                            break;
+                        }
+                    }
+
+                    buttonAccept.interactable = canStartQuest;
+                    buttonAccept.GetComponent<Image>().color = canStartQuest ? new Color(1f, 1f, 1f, 1f) : new Color(0.7f, 0.7f, 0.7f, 1f);
+
+                    // Xử lý sự kiện nút "Nhận nhiệm vụ"
+                    buttonAccept.onClick.RemoveAllListeners();
+                    buttonAccept.onClick.AddListener(() =>
+                    {
+                        QuestWorldManager.AcceptQuest(quest.quest.questId, PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID), (success, message) =>
+                        {
+                            if (success)
+                            {
+                                Debug.Log($"Nhận nhiệm vụ thành công: {quest.quest.questId}");
+                                QuestWorld newQuest = quest;
+                                newQuest.status = Status.InProgess;
+
+                                SetQuestDetails(newQuest);
+                            }
+                            else
+                            {
+                                Debug.LogError($"Lỗi nhận nhiệm vụ: {message}");
+                            }
+                        });
+                    });
+                }
 
             }
-
         }
         else
         {
             Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho questId: {quest.quest.questId}");
         }
+    }
+    private IEnumerator UpdateLayoutDelayed()
+    {
+        yield return null; // Đợi 1 frame để giao diện được khởi tạo đầy đủ
+
+        // Cập nhật lại layout sau khi nội dung đã được set
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
+
+        Debug.Log($"QuestDescription Height: {questDescription.rectTransform.rect.height}");
+        Debug.Log($"QuestDescriptionTarget Height: {questDescriptionTarget.rectTransform.rect.height}");
     }
 }
