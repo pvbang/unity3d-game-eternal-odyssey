@@ -617,7 +617,7 @@ public class WorldManager : MonoBehaviour
         }
         else if (task.IsCompleted)
         {
-            //Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+            Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
         }
     }
 

@@ -14,6 +14,18 @@ public class EnemyDamageHandle : MonoBehaviour
         {
             Debug.Log("EnemyDamageHandle");
             int damage = Random.Range(minDamage, maxDamage);
+            Debug.Log("Damage: " + damage);
+        }
+
+        if (other.CompareTag(ConstantManager.WEAPON_TAG))
+        {
+            if ((Input.GetKey(KeyCode.Space) && (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))) || (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J)))
+            {
+                Debug.Log("EnemyDamageHandle WEAPON_TAG");
+                int damage = Random.Range(minDamage, maxDamage);
+
+                Debug.Log("Damage: " + damage);
+            }
         }
     }
 
