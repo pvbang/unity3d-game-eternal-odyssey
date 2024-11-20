@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class EnemyAtributeUI : MonoBehaviour
 {
-    public static EnemyAtributeUI instance;
+    public static EnemyAtributeUI Instance;
 
     public GameObject EnemyHP;
     private HealthBarUI healthBarUI;
 
+
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
 
         if (healthBarUI == null)
@@ -33,5 +34,26 @@ public class EnemyAtributeUI : MonoBehaviour
         EnemyHP.SetActive(false);
     }
 
+    public void UpdateEnemyHP(float currentHealth, float maxHealth)
+    {
+        healthBarUI.UpdateHealth(currentHealth, maxHealth);
+    }
+
+    public void FixedUpdate()
+    {
+        EnemyController enemy = EnemyCountManage.Instance.GetClosestEnemy();
+        if (enemy != null)
+        {
+            if (enemy.distance < enemy.sightRange)
+            {
+                SetActiveEnemyHP();
+                UpdateEnemyHP(enemy.enemyAtribute.getCurrentHealth(), enemy.enemyAtribute.getMaxHealth());
+            }
+            else
+            {
+                SetDeactiveEnemyHP();
+            }
+        }
+    }
 
 }

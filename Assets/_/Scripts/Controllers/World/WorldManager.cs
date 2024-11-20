@@ -40,7 +40,7 @@ public class WorldManager : MonoBehaviour
 
             if (initTask.IsFaulted)
             {
-                NotificationManager.instance.ShowNotification("Lỗi khi tạo bảng mới", NotificationType.Error);
+                NotificationManager.Instance.ShowNotification("Lỗi khi tạo bảng mới", NotificationType.Error);
                 yield break; // Dừng nếu không thể khởi tạo bảng
             }
             else
@@ -53,7 +53,7 @@ public class WorldManager : MonoBehaviour
             // Nếu bảng đã tồn tại, kiểm tra sự tồn tại của worldId
             if (worldDataSnapshot.HasChild(world.worldId))
             {
-                NotificationManager.instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
+                NotificationManager.Instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
                 yield break; // Dừng nếu worldId đã tồn tại
             }
         }
@@ -115,11 +115,11 @@ public class WorldManager : MonoBehaviour
 
         if (addTask.IsFaulted)
         {
-            NotificationManager.instance.ShowNotification("Lỗi khi tạo thế giới", NotificationType.Error);
+            NotificationManager.Instance.ShowNotification("Lỗi khi tạo thế giới", NotificationType.Error);
         }
         else
         {
-            NotificationManager.instance.ShowNotification("Tạo Thế giới thành công!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tạo Thế giới thành công!", NotificationType.Notification);
         }
     }
 
@@ -345,7 +345,7 @@ public class WorldManager : MonoBehaviour
 
         if (!checkWorldTask.Result.Exists)
         {
-            NotificationManager.instance.ShowNotification("Không tìm thấy thế giới", NotificationType.Error);
+            NotificationManager.Instance.ShowNotification("Không tìm thấy thế giới", NotificationType.Error);
             yield break; // Dừng nếu worldId không tồn tại
         }
 
@@ -394,7 +394,7 @@ public class WorldManager : MonoBehaviour
         {
             Debug.Log("Thêm người chơi vào world thành công");
             PlayerPrefs.SetString(ConstantManager.FIREBASE_WORLDS_ID, worldId);
-            NotificationManager.instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
         }
     }
 

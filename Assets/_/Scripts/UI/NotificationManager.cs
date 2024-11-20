@@ -6,14 +6,14 @@ using UnityEngine;
 // Cách sử dụng: NotificationManager.instance.ShowNotification("Hello", NotificationType.Notification);
 public class NotificationManager : MonoBehaviour
 {
-    public static NotificationManager instance;
+    public static NotificationManager Instance;
 
     public NotificationUI notificationUI;
     public GameObject notificationObject;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     private void Start()
