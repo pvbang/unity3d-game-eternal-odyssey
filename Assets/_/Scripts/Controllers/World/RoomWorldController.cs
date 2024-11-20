@@ -43,7 +43,7 @@ public class RoomWorldController : MonoBehaviour
     {
         if (InviteWorld.text.Length <= 0)
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập tên người chơi", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập tên người chơi", NotificationType.Notification);
             return;
         }
 
@@ -82,7 +82,7 @@ public class RoomWorldController : MonoBehaviour
         if (userId == "")
         {
             Debug.Log("Không tìm thấy user");
-            NotificationManager.instance.ShowNotification("Không tìm thấy user", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Không tìm thấy user", NotificationType.Notification);
             yield break;
         }
 
