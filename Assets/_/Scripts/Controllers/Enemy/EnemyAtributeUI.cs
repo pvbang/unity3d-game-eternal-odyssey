@@ -9,6 +9,8 @@ public class EnemyAtributeUI : MonoBehaviour
     public GameObject EnemyHP;
     private HealthBarUI healthBarUI;
 
+    private string currentEnemyName;
+
 
     private void Awake()
     {
@@ -34,9 +36,9 @@ public class EnemyAtributeUI : MonoBehaviour
         EnemyHP.SetActive(false);
     }
 
-    public void UpdateEnemyHP(float currentHealth, float maxHealth)
+    public void UpdateEnemyHP(float currentHealth, float maxHealth, bool isSameEnemy)
     {
-        healthBarUI.UpdateHealth(currentHealth, maxHealth);
+        healthBarUI.UpdateHealth(currentHealth, maxHealth, isSameEnemy);
     }
 
     public void FixedUpdate()
@@ -47,7 +49,15 @@ public class EnemyAtributeUI : MonoBehaviour
             if (enemy.distance < enemy.sightRange)
             {
                 SetActiveEnemyHP();
-                UpdateEnemyHP(enemy.enemyAtribute.getCurrentHealth(), enemy.enemyAtribute.getMaxHealth());
+
+                bool isSameEnemy = true;
+
+                if (currentEnemyName != enemy.enemyAtribute.getEnemyName())
+                {
+                    currentEnemyName = enemy.enemyAtribute.getEnemyName();
+                    isSameEnemy = false;
+                }
+                UpdateEnemyHP(enemy.enemyAtribute.getCurrentHealth(), enemy.enemyAtribute.getMaxHealth(), isSameEnemy);
             }
             else
             {

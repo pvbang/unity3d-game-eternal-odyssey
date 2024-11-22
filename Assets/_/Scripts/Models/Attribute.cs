@@ -13,7 +13,7 @@ public class Attribute
     public Attribute()
     {
         health = new Stats(1000, 1000);
-        damage = new Rate(45, 55);              
+        damage = new Rate(25, 35);              
         resistance = 10;                   
         attackSpeed = 1.0f;                 
         runSpeed = 1.0f;                     
