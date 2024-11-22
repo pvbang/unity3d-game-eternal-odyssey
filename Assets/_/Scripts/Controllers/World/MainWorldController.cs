@@ -210,17 +210,9 @@ public class MainWorldController : MonoBehaviour
         playerWorld.playerDetails = new PlayerDetails();
 
         //
-        Inventory inventory = new();
-        inventory.itemId = "mithril";
-        inventory.quantity = 3;
-
-        Inventory inventory2 = new();
-        inventory2.itemId = "mithril_hoa";
-        inventory2.quantity = 5;
-
-        Inventory inventory3 = new();
-        inventory3.itemId = "mithril_thuy";
-        inventory3.quantity = 2;
+        Inventory inventory = new Inventory("mithril", 3);
+        Inventory inventory2 = new Inventory("mithril_hoa", 5);
+        Inventory inventory3 = new Inventory("mithril_thuy", 2);
 
         playerWorld.inventorys.Add(inventory);
         playerWorld.inventorys.Add(inventory2);

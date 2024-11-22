@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
     private Rigidbody rb;
 
-    private EnemyDamageHandle enemyDamageHandle;
+    public EnemyDamageHandle enemyDamageHandle;
     public EnemyAtribute enemyAtribute;
+
+    public EnemySkillController enemySkillController;
 
     // Patroling
     private Vector3 walkPoint;
@@ -36,8 +38,13 @@ public class EnemyController : MonoBehaviour
         // Initialize components
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        enemyDamageHandle = GetComponent<EnemyDamageHandle>();
-        enemyAtribute = GetComponent<EnemyAtribute>();
+
+        if (enemyDamageHandle == null)
+            enemyDamageHandle = GetComponent<EnemyDamageHandle>();
+        if (enemyAtribute == null)
+            enemyAtribute = GetComponent<EnemyAtribute>();
+        if (enemySkillController == null)
+            enemySkillController = GetComponent<EnemySkillController>();
 
         // Configure Rigidbody
         rb.isKinematic = false; // Để Rigidbody xử lý va chạm
@@ -52,6 +59,11 @@ public class EnemyController : MonoBehaviour
         {
             GameObject playerObject = GameObject.Find("PlayerPosition");
             if (playerObject != null) targetObject = playerObject.transform;
+        }
+
+        if (EnemyCountManage.Instance != null)
+        {
+            EnemyCountManage.Instance.AddEnemy(this);
         }
     }
 
@@ -107,17 +119,6 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    // HP Controller
-    public void TakeDamage(int damage)
-    {
-        enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
-        if (enemyAtribute.getCurrentHealth() <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-
     // Đi tùm lum
     private void Patroling()
     {
@@ -132,19 +133,6 @@ public class EnemyController : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f) walkPointSet = false;
     }
 
-
-    // Chạy tùm lum
-    //private void SearchWalkPoint()
-    //{
-    //    // Calculate random point in range
-    //    float randomZ = Random.Range(-walkPointRange, walkPointRange);
-    //    float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-    //    walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-    //    if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer))
-    //        walkPointSet = true;
-    //}
     private void SearchWalkPoint()
     {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
@@ -174,9 +162,10 @@ public class EnemyController : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            // Trigger attack logic here
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+            enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
+            Invoke(nameof(ResetAttack), enemyAtribute.getAttackSpeed());
         }
     }
 
