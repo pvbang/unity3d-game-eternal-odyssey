@@ -2642,6 +2642,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3017194387072165592, guid: 54b9002c6711c33418f65a0bb10e9f77, type: 3}
   m_PrefabInstance: {fileID: 3058551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3225641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3225645}
+  - component: {fileID: 3225644}
+  - component: {fileID: 3225642}
+  - component: {fileID: 3225643}
+  m_Layer: 5
+  m_Name: DamageText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &3225642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.94716984, g: 0.94716984, b: 0.94716984, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 77ab272814d9a88419cec8c29ab5ec90, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!95 &3225643
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9e18e9a8892efb488331f365215b042, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!222 &3225644
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225641}
+  m_CullTransparentMesh: 0
+--- !u!224 &3225645
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942237378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 54.968, y: 51}
+  m_SizeDelta: {x: 329.233, y: 43.97}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &3232065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14188,8 +14289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!4 &27217423 stripped
 Transform:
@@ -119174,8 +119275,8 @@ MonoBehaviour:
       current: 500
       max: 500
     damage:
-      from: 20
-      to: 30
+      from: 15
+      to: 20
     resistance: 5
     attackSpeed: 2
     runSpeed: 3
@@ -168193,8 +168294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1 &268151846 stripped
 GameObject:
@@ -436884,8 +436985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &729463506
 PrefabInstance:
@@ -497725,8 +497826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &831558480
 PrefabInstance:
@@ -659177,8 +659278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &1103731241
 PrefabInstance:
@@ -686301,8 +686402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!4 &1137593472 stripped
 Transform:
@@ -767004,7 +767105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94716984, g: 0.94716984, b: 0.94716984, a: 1}
+  m_Color: {r: 0.94716984, g: 0.94716984, b: 0.94716984, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -777647,8 +777748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &1289047305
 PrefabInstance:
@@ -919600,8 +919701,8 @@ MonoBehaviour:
       current: 500
       max: 500
     damage:
-      from: 20
-      to: 30
+      from: 15
+      to: 20
     resistance: 5
     attackSpeed: 2
     runSpeed: 3
@@ -937476,8 +937577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &1557217690
 PrefabInstance:
@@ -954850,8 +954951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &1588669518
 PrefabInstance:
@@ -1172662,7 +1172763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1963183521
 Transform:
   m_ObjectHideFlags: 0
@@ -1197283,8 +1197384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e7b08b743ef845913a5f101ed20ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 50
-  maxDamage: 60
+  minDamage: 20
+  maxDamage: 30
   critical: 5
 --- !u!1001 &2007874775
 PrefabInstance:
@@ -1286435,12 +1286536,23 @@ PrefabInstance:
       value: 0.66501
       objectReference: {fileID: 0}
     - target: {fileID: 7462256750932425552, guid: 7fbb1554f520e6143b3109a5b6d1bef7, type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 3225642}
+    - target: {fileID: 7462256750932425552, guid: 7fbb1554f520e6143b3109a5b6d1bef7, type: 3}
       propertyPath: currentHealth
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 7462256750932425552, guid: 7fbb1554f520e6143b3109a5b6d1bef7, type: 3}
+      propertyPath: damageTextObject
+      value: 
+      objectReference: {fileID: 3225641}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6946523015907595774, guid: 7fbb1554f520e6143b3109a5b6d1bef7, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3225645}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fbb1554f520e6143b3109a5b6d1bef7, type: 3}
 --- !u!114 &1145815419191528210 stripped
@@ -1291317,7 +1291429,6 @@ MonoBehaviour:
   healthBar: {fileID: 1777179152744499406}
   healthText: {fileID: 3454536841372227189}
   damageTextObject: {fileID: 1268886091}
-  damageText: {fileID: 1268886093}
   maxHealth: 100
   currentHealth: 0
 --- !u!4 &7188612909189894504

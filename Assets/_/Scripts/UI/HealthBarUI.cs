@@ -9,7 +9,6 @@ public class HealthBarUI : MonoBehaviour
     public Text healthText;
 
     public GameObject damageTextObject;
-    public Text damageText;
 
     public float maxHealth = 1000f;
     public float currentHealth;
@@ -33,27 +32,24 @@ public class HealthBarUI : MonoBehaviour
 
     public void UpdateTextDamage(string damage, Color color)
     {
-        // Kiểm tra nếu damageTextObject đang active thì deactivate và activate lại
-        if (damageTextObject.activeSelf)
-        {
-            damageTextObject.SetActive(false);
-        }
+        // Tạo object mới từ damageTextObject
+        GameObject newObject = Instantiate(damageTextObject, damageTextObject.transform.position, damageTextObject.transform.rotation);
+
+        // Đặt newObject làm con của damageTextObject
+        newObject.transform.SetParent(damageTextObject.transform.parent);
+
+        // Reset vị trí và rotation tương đối với cha
+        newObject.transform.localScale = Vector3.one;
+
+        // Lấy component Text từ object mới
+        Text damageText = newObject.GetComponent<Text>();
 
         // Cập nhật text và màu
         damageText.text = damage;
         damageText.color = color;
 
-        // Kích hoạt lại damageTextObject
-        damageTextObject.SetActive(true);
-
-        // Nếu đã có coroutine đang chạy thì dừng lại
-        if (activeCoroutine != null)
-        {
-            StopCoroutine(activeCoroutine);
-        }
-
-        // Chạy coroutine để deactivate sau 1s
-        activeCoroutine = StartCoroutine(DeactivateAfterDelay(1.2f));
+        // Hủy object sau 1.2s
+        Destroy(newObject, 1.2f);
     }
 
     private IEnumerator DeactivateAfterDelay(float delay)
@@ -62,7 +58,7 @@ public class HealthBarUI : MonoBehaviour
         damageTextObject.SetActive(false); // Deactivate damageTextObject
     }
 
-    public void UpdateHealth(float currentHealth, float maxHealth)
+    public void UpdateHealth(float currentHealth, float maxHealth, bool isSameEnemy)
     {
         float takeDamage = this.currentHealth - currentHealth;
 
@@ -72,14 +68,16 @@ public class HealthBarUI : MonoBehaviour
         healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthText();
 
-        //if (takeDamage > 0)
-        //{
-        //    UpdateTextDamage("- " + takeDamage.ToString(), Color.red);
-        //}
-        //else
-        //{
-        //    UpdateTextDamage("+ " + Mathf.Abs(takeDamage).ToString(), Color.green);
-        //}
+        if (takeDamage == 0 || !isSameEnemy) return;
+
+        else if(takeDamage > 0)
+        {
+            UpdateTextDamage("- " + takeDamage.ToString(), Color.red);
+        }
+        else
+        {
+            UpdateTextDamage("+ " + Mathf.Abs(takeDamage).ToString(), Color.green);
+        }
     }
 
 

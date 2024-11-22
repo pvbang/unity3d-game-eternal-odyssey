@@ -83,7 +83,7 @@ public class PlayerAtributeUI : MonoBehaviour
         // lấy health
         Attribute attribute = playerDetails.attribute;
         Stats health = attribute.health;
-        healthBarUI.UpdateHealth(health.current, health.max);
+        healthBarUI.UpdateHealth(health.current, health.max, true);
 
         // lấy experience
         Stats experience = playerDetails.experience;

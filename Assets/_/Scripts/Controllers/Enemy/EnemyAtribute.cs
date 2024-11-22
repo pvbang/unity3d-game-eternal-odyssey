@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyAtribute : MonoBehaviour
 {
     public Attribute atribute;
+    private string enemyName = RandomManager.GenerateRandomID();
+
+    public string getEnemyName()
+    {
+        return enemyName;
+    }
 
     public int getCurrentHealth()
     {
