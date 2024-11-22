@@ -35,4 +35,21 @@ public class EnemyAtribute : MonoBehaviour
     {
         return atribute.runSpeed;
     }
+
+    public int getResistance()
+    {
+        return atribute.resistance;
+    }
+
+
+    public float getCritical()
+    {
+        return atribute.crit;
+    }
+
+    public float getAttackSpeed()
+    {
+        return atribute.attackSpeed;
+    }
+
 }

@@ -1,12 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDamageHandle : MonoBehaviour
 {
-    public int minDamage = 0;
-    public int maxDamage = 0;
-
     CharacterPlayerController characterPlayerController;
 
     private void Awake()
@@ -14,9 +12,18 @@ public class PlayerDamageHandle : MonoBehaviour
         characterPlayerController = GetComponent<CharacterPlayerController>();
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(ConstantManager.SKILL_TAG))
+        {
+            TakeDamageValue takeDamageValue = other.GetComponent<TakeDamageValue>();
+            if (takeDamageValue != null) TakeDamage(takeDamageValue);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(ConstantManager.SKILL_TAG))
         {
             bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
@@ -26,24 +33,27 @@ public class PlayerDamageHandle : MonoBehaviour
                 return;
             }
 
-            //Debug.Log("PlayerDamageHandle");
-            int damage = Random.Range(minDamage, maxDamage);
-            //Debug.Log("Damage: " + damage);
             characterPlayerController.SetCharacterState(CharacterState.GetHit);
-
-            if (damage <= 0)
-            {
-                return;
-            }
-
-            PlayerSystemController.instance.TakeDamage(damage);
+            TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
+            if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
     }
 
-
-    public void SetDamage(int min, int max)
+    private void TakeDamage(TakeDamageValue takeDamageValue)
     {
-        minDamage = min;
-        maxDamage = max;
+        int resistance = 0;
+
+        PlayerDetails playerDetails = PlayerSystemController.instance.playerAtributeUI.GetPlayerDetails();
+        if (playerDetails != null)
+        {
+            Attribute attribute = playerDetails.attribute;
+            resistance = attribute.resistance;
+        }
+
+        int damage = takeDamageValue.GetDamage() - resistance;
+        Debug.Log($"Player took {damage} damage!");
+        if (damage < 0)  return;
+
+        PlayerSystemController.instance.TakeDamage(damage);
     }
 }
