@@ -43,8 +43,9 @@ public class QuestDetailUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        StartCoroutine(UpdateLayoutDelayed());
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
 
         if (QuestItemSystem.instance.questDetails.TryGetValue(quest.quest.questId, out Quest questDetail))
         {
@@ -249,17 +250,5 @@ public class QuestDetailUI : MonoBehaviour
         {
             Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho questId: {quest.quest.questId}");
         }
-    }
-    private IEnumerator UpdateLayoutDelayed()
-    {
-        yield return null; // Đợi 1 frame để giao diện được khởi tạo đầy đủ
-
-        // Cập nhật lại layout sau khi nội dung đã được set
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
-
-        Debug.Log($"QuestDescription Height: {questDescription.rectTransform.rect.height}");
-        Debug.Log($"QuestDescriptionTarget Height: {questDescriptionTarget.rectTransform.rect.height}");
     }
 }

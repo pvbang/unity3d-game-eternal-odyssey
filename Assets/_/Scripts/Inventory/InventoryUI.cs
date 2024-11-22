@@ -15,12 +15,12 @@ public class InventoryUI : MonoBehaviour
     private List<Inventory> inventoryItem;
     public ItemInfoDisplay itemInfoDisplay;
     public TextMeshProUGUI totalItem;
-    public TMP_InputField quantityInput;  // Ô để hiển thị số lượng
-    public Slider quantitySlider;         // Slider điều chỉnh số lượng
-    public Button splitButton;            // Nút để tách item
-    private Inventory selectedItem;       // Lưu trữ item được chọn hiện tại
+    public TMP_InputField quantityInput;
+    public Slider quantitySlider;
+    public Button splitButton;
+    private Inventory selectedItem;
     private GameObject currentlySelectedSlot = null;
-    public Button usedItemButton; // Nút sử dụng item
+    public Button usedItemButton;
 
     private void Start()
     {
@@ -36,14 +36,14 @@ public class InventoryUI : MonoBehaviour
         }
         inventorySystem.onInventoryUpdated += () => UpdateInventoryUI(inventoryItem);
         StartCoroutine(WaitForDataAndDisplayInventory());
-        splitButton.onClick.AddListener(SplitItem); // Thêm sự kiện nhấn nút tách
-        usedItemButton.onClick.AddListener(OnUseItem); // Thêm sự kiện nhấn nút sử dụng item
-        quantitySlider.onValueChanged.AddListener(UpdateQuantityFromSlider); // Thêm sự kiện khi slider thay đổi
+        splitButton.onClick.AddListener(SplitItem);
+        usedItemButton.onClick.AddListener(OnUseItem);
+        quantitySlider.onValueChanged.AddListener(UpdateQuantityFromSlider);
     }
 
     private void UpdateQuantityFromSlider(float value)
     {
-        quantityInput.text = Mathf.FloorToInt(value).ToString(); // Cập nhật ô số lượng theo slider
+        quantityInput.text = Mathf.FloorToInt(value).ToString();
 
     }
 
@@ -54,16 +54,10 @@ public class InventoryUI : MonoBehaviour
         if (splitQuantity <= 0 || splitQuantity >= selectedItem.quantity) return;
 
         selectedItem.quantity -= splitQuantity;
-
-        // Tạo item mới với số lượng đã tách
         Debug.Log($"Check quantity item {splitQuantity} {selectedItem.item.name}");
         Inventory newItem = new Inventory(selectedItem.item, splitQuantity);
         inventorySystem.inventory.Add(newItem);
-
-        // Cập nhật lại UI
         UpdateInventoryUI(inventorySystem.inventory);
-
-        // Reset lựa chọn
         selectedItem = null;
         quantityInput.text = "";
         quantitySlider.value = 0;
@@ -77,6 +71,7 @@ public class InventoryUI : MonoBehaviour
 
         inventorySystem.LoadInventoryFromFirebase(inventoryList =>
         {
+            Debug.Log("Data from Inventory UI:"+ inventoryList.Count);
             List<Inventory> inventoryListItem = new List<Inventory>();
             foreach (var item in inventoryList)
             {
@@ -122,12 +117,10 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        // Xóa các slot cũ trong Inventory Panel
         foreach (Transform child in inventoryPanel)
         {
             Destroy(child.gameObject);
         }
-
 
         foreach (var playerItem in inventory)
         {
@@ -138,7 +131,6 @@ public class InventoryUI : MonoBehaviour
             itemIcon.sprite = iconManager.GetIcon(playerItem.item.itemId);
             var quantityText = slot.transform.Find("ItemQuantity").GetComponent<TextMeshProUGUI>();
             quantityText.text = $"x{playerItem.quantity}";
-            // Gán DraggableItem để cho phép kéo thả
             var draggableItem = slot.GetComponent<DraggableItem>();
             draggableItem.inventorySystem = FindObjectOfType<InventoryItemSystem>();
             draggableItem.groundSystem = groundSystem;

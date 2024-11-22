@@ -72,14 +72,6 @@ public class QuestUI : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateDefaultQuestLayout()
-    {
-        yield return null; // Đợi 1 frame để đảm bảo UI được khởi tạo đầy đủ
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescription.rectTransform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescriptionTarget.rectTransform);
-    }
-
     private void DisplayQuestList()
     {
         foreach (Transform child in questListContainer)

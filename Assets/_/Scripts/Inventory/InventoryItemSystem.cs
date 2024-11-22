@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class InventoryItemSystem : MonoBehaviour
 {
-    public List<Inventory> inventory = new List<Inventory>();  // Danh sách các vật phẩm trong kho
-    public Dictionary<string, Item> itemDetails = new Dictionary<string, Item>();  // Lưu trữ chi tiết thông tin vật phẩm
+    public List<Inventory> inventory = new List<Inventory>(); 
+    public Dictionary<string, Item> itemDetails = new Dictionary<string, Item>();
     public Action onInventoryUpdated; 
 
-    public static InventoryItemSystem instance;  // Singleton cho InventoryItemSystem
-    public List<Inventory> groundItems = new List<Inventory>();  // Danh sách các vật phẩm trên mặt đất
+    public static InventoryItemSystem instance;
+    public List<Inventory> groundItems = new List<Inventory>();
 
-    public bool isDataLoaded = false;  // Biến để kiểm tra xem dữ liệu đã được tải từ Firebase chưa
+    public bool isDataLoaded = false;
     public string userId;
     public string worldId;
     private void Awake()
@@ -34,12 +34,13 @@ public class InventoryItemSystem : MonoBehaviour
         {
             LoadInventoryFromFirebase(inventoryList =>
             {
+                Debug.Log("Tổng số item trong inventory: " + inventoryList.Count);
                 // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
                 List<Inventory> completedInventoryList = new List<Inventory>();
 
                 foreach (var inventoryItem in inventoryList)
                 {
-                    // Kiểm tra xem itemDetails có chứa itemId này không
+                    Debug.Log($"Item ID: {inventoryItem.itemId}, Quantity: {inventoryItem.quantity}");
                     if (instance.itemDetails.TryGetValue(inventoryItem.itemId, out Item itemDetail))
                     {
                         Inventory completeInventory = new Inventory(itemDetail, inventoryItem.quantity);
@@ -50,11 +51,7 @@ public class InventoryItemSystem : MonoBehaviour
                         Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {inventoryItem.itemId}");
                     }
                 }
-
-                // Gán danh sách hoàn thiện vào inventory
                 this.inventory = completedInventoryList;
-
-                Debug.Log("Đã tải xong danh sách inventory từ Firebase.");
                 onInventoryUpdated?.Invoke();
             });
         });
@@ -75,7 +72,7 @@ public class InventoryItemSystem : MonoBehaviour
             if (task.IsFaulted)
             {
                 Debug.Log("Lỗi lấy danh sách inventory: " + task.Exception);
-                callback(null);  // Trả về null trong trường hợp lỗi
+                callback(null);
                 return;
             }
 
@@ -84,16 +81,18 @@ public class InventoryItemSystem : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 List<Inventory> inventoryList = new List<Inventory>();
 
-                Debug.Log($"Tổng số user: {snapshot.ChildrenCount}");
+                Debug.Log($"Tổng số user: {snapshot.ChildrenCount}"+ "WorldID:"+ worldId);
 
                 foreach (var child in snapshot.Children)
                 {
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
 
+                    Debug.Log($"User ID: {playerworld.userId}"+ userId);
+
                     if (playerworld.userId == userId)
                     {
                         inventoryList = playerworld.inventorys;
-                        break;
+                        break; 
                     }  
                 }
 
@@ -135,11 +134,9 @@ public class InventoryItemSystem : MonoBehaviour
     // Thêm vật phẩm vào Inventory từ Ground
     public void AddItemToInventory(string itemId, int quantity)
     {
-        // Tìm item trong groundItems dựa vào itemId
         var groundItem = groundItems.Find(i => i.item.itemId == itemId);
         if (groundItem != null)
         {
-            // Kiểm tra xem item có tồn tại trong inventory không
             var existingItem = inventory.Find(i => i.item.itemId == itemId);
 
             if (existingItem != null)
@@ -148,11 +145,8 @@ public class InventoryItemSystem : MonoBehaviour
             }
             else
             {
-                // Nếu không có item trùng, thêm item mới vào Inventory
                 inventory.Add(new Inventory(groundItem.item, quantity));
             }
-
-            // Giảm số lượng trong groundItems hoặc xóa nếu quantity = 0
             groundItem.quantity -= quantity;
             if (groundItem.quantity <= 0)
             {

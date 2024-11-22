@@ -48,16 +48,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent;  // Lưu parent hiện tại
-        originalPosition = GetComponent<RectTransform>().anchoredPosition; // Lưu vị trí gốc
-        transform.SetParent(transform.root);  // Đưa item lên trên cùng UI để dễ kéo thả
-        transform.SetAsLastSibling();  // Đảm bảo item ở trên cùng của hierarchy
-        canvasGroup.blocksRaycasts = false;  // Tắt raycast để có thể kéo qua các UI khác
+        originalParent = transform.parent;
+        originalPosition = GetComponent<RectTransform>().anchoredPosition;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;  // Cập nhật vị trí theo con trỏ
+        transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -79,11 +79,23 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
             Debug.Log($"Item được thả vào: {eventData.pointerEnter.name}");
 
-            // Thả vào GroundPanel
             if (eventData.pointerEnter.name == "GroundPanel")
             {
                 inventorySystem.RemoveItemFromInventory(itemId, quantity);
                 groundSystem.AddItemToGround(item, quantity);
+
+                Vector3 dropPosition = Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, Camera.main.nearClipPlane));
+
+                // Gọi ChestSpawner để tạo rương
+                ChestSpawner chestSpawner = FindObjectOfType<ChestSpawner>();
+                if (chestSpawner != null)
+                {
+                    chestSpawner.SpawnChest(dropPosition, itemId);
+                }
+                else
+                {
+                    Debug.LogError("Không tìm thấy ChestSpawner trong scene");
+                }
 
                 GroundItemUI groundUI = FindObjectOfType<GroundItemUI>();
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
@@ -94,7 +106,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     if (success)
                     {
                         Debug.Log(message);
-                        // Thực hiện các thao tác tiếp theo nếu cần
                     }
                     else
                     {
@@ -112,7 +123,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 Destroy(gameObject);
             }
-            // Thả vào InventoryPanel hoặc ô trong InventoryPanel
             else if (eventData.pointerEnter.name == "InventoryPanel" || eventData.pointerEnter.CompareTag("InventorySlot"))
             {
                 inventorySystem.inventory.Add(new Inventory(item, quantity));
@@ -123,7 +133,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     if (success)
                     {
                         Debug.Log(message);
-                        // Thực hiện các hành động khác khi thêm thành công
                     }
                     else
                     {
@@ -141,7 +150,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 Destroy(gameObject);
             }
-            // Trả item về vị trí gốc khi thả vào vùng không hợp lệ
             else
             {
                 transform.SetParent(originalParent);
@@ -150,7 +158,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
-            // Không có đối tượng nào được trỏ vào
             transform.SetParent(originalParent);
             GetComponent<RectTransform>().anchoredPosition = originalPosition;
         }
