@@ -14,11 +14,11 @@ public class Attribute
     {
         health = new Stats(1000, 1000);
         damage = new Rate(45, 55);              
-        resistance = 20;                   
+        resistance = 10;                   
         attackSpeed = 1.0f;                 
         runSpeed = 1.0f;                     
         intelligence = 10f;                 
-        crit = 0.1f;                       
+        crit = 1.0f;                       
     }
 
     public Attribute(Stats health, Rate damage, int resistance, float attackSpeed, float runSpeed, float intelligence, float crit)

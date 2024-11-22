@@ -54,6 +54,10 @@ public class EnemyAtributeUI : MonoBehaviour
                 SetDeactiveEnemyHP();
             }
         }
+        else
+        {
+            SetDeactiveEnemyHP();
+        }
     }
 
 }
