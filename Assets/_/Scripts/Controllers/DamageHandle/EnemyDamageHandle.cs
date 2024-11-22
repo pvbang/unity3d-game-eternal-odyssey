@@ -29,8 +29,10 @@ public class EnemyDamageHandle : MonoBehaviour
 
     private void TakeDamage(TakeDamageValue takeDamageValue)
     {
-        int damage = Random.Range(takeDamageValue.minDamage, takeDamageValue.maxDamage);
+        int damage = takeDamageValue.GetDamage() - enemyAtribute.getResistance();
         Debug.Log($"Enemy took {damage} damage!");
+        
+        if (damage < 0) return;
 
         enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
         if (enemyAtribute.getCurrentHealth() <= 0)
