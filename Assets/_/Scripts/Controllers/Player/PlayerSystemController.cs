@@ -7,7 +7,7 @@ public class PlayerSystemController : MonoBehaviour
     public static PlayerSystemController instance;
 
     [SerializeField]
-    private PlayerAtributeUI playerAtributeUI;
+    public PlayerAtributeUI playerAtributeUI;
 
     private void Awake()
     {

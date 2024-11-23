@@ -86,17 +86,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 Vector3 dropPosition = Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, Camera.main.nearClipPlane));
 
-                // Gọi ChestSpawner để tạo rương
-                ChestSpawner chestSpawner = FindObjectOfType<ChestSpawner>();
-                if (chestSpawner != null)
-                {
-                    chestSpawner.SpawnChest(dropPosition, itemId);
-                }
-                else
-                {
-                    Debug.LogError("Không tìm thấy ChestSpawner trong scene");
-                }
-
                 GroundItemUI groundUI = FindObjectOfType<GroundItemUI>();
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 inventoryUI.UpdateInventoryUI(inventorySystem.inventory);
