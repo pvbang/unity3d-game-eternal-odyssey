@@ -40,7 +40,7 @@ public class WorldManager : MonoBehaviour
 
             if (initTask.IsFaulted)
             {
-                NotificationManager.instance.ShowNotification("Lỗi khi tạo bảng mới", NotificationType.Error);
+                NotificationManager.Instance.ShowNotification("Lỗi khi tạo bảng mới", NotificationType.Error);
                 yield break; // Dừng nếu không thể khởi tạo bảng
             }
             else
@@ -53,13 +53,12 @@ public class WorldManager : MonoBehaviour
             // Nếu bảng đã tồn tại, kiểm tra sự tồn tại của worldId
             if (worldDataSnapshot.HasChild(world.worldId))
             {
-                NotificationManager.instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
+                NotificationManager.Instance.ShowNotification("Mã thế giới đã tồn tại", NotificationType.Error);
                 yield break; // Dừng nếu worldId đã tồn tại
             }
         }
 
         // Nếu qua được các bước kiểm tra, tiếp tục thực hiện các thao tác khác...
-        Debug.Log("worldId không tồn tại, có thể tiếp tục.");
 
         //// Tạo Dictionary từ List<PlayerWorld> với userId làm key
         //Dictionary<string, PlayerWorld> playerWorldDict = new();
@@ -101,11 +100,10 @@ public class WorldManager : MonoBehaviour
 
         // 2. Tạo JSON cho các phần còn lại của world
         string worldJson = JsonUtility.ToJson(world);
-        Debug.Log("World JSON trước khi kết hợp: " + worldJson);
 
         // 3. Ghép JSON của playerWorld vào JSON của world
         string finalJson = MergeJson(worldJson, playerWorldJson.ToString());
-        Debug.Log("Final JSON: " + finalJson);
+
 
 
         var addTask = FirebaseManager.instance.databaseReference
@@ -117,11 +115,11 @@ public class WorldManager : MonoBehaviour
 
         if (addTask.IsFaulted)
         {
-            NotificationManager.instance.ShowNotification("Lỗi khi tạo thế giới", NotificationType.Error);
+            NotificationManager.Instance.ShowNotification("Lỗi khi tạo thế giới", NotificationType.Error);
         }
         else
         {
-            NotificationManager.instance.ShowNotification("Tạo Thế giới thành công!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tạo Thế giới thành công!", NotificationType.Notification);
         }
     }
 
@@ -347,7 +345,7 @@ public class WorldManager : MonoBehaviour
 
         if (!checkWorldTask.Result.Exists)
         {
-            NotificationManager.instance.ShowNotification("Không tìm thấy thế giới", NotificationType.Error);
+            NotificationManager.Instance.ShowNotification("Không tìm thấy thế giới", NotificationType.Error);
             yield break; // Dừng nếu worldId không tồn tại
         }
 
@@ -396,7 +394,7 @@ public class WorldManager : MonoBehaviour
         {
             Debug.Log("Thêm người chơi vào world thành công");
             PlayerPrefs.SetString(ConstantManager.FIREBASE_WORLDS_ID, worldId);
-            NotificationManager.instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Tham gia thế giới thành công", NotificationType.Notification);
         }
     }
 
@@ -483,6 +481,146 @@ public class WorldManager : MonoBehaviour
             Debug.Log("Cập nhật tên của người chơi trong world thành công");
         }
     }
+
+
+    // Lấy tên của người chơi trong world
+    // cách gọi hàm: WorldManager.GetPlayerName(worldId, userId, name => { Debug.Log(name); });
+    public static void GetPlayerName(string worldId, string userId, Action<string> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .Child("name");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy tên của người chơi trong world: " + task.Exception);
+                callback("");
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    string name = snapshot.GetRawJsonValue();
+                    callback(name);
+                }
+                else
+                {
+                    Debug.Log("Không tìm thấy tên của người chơi trong world");
+                    callback("");
+                }
+            }
+        });
+
+        callback("");
+    }
+
+
+    // Lấy skin của người chơi trong world
+    // cách gọi hàm: WorldManager.GetPlayerSkin(worldId, userId, skin => { Debug.Log(skin); });
+    public static void GetPlayerSkin(string worldId, string userId, Action<string> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYER_DETAILS)
+            .Child("skin");
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy skin của người chơi trong world: " + task.Exception);
+                callback("");
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    string skin = snapshot.GetRawJsonValue();
+                    callback(skin);
+                }
+                else
+                {
+                    Debug.Log("Không tìm thấy skin của người chơi trong world");
+                    callback("");
+                }
+            }
+        });
+
+        callback("");
+    }
+
+
+    // cập nhật thuộc tính của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerDetails(worldId, userId, playerDetails));
+    public static IEnumerator UpdatePlayerDetails(string worldId, string userId, PlayerDetails playerDetails)
+    {
+        string json = JsonUtility.ToJson(playerDetails);
+
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .SetRawJsonValueAsync(json);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật thuộc tính của người chơi trong world");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Cập nhật thuộc tính của người chơi trong world thành công");
+        }
+    }
+
+    // cập nhật một số thuộc tính của người chơi trong world
+    // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerDetails(worldId, userId, new Dictionary<string, object> { {"fieldName", fieldValue}, ... }));
+    public static IEnumerator UpdateFieldsPlayerDetails(string worldId, string userId, Dictionary<string, object> fieldsToUpdate)
+    {
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .Child("playerDetails")
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật một số thuộc tính của người chơi trong world");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+        }
+    }
+
 }
 
 

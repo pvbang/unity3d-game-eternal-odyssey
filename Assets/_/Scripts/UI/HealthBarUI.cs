@@ -8,8 +8,13 @@ public class HealthBarUI : MonoBehaviour
     public Image healthBar;
     public Text healthText;
 
+    public GameObject damageTextObject;
+
     public float maxHealth = 1000f;
     public float currentHealth;
+
+    private Coroutine activeCoroutine;
+
 
     private void Awake()
     {
@@ -25,26 +30,54 @@ public class HealthBarUI : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void UpdateTextDamage(string damage, Color color)
     {
-        currentHealth = maxHealth;
-        UpdateHealthText();
+        // Tạo object mới từ damageTextObject
+        GameObject newObject = Instantiate(damageTextObject, damageTextObject.transform.position, damageTextObject.transform.rotation);
+
+        // Đặt newObject làm con của damageTextObject
+        newObject.transform.SetParent(damageTextObject.transform.parent);
+
+        // Reset vị trí và rotation tương đối với cha
+        newObject.transform.localScale = Vector3.one;
+
+        // Lấy component Text từ object mới
+        Text damageText = newObject.GetComponent<Text>();
+
+        // Cập nhật text và màu
+        damageText.text = damage;
+        damageText.color = color;
+
+        // Hủy object sau 1.2s
+        Destroy(newObject, 1.2f);
     }
 
-    // Nhận sát thương => giảm máu
-    public void TakeDamage(float damage)
+    private IEnumerator DeactivateAfterDelay(float delay)
     {
-        currentHealth -= damage;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
+        yield return new WaitForSeconds(delay); // Chờ 1 giây
+        damageTextObject.SetActive(false); // Deactivate damageTextObject
     }
 
-    // Hồi máu
-    public void Heal(float heal)
+    public void UpdateHealth(float currentHealth, float maxHealth, bool isSameEnemy)
     {
-        currentHealth += heal;
+        float takeDamage = this.currentHealth - currentHealth;
+
+        this.currentHealth = currentHealth;
+        this.maxHealth = maxHealth;
+
         healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthText();
+
+        if (takeDamage == 0 || !isSameEnemy) return;
+
+        else if(takeDamage > 0)
+        {
+            UpdateTextDamage("- " + takeDamage.ToString(), Color.red);
+        }
+        else
+        {
+            UpdateTextDamage("+ " + Mathf.Abs(takeDamage).ToString(), Color.green);
+        }
     }
 
 
@@ -55,90 +88,19 @@ public class HealthBarUI : MonoBehaviour
     }
 
 
-    // Buff tăng máu tạm thời trong một khoảng thời gian
-    public void BuffHealth(float buffHealth, float duration)
+    // reset tất cả thông tin
+    public void ResetHealth()
     {
-        StartCoroutine(BuffHealthCoroutine(buffHealth, duration));
-    }
-
-    private IEnumerator BuffHealthCoroutine(float buffHealth, float duration)
-    {
-        float originalMaxHealth = maxHealth;
-        maxHealth += buffHealth;
-        currentHealth += buffHealth;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-
-        yield return new WaitForSeconds(duration);
-
-        maxHealth = originalMaxHealth;
+        maxHealth = 1000f;
+        currentHealth = maxHealth;
         healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthText();
     }
 
-    // Buff tăng máu vĩnh viễn
-    public void BuffMaxHealth(float buffHealth)
+
+    private void OnDisable()
     {
-        maxHealth += buffHealth;
-        currentHealth += buffHealth;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-    }
-
-    // Debuff giảm máu vĩnh viễn
-    public void DebuffMaxHealth(float debuffHealth)
-    {
-        maxHealth -= debuffHealth;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-    }
-
-    // Debuff giảm máu tạm thời trong một khoảng thời gian
-    public void DebuffHealth(float debuffHealth, float duration)
-    {
-        StartCoroutine(DebuffHealthCoroutine(debuffHealth, duration));
-    }
-
-    private IEnumerator DebuffHealthCoroutine(float debuffHealth, float duration)
-    {
-        float originalMaxHealth = maxHealth;
-        maxHealth -= debuffHealth;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-
-        yield return new WaitForSeconds(duration);
-
-        maxHealth = originalMaxHealth;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-    }
-
-    // Bất tử trong một khoảng thời gian
-    public void Immortal(float duration)
-    {
-        StartCoroutine(ImmortalCoroutine(duration));
-    }
-
-    private IEnumerator ImmortalCoroutine(float duration)
-    {
-        float originalMaxHealth = maxHealth;
-        maxHealth = Mathf.Infinity;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
-
-        yield return new WaitForSeconds(duration);
-
-        maxHealth = originalMaxHealth;
-        healthBar.fillAmount = currentHealth / maxHealth;
-        UpdateHealthText();
+        ResetHealth();
     }
 
 }

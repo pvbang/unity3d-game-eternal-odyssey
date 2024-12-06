@@ -11,6 +11,12 @@ TagManager:
   - _Enemy
   - InventorySlot
   - GroundSlot
+  - _Skill
+  - _Weapon
+  - _Shield
+  - _PlayerAnimation
+  - ENEMY_SKILL_TAG
+  - PLAYER_SKILL_TAG
   layers:
   - Default
   - TransparentFX
@@ -19,10 +25,10 @@ TagManager:
   - Water
   - UI
   - TransparentCameraObject
-  - 
-  - 
-  - 
-  - 
+  - _Enemy
+  - _Player
+  - GROUND
+  - PlayerPosition
   - 
   - 
   - 

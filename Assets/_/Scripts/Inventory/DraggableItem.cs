@@ -77,20 +77,30 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("groundSystem chưa được gán");
                 return;
             }
+            Debug.Log($"Item được thả vào: {eventData.pointerEnter.name}");
 
+            // Thả vào GroundPanel
             if (eventData.pointerEnter.name == "GroundPanel")
             {
-                Debug.Log($"Check {item.itemId} item id: {itemId}");
-                // Xóa item khỏi Inventory và thêm vào Ground
-                inventorySystem.RemoveItemFromInventory(itemId);
+                inventorySystem.RemoveItemFromInventory(itemId, quantity);
                 groundSystem.AddItemToGround(item, quantity);
 
-              
-                // Cập nhật UI Ground và xóa item khỏi Inventory UI
                 GroundItemUI groundUI = FindObjectOfType<GroundItemUI>();
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 inventoryUI.UpdateInventoryUI(inventorySystem.inventory);
 
+                ManagerInventory.DeleteItem(itemId, quantity, inventorySystem.worldId, inventorySystem.userId, (success, message) =>
+                {
+                    if (success)
+                    {
+                        Debug.Log(message);
+                        // Thực hiện các thao tác tiếp theo nếu cần
+                    }
+                    else
+                    {
+                        Debug.LogError(message);
+                    }
+                });
                 if (groundUI != null)
                 {
                     groundUI.UpdateGroundUI(groundSystem.GetGroundItems());
@@ -102,18 +112,24 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 Destroy(gameObject);
             }
-            else if (eventData.pointerEnter.name == "InventoryPanel")
+            // Thả vào InventoryPanel hoặc ô trong InventoryPanel
+            else if (eventData.pointerEnter.name == "InventoryPanel" || eventData.pointerEnter.CompareTag("InventorySlot"))
             {
-                // Xóa item khỏi Ground và thêm lại vào Inventory
+                inventorySystem.inventory.Add(new Inventory(item, quantity));
                 groundSystem.RemoveItemFromGround(itemId, quantity);
-                inventorySystem.AddItemToInventory(itemId);
 
-                Transform inventoryContent = GameObject.Find("InventoryContent").transform;
-                transform.SetParent(inventoryContent);
-                transform.localPosition = Vector3.zero; 
-
-                // Cập nhật UI Inventory
-                InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                ManagerInventory.AddItem(itemId, quantity, inventorySystem.worldId, inventorySystem.userId, (success, message) =>
+                {
+                    if (success)
+                    {
+                        Debug.Log(message);
+                        // Thực hiện các hành động khác khi thêm thành công
+                    }
+                    else
+                    {
+                        Debug.LogError(message);
+                    }
+                }); InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 if (inventoryUI != null)
                 {
                     inventoryUI.UpdateInventoryUI(inventorySystem.inventory);
@@ -122,22 +138,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Debug.LogError("Không tìm thấy InventoryUI trong scene");
                 }
+
+                Destroy(gameObject);
             }
+            // Trả item về vị trí gốc khi thả vào vùng không hợp lệ
             else
             {
-                Debug.Log("Không thả vào gì cả, trả item về vị trí cũ");
-                // Không thả vào đâu cả, trả về vị trí và parent gốc
                 transform.SetParent(originalParent);
                 GetComponent<RectTransform>().anchoredPosition = originalPosition;
             }
         }
         else
         {
-            Debug.Log("Không có đối tượng nào được trỏ vào");
-            // Không có đối tượng được trỏ vào, trả item về vị trí và parent gốc
+            // Không có đối tượng nào được trỏ vào
             transform.SetParent(originalParent);
             GetComponent<RectTransform>().anchoredPosition = originalPosition;
         }
     }
-
 }

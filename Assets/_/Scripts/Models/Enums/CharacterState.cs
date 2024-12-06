@@ -1,0 +1,29 @@
+﻿[System.Serializable]
+
+public enum CharacterState
+{
+    Idle,
+    Walk,
+    Sprint,
+    Jump,
+    JumpAttack,
+    Attack,
+    Combo,
+    Defend,
+    DefendHit,
+    RollUp,
+    RollDown,
+    RollLeft,
+    RollRight,
+    Slide,
+    DashUp,
+    DashDown,
+    DashLeft,
+    DashRight,
+    Die,
+    DieRecovered,
+    Dizzy,
+    GetHit,
+    EquipmentChange,
+    Victory,
+}

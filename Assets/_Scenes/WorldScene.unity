@@ -5309,7 +5309,6 @@ GameObject:
   - component: {fileID: 796162120}
   - component: {fileID: 796162119}
   - component: {fileID: 796162118}
-  - component: {fileID: 796162121}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -5381,9 +5380,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 796162121}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 1025767823}
+        m_TargetAssemblyTypeName: RoomWorldController, Assembly-CSharp
+        m_MethodName: GetNamePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5431,24 +5430,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796162116}
   m_CullTransparentMesh: 1
---- !u!114 &796162121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796162116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b7d6bcb45558942b8e057a4296fac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNames:
-  - InitScene
-  - WorldScene
-  - SkinPlayer
-  - MainScene
-  loadSceneName: SkinPlayer
 --- !u!1 &813382098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,6 +6167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025767822}
   - component: {fileID: 1025767823}
+  - component: {fileID: 1025767824}
   m_Layer: 5
   m_Name: RoomWorld
   m_TagString: Untagged
@@ -6229,6 +6211,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InviteWorld: {fileID: 1622746558}
   playersContent: {fileID: 1585892627}
+  sceneManager: {fileID: 1025767824}
+--- !u!114 &1025767824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025767821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b7d6bcb45558942b8e057a4296fac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames: []
+  loadSceneName: 
 --- !u!1 &1056578032
 GameObject:
   m_ObjectHideFlags: 0
@@ -10853,6 +10850,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6846410325583505464, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1468256582}
     - target: {fileID: 8250833654023223934, guid: 18180d15dbe14dd43bb2b7556535bcdc, type: 3}
       propertyPath: m_Camera
       value: 
@@ -17909,8 +17910,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21
-  m_fontSizeBase: 21
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

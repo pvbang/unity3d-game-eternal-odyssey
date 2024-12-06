@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,13 +15,12 @@ public class InventoryUI : MonoBehaviour
     private List<Inventory> inventoryItem;
     public ItemInfoDisplay itemInfoDisplay;
     public TextMeshProUGUI totalItem;
-    Color colorDefault = new Color(248f / 255f, 248f / 255f, 248f / 255f, 81f / 255f); 
     public TMP_InputField quantityInput;  // Ô để hiển thị số lượng
     public Slider quantitySlider;         // Slider điều chỉnh số lượng
     public Button splitButton;            // Nút để tách item
     private Inventory selectedItem;       // Lưu trữ item được chọn hiện tại
     private GameObject currentlySelectedSlot = null;
-    private Inventory selectedInventoryItem = null;
+    public Button usedItemButton; // Nút sử dụng item
 
     private void Start()
     {
@@ -37,26 +37,31 @@ public class InventoryUI : MonoBehaviour
         inventorySystem.onInventoryUpdated += () => UpdateInventoryUI(inventoryItem);
         StartCoroutine(WaitForDataAndDisplayInventory());
         splitButton.onClick.AddListener(SplitItem); // Thêm sự kiện nhấn nút tách
+        usedItemButton.onClick.AddListener(OnUseItem); // Thêm sự kiện nhấn nút sử dụng item
         quantitySlider.onValueChanged.AddListener(UpdateQuantityFromSlider); // Thêm sự kiện khi slider thay đổi
     }
 
     private void UpdateQuantityFromSlider(float value)
     {
         quantityInput.text = Mathf.FloorToInt(value).ToString(); // Cập nhật ô số lượng theo slider
+
     }
 
     private void SplitItem()
     {
         if (selectedItem == null) return;
-
         int splitQuantity = int.Parse(quantityInput.text);
         if (splitQuantity <= 0 || splitQuantity >= selectedItem.quantity) return;
 
         selectedItem.quantity -= splitQuantity;
 
+        // Tạo item mới với số lượng đã tách
+        Debug.Log($"Check quantity item {splitQuantity} {selectedItem.item.name}");
         Inventory newItem = new Inventory(selectedItem.item, splitQuantity);
         inventorySystem.inventory.Add(newItem);
-        inventorySystem.onInventoryUpdated?.Invoke();  // Cập nhật lại UI
+
+        // Cập nhật lại UI
+        UpdateInventoryUI(inventorySystem.inventory);
 
         // Reset lựa chọn
         selectedItem = null;
@@ -70,18 +75,14 @@ public class InventoryUI : MonoBehaviour
 
         yield return new WaitUntil(() => inventorySystem.isDataLoaded);
 
-        Debug.Log("Đã vào đây");
         inventorySystem.LoadInventoryFromFirebase(inventoryList =>
         {
-            Debug.Log("Đã vào đây 1");
             List<Inventory> inventoryListItem = new List<Inventory>();
             foreach (var item in inventoryList)
             {
-                Debug.Log("Đã vào đây 2");
                 if (inventorySystem.itemDetails.TryGetValue(item.itemId, out Item itemDetail))
                 {
                     Inventory completeInventory = new Inventory(itemDetail, item.quantity);
-                    Debug.Log($"Thêm item vào inventory: {completeInventory.item.itemId} x{completeInventory.quantity}");
                     inventoryListItem.Add(completeInventory);
                 }
                 else
@@ -115,8 +116,6 @@ public class InventoryUI : MonoBehaviour
     }
     public void UpdateInventoryUI(List<Inventory> inventory)
     {
-        Debug.Log("Cập nhật Inventory UI");
-
         if (inventory == null || inventory.Count == 0)
         {
             Debug.LogWarning("Inventory trống hoặc không có dữ liệu.");
@@ -152,25 +151,39 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public void UpdateButtonVisibility(ItemProperties itemType)
+    {
+        // Kiểm tra type của item
+        if (itemType == ItemProperties.Buff)
+        {
+            usedItemButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            usedItemButton.gameObject.SetActive(false);
+        }
+    }
+
     private void OnClickItem(GameObject slot, Inventory item)
     {
-        // Ẩn background đã chọn trước đó
         if (currentlySelectedSlot != null)
         {
-            var previousSelected = currentlySelectedSlot.transform.Find("Selected");
+            var previousSelected = currentlySelectedSlot.transform.Find("BackgroundSelected");
             if (previousSelected != null)
             {
                 previousSelected.gameObject.SetActive(false);
             }
         }
+        UpdateButtonVisibility(item.item.properties);
 
         // Hiển thị background của item hiện tại
-        var selectedBackground = slot.transform.Find("Selected");
+        var selectedBackground = slot.transform.Find("BackgroundSelected");
         if (selectedBackground != null)
         {
             selectedBackground.gameObject.SetActive(true);
         }
 
+        // Cập nhật thông tin chi tiết của item nếu có `itemInfoDisplay`
         if (itemInfoDisplay != null)
         {
             itemInfoDisplay.ShowItemInfo(item.item);
@@ -181,7 +194,97 @@ public class InventoryUI : MonoBehaviour
         quantitySlider.maxValue = item.quantity;
         quantitySlider.value = item.quantity;
 
-        selectedInventoryItem = item;
+        // Lưu trạng thái item hiện tại
         currentlySelectedSlot = slot;
+        selectedItem = item;
+    }
+
+    public void OnUseItem()
+    {
+        if (selectedItem == null) return;
+
+        string itemId = selectedItem.item.itemId;
+        int value = 0;
+        float valueSpeed = 0;
+        int duration = selectedItem.item.usingTime;
+
+        switch (selectedItem.item.itemId)
+        {
+            case "buff_hp":
+                value = selectedItem.item.attributes.health.current; // Lấy giá trị buff_hp
+                break;
+            case "buff_speed":
+                valueSpeed = selectedItem.item.attributes.runSpeed; // Lấy giá trị buff_speed
+                break;
+            case "buff_dame":
+                value = selectedItem.item.attributes.damage.from; // Lấy giá trị buff_dame
+                break;
+            case "buff_resistance":
+                value = selectedItem.item.attributes.resistance; // Lấy giá trị buff_resistance
+                break;
+            case "buff_crit":
+                value = selectedItem.item.attributes.resistance; // Lấy giá trị buff_resistance
+                break;
+            default:
+                Console.WriteLine("Invalid item ID");
+                break;
+        }
+
+        UseItems useItems = new UseItems();
+        bool usedSuccessfully = false;
+
+        switch (itemId)
+        {
+            case "buff_hp":
+                if (useItems != null)
+                {
+                    useItems.Use(itemId, value, valueSpeed, duration);
+                    usedSuccessfully = true;
+                }
+                else
+                {
+                    usedSuccessfully = false;
+                }
+                break;
+            default:
+                useItems?.Use(itemId, value, valueSpeed, duration);
+                usedSuccessfully = true; // Giả sử các loại buff khác luôn thành công
+                break;
+        }
+        // Giảm quantity và cập nhật Inventory
+        if (usedSuccessfully)
+        {
+            selectedItem.quantity--;
+            if (selectedItem.quantity <= 0)
+            {
+                inventorySystem.inventory.Remove(selectedItem);
+                selectedItem = null;
+            }
+
+            Debug.Log($"Số lượng item sau khi sử dụng: {selectedItem?.quantity ?? 0}, {itemId}");
+            ManagerInventory.UpdateItemQuantity(itemId, selectedItem?.quantity ?? 0, inventorySystem.worldId, inventorySystem.userId, (success) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Cập nhật item sau khi đã sử dụng thành công!");
+                }
+                else
+                {
+                    Debug.Log("Cập nhật thất bại.");
+                }
+            });
+
+            // Cập nhật lại UI
+            inventorySystem.onInventoryUpdated?.Invoke();
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+            if (inventoryUI != null)
+            {
+                inventoryUI.UpdateInventoryUI(inventorySystem.inventory);
+            }
+        }
+        else
+        {
+            Debug.Log("Item không được sử dụng vì điều kiện không phù hợp.");
+        }
     }
 }

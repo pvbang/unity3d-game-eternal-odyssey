@@ -22,12 +22,25 @@ public class MainWorldController : MonoBehaviour
         UIMainWorld = GetComponent<UIMainWorld>();
     }
 
+    private DatabaseReference referenceGames;
+
     private void Start()
     {
         if (!FirebaseManager.instance.IsLogin()) return;
 
-        DatabaseReference referenceGames = FirebaseManager.instance.databaseReference.Child(ConstantManager.FIREBASE_WORLDS);
+        referenceGames = FirebaseManager.instance.databaseReference.Child(ConstantManager.FIREBASE_WORLDS);
+
+        // Đăng ký sự kiện
         referenceGames.ValueChanged += HandleValueChangedWorlds;
+    }
+
+    private void OnDisable()
+    {
+        // Hủy đăng ký sự kiện để tránh việc sự kiện còn tồn tại khi chuyển scene
+        if (referenceGames != null)
+        {
+            referenceGames.ValueChanged -= HandleValueChangedWorlds;
+        }
     }
 
     void HandleValueChangedWorlds(object sender, ValueChangedEventArgs args)
@@ -113,16 +126,67 @@ public class MainWorldController : MonoBehaviour
         ShowListAllWorlds(worlds);
     }
 
-    public void CreateWorld()
+
+    private void GetInitialQuests(Action<List<QuestWorld>> callback)
+    {
+        QuestManager.FetchListQuests((quests, questId) =>
+        {
+            if (quests == null)
+            {
+                Debug.Log("Không tìm thấy quest");
+                callback(null);
+                return;
+            }
+            List<QuestWorld> questWorlds = new List<QuestWorld>();
+            for (int i = 0; i<quests.Count; i++)
+            {
+                List<MaterialsUpdate> progress = new List<MaterialsUpdate>();
+
+                Quest quest = quests[i];
+                QuestWorld questWorld = new QuestWorld();
+                questWorld.questId = questId[i];
+                questWorld.status = Status.NotStarted;
+                foreach (MaterialsUpdate material in quest.completionConditions)
+                {
+                    progress.Add(new MaterialsUpdate(material.itemId, 0));
+                }
+                questWorld.progress_quest_world = progress;
+                questWorlds.Add(questWorld);
+            }
+            callback(questWorlds);
+        });
+    }
+
+    public IEnumerator LoadingListQuest()
+    {
+        bool checkCallback = false;
+        List<QuestWorld> listQuestWorlds = new List<QuestWorld>();
+        GetInitialQuests((questWorld) =>
+        {
+            if (questWorld == null)
+            {
+                Debug.Log("Không tìm thấy list quests");
+                return;
+            }
+            
+            listQuestWorlds = questWorld;
+            checkCallback = true;
+        });
+        yield return new WaitUntil(() => checkCallback);
+        print("List quest: " + listQuestWorlds.Count + ","+ listQuestWorlds);
+        CreateWorldCoroutine(listQuestWorlds);
+    }
+
+    public void CreateWorldCoroutine(List<QuestWorld> questWorlds)
     {
         if (string.IsNullOrEmpty(UIMainWorld.GetNameWorld()))
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập Tên thế giới!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập Tên thế giới!", NotificationType.Notification);
             return;
         }
         if (string.IsNullOrEmpty(UIMainWorld.GetCodeWorld()))
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập Mã thế giới!", NotificationType.Notification);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập Mã thế giới!", NotificationType.Notification);
             return;
         }
 
@@ -146,25 +210,28 @@ public class MainWorldController : MonoBehaviour
         playerWorld.playerDetails = new PlayerDetails();
 
         //
-        Inventory inventory = new();
-        inventory.itemId = "mithril";
-        inventory.quantity = 3;
-
-        Inventory inventory2 = new();
-        inventory2.itemId = "mithril_hoa";
-        inventory2.quantity = 5;
-
-        Inventory inventory3 = new();
-        inventory3.itemId = "mithril_thuy";
-        inventory3.quantity = 2;
+        Inventory inventory = new Inventory("mithril", 3);
+        Inventory inventory2 = new Inventory("mithril_hoa", 5);
+        Inventory inventory3 = new Inventory("mithril_thuy", 2);
 
         playerWorld.inventorys.Add(inventory);
         playerWorld.inventorys.Add(inventory2);
         playerWorld.inventorys.Add(inventory3);
 
+        world.questWorld = questWorlds;
         world.playerWorld.Add(playerWorld);
 
         StartCoroutine(WorldManager.AddWorld(world));
+    }
+
+    public void LoadingCompleteQuest()
+    {
+        StartCoroutine(LoadingListQuest());
+    }    
+
+    public void CreateWorld()
+    {
+        LoadingCompleteQuest();
     }
 
     /// <summary>

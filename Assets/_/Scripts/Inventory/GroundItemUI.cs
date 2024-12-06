@@ -46,7 +46,6 @@ public class GroundItemUI : MonoBehaviour
             GameObject slot = Instantiate(itemPrefab, groundPanel);
 
             slot.tag = "GroundSlot";
-            Debug.Log($"Item: {groundItem.item.itemId} được thêm vào UI Ground với số lượng {groundItem.quantity}");
 
             var itemIcon = slot.transform.Find("ItemIcon").GetComponent<Image>();
             itemIcon.sprite = FindObjectOfType<IconManager>().GetIcon(groundItem.item.itemId);
