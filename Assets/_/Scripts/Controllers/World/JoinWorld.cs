@@ -13,7 +13,7 @@ public class JoinWorld : MonoBehaviour
 
         if (string.IsNullOrEmpty(worldId))
         {
-            NotificationManager.instance.ShowNotification("Vui lòng nhập mã thế giới", NotificationType.Error);
+            NotificationManager.Instance.ShowNotification("Vui lòng nhập mã thế giới", NotificationType.Error);
             return;
         }
 

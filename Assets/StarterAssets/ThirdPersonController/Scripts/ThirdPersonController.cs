@@ -150,6 +150,7 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
         }
 
         private void Update()
@@ -215,6 +216,13 @@ namespace StarterAssets
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+
+            //float stamina = PlayerPrefs.GetFloat(ConstantManager.PLAYER_STAMINA, 100f);
+            //if (stamina <= 0f)
+            //{
+            //    Debug.Log(stamina);
+            //    targetSpeed = MoveSpeed;
+            //}
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
