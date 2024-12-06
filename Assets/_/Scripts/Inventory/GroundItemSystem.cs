@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GroundItemSystem : MonoBehaviour
 {
-    private Dictionary<string, Inventory> groundItems = new Dictionary<string, Inventory>(); // Dùng Dictionary cho hiệu quả hơn
-
+    private Dictionary<string, Inventory> groundItems = new Dictionary<string, Inventory>();
 
     public void AddItemToGround(Item item, int quantity)
     {
@@ -17,16 +16,13 @@ public class GroundItemSystem : MonoBehaviour
 
         if (groundItems.ContainsKey(item.itemId))
         {
-            groundItems[item.itemId].quantity += quantity;  // Cộng dồn số lượng
+            groundItems[item.itemId].quantity += quantity;
         }
         else
         {
-            groundItems[item.itemId] = new Inventory(item, quantity);  // Thêm item mới với thông tin đầy đủ
+            groundItems[item.itemId] = new Inventory(item, quantity); 
         }
-
-        Debug.Log($"Đã thêm item {item.itemId} vào Ground với số lượng {quantity}");
     }
-
 
     public void RemoveItemFromGround(string itemId, int quantity)
     {
@@ -35,13 +31,19 @@ public class GroundItemSystem : MonoBehaviour
             groundItems[itemId].quantity -= quantity;
             if (groundItems[itemId].quantity <= 0)
             {
-                groundItems.Remove(itemId);  // Xóa item khi số lượng <= 0
+                groundItems.Remove(itemId); 
             }
         }
     }
-
     public List<Inventory> GetGroundItems()
     {
+        Debug.Log($"Số item trên mặt đất: {groundItems.Count}");
         return new List<Inventory>(groundItems.Values);
+    }
+
+    public void ClearAllItems()
+    {
+        groundItems.Clear();
+        Debug.Log($"Đã xóa tất cả vật phẩm trên mặt đất. Số item còn lại {groundItems.Count}");
     }
 }

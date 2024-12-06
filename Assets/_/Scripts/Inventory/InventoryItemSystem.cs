@@ -34,13 +34,9 @@ public class InventoryItemSystem : MonoBehaviour
         {
             LoadInventoryFromFirebase(inventoryList =>
             {
-                Debug.Log("Tổng số item trong inventory: " + inventoryList.Count);
-                // Tạo một danh sách tạm để lưu các mục đã hoàn thiện
                 List<Inventory> completedInventoryList = new List<Inventory>();
-
                 foreach (var inventoryItem in inventoryList)
                 {
-                    Debug.Log($"Item ID: {inventoryItem.itemId}, Quantity: {inventoryItem.quantity}");
                     if (instance.itemDetails.TryGetValue(inventoryItem.itemId, out Item itemDetail))
                     {
                         Inventory completeInventory = new Inventory(itemDetail, inventoryItem.quantity);
@@ -75,32 +71,24 @@ public class InventoryItemSystem : MonoBehaviour
                 callback(null);
                 return;
             }
-
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
                 List<Inventory> inventoryList = new List<Inventory>();
-
-                Debug.Log($"Tổng số user: {snapshot.ChildrenCount}"+ "WorldID:"+ worldId);
-
                 foreach (var child in snapshot.Children)
                 {
                     PlayerWorld playerworld = JsonUtility.FromJson<PlayerWorld>(child.GetRawJsonValue());
-
-                    Debug.Log($"User ID: {playerworld.userId}"+ userId);
-
                     if (playerworld.userId == userId)
                     {
                         inventoryList = playerworld.inventorys;
                         break; 
                     }  
                 }
-
                 if (inventoryList == null || inventoryList.Count == 0)
                 {
                     Debug.LogWarning("Không tìm thấy inventory hoặc inventory trống.");
                 }
-                callback(inventoryList);  // Trả về danh sách inventory qua callback
+                callback(inventoryList); 
             }
         });
     }
@@ -194,4 +182,16 @@ public class InventoryItemSystem : MonoBehaviour
         }
     }
 
+    public Item GetItemById(string itemId)
+    {
+        if (itemDetails.TryGetValue(itemId, out Item item))
+        {
+            return item;
+        }
+        else
+        {
+            Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {itemId}");
+            return null;
+        }
+    }    
 }

@@ -21,7 +21,7 @@ public class InventoryUI : MonoBehaviour
     private Inventory selectedItem;
     private GameObject currentlySelectedSlot = null;
     public Button usedItemButton;
-
+    private List<ChestInteractionHandler> chestInteractionHandlers;
     private void Start()
     {
         if (inventorySystem == null)
@@ -39,6 +39,7 @@ public class InventoryUI : MonoBehaviour
         splitButton.onClick.AddListener(SplitItem);
         usedItemButton.onClick.AddListener(OnUseItem);
         quantitySlider.onValueChanged.AddListener(UpdateQuantityFromSlider);
+        chestInteractionHandlers = new List<ChestInteractionHandler>(FindObjectsOfType<ChestInteractionHandler>());
     }
 
     private void UpdateQuantityFromSlider(float value)
@@ -145,7 +146,6 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateButtonVisibility(ItemProperties itemType)
     {
-        // Kiểm tra type của item
         if (itemType == ItemProperties.Buff)
         {
             usedItemButton.gameObject.SetActive(true);
@@ -203,19 +203,19 @@ public class InventoryUI : MonoBehaviour
         switch (selectedItem.item.itemId)
         {
             case "buff_hp":
-                value = selectedItem.item.attributes.health.current; // Lấy giá trị buff_hp
+                value = selectedItem.item.attributes.health.current;
                 break;
             case "buff_speed":
-                valueSpeed = selectedItem.item.attributes.runSpeed; // Lấy giá trị buff_speed
+                valueSpeed = selectedItem.item.attributes.runSpeed;
                 break;
             case "buff_dame":
-                value = selectedItem.item.attributes.damage.from; // Lấy giá trị buff_dame
+                value = selectedItem.item.attributes.damage.from;
                 break;
             case "buff_resistance":
-                value = selectedItem.item.attributes.resistance; // Lấy giá trị buff_resistance
+                value = selectedItem.item.attributes.resistance;
                 break;
             case "buff_crit":
-                value = selectedItem.item.attributes.resistance; // Lấy giá trị buff_resistance
+                value = selectedItem.item.attributes.resistance;
                 break;
             default:
                 Console.WriteLine("Invalid item ID");

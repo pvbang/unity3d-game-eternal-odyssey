@@ -26,7 +26,7 @@ public class QuestUI : MonoBehaviour
         StartCoroutine(QuestItemSystem.instance.CompareQuestData());
         StartCoroutine(WaitForQuestDataAndDisplay());
 
-        UnityEngine.ColorUtility.TryParseHtmlString("#0081FF", out selectedColor); // Ví dụ: màu vàng cho item được chọn
+        UnityEngine.ColorUtility.TryParseHtmlString("#0081FF", out selectedColor);
         UnityEngine.ColorUtility.TryParseHtmlString("#FFFFFF", out defaultColor);
     }
 

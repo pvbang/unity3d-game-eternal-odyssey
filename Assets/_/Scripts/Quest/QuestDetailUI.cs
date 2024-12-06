@@ -89,20 +89,16 @@ public class QuestDetailUI : MonoBehaviour
                 completionConditions.text = $"/{condition.quantity}";
             }
 
-            Debug.Log($"Số lượng item cũ trước khi dọn: {rewardIconContainer.childCount}");
             foreach (Transform child in rewardIconContainer)
             {
                 Destroy(child.gameObject);
             }
-            Debug.Log("Đã dọn sạch các item cũ trong rewardIconContainer.");
-
 
             //check reward từ list quests
             if (questDetail.reward.rewardItem != null && questDetail.reward.rewardItem.Count > 0)
             {
                 foreach (var rewardItem in questDetail.reward.rewardItem)
                 {
-                    Debug.Log($"Creating reward icon for itemId: {rewardItem.itemId} with quantity: {rewardItem.quantity}");
                     GameObject slotReward = Instantiate(rewardIconPrefab, rewardIconContainer);
                     slotReward.SetActive(true);
                     var itemIconReward = slotReward.transform.Find("Icon").GetComponent<Image>();

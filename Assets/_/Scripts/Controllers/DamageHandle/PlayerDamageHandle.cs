@@ -51,7 +51,6 @@ public class PlayerDamageHandle : MonoBehaviour
         }
 
         int damage = takeDamageValue.GetDamage() - resistance;
-        Debug.Log($"Player took {damage} damage!");
         if (damage < 0)  return;
 
         PlayerSystemController.instance.TakeDamage(damage);

@@ -2,16 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using System;
 
 public class ItemRealtimeManager : MonoBehaviour
 {
-    public void SaveChest(ItemRealtime chest, System.Action<bool> callback = null)
+    public static void SaveChest(ItemRealtime chest, System.Action<bool> callback = null)
     {
-        // Tham chiếu đến node `item_realtime` trên Firebase
         var chestRef = FirebaseManager.instance.databaseReference.Child("item_realtime").Child(chest.chestId);
 
-        // Lưu rương vào Firebase
-        chestRef.SetRawJsonValueAsync(JsonUtility.ToJson(chest)).ContinueWith(task =>
+        var settings = new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        };
+
+        string json = JsonConvert.SerializeObject(chest, settings);
+
+        chestRef.SetRawJsonValueAsync(json).ContinueWith(task =>
         {
             if (task.IsCompleted)
             {
@@ -26,7 +33,7 @@ public class ItemRealtimeManager : MonoBehaviour
         });
     }
 
-    public void AddItemToChest(string chestId, string itemId, MaterialsUpdate newItem, System.Action<bool> callback = null)
+    public static void AddItemToChest(string chestId, string itemId, MaterialsUpdate newItem, System.Action<bool> callback = null)
     {
         var itemRef = FirebaseManager.instance.databaseReference
             .Child("item_realtime")
@@ -86,7 +93,7 @@ public class ItemRealtimeManager : MonoBehaviour
         });
     }
 
-    public void RemoveItemFromChest(string chestId, string itemId, int quantity, System.Action<bool> callback = null)
+    public static void RemoveItemFromChest(string chestId, string itemId, int quantity, System.Action<bool> callback = null)
     {
         var itemRef = FirebaseManager.instance.databaseReference
             .Child("item_realtime")
@@ -154,6 +161,116 @@ public class ItemRealtimeManager : MonoBehaviour
             }
         });
     }
+    public static void LoadChest(string chestId, System.Action<ItemRealtime> callback)
+    {
+        var chestRef = FirebaseManager.instance.databaseReference.Child("item_realtime").Child(chestId);
 
+        chestRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (!task.IsCompleted || task.Exception != null)
+            {
+                Debug.LogError($"Lỗi khi lấy dữ liệu rương: {task.Exception?.Message}");
+                callback?.Invoke(null);
+                return;
+            }
 
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Exists)
+                {
+                    string rawData = snapshot.GetRawJsonValue();
+                    try
+                    {
+                        ItemRealtime chest = JsonConvert.DeserializeObject<ItemRealtime>(rawData);
+                        Debug.Log($"Rương load từ firebase có {chest.items.Count} items");
+                        callback?.Invoke(chest);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Lỗi khi parse dữ liệu rương: {ex.Message}");
+                        callback?.Invoke(null);
+                    }
+                }
+                else
+                {
+                    Debug.Log($"Không tìm thấy rương với ID: {chestId}");
+                    callback?.Invoke(null);
+                }
+            }
+            else
+            {
+                Debug.LogError($"Lỗi khi lấy dữ liệu rương: {task.Exception}");
+                callback?.Invoke(null);
+            }
+        });
+    }
+    public static void CreateChestAtPosition(string chestId, Vector3 position, string itemId, MaterialsUpdate itemData, System.Action<bool> callback)
+    {
+        ItemRealtime newChest = new ItemRealtime(chestId, new Location(position.x, position.y, position.z));
+        if (!string.IsNullOrEmpty(itemId) && itemData != null)
+        {
+            newChest.items.Add(itemId, itemData);
+        }
+
+        // Lưu rương vào Firebase
+        SaveChest(newChest, callback);
+    }
+
+    public static void LoadAllChests(System.Action<List<ItemRealtime>> callback)
+    {
+        var chestsRef = FirebaseManager.instance.databaseReference.Child("item_realtime");
+
+        chestsRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Exists)
+                {
+                    List<ItemRealtime> allChests = new List<ItemRealtime>();
+                    foreach (var childSnapshot in snapshot.Children)
+                    {
+                        string json = childSnapshot.GetRawJsonValue();
+                        ItemRealtime chest = JsonConvert.DeserializeObject<ItemRealtime>(json);
+                        allChests.Add(chest);
+                    }
+                    callback?.Invoke(allChests);
+                }
+                else
+                {
+                    Debug.LogWarning("Không có rương nào trong cơ sở dữ liệu.");
+                    callback?.Invoke(new List<ItemRealtime>());
+                }
+            }
+            else
+            {
+                Debug.LogError($"Lỗi khi tải tất cả rương: {task.Exception}");
+                callback?.Invoke(null);
+            }
+        });
+    }
+
+    public static void ListenToChestChanges(System.Action<ItemRealtime, string> onChestAdded, System.Action<string> onChestRemoved)
+    {
+        var chestRef = FirebaseManager.instance.databaseReference.Child("item_realtime");
+
+        chestRef.ChildAdded += (sender, args) =>
+        {
+            if (args.Snapshot.Exists)
+            {
+                ItemRealtime newChest = JsonUtility.FromJson<ItemRealtime>(args.Snapshot.GetRawJsonValue());
+                onChestAdded?.Invoke(newChest, args.Snapshot.Key);
+            }
+        };
+
+        chestRef.ChildRemoved += (sender, args) =>
+        {
+            if (args.Snapshot.Exists)
+            {
+                string chestId = args.Snapshot.Key;
+                onChestRemoved?.Invoke(chestId);
+            }
+        };
+    }
 }

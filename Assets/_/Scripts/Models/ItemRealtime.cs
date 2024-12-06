@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class ItemRealtime : MonoBehaviour
+public class ItemRealtime
 {
     public string chestId;
     public Location location;
-    public Dictionary<string, MaterialsUpdate> items;
+    public Dictionary<string, MaterialsUpdate> items = new Dictionary<string, MaterialsUpdate>();
     public string status;
 
     public ItemRealtime()
