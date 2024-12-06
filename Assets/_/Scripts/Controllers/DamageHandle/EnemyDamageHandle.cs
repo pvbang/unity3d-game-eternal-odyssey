@@ -2,16 +2,19 @@
 
 public class EnemyDamageHandle : MonoBehaviour
 {
-    private EnemyAtribute enemyAtribute;
+    public EnemyAtribute enemyAtribute;
+    public EnemyAnimationController enemyAnimationController;
+
 
     private void Start()
     {
-        enemyAtribute = GetComponent<EnemyAtribute>();
+        if (enemyAtribute == null) enemyAtribute = GetComponent<EnemyAtribute>();
+        if (enemyAnimationController == null) enemyAnimationController = GetComponent<EnemyAnimationController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(ConstantManager.SKILL_TAG) || other.CompareTag(ConstantManager.WEAPON_TAG))
+        if (other.CompareTag(ConstantManager.PLAYER_SKILL_TAG) || other.CompareTag(ConstantManager.WEAPON_TAG))
         {
             TakeDamageValue takeDamageValue = other.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
@@ -20,7 +23,7 @@ public class EnemyDamageHandle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(ConstantManager.SKILL_TAG) || collision.gameObject.CompareTag(ConstantManager.WEAPON_TAG))
+        if (collision.gameObject.CompareTag(ConstantManager.PLAYER_SKILL_TAG) || collision.gameObject.CompareTag(ConstantManager.WEAPON_TAG))
         {
             TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
@@ -34,10 +37,12 @@ public class EnemyDamageHandle : MonoBehaviour
         
         if (damage < 0) return;
 
+        enemyAnimationController.PlayAnimation("get_hit");
         enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
         if (enemyAtribute.getCurrentHealth() <= 0)
         {
-            Destroy(gameObject);
+            enemyAnimationController.PlayAnimation("die");
+            Destroy(gameObject, 5f);
         }
     }
 }
