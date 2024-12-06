@@ -23,22 +23,8 @@ public class PlayerDamageHandle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-<<<<<<< HEAD
         if (collision.gameObject.CompareTag(ConstantManager.ENEMY_SKILL_TAG))
         {
-=======
-        if (collision.gameObject.CompareTag(ConstantManager.SKILL_TAG))
-        {
-            bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-
-            if (isCtrlHeld)
-            {
-                Debug.Log("T c� khi�nnnn!!!");
-                return;
-            }
-
-            characterPlayerController.SetCharacterState(CharacterState.GetHit);
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
             TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
@@ -59,7 +45,6 @@ public class PlayerDamageHandle : MonoBehaviour
         Debug.Log($"Player took {damage} damage!");
         if (damage < 0)  return;
 
-<<<<<<< HEAD
         bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         if (isCtrlHeld)
         {
@@ -69,8 +54,5 @@ public class PlayerDamageHandle : MonoBehaviour
             characterPlayerController.PlayAnimation("get_hit");
             PlayerSystemController.instance.TakeDamage(damage);
         }
-=======
-        PlayerSystemController.instance.TakeDamage(damage);
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
     }
 }

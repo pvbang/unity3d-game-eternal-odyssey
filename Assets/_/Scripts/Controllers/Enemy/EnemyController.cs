@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
     private Rigidbody rb;
 
-<<<<<<< HEAD
     [Header("Quản lý Animation")]
     public EnemyAnimationController enemyAnimatorController;
 
@@ -44,31 +43,6 @@ public class EnemyController : MonoBehaviour
 
     // Khoảng cách hiện tại từ Enemy đến TargetObject
     [Header("Khoảng cách hiện tại từ Enemy đến TargetObject")]
-=======
-    public EnemyDamageHandle enemyDamageHandle;
-    public EnemyAtribute enemyAtribute;
-
-    public EnemySkillController enemySkillController;
-
-    // Patroling
-    private Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange = 5f;
-
-    // Attacking
-    public float timeBetweenAttacks = 0.5f;
-    private bool alreadyAttacked;
-
-    // States
-    public float sightRange = 40f;
-    public float attackRange = 5f;
-    private bool playerInSightRange;
-    private bool playerInAttackRange;
-
-    public LayerMask groundLayer;
-    public LayerMask playerLayer;
-
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
     public float distance = 0.0f;
 
 
@@ -78,19 +52,10 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
-<<<<<<< HEAD
         if (enemyAnimatorController == null)    enemyAnimatorController = GetComponent<EnemyAnimationController>();
         if (enemyDamageHandle == null)          enemyDamageHandle = GetComponent<EnemyDamageHandle>();
         if (enemyAtribute == null)              enemyAtribute = GetComponent<EnemyAtribute>();
         if (enemySkillController == null)       enemySkillController = GetComponent<EnemySkillController>();
-=======
-        if (enemyDamageHandle == null)
-            enemyDamageHandle = GetComponent<EnemyDamageHandle>();
-        if (enemyAtribute == null)
-            enemyAtribute = GetComponent<EnemyAtribute>();
-        if (enemySkillController == null)
-            enemySkillController = GetComponent<EnemySkillController>();
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
 
         // Configure Rigidbody
         rb.isKinematic = false; // Để Rigidbody xử lý va chạm
@@ -125,35 +90,6 @@ public class EnemyController : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-<<<<<<< HEAD
-=======
-
-        //if (playerInSightRange)
-        //{
-        //    if (EnemyCountManage.Instance.activeEnemies.Count == 1)
-        //    {
-        //        EnemyAtributeUI.Instance.SetActiveEnemyHP();
-        //        EnemyCountManage.Instance.SetEnemyDistance(distance);
-        //        EnemyAtributeUI.Instance.UpdateEnemyHP(enemyAtribute.getCurrentHealth(), enemyAtribute.getMaxHealth());
-        //    }
-        //    // Nếu có nhiều quái, kiểm tra khoảng cách
-        //    else if (EnemyCountManage.Instance.GetEnemyDistance() <= distance && EnemyCountManage.Instance.GetEnemyDistance() != float.MaxValue)
-        //    {
-        //        return; 
-        //    }
-
-        //    // Hiển thị thanh máu nếu quái gần nhất hoặc là quái duy nhất
-        //    EnemyAtributeUI.Instance.SetActiveEnemyHP();
-        //    EnemyCountManage.Instance.SetEnemyDistance(distance);
-        //    EnemyAtributeUI.Instance.UpdateEnemyHP(enemyAtribute.getCurrentHealth(), enemyAtribute.getMaxHealth());
-        //}
-        //else
-        //{
-        //    // Reset khoảng cách nếu quái rời xa tầm nhìn
-        //    EnemyAtributeUI.Instance.SetDeactiveEnemyHP();
-        //    EnemyCountManage.Instance.SetEnemyDistance(float.MaxValue); // Reset lại khoảng cách lớn nhất
-        //}
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
     }
 
     private void FixedUpdate()
@@ -171,11 +107,8 @@ public class EnemyController : MonoBehaviour
     // Đi tùm lum
     private void Patroling()
     {
-<<<<<<< HEAD
         enemyAnimatorController.StopAnimation("all");
 
-=======
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -204,10 +137,7 @@ public class EnemyController : MonoBehaviour
     // Đuổi theo player
     private void ChasePlayer()
     {
-<<<<<<< HEAD
         enemyAnimatorController.PlayAnimation("run");
-=======
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
         agent.speed = enemyAtribute.getRunSpeed();
         agent.SetDestination(targetObject.position);
     }
@@ -221,21 +151,12 @@ public class EnemyController : MonoBehaviour
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
-<<<<<<< HEAD
             float delayTime = enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
             Invoke(nameof(ResetAttack), delayTime + enemyAtribute.getAttackSpeed());
         }
     }
 
 
-=======
-
-            enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
-            Invoke(nameof(ResetAttack), enemyAtribute.getAttackSpeed());
-        }
-    }
-
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
     private void ResetAttack()
     {
         alreadyAttacked = false;
@@ -257,9 +178,6 @@ public class EnemyController : MonoBehaviour
         }
     }
  
-<<<<<<< HEAD
         
-=======
->>>>>>> 4db4d9d19cf2dad80f9858d824700e79419ea821
 
 }
