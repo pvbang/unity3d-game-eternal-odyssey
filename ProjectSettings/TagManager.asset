@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CinemachineTarget
+  - Item
+  - Door
+  - _Player
+  - _Enemy
+  - InventorySlot
+  - GroundSlot
+  - _Skill
+  - _Weapon
+  - _Shield
+  - _PlayerAnimation
+  - ENEMY_SKILL_TAG
+  - PLAYER_SKILL_TAG
   layers:
   - Default
   - TransparentFX
