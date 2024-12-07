@@ -1,9 +1,9 @@
 {
-    "name": "Unity.Postprocessing.Editor",
+    "name": "Unity2.Postprocessing.Editor",
+    "rootNamespace": "",
     "references": [
         "Unity.Postprocessing.Runtime"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -12,5 +12,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
