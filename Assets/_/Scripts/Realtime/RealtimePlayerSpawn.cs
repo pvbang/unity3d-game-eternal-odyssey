@@ -15,8 +15,9 @@ public class RealtimePlayerSpawn : MonoBehaviour
     // Danh sách các player đã được instantiate
     private Dictionary<string, Transform> spawnedPlayers = new Dictionary<string, Transform>();
 
-    private Vector3 defaultPosition = new Vector3(143.18f, 11.43f, 136.3f);
-    
+    private Vector3 defaultPosition = new Vector3(0f, -0.983f, 0f);
+    private Vector3 defaultRotation = new Vector3(0, 0, 0);
+
     private void Start()
     {
         if (!FirebaseManager.instance.IsLogin()) return;
@@ -87,13 +88,8 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 // Cập nhật vị trí của player đã tồn tại
                 Transform playerTransform = spawnedPlayers[playerWorld.userId];
 
-                // Kiểm tra nếu position không có trong dữ liệu
                 Vector3 position = playerWorld.position != null ? new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z) : defaultPosition;
-                playerTransform.position = position;
-
-                // Kiểm tra nếu rotation không có trong dữ liệu
-                Quaternion rotation = playerWorld.rotation != null ? Quaternion.Euler(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : Quaternion.identity;
-                playerTransform.rotation = rotation;
+                Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
 
                 RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
                 int stateValue = (int)playerWorld.characterState;
@@ -102,6 +98,8 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 {
                     characterState = (CharacterState)stateValue;
                 }
+                playerSpawn.SetSkin(playerWorld.playerDetails.skin);
+                playerSpawn.SetLocation(position, rotation);
                 playerSpawn.SetCharacterState(characterState);
             }
             else
@@ -109,13 +107,8 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 // Nếu chưa spawn, instantiate player mới và thêm vào danh sách
                 Transform playerTransform = Instantiate(playerPrefab.transform);
 
-                // Kiểm tra nếu position không có trong dữ liệu
                 Vector3 position = playerWorld.position != null ? new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z) : defaultPosition;
-                playerTransform.position = position;
-
-                // Kiểm tra nếu rotation không có trong dữ liệu
-                Quaternion rotation = playerWorld.rotation != null ? Quaternion.Euler(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : Quaternion.identity;
-                playerTransform.rotation = rotation;
+                Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
 
                 RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
                 int stateValue = (int)playerWorld.characterState;
@@ -124,9 +117,9 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 {
                     characterState = (CharacterState)stateValue;
                 }
-                playerSpawn.SetCharacterState(characterState);
-
                 playerSpawn.SetSkin(playerWorld.playerDetails.skin);
+                playerSpawn.SetLocation(position, rotation);
+                playerSpawn.SetCharacterState(characterState);
 
                 spawnedPlayers.Add(playerWorld.userId, playerTransform); // Thêm player vào danh sách
             }

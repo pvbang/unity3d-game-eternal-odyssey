@@ -13,7 +13,7 @@ public class PlayerWorld
     public CharacterState characterState;       // Trạng thái animation của nhân vật
 
     public PlayerWorld() { 
-        this.position = new Location(143.18f, 11.43f, 136.3f);
+        this.position = new Location(0f, -0.983f, 0f);
         this.rotation = new Location(0, 0, 0);
         this.characterState = CharacterState.Idle;
     }

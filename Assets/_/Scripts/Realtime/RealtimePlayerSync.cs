@@ -9,9 +9,20 @@ using UnityEngine.SceneManagement;
 
 public class RealtimePlayerSync : MonoBehaviour
 {
+    public Transform playerTransform;
+
     public Animator playerAnimator;
     public SkinCharacterInit skinCharacterInit;
 
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // LOCATION
+
+    // Hàm set vị trí cho player
+    public void SetLocation(Vector3 position, Vector3 rotation)
+    {
+        playerTransform.localPosition = position;
+        playerTransform.localRotation = Quaternion.Euler(rotation);
+    }
 
     /////////////////////////////////////////////////////////////////////////////////////////
     // SKIN

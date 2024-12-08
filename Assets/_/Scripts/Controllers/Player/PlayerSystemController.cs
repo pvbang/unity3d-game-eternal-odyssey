@@ -422,4 +422,52 @@ public class PlayerSystemController : MonoBehaviour
 
         UpdateValuePlayer(changedValue2);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // LOCATION
+
+    private void UpdateValueLocationPlayer(Dictionary<string, object> changedValue)
+    {
+        // Lấy worldId từ PlayerPrefs
+        string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        if (string.IsNullOrEmpty(worldId)) return;
+
+        // Lấy userId từ FirebaseManager
+        string userId = FirebaseManager.instance.GetUserId();
+        if (string.IsNullOrEmpty(userId)) return;
+
+        // Gọi hàm UpdatePlayerDetails với các thông tin cập nhật
+        StartCoroutine(WorldManager.UpdateFieldsLocation(
+            worldId,
+            userId,
+            changedValue
+        ));
+    }
+
+    // Hàm cập nhật vị trí của player
+    public void UpdateLocation(Vector3 position, Vector3 rotation)
+    {
+        Dictionary<string, object> changedValue = new Dictionary<string, object>
+        {
+            { "position/x", position.x },
+            { "position/y", position.y },
+            { "position/z", position.z },
+            { "rotation/x", rotation.x },
+            { "rotation/y", rotation.y },
+            { "rotation/z", rotation.z }
+        };
+
+        UpdateValueLocationPlayer(changedValue);
+    }
+
+    // Hàm cập nhật animation của player
+    public void UpdateCharacterState(CharacterState characterState)
+    {
+        Dictionary<string, object> changedValue = new Dictionary<string, object>
+        {
+            { "characterState", (int)characterState }
+        };
+
+        UpdateValueLocationPlayer(changedValue);
+    }
 }
