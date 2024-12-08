@@ -305,5 +305,11 @@ public class CharacterPlayerController : MonoBehaviour
         playerAnimator.ResetTrigger("equipment_change");
         playerAnimator.ResetTrigger("victory");
     }
+
+
+    public void PlayAnimation(string animationName)
+    {
+        playerAnimator.SetTrigger(animationName);
+    }
 }
 

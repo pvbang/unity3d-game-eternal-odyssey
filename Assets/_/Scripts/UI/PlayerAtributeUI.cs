@@ -15,7 +15,7 @@ public class PlayerAtributeUI : MonoBehaviour
 
     private DatabaseReference referenceGames;
 
-    private void OnEnable()
+    private void Start()
     {
         if (!FirebaseManager.instance.IsLogin()) return;
 

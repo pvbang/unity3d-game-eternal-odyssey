@@ -3,33 +3,46 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Object mà Enemy chạy tới")]
     public Transform targetObject;
     private NavMeshAgent agent;
     private Rigidbody rb;
 
+    [Header("Quản lý Animation")]
+    public EnemyAnimationController enemyAnimatorController;
+
+    [Header("Quản lý Damage")]
     public EnemyDamageHandle enemyDamageHandle;
+
+    [Header("Quản lý Thuộc tính")]
     public EnemyAtribute enemyAtribute;
 
+    [Header("Quản lý Skill")]
     public EnemySkillController enemySkillController;
 
-    // Patroling
-    private Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange = 5f;
-
-    // Attacking
-    public float timeBetweenAttacks = 0.5f;
-    private bool alreadyAttacked;
-
     // States
+    [Header("Khoảng cách phát hiện TagetObject")]
     public float sightRange = 40f;
-    public float attackRange = 5f;
     private bool playerInSightRange;
     private bool playerInAttackRange;
 
-    public LayerMask groundLayer;
-    public LayerMask playerLayer;
+    // Attacking
+    [Header("Tấn công nếu có TagetObject trong tầm đánh")]
+    public float attackRange = 5f;
+    public float timeBetweenAttacks = 0.5f;
+    private bool alreadyAttacked;
 
+    // Patroling
+    [Header("Đi tùm lum nếu không có TagetObject xung quanh")]
+    public float walkPointRange = 5f;
+    private Vector3 walkPoint;
+    bool walkPointSet;
+
+    private LayerMask groundLayer;
+    private LayerMask playerLayer;
+
+    // Khoảng cách hiện tại từ Enemy đến TargetObject
+    [Header("Khoảng cách hiện tại từ Enemy đến TargetObject")]
     public float distance = 0.0f;
 
 
@@ -39,12 +52,10 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
-        if (enemyDamageHandle == null)
-            enemyDamageHandle = GetComponent<EnemyDamageHandle>();
-        if (enemyAtribute == null)
-            enemyAtribute = GetComponent<EnemyAtribute>();
-        if (enemySkillController == null)
-            enemySkillController = GetComponent<EnemySkillController>();
+        if (enemyAnimatorController == null)    enemyAnimatorController = GetComponent<EnemyAnimationController>();
+        if (enemyDamageHandle == null)          enemyDamageHandle = GetComponent<EnemyDamageHandle>();
+        if (enemyAtribute == null)              enemyAtribute = GetComponent<EnemyAtribute>();
+        if (enemySkillController == null)       enemySkillController = GetComponent<EnemySkillController>();
 
         // Configure Rigidbody
         rb.isKinematic = false; // Để Rigidbody xử lý va chạm
@@ -79,32 +90,6 @@ public class EnemyController : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-
-        //if (playerInSightRange)
-        //{
-        //    if (EnemyCountManage.Instance.activeEnemies.Count == 1)
-        //    {
-        //        EnemyAtributeUI.Instance.SetActiveEnemyHP();
-        //        EnemyCountManage.Instance.SetEnemyDistance(distance);
-        //        EnemyAtributeUI.Instance.UpdateEnemyHP(enemyAtribute.getCurrentHealth(), enemyAtribute.getMaxHealth());
-        //    }
-        //    // Nếu có nhiều quái, kiểm tra khoảng cách
-        //    else if (EnemyCountManage.Instance.GetEnemyDistance() <= distance && EnemyCountManage.Instance.GetEnemyDistance() != float.MaxValue)
-        //    {
-        //        return; 
-        //    }
-
-        //    // Hiển thị thanh máu nếu quái gần nhất hoặc là quái duy nhất
-        //    EnemyAtributeUI.Instance.SetActiveEnemyHP();
-        //    EnemyCountManage.Instance.SetEnemyDistance(distance);
-        //    EnemyAtributeUI.Instance.UpdateEnemyHP(enemyAtribute.getCurrentHealth(), enemyAtribute.getMaxHealth());
-        //}
-        //else
-        //{
-        //    // Reset khoảng cách nếu quái rời xa tầm nhìn
-        //    EnemyAtributeUI.Instance.SetDeactiveEnemyHP();
-        //    EnemyCountManage.Instance.SetEnemyDistance(float.MaxValue); // Reset lại khoảng cách lớn nhất
-        //}
     }
 
     private void FixedUpdate()
@@ -122,6 +107,8 @@ public class EnemyController : MonoBehaviour
     // Đi tùm lum
     private void Patroling()
     {
+        enemyAnimatorController.StopAnimation("all");
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -150,6 +137,7 @@ public class EnemyController : MonoBehaviour
     // Đuổi theo player
     private void ChasePlayer()
     {
+        enemyAnimatorController.PlayAnimation("run");
         agent.speed = enemyAtribute.getRunSpeed();
         agent.SetDestination(targetObject.position);
     }
@@ -163,11 +151,11 @@ public class EnemyController : MonoBehaviour
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
-
-            enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
-            Invoke(nameof(ResetAttack), enemyAtribute.getAttackSpeed());
+            float delayTime = enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
+            Invoke(nameof(ResetAttack), delayTime + enemyAtribute.getAttackSpeed());
         }
     }
+
 
     private void ResetAttack()
     {
@@ -190,5 +178,6 @@ public class EnemyController : MonoBehaviour
         }
     }
  
+        
 
 }

@@ -14,7 +14,7 @@ public class PlayerDamageHandle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(ConstantManager.SKILL_TAG))
+        if (other.CompareTag(ConstantManager.ENEMY_SKILL_TAG))
         {
             TakeDamageValue takeDamageValue = other.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
@@ -23,17 +23,8 @@ public class PlayerDamageHandle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(ConstantManager.SKILL_TAG))
+        if (collision.gameObject.CompareTag(ConstantManager.ENEMY_SKILL_TAG))
         {
-            bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-
-            if (isCtrlHeld)
-            {
-                Debug.Log("T có khiênnnn!!!");
-                return;
-            }
-
-            characterPlayerController.SetCharacterState(CharacterState.GetHit);
             TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
@@ -53,6 +44,14 @@ public class PlayerDamageHandle : MonoBehaviour
         int damage = takeDamageValue.GetDamage() - resistance;
         if (damage < 0)  return;
 
-        PlayerSystemController.instance.TakeDamage(damage);
+        bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+        if (isCtrlHeld)
+        {
+            characterPlayerController.PlayAnimation("defend_hit");
+        } else
+        {
+            characterPlayerController.PlayAnimation("get_hit");
+            PlayerSystemController.instance.TakeDamage(damage);
+        }
     }
 }
