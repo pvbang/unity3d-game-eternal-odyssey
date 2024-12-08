@@ -9,10 +9,18 @@ public class SkinCharacterInit : MonoBehaviour
 {
     public List<GameObject> skinPrefabs;
 
+    public bool isRealtimeSpawnPlayer = false;
+
     private void Start()
     {
-        //StartCoroutine(DisplaySkin());
-
+        if (isRealtimeSpawnPlayer)
+        {
+            return;
+        }
+        else
+        {
+            StartCoroutine(DisplaySkin());
+        }
     }
 
     public IEnumerator DisplaySkin()
@@ -39,7 +47,21 @@ public class SkinCharacterInit : MonoBehaviour
         {
             // Nếu tên của skinPrefab có trong danh sách skinNames thì kích hoạt, ngược lại thì tắt
             string skinName = skinPrefab.name;
-            if (skinName == "pelvis") skinName = "Pelvis1";
+            bool shouldBeActive = skinNames.Contains(skinName);
+            skinPrefab.SetActive(shouldBeActive);
+        }
+    }
+
+    public void SetSkin(string skin)
+    {
+        // Chia chuỗi skin thành danh sách tên
+        string[] skinNames = skin.Split(',');
+
+        // Duyệt qua tất cả các skinPrefabs
+        foreach (GameObject skinPrefab in skinPrefabs)
+        {
+            // Nếu tên của skinPrefab có trong danh sách skinNames thì kích hoạt, ngược lại thì tắt
+            string skinName = skinPrefab.name;
             bool shouldBeActive = skinNames.Contains(skinName);
             skinPrefab.SetActive(shouldBeActive);
         }

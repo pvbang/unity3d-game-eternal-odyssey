@@ -152,6 +152,7 @@ public class EnemyController : MonoBehaviour
         {
             alreadyAttacked = true;
             float delayTime = enemySkillController.Attack(enemyAtribute.getDamageFrom(), enemyAtribute.getDamageTo(), enemyAtribute.getCritical());
+            Debug.Log("Delay time: " + delayTime);
             Invoke(nameof(ResetAttack), delayTime + enemyAtribute.getAttackSpeed());
         }
     }
