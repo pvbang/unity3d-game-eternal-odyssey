@@ -169,6 +169,8 @@ public class CharacterPlayerController : MonoBehaviour
     // Hàm quản lý trạng thái Animator
     public void SetCharacterState(CharacterState state)
     {
+        if (state == currentAction) return;
+
         playerAnimator.SetBool("idle", false);
 
         // Reset tất cả trigger trước khi set trigger mới
@@ -275,6 +277,9 @@ public class CharacterPlayerController : MonoBehaviour
                 break;
 
         }
+
+
+        PlayerSystemController.instance.UpdateCharacterState(state);
     }
 
     // Hàm reset toàn bộ các trigger

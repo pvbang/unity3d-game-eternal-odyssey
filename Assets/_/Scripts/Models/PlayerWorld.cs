@@ -8,15 +8,25 @@ public class PlayerWorld
     public PlayerStatus playerStatus;           // Trạng thái của người chơi (đang chơi, nghỉ, offline)
     public Role role;                           // Vai trò của người chơi trong thế giới
     public PlayerDetails playerDetails;         // Chi tiết người chơi
+    public Location position;                   // Vị trí của người chơi
+    public Location rotation;                   // Hướng nhìn của người chơi
+    public CharacterState characterState;       // Trạng thái animation của nhân vật
 
-    public PlayerWorld() { }
+    public PlayerWorld() { 
+        this.position = new Location(0f, -0.983f, 0f);
+        this.rotation = new Location(0, 0, 0);
+        this.characterState = CharacterState.Idle;
+    }
 
-    public PlayerWorld(string userId, List<Inventory> inventorys, PlayerStatus playerStatus, Role role, PlayerDetails playerDetails)
+    public PlayerWorld(string userId, List<Inventory> inventorys, PlayerStatus playerStatus, Role role, PlayerDetails playerDetails, Location position, Location rotation, CharacterState characterState)
     {
         this.userId = userId;
         this.inventorys = inventorys;
         this.playerStatus = playerStatus;
         this.role = role;
         this.playerDetails = playerDetails;
+        this.position = position;
+        this.rotation = rotation;
+        this.characterState = characterState;
     }
 }
