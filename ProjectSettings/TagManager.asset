@@ -4,19 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CinemachineTarget
+  - _Enemy
+  - _Skill
   - Item
   - Door
-  - _Player
-  - _Enemy
   - InventorySlot
   - GroundSlot
-  - _Skill
+  - _Player
+  - CinemachineTarget
+  - _PlayerAnimation
   - _Weapon
   - _Shield
-  - _PlayerAnimation
-  - ENEMY_SKILL_TAG
+  - FxTemporaire
   - PLAYER_SKILL_TAG
+  - ENEMY_SKILL_TAG
+  - ChestHint
   layers:
   - Default
   - TransparentFX
@@ -24,11 +26,11 @@ TagManager:
   - 
   - Water
   - UI
-  - TransparentCameraObject
-  - _Enemy
-  - _Player
-  - GROUND
-  - PlayerPosition
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -51,21 +53,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 1892792141
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 658168535
-    locked: 0
-  - name: Player
-    uniqueID: 1303664713
-    locked: 0
-  - name: UI Inventory
-    uniqueID: 2724676781
-    locked: 0
-  - name: ItemSlot
-    uniqueID: 2105399123
     locked: 0

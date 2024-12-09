@@ -817,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -80.22337}
+  m_AnchoredPosition: {x: 225, y: -84.89132}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8953271599463962352
@@ -2813,6 +2813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 5669718540012620991}
+  groundItemUI: {fileID: 0}
+  groundSystem: {fileID: 0}
 --- !u!1 &2349801041926200486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7239,7 +7241,7 @@ SortingGroup:
   m_GameObject: {fileID: 5669718540012620991}
   m_Enabled: 1
   m_SortingLayerID: -1570290515
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 32767
   m_SortAtRoot: 1
 --- !u!1 &5721938817558564321
@@ -9317,7 +9319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -28.843645}
+  m_AnchoredPosition: {x: 225, y: -30.499245}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6893627709644818789

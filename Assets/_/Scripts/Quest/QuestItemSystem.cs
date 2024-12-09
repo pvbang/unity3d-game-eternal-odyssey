@@ -9,7 +9,7 @@ using UnityEngine;
 public class QuestItemSystem : MonoBehaviour
 {
     public static List<QuestWorld> questsList = new List<QuestWorld>();
-    public static QuestItemSystem instance;  // Singleton cho InventoryItemSystem
+    public static QuestItemSystem instance; 
     public Dictionary<string, Quest> questDetails = new Dictionary<string, Quest>();
     public string worldId;
     public Action onQuestUpdated;
@@ -98,16 +98,12 @@ public class QuestItemSystem : MonoBehaviour
         {
             instance.LoadQuestFromFirebase((questWorlds) =>
             {
-                // Tạo danh sách tạm để lưu các mục đã hoàn thiện
                 List<QuestWorld> completedQuestList = new List<QuestWorld>();
-
                 foreach (var questItem in questWorlds)
                 {
-                    // Kiểm tra xem itemDetails có chứa itemId này không
                     if (instance.questDetails.TryGetValue(questItem.questId, out Quest questDetail))
                     {
                         QuestWorld completeInventory = new QuestWorld(questDetail, questItem.status, questItem.progress_quest_world);
-                        Debug.Log($"Đã tìm thấy thông tin chi tiết cho item với ID: {questItem.questId}");
                         completedQuestList.Add(completeInventory);
                     }
                     else
@@ -115,15 +111,9 @@ public class QuestItemSystem : MonoBehaviour
                         Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {questItem.questId}");
                     }
                 }
-
-                // **Sắp xếp danh sách hoàn thiện theo questId**
                 completedQuestList = completedQuestList.OrderBy(q => q.quest.questId).ToList();
-
-                // Gán danh sách hoàn thiện vào inventory
-                Debug.Log("Đã cập nhật danh sách quest full: " + completedQuestList);
                 questsList = completedQuestList;
                 onQuestUpdated?.Invoke();
-
                 checkCallback = true;
             });
         });
@@ -133,7 +123,6 @@ public class QuestItemSystem : MonoBehaviour
 
     public QuestWorld GetQuestById(string questId)
     {
-        // Lặp qua danh sách questWorld và tìm quest với questId phù hợp
         foreach (var quest in questsList)
         {
             if (quest.quest.questId == questId)
@@ -145,4 +134,3 @@ public class QuestItemSystem : MonoBehaviour
     }
 
 }
-

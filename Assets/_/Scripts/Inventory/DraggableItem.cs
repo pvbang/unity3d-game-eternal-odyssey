@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -6,21 +7,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public InventoryItemSystem inventorySystem;
     public GroundItemSystem groundSystem;
-
     private Transform originalParent;
     private CanvasGroup canvasGroup;
-
     public Item item;
     public string itemId;
     public int quantity;
+    private Vector2 originalPositionAfterDrag;
     private Vector2 originalPosition;
-
-    public Image backgroundImage;  // Background của item
-
+    public Image backgroundImage;
     public Sprite normalBackgroundSprite;
     public Sprite rareBackgroundSprite;
     public Sprite legendaryBackgroundSprite;
     Color colorDefault = new Color(0f, 0f, 0f, 163f / 255f); 
+
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -28,7 +27,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void Start()
     {
-        // Kiểm tra loại item và gán màu tương ứng
         switch (item.type)
         {
             case ItemType.Normal:
@@ -48,16 +46,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent;  // Lưu parent hiện tại
-        originalPosition = GetComponent<RectTransform>().anchoredPosition; // Lưu vị trí gốc
-        transform.SetParent(transform.root);  // Đưa item lên trên cùng UI để dễ kéo thả
-        transform.SetAsLastSibling();  // Đảm bảo item ở trên cùng của hierarchy
-        canvasGroup.blocksRaycasts = false;  // Tắt raycast để có thể kéo qua các UI khác
+        originalParent = transform.parent;
+        originalPosition = GetComponent<RectTransform>().anchoredPosition;
+        originalPositionAfterDrag = originalPosition;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;  // Cập nhật vị trí theo con trỏ
+        transform.position = eventData.position;
+        originalPositionAfterDrag = GetComponent<RectTransform>().anchoredPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -77,10 +77,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("groundSystem chưa được gán");
                 return;
             }
-            Debug.Log($"Item được thả vào: {eventData.pointerEnter.name}");
+            bool isPositionChanged = originalPosition != originalPositionAfterDrag;
 
-            // Thả vào GroundPanel
-            if (eventData.pointerEnter.name == "GroundPanel")
+            if (isPositionChanged)
+            {
+                Debug.Log("Vị trí đã thay đổi");
+            }
+            else
+            {
+                Debug.Log("Vị trí không thay đổi");
+            } 
+
+                if (eventData.pointerEnter.name == "GroundPanel" && isPositionChanged)
             {
                 inventorySystem.RemoveItemFromInventory(itemId, quantity);
                 groundSystem.AddItemToGround(item, quantity);
@@ -94,7 +102,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     if (success)
                     {
                         Debug.Log(message);
-                        // Thực hiện các thao tác tiếp theo nếu cần
                     }
                     else
                     {
@@ -110,10 +117,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     Debug.LogError("Không tìm thấy GroundItemUI trong scene");
                 }
 
+                AddNewChest();
+
                 Destroy(gameObject);
             }
-            // Thả vào InventoryPanel hoặc ô trong InventoryPanel
-            else if (eventData.pointerEnter.name == "InventoryPanel" || eventData.pointerEnter.CompareTag("InventorySlot"))
+            else if (eventData.pointerEnter.name == "InventoryPanel" || eventData.pointerEnter.CompareTag("InventorySlot") && isPositionChanged)
             {
                 inventorySystem.inventory.Add(new Inventory(item, quantity));
                 groundSystem.RemoveItemFromGround(itemId, quantity);
@@ -123,7 +131,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     if (success)
                     {
                         Debug.Log(message);
-                        // Thực hiện các hành động khác khi thêm thành công
                     }
                     else
                     {
@@ -141,7 +148,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 Destroy(gameObject);
             }
-            // Trả item về vị trí gốc khi thả vào vùng không hợp lệ
             else
             {
                 transform.SetParent(originalParent);
@@ -150,9 +156,66 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
-            // Không có đối tượng nào được trỏ vào
             transform.SetParent(originalParent);
             GetComponent<RectTransform>().anchoredPosition = originalPosition;
         }
-    }
+    } 
+
+    private void AddNewChest()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            Vector3 playerPosition = player.transform.position;
+
+            Vector3 chestPosition = playerPosition + player.transform.forward * 2;
+
+            LayerMask groundLayer = LayerMask.GetMask("Ground");
+            if (Physics.Raycast(chestPosition + Vector3.up * 10, Vector3.down, out RaycastHit hit, 50f, groundLayer))
+            {
+                chestPosition.y = hit.point.y;
+                Debug.Log($"Rương sẽ được đặt tại vị trí mặt đất: {chestPosition}");
+            }
+            else
+            {
+                // Nếu không tìm thấy mặt đất, gán Y theo người chơi
+                chestPosition.y = playerPosition.y;
+                Debug.LogWarning("Không tìm thấy mặt đất, sử dụng chiều cao của người chơi.");
+            }
+
+            Debug.Log("Tạo Chest tại vị trí: " + chestPosition + " " + itemId + " " + quantity);
+
+            if (ChestUIManager.Instance == null)
+            {
+                Debug.LogError("ChestManager.Instance là null!");
+                return;
+            }
+            ChestUIManager.Instance.CreateNewChest(chestPosition, itemId, quantity, (success) =>
+            {
+                if (success)
+                {
+                    var chestData = new ItemRealtime
+                    {
+                        chestId = System.Guid.NewGuid().ToString(),
+                        location = new Location(chestPosition.x, chestPosition.y, chestPosition.z),
+                        items = new Dictionary<string, MaterialsUpdate>
+                                {
+                                 { itemId, new MaterialsUpdate(itemId, quantity) }
+                                },
+                        status = "Closed"
+                    };
+                    ChestUIManager.Instance.DisplayChest(chestData);
+                    Debug.Log("Tạo Chest thành công!");
+                }
+                else
+                {
+                    Debug.LogError("Lỗi khi tạo Chest!");
+                }
+            });
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy Player trong scene!");
+        }
+    }    
 }

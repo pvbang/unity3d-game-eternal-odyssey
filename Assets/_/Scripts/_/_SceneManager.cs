@@ -11,7 +11,6 @@ public class _SceneManager : MonoBehaviour
     [HideInInspector]
     public string loadSceneName;
 
-
     public void LoadScene()
     {
         StartCoroutine(LoadSceneAsync(loadSceneName));
@@ -45,5 +44,4 @@ public class _SceneManager : MonoBehaviour
             yield return null;
         }
     }
-
 }

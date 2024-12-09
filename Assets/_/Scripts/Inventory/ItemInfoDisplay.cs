@@ -14,7 +14,7 @@ public class ItemInfoDisplay : MonoBehaviour
     {
         itemInfoPanel.SetActive(false); 
     }
-    // Hàm để hiển thị thông tin item
+
     public void ShowItemInfo(Item item)
     {
         itemNameText.text = item.name;
@@ -23,7 +23,6 @@ public class ItemInfoDisplay : MonoBehaviour
         itemInfoPanel.SetActive(true); 
     }
 
-    // Hàm để ẩn thông tin item
     public void HideItemInfo()
     {
         itemInfoPanel.SetActive(false);

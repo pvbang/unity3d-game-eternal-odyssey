@@ -5,36 +5,35 @@ using UnityEngine.UI;
 
 public class GroundItemUI : MonoBehaviour
 {
-    public GroundItemSystem groundSystem;  // Tham chiếu tới GroundItemSystem
-    public Transform groundPanel;  // Content của GroundItemsPanel
-    public GameObject itemPrefab;  // Prefab chung cho item
+    public GroundItemSystem groundSystem;
+    public Transform groundPanel;
+    public GameObject itemPrefab;
 
-    // Hàm cập nhật UI của GroundItemsPanel
+    private void Start()
+    {
+        if (groundSystem == null)
+        {
+            groundSystem = FindObjectOfType<GroundItemSystem>();
+            if (groundSystem == null)
+            {
+                Debug.LogError("Không tìm thấy GroundItemSystem trong scene.");
+            }
+        }
+    }
+
     public void UpdateGroundUI(List<Inventory> groundItems)
     {
-        Debug.Log("Cập nhật Ground UI");
-
-        // Nếu không có item nào trên mặt đất, xóa hết các item trong UI
-        if (groundItems == null || groundItems.Count == 0)
-        {
-            Debug.LogWarning("Không có vật phẩm trên mặt đất.");
-
-            // Xóa tất cả các slot trong Ground Panel
-            foreach (Transform child in groundPanel)
-            {
-                Destroy(child.gameObject);
-            }
-
-            return;
-        }
-
-        // Xóa các slot cũ trong Ground Panel trước khi tạo mới
         foreach (Transform child in groundPanel)
         {
             Destroy(child.gameObject);
         }
 
-        // Tạo slot mới cho mỗi item trên mặt đất
+        if(groundItems == null || groundItems.Count == 0)
+        {
+            Debug.Log("Không có item nào trên mặt đất.");
+            return;
+        }
+
         foreach (var groundItem in groundItems)
         {
             if (groundItem == null || groundItem.item == null)
@@ -62,6 +61,44 @@ public class GroundItemUI : MonoBehaviour
 
             slot.transform.SetParent(groundPanel);
         }
+    }
 
+    public void DisplayItemsFromChest(string chestId)
+    {
+        Dictionary<string, ItemRealtime> listChests = ChestUIManager.Instance.ListChests;
+        if (listChests.ContainsKey(chestId))
+        {
+            ItemRealtime itemRealtime = listChests[chestId];
+            if (itemRealtime != null && itemRealtime.items.Count > 0)
+            {
+                foreach (var itemEntry in itemRealtime.items)
+                {
+                    string itemId = itemEntry.Key;
+                    MaterialsUpdate itemData = itemEntry.Value;
+                    if (groundSystem != null && FindObjectOfType<InventoryItemSystem>() != null)
+                    {
+                        Item itemDetail = FindObjectOfType<InventoryItemSystem>().GetItemById(itemId);
+                        if (itemDetail != null)
+                        {
+                            groundSystem.AddItemToGround(itemDetail, itemData.quantity);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho item với ID: {itemId}");
+                        }
+                    }
+                }
+                UpdateGroundUI(groundSystem.GetGroundItems());
+            }
+            else
+            {
+                Debug.Log("Rương trống hoặc không tìm thấy rương.");
+            }
+        }
+    }
+
+    public void OnChestOpened(string chestId)
+    {
+        DisplayItemsFromChest(chestId);
     }
 }

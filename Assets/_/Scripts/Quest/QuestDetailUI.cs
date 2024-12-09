@@ -43,8 +43,13 @@ public class QuestDetailUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        StartCoroutine(UpdateLayoutDelayed());
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(progressIconsContainer.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(progressIconPrefab.GetComponent<RectTransform>());        
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rewardIconPrefab.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rewardIconContainer.GetComponent<RectTransform>());
 
         if (QuestItemSystem.instance.questDetails.TryGetValue(quest.quest.questId, out Quest questDetail))
         {
@@ -88,20 +93,16 @@ public class QuestDetailUI : MonoBehaviour
                 completionConditions.text = $"/{condition.quantity}";
             }
 
-            Debug.Log($"Số lượng item cũ trước khi dọn: {rewardIconContainer.childCount}");
             foreach (Transform child in rewardIconContainer)
             {
                 Destroy(child.gameObject);
             }
-            Debug.Log("Đã dọn sạch các item cũ trong rewardIconContainer.");
-
 
             //check reward từ list quests
             if (questDetail.reward.rewardItem != null && questDetail.reward.rewardItem.Count > 0)
             {
                 foreach (var rewardItem in questDetail.reward.rewardItem)
                 {
-                    Debug.Log($"Creating reward icon for itemId: {rewardItem.itemId} with quantity: {rewardItem.quantity}");
                     GameObject slotReward = Instantiate(rewardIconPrefab, rewardIconContainer);
                     slotReward.SetActive(true);
                     var itemIconReward = slotReward.transform.Find("Icon").GetComponent<Image>();
@@ -249,17 +250,5 @@ public class QuestDetailUI : MonoBehaviour
         {
             Debug.LogWarning($"Không tìm thấy thông tin chi tiết cho questId: {quest.quest.questId}");
         }
-    }
-    private IEnumerator UpdateLayoutDelayed()
-    {
-        yield return null; // Đợi 1 frame để giao diện được khởi tạo đầy đủ
-
-        // Cập nhật lại layout sau khi nội dung đã được set
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
-
-        Debug.Log($"QuestDescription Height: {questDescription.rectTransform.rect.height}");
-        Debug.Log($"QuestDescriptionTarget Height: {questDescriptionTarget.rectTransform.rect.height}");
     }
 }

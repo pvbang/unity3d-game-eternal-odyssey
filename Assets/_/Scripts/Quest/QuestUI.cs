@@ -26,7 +26,7 @@ public class QuestUI : MonoBehaviour
         StartCoroutine(QuestItemSystem.instance.CompareQuestData());
         StartCoroutine(WaitForQuestDataAndDisplay());
 
-        UnityEngine.ColorUtility.TryParseHtmlString("#0081FF", out selectedColor); // Ví dụ: màu vàng cho item được chọn
+        UnityEngine.ColorUtility.TryParseHtmlString("#0081FF", out selectedColor);
         UnityEngine.ColorUtility.TryParseHtmlString("#FFFFFF", out defaultColor);
     }
 
@@ -66,18 +66,7 @@ public class QuestUI : MonoBehaviour
         if (QuestItemSystem.questsList.Count > 0)
         {
             questDetailUI.SetQuestDetails(QuestItemSystem.questsList[0]);
-            Canvas.ForceUpdateCanvases();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescription.rectTransform);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescriptionTarget.rectTransform);
         }
-    }
-
-    private IEnumerator UpdateDefaultQuestLayout()
-    {
-        yield return null; // Đợi 1 frame để đảm bảo UI được khởi tạo đầy đủ
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescription.rectTransform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescriptionTarget.rectTransform);
     }
 
     private void DisplayQuestList()
@@ -103,7 +92,6 @@ public class QuestUI : MonoBehaviour
                 var itemIcon = itemShow.Find("Image").GetComponent<Image>();
                 if (itemIcon != null)
                 {
-                    //fetch icon quest
                     switch (quest.quest.type)
                     {
                         case QuestType.NomalQuests:
@@ -136,7 +124,6 @@ public class QuestUI : MonoBehaviour
                 rectTransform.sizeDelta = new Vector2(115, 65);
             }
 
-
             Button questButton = questSlot.GetComponent<Button>();
             questButton.onClick.AddListener(() => OnQuestItemClicked(quest, questSlot));
 
@@ -144,6 +131,9 @@ public class QuestUI : MonoBehaviour
             {
                 firstQuestSlot = questSlot;
                 OnQuestItemClicked(quest, questSlot);
+                Canvas.ForceUpdateCanvases();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescription.rectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(questDetailUI.questDescriptionTarget.rectTransform);
             }
         }
     }
