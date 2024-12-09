@@ -9,6 +9,20 @@ public class PlayerSystemController : MonoBehaviour
     [SerializeField]
     public PlayerAtributeUI playerAtributeUI;
 
+    private void Start()
+    {
+        if (playerAtributeUI == null)
+        {
+            // Tìm game object có tên Avatar
+            GameObject playerAtributeUIObject = GameObject.Find("Avatar");
+            if (playerAtributeUIObject != null)
+            {
+                // Lấy component PlayerAtributeUI từ game object
+                playerAtributeUI = playerAtributeUIObject.GetComponent<PlayerAtributeUI>();
+            }
+        }
+    }
+
     private void Awake()
     {
         instance = this;
