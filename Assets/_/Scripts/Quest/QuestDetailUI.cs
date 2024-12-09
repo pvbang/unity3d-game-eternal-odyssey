@@ -46,6 +46,10 @@ public class QuestDetailUI : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(questDescription.rectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionTarget.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(progressIconsContainer.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(progressIconPrefab.GetComponent<RectTransform>());        
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rewardIconPrefab.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rewardIconContainer.GetComponent<RectTransform>());
 
         if (QuestItemSystem.instance.questDetails.TryGetValue(quest.quest.questId, out Quest questDetail))
         {
