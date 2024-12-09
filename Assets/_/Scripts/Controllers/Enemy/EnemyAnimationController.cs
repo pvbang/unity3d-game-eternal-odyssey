@@ -147,32 +147,6 @@ public class EnemyAnimationController : MonoBehaviour
         return enemyAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
     }
 
-    public IEnumerator WaitForAnimation(string animationName)
-    {
-        // Đợi cho đến khi animation hiện tại là animationName
-        while (!enemyAnimator.GetBool(animationName))
-        {
-            yield return null; // Chờ 1 frame trước khi kiểm tra lại
-        }
-    }
-
-    public IEnumerator WaitForAnimationToEnd(string animationName)
-    {
-        // Đợi cho đến khi animation hiện tại không còn là animationName
-        while (GetCurrentAnimationName() == animationName)
-        {
-            yield return null; // Chờ 1 frame trước khi kiểm tra lại
-        }
-    }
-
-    public IEnumerator DelayedAttackUntilAnimation(string animationName, System.Action onAnimationComplete)
-    {
-        yield return StartCoroutine(WaitForAnimation(animationName));
-
-        // Gọi hành động sau khi animation hoàn tất
-        onAnimationComplete?.Invoke();
-    }
-
 
     // check xem animation có đang chạy không
     public bool IsPlayingAnimation(string animationName)

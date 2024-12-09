@@ -621,6 +621,28 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+
+    public static IEnumerator UpdateFieldsLocation(string worldId, string userId, Dictionary<string, object> fieldsToUpdate)
+    {
+        var task = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId)
+            .UpdateChildrenAsync(fieldsToUpdate);
+
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật một số thuộc tính của người chơi trong world");
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+        }
+    }
+
 }
 
 
