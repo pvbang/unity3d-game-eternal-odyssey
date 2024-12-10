@@ -94,10 +94,7 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
                 int stateValue = (int)playerWorld.characterState;
                 CharacterState characterState = CharacterState.Idle;
-                if (Enum.IsDefined(typeof(CharacterState), stateValue))
-                {
-                    characterState = (CharacterState)stateValue;
-                }
+                characterState = (CharacterState)stateValue;
                 playerSpawn.SetSkin(playerWorld.playerDetails.skin);
                 playerSpawn.SetLocation(position, rotation);
                 playerSpawn.SetCharacterState(characterState);
@@ -113,10 +110,7 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
                 int stateValue = (int)playerWorld.characterState;
                 CharacterState characterState = CharacterState.Idle;
-                if (Enum.IsDefined(typeof(CharacterState), stateValue))
-                {
-                    characterState = (CharacterState)stateValue;
-                }
+                characterState = (CharacterState)stateValue;
                 playerSpawn.SetSkin(playerWorld.playerDetails.skin);
                 playerSpawn.SetLocation(position, rotation);
                 playerSpawn.SetCharacterState(characterState);
