@@ -125,9 +125,11 @@ public class RealtimePlayerSync : MonoBehaviour
 
         }
 
-        playerAnimator.SetTrigger("stop");
-        ResetAllTriggers();
-        playerAnimator.SetBool("idle", true);
+        Debug.Log("SetCharacterState: " + state);
+
+        //playerAnimator.SetTrigger("stop");
+        //ResetAllTriggers();
+        //playerAnimator.SetBool("idle", true);
     }
 
     // Hàm reset toàn bộ các trigger

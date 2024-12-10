@@ -278,7 +278,6 @@ public class CharacterPlayerController : MonoBehaviour
 
         }
 
-
         PlayerSystemController.instance.UpdateCharacterState(state);
     }
 
