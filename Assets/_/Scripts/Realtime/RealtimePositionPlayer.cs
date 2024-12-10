@@ -23,7 +23,7 @@ public class RealtimePositionPlayer : MonoBehaviour
         previousRotation = realtimeObject.localRotation.eulerAngles;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Tạo Vector3 cho position và rotation (sử dụng localPosition và localRotation)
         Vector3 position = realtimeObject.localPosition;
