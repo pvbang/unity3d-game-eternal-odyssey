@@ -14,6 +14,7 @@ public class RealtimePlayerSpawn : MonoBehaviour
 
     // Danh sách các player đã được instantiate
     private Dictionary<string, Transform> spawnedPlayers = new Dictionary<string, Transform>();
+    private Dictionary<string, RealtimePlayerSync> spawnedPlayersRealtime = new Dictionary<string, RealtimePlayerSync>();
 
     private Vector3 defaultPosition = new Vector3(0f, -0.983f, 0f);
     private Vector3 defaultRotation = new Vector3(0, 0, 0);
@@ -91,12 +92,13 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 Vector3 position = playerWorld.position != null ? new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z) : defaultPosition;
                 Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
 
-                RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
-                int stateValue = (int)playerWorld.characterState;
-                CharacterState characterState = CharacterState.Idle;
-                characterState = (CharacterState)stateValue;
-                playerSpawn.SetSkin(playerWorld.playerDetails.skin);
+                //RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
+                RealtimePlayerSync playerSpawn = spawnedPlayersRealtime[playerWorld.userId];
+
                 playerSpawn.SetLocation(position, rotation);
+
+                int stateValue = (int)playerWorld.characterState;
+                CharacterState characterState = (CharacterState)stateValue;
                 playerSpawn.SetCharacterState(characterState);
             }
             else
@@ -108,14 +110,16 @@ public class RealtimePlayerSpawn : MonoBehaviour
                 Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
 
                 RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
-                int stateValue = (int)playerWorld.characterState;
-                CharacterState characterState = CharacterState.Idle;
-                characterState = (CharacterState)stateValue;
+                
                 playerSpawn.SetSkin(playerWorld.playerDetails.skin);
                 playerSpawn.SetLocation(position, rotation);
+
+                int stateValue = (int)playerWorld.characterState;
+                CharacterState characterState = (CharacterState)stateValue;
                 playerSpawn.SetCharacterState(characterState);
 
                 spawnedPlayers.Add(playerWorld.userId, playerTransform); // Thêm player vào danh sách
+                spawnedPlayersRealtime.Add(playerWorld.userId, playerSpawn); // Thêm player vào danh sách
             }
         }
     }
