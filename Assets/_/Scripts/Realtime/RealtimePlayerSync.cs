@@ -14,14 +14,45 @@ public class RealtimePlayerSync : MonoBehaviour
     public Animator playerAnimator;
     public SkinCharacterInit skinCharacterInit;
 
+    // Các biến lưu trạng thái cho nội suy
+    private Vector3 currentTargetPosition;
+    private Quaternion currentTargetRotation;
+
+    private float positionSmoothTime = 0.25f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.25f; // Thời gian để quay mượt
+
+    private CharacterState currentAction = CharacterState.Idle;
+
     /////////////////////////////////////////////////////////////////////////////////////////
     // LOCATION
 
     // Hàm set vị trí cho player
+    private void Start()
+    {
+        // Khởi tạo vị trí mục tiêu ban đầu
+        if (playerTransform != null)
+        {
+            currentTargetPosition = playerTransform.localPosition;
+            currentTargetRotation = playerTransform.localRotation;
+        }
+    }
+
+    private void Update()
+    {
+        // Nội suy vị trí
+        playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
+
+        // Nội suy góc quay
+        playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
+    }
+
+    // Hàm set vị trí cho player với nội suy
     public void SetLocation(Vector3 position, Vector3 rotation)
     {
-        playerTransform.localPosition = position;
-        playerTransform.localRotation = Quaternion.Euler(rotation);
+        currentTargetPosition = position;
+        currentTargetRotation = Quaternion.Euler(rotation);
+
+        Debug.Log($"[SetLocation] Target Position: {position}, Target Rotation: {rotation}");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +72,11 @@ public class RealtimePlayerSync : MonoBehaviour
     public void SetCharacterState(CharacterState state)
     {
         if (playerAnimator == null) return;
+
+        if (state == currentAction)
+        {
+            return;
+        }
 
         playerAnimator.SetBool("idle", false);
 
