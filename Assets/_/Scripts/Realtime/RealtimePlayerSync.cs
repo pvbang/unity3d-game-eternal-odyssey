@@ -18,8 +18,8 @@ public class RealtimePlayerSync : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Quaternion currentTargetRotation;
 
-    private float positionSmoothTime = 0.25f; // Thời gian để chuyển mượt
-    private float rotationSmoothTime = 0.25f; // Thời gian để quay mượt
+    private float positionSmoothTime = 0.2f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.2f; // Thời gian để quay mượt
 
     private CharacterState currentAction = CharacterState.Idle;
 
@@ -77,6 +77,8 @@ public class RealtimePlayerSync : MonoBehaviour
         {
             return;
         }
+
+        currentAction = state;
 
         playerAnimator.SetBool("idle", false);
 
