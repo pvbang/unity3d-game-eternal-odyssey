@@ -155,7 +155,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.8895917, y: 1.9820441, z: 1.7307638}
@@ -169,7 +169,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6200720779110778457}
-  - component: {fileID: 7732850826332777170}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -193,20 +192,6 @@ Transform:
   - {fileID: 5193847269176103519}
   m_Father: {fileID: 6200720779110778461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7732850826332777170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200720779111275129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6587e78c78052a48b542e8e5577f7a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestId: 
-  hintUI: {fileID: 9155453312490450153, guid: 81d9e4487ae93594698d4734e2f3550a, type: 3}
 --- !u!1 &6200720779111275133
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +202,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6200720779110778461}
   - component: {fileID: 6200720779120667069}
+  - component: {fileID: 3585277313660937338}
+  - component: {fileID: 5712841411567655299}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -263,6 +250,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &3585277313660937338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200720779111275133}
+  serializedVersion: 4
+  m_Mass: 1e+9
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5712841411567655299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200720779111275133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6587e78c78052a48b542e8e5577f7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestId: 
+  hintUI: {fileID: 9155453312490450153, guid: 81d9e4487ae93594698d4734e2f3550a, type: 3}
 --- !u!1001 &7577812831630561782
 PrefabInstance:
   m_ObjectHideFlags: 0
