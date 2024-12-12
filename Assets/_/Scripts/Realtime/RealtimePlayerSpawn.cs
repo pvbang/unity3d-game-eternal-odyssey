@@ -87,7 +87,7 @@ public class RealtimePlayerSpawn : MonoBehaviour
             if (spawnedPlayers.ContainsKey(playerWorld.userId))
             {
                 // Cập nhật vị trí của player đã tồn tại
-                Transform playerTransform = spawnedPlayers[playerWorld.userId];
+                //Transform playerTransform = spawnedPlayers[playerWorld.userId];
 
                 Vector3 position = playerWorld.position != null ? new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z) : defaultPosition;
                 Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
@@ -103,23 +103,25 @@ public class RealtimePlayerSpawn : MonoBehaviour
             }
             else
             {
+                if (playerWorld.playerDetails.name == null) yield break;
+
                 // Nếu chưa spawn, instantiate player mới và thêm vào danh sách
                 Transform playerTransform = Instantiate(playerPrefab.transform);
+                RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
+
+                spawnedPlayers.Add(playerWorld.userId, playerTransform); // Thêm player vào danh sách
+                spawnedPlayersRealtime.Add(playerWorld.userId, playerSpawn); // Thêm player vào danh sách
 
                 Vector3 position = playerWorld.position != null ? new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z) : defaultPosition;
                 Vector3 rotation = playerWorld.rotation != null ? new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z) : defaultRotation;
-
-                RealtimePlayerSync playerSpawn = playerTransform.GetComponent<RealtimePlayerSync>();
                 
-                playerSpawn.SetSkin(playerWorld.playerDetails.skin);
                 playerSpawn.SetLocation(position, rotation);
 
                 int stateValue = (int)playerWorld.characterState;
                 CharacterState characterState = (CharacterState)stateValue;
                 playerSpawn.SetCharacterState(characterState);
 
-                spawnedPlayers.Add(playerWorld.userId, playerTransform); // Thêm player vào danh sách
-                spawnedPlayersRealtime.Add(playerWorld.userId, playerSpawn); // Thêm player vào danh sách
+                playerSpawn.SetSkin(playerWorld.playerDetails.skin);
             }
         }
     }
