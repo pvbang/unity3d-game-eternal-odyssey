@@ -275,7 +275,6 @@ public class CharacterPlayerController : MonoBehaviour
                 playerAnimator.SetBool("idle", true);
                 currentAction = CharacterState.Idle;
                 break;
-
         }
 
         PlayerSystemController.instance.UpdateCharacterState(state);
