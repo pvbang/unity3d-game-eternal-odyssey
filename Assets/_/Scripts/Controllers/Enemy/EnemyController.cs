@@ -81,6 +81,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (targetObject == null) return;
+        if (enemyAtribute.getCurrentHealth() <= 0) return;
 
         distance = Vector3.Distance(transform.position, targetObject.position);
 

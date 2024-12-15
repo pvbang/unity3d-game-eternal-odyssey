@@ -18,8 +18,8 @@ public class RealtimePlayerSync : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Quaternion currentTargetRotation;
 
-    private float positionSmoothTime = 0.2f; // Thời gian để chuyển mượt
-    private float rotationSmoothTime = 0.2f; // Thời gian để quay mượt
+    private float positionSmoothTime = 0.3f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.3f; // Thời gian để quay mượt
 
     private Vector3 defaultPosition = new Vector3(0f, -0.983f, 0f);
     private Vector3 defaultRotation = new Vector3(0, 0, 0);
@@ -40,14 +40,14 @@ public class RealtimePlayerSync : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Nội suy vị trí
-        playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
+    //private void Update()
+    //{
+    //    // Nội suy vị trí
+    //    playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
 
-        // Nội suy góc quay
-        playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
-    }
+    //    // Nội suy góc quay
+    //    playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
+    //}
 
     // Hàm set vị trí cho player với nội suy
     public void SetLocation(Vector3 position, Vector3 rotation)
@@ -63,8 +63,15 @@ public class RealtimePlayerSync : MonoBehaviour
         currentTargetPosition = position;
         currentTargetRotation = Quaternion.Euler(rotation);
 
-        Debug.Log($"[SetLocation] Target Position: {position}, Target Rotation: {rotation}");
+        //Debug.Log($"[SetLocation] Target Position: {position}, Target Rotation: {rotation}");
+
+        // Nội suy vị trí
+        playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
+
+        // Nội suy góc quay
+        playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
     }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////
     // SKIN

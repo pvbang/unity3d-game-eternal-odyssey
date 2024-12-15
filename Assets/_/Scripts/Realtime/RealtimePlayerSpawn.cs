@@ -44,6 +44,31 @@ public class RealtimePlayerSpawn : MonoBehaviour
         }
     }
 
+    public IEnumerator DisplayLocation()
+    {
+        string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        string userId = FirebaseManager.instance.GetUserId();
+
+        PlayerWorld playerWorld = new();
+        bool checkCallback = false;
+
+        WorldManager.GetPlayerLocation(worldId, userId, _value =>
+        {
+            playerWorld = _value;
+            checkCallback = true;
+        });
+
+        yield return new WaitUntil(() => checkCallback);
+
+        if (playerWorld == null)
+        {
+            yield break;
+        }
+
+        defaultPosition = new Vector3(playerWorld.position.x, playerWorld.position.y, playerWorld.position.z);
+        defaultRotation = new Vector3(playerWorld.rotation.x, playerWorld.rotation.y, playerWorld.rotation.z);
+    }
+
     void HandleValueChangedWorld(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)

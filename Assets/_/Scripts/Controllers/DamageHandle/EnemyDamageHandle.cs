@@ -38,7 +38,10 @@ public class EnemyDamageHandle : MonoBehaviour
         if (damage < 0) return;
 
         enemyAnimationController.PlayAnimation("get_hit");
-        enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
+
+        int currentHealth = enemyAtribute.getCurrentHealth() - damage;
+        if (currentHealth < 0) currentHealth = 0;
+        enemyAtribute.setCurrentHealth(currentHealth);
         if (enemyAtribute.getCurrentHealth() <= 0)
         {
             enemyAnimationController.PlayAnimation("die");

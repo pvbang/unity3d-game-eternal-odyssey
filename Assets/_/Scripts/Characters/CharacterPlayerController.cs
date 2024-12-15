@@ -127,7 +127,7 @@ public class CharacterPlayerController : MonoBehaviour
         {
             nextAction = CharacterState.JumpAttack;
         }
-        else if (Input.GetKey(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse2))
         {
             nextAction = CharacterState.Jump;
         }
@@ -139,7 +139,7 @@ public class CharacterPlayerController : MonoBehaviour
         //{
         //    nextAction = CharacterState.Combo;
         //}
-        else if (isCtrlHeld)
+        else if (isCtrlHeld || Input.GetKey(KeyCode.Mouse1))
         {
             nextAction = CharacterState.Defend;
         }

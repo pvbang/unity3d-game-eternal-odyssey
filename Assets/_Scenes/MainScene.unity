@@ -524277,10 +524277,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elite_Dragon
       objectReference: {fileID: 0}
-    - target: {fileID: 6797457141863895863, guid: 2ceb4af2488e3c5429ca9eb801b8eb03, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1269248,7 +1269244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -30.544369}
+  m_AnchoredPosition: {x: 225, y: -30.007326}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2665161920050135023
@@ -1273941,13 +1273937,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10577339997036434, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 84012458606763953, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1153410642164206867, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
       propertyPath: playerAtributeUI
       value: 
       objectReference: {fileID: 6131321669820689206}
+    - target: {fileID: 1408801582400806184, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780206607894650873, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842581063467878561, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203944381953775454, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624552041097369525, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749493455293543791, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5276987879675417695, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
       propertyPath: m_Name
       value: Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637769132287693505, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592115332045700114, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
+      propertyPath: isWeapons
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7826686917143440673, guid: c2279b69c17f18c4cbec2c40acaaabb0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1276480,7 +1276516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259925620808293519, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26.726322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1259925620808293519, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1276612,15 +1276648,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1278145,7 +1278181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -84.69348}
+  m_AnchoredPosition: {x: 225, y: -83.26696}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &7275722496040786300
@@ -1281445,7 +1281481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259925620808293519, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26.726322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1259925620808293519, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1281537,15 +1281573,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6321909009713817642, guid: 5a167311206afdb4ab92f326a0e49d57, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
