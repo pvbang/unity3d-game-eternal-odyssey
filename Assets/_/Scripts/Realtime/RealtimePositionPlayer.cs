@@ -5,7 +5,7 @@ using UnityEngine;
 public class RealtimePositionPlayer : MonoBehaviour
 {
     public Transform realtimeObject;
-    public float syncInterval = 0.2f; // Tần suất đồng bộ với server (200ms)
+    public float syncInterval = 0.3f; // Tần suất đồng bộ với server (200ms)
 
     private Vector3 previousPosition;
     private Vector3 previousRotation;
