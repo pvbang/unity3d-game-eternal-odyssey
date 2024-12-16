@@ -18,8 +18,11 @@ public class RealtimePlayerSync : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Quaternion currentTargetRotation;
 
-    private float positionSmoothTime = 0.25f; // Thời gian để chuyển mượt
-    private float rotationSmoothTime = 0.25f; // Thời gian để quay mượt
+    private float positionSmoothTime = 0.2f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.2f; // Thời gian để quay mượt
+
+    private Vector3 defaultPosition = new Vector3(0f, -0.983f, 0f);
+    private Vector3 defaultRotation = new Vector3(0, 0, 0);
 
     private CharacterState currentAction = CharacterState.Idle;
 
@@ -49,6 +52,14 @@ public class RealtimePlayerSync : MonoBehaviour
     // Hàm set vị trí cho player với nội suy
     public void SetLocation(Vector3 position, Vector3 rotation)
     {
+        if (position == defaultPosition && rotation == defaultRotation)
+        {
+            return;
+        } 
+        
+        defaultPosition = position;
+        defaultRotation = rotation;
+
         currentTargetPosition = position;
         currentTargetRotation = Quaternion.Euler(rotation);
 
@@ -72,11 +83,9 @@ public class RealtimePlayerSync : MonoBehaviour
     public void SetCharacterState(CharacterState state)
     {
         if (playerAnimator == null) return;
+        if (state == currentAction) return;
 
-        if (state == currentAction)
-        {
-            return;
-        }
+        currentAction = state;
 
         playerAnimator.SetBool("idle", false);
 
@@ -156,16 +165,12 @@ public class RealtimePlayerSync : MonoBehaviour
                 break;
 
             default:
+                playerAnimator.SetTrigger("stop");
+                ResetAllTriggers();
                 playerAnimator.SetBool("idle", true);
+                currentAction = CharacterState.Idle;
                 break;
-
         }
-
-        Debug.Log("SetCharacterState: " + state);
-
-        //playerAnimator.SetTrigger("stop");
-        //ResetAllTriggers();
-        //playerAnimator.SetBool("idle", true);
     }
 
     // Hàm reset toàn bộ các trigger
