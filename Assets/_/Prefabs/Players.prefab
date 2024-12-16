@@ -1444,6 +1444,7 @@ GameObject:
   - component: {fileID: 4708311831363811495}
   - component: {fileID: 4705214563587810255}
   - component: {fileID: 2723660355706279671}
+  - component: {fileID: 6835481661208303782}
   - component: {fileID: 1548480065681222673}
   - component: {fileID: 8459206522544417323}
   m_Layer: 8
@@ -1734,6 +1735,18 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.856, z: 0.17}
+--- !u!114 &6835481661208303782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779330088210920114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861c6641b8745a1438ea2b90d61268be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1548480065681222673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,6 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realtimeObject: {fileID: 2405978478994702155}
+  syncInterval: 0.3
 --- !u!1 &3924605424905133018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,6 +5498,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &1341538897320593058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7139791203034878261, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -5526,6 +5541,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &1421156582545117634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7076085890522334805, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -5625,6 +5641,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &1821681393060204518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7551500091836160113, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -5709,6 +5726,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &2312788346702138046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5878064473497640233, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -5847,6 +5865,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &3115702423716408837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6536563749539756434, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -6121,6 +6140,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &4400846410682522195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5519525005802294724, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -6173,6 +6193,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &4833705140695702715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3647772721063267116, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -6410,6 +6431,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!95 &7356629501159781703 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1701313152202449616, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -6551,6 +6573,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &8579268291045412487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 469526442753612048, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
@@ -6593,6 +6616,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   critical: 5
+  isWeapons: 1
 --- !u!1 &8957392041198378518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 992116124117748097, guid: 7a4c867a869dd6c42879179d68fa20a5, type: 3}
