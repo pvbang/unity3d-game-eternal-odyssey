@@ -40,14 +40,14 @@ public class RealtimePlayerSync : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    // Nội suy vị trí
-    //    playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
+    private void Update()
+    {
+        // Nội suy vị trí
+        playerTransform.localPosition = Vector3.Lerp(playerTransform.localPosition, currentTargetPosition, Time.deltaTime / positionSmoothTime);
 
-    //    // Nội suy góc quay
-    //    playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
-    //}
+        // Nội suy góc quay
+        playerTransform.localRotation = Quaternion.Lerp(playerTransform.localRotation, currentTargetRotation, Time.deltaTime / rotationSmoothTime);
+    }
 
     // Hàm set vị trí cho player với nội suy
     public void SetLocation(Vector3 position, Vector3 rotation)

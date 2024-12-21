@@ -198,6 +198,7 @@ public class MainWorldController : MonoBehaviour
         world.houseWorld = new List<HouseWorld>();
         world.playerWorld = new List<PlayerWorld>();
         world.buildingWorld = new List<BuildingWorld>();
+        world.realtimeObject = new List<RealtimeObject>();
         world.status = Status.NotStarted;
         world.startAt = TimeManager.Now();
 
