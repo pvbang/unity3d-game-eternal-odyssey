@@ -42,7 +42,7 @@ public class PlayerDamageHandle : MonoBehaviour
         }
 
         int damage = takeDamageValue.GetDamage() - resistance;
-        if (damage < 0)  return;
+        if (damage < 0)  damage = 1;
 
         bool isCtrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         if (isCtrlHeld)

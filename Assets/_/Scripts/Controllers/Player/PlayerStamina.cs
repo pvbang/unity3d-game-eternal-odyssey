@@ -30,10 +30,17 @@ public class PlayerStamina : MonoBehaviour
                             Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) ||
                             Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
             bool isShiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            bool isAltHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
             if (isMoving && isShiftHeld && currentStamina > 0)
             {
                 // Giảm stamina theo cấp độ khi chạy
+                currentStamina -= staminaDecreaseRate * staminaUpdateInterval;
+                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Đảm bảo không dưới 0
+            }
+            else if (isAltHeld && currentStamina > 0)
+            {
+                // Giảm stamina theo cấp độ khi dùng khiên
                 currentStamina -= staminaDecreaseRate * staminaUpdateInterval;
                 currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Đảm bảo không dưới 0
             }

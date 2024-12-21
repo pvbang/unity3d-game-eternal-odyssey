@@ -29,7 +29,7 @@ public class RealtimePositionPlayer : MonoBehaviour
 
         if (position != previousPosition || rotation != previousRotation)
         {
-            ApplyLocalChanges(position, rotation);
+            //ApplyLocalChanges(position, rotation);
             previousPosition = position;
             previousRotation = rotation;
         }
@@ -42,15 +42,11 @@ public class RealtimePositionPlayer : MonoBehaviour
         }
     }
 
-    private void ApplyLocalChanges(Vector3 position, Vector3 rotation)
-    {
-        Debug.Log($"[Local] Position: {position}, Rotation: {rotation}");
-    }
 
     private void SyncWithServer()
     {
         PlayerSystemController.instance.UpdateLocation(previousPosition, previousRotation);
-        Debug.Log($"[Sync] Position sent to server: {previousPosition}, Rotation sent to server: {previousRotation}");
+        //Debug.Log($"[Sync] Position sent to server: {previousPosition}, Rotation sent to server: {previousRotation}");
     }
 
     public void CorrectPosition(Vector3 serverPosition, Vector3 serverRotation)
@@ -59,6 +55,6 @@ public class RealtimePositionPlayer : MonoBehaviour
         realtimeObject.localPosition = Vector3.Lerp(realtimeObject.localPosition, serverPosition, Time.deltaTime * 10f);
         realtimeObject.localRotation = Quaternion.Lerp(realtimeObject.localRotation, Quaternion.Euler(serverRotation), Time.deltaTime * 10f);
 
-        Debug.Log($"[Correction] Correcting Position to: {serverPosition}, Rotation to: {serverRotation}");
+        //Debug.Log($"[Correction] Correcting Position to: {serverPosition}, Rotation to: {serverRotation}");
     }
 }

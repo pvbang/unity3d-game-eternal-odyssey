@@ -76,6 +76,11 @@ public class EnemyController : MonoBehaviour
         {
             EnemyCountManage.Instance.AddEnemy(this);
         }
+
+        if (!agent.isActiveAndEnabled)
+        {
+            agent.enabled = true;
+        }
     }
 
     private void Update()
@@ -138,6 +143,18 @@ public class EnemyController : MonoBehaviour
     // Đuổi theo player
     private void ChasePlayer()
     {
+        if (!agent.isActiveAndEnabled)
+        {
+            Debug.LogWarning("NavMeshAgent is not active or enabled.");
+            return;
+        }
+
+        if (!agent.isOnNavMesh)
+        {
+            Debug.LogWarning("NavMeshAgent is not on a valid NavMesh.");
+            return;
+        }
+
         enemyAnimatorController.PlayAnimation("run");
         agent.speed = enemyAtribute.getRunSpeed();
         agent.SetDestination(targetObject.position);

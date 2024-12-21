@@ -398,6 +398,33 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+    public static IEnumerator AddRealtimeObject(RealtimeObject realtimeObject)
+    {
+        string worldId = PlayerPrefs.GetString(ConstantManager.FIREBASE_WORLDS_ID);
+        string userId = FirebaseManager.instance.GetUserId();
+
+        // Chuyển đối tượng PlayerWorld thành chuỗi JSON
+        string json = JsonUtility.ToJson(realtimeObject);
+
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_REALTIME_OBJECTS)
+            .Child(realtimeObject.realtime_object_id)  
+            .SetRawJsonValueAsync(json);
+
+        yield return new WaitUntil(() => taskRef.IsCompleted);
+
+        if (taskRef.IsFaulted)
+        {
+            Debug.LogError("Lỗi thêm realtimeObject");
+        }
+        else
+        {
+            Debug.Log("Thêm realtimeObject vào world thành công");
+        }
+    }
+
     // Cập nhật trạng thái của người chơi trong world
     // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerStatus(worldId, userId, PlayerStatus.Online));
     public static IEnumerator UpdatePlayerStatus(string worldId, string userId, PlayerStatus playerStatus)
@@ -631,11 +658,7 @@ public class WorldManager : MonoBehaviour
 
         if (task.IsFaulted)
         {
-            Debug.LogError("Lỗi cập nhật thuộc tính của người chơi trong world");
-        }
-        else if (task.IsCompleted)
-        {
-            Debug.Log("Cập nhật thuộc tính của người chơi trong world thành công");
+            Debug.LogError("Lỗi UpdatePlayerDetails");
         }
     }
 
@@ -655,11 +678,7 @@ public class WorldManager : MonoBehaviour
 
         if (task.IsFaulted)
         {
-            Debug.LogError("Lỗi cập nhật một số thuộc tính của người chơi trong world");
-        }
-        else if (task.IsCompleted)
-        {
-            Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+            Debug.LogError("Lỗi UpdateFieldsPlayerDetails");
         }
     }
 
@@ -677,13 +696,66 @@ public class WorldManager : MonoBehaviour
 
         if (task.IsFaulted)
         {
-            Debug.LogError("Lỗi cập nhật một số thuộc tính của người chơi trong world");
-        }
-        else if (task.IsCompleted)
-        {
-            Debug.Log("Cập nhật một số thuộc tính của người chơi trong world thành công");
+            Debug.LogError("Lỗi UpdateFieldsLocation");
         }
     }
+
+
+    private static IEnumerator CreateObject(DatabaseReference objectRef, Dictionary<string, object> fieldsToUpdate)
+    {
+        Debug.Log("CreateObject");
+        var createTask = objectRef.SetValueAsync(fieldsToUpdate);
+        yield return new WaitUntil(() => createTask.IsCompleted);
+        if (createTask.IsFaulted)
+        {
+            Debug.LogError("Lỗi tạo mới object!");
+        }
+    }
+
+    private static IEnumerator UpdateObject(DatabaseReference objectRef, Dictionary<string, object> fieldsToUpdate)
+    {
+        Debug.Log("UpdateObject");
+        var updateTask = objectRef.UpdateChildrenAsync(fieldsToUpdate);
+        yield return new WaitUntil(() => updateTask.IsCompleted);
+        if (updateTask.IsFaulted)
+        {
+            Debug.LogError("Lỗi cập nhật object!");
+        }
+    }
+
+
+    public static IEnumerator UpdateOrCreateFieldsWorld(string worldId, string realtimeObjectID, Dictionary<string, object> fieldsToUpdate)
+    {
+        Debug.Log("UpdateOrCreateFieldsWorld");
+        var objectRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_REALTIME_OBJECTS)
+            .Child(realtimeObjectID);
+
+        var checkTask = objectRef.GetValueAsync();
+        yield return new WaitUntil(() => checkTask.IsCompleted);
+
+        Debug.Log("CheckTask");
+
+        if (checkTask.IsFaulted)
+        {
+            Debug.LogError($"Lỗi khi kiểm tra ObjectID: {realtimeObjectID}");
+            yield break;
+        }
+
+        Debug.Log("CheckTask2");
+
+        if (!checkTask.Result.Exists)
+        {
+            yield return CreateObject(objectRef, fieldsToUpdate);
+        }
+        else
+        {
+            yield return UpdateObject(objectRef, fieldsToUpdate);
+        }
+    }
+
 
 }
 
