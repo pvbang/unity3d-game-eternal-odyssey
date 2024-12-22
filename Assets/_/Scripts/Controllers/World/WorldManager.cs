@@ -571,6 +571,48 @@ public class WorldManager : MonoBehaviour
     }
 
 
+    // Lấy thông tin trong world
+    // cách gọi hàm: WorldManager.GetPlayerLocation(worldId, userId, value => { Debug.Log(value); });
+    public static void GetPlayerLocation(string worldId, string userId, Action<PlayerWorld> callback)
+    {
+        var taskRef = FirebaseManager.instance.databaseReference
+            .Child(ConstantManager.FIREBASE_WORLDS)
+            .Child(worldId)
+            .Child(ConstantManager.FIREBASE_WORLDS_PLAYERS)
+            .Child(userId);
+
+        var task = taskRef.GetValueAsync();
+
+        task.ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Lỗi lấy skin của người chơi trong world: " + task.Exception);
+                callback(null);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    string value = snapshot.GetRawJsonValue();
+                    PlayerWorld playerWorld = JsonUtility.FromJson<PlayerWorld>(value);
+                    callback(playerWorld);
+                }
+                else
+                {
+                    callback(null);
+                }
+            }
+        });
+
+        callback(null);
+    }
+
+
     // cập nhật thuộc tính của người chơi trong world
     // cách gọi hàm: StartCoroutine(WorldManager.UpdatePlayerDetails(worldId, userId, playerDetails));
     public static IEnumerator UpdatePlayerDetails(string worldId, string userId, PlayerDetails playerDetails)

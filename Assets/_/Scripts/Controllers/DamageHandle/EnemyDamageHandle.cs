@@ -16,6 +16,7 @@ public class EnemyDamageHandle : MonoBehaviour
     {
         if (other.CompareTag(ConstantManager.PLAYER_SKILL_TAG) || other.CompareTag(ConstantManager.WEAPON_TAG))
         {
+            Debug.Log("Vao ontrigger");
             TakeDamageValue takeDamageValue = other.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
@@ -25,6 +26,7 @@ public class EnemyDamageHandle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(ConstantManager.PLAYER_SKILL_TAG) || collision.gameObject.CompareTag(ConstantManager.WEAPON_TAG))
         {
+            Debug.Log("Vao on collistion");
             TakeDamageValue takeDamageValue = collision.gameObject.GetComponent<TakeDamageValue>();
             if (takeDamageValue != null) TakeDamage(takeDamageValue);
         }
@@ -38,7 +40,10 @@ public class EnemyDamageHandle : MonoBehaviour
         if (damage < 0) return;
 
         enemyAnimationController.PlayAnimation("get_hit");
-        enemyAtribute.setCurrentHealth(enemyAtribute.getCurrentHealth() - damage);
+
+        int currentHealth = enemyAtribute.getCurrentHealth() - damage;
+        if (currentHealth < 0) currentHealth = 0;
+        enemyAtribute.setCurrentHealth(currentHealth);
         if (enemyAtribute.getCurrentHealth() <= 0)
         {
             enemyAnimationController.PlayAnimation("die");

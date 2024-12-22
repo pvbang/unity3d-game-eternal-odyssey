@@ -877,7 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3965816405959497965}
-  - component: {fileID: 6415789806980187744}
+  - component: {fileID: 2324304147925942610}
   m_Layer: 0
   m_Name: Bip001 Pelvis_02
   m_TagString: Untagged
@@ -902,8 +902,8 @@ Transform:
   - {fileID: 2801632305569125447}
   m_Father: {fileID: 564902295753992671}
   m_LocalEulerAnglesHint: {x: 89.17385, y: 33.3462, z: -55.966114}
---- !u!136 &6415789806980187744
-CapsuleCollider:
+--- !u!65 &2324304147925942610
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -920,11 +920,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.43
-  m_Height: 1.7775129
-  m_Direction: 0
-  m_Center: {x: 0.45, y: -0.07, z: 0.05}
+  serializedVersion: 3
+  m_Size: {x: 1.89, y: 0.65, z: 1.61}
+  m_Center: {x: 0.14, y: -0.13, z: 0}
 --- !u!1 &1870959517926638383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,7 +3094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2234161852290508431}
-  - component: {fileID: 816712741489962983}
+  - component: {fileID: 6661247898795648985}
   m_Layer: 0
   m_Name: Bip001 Neck_031
   m_TagString: Untagged
@@ -3122,8 +3120,8 @@ Transform:
   - {fileID: 5967144381593851426}
   m_Father: {fileID: 4239509212237253717}
   m_LocalEulerAnglesHint: {x: -7.1462708, y: 2.3388057, z: 6.7487087}
---- !u!136 &816712741489962983
-CapsuleCollider:
+--- !u!65 &6661247898795648985
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3140,11 +3138,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.17
-  m_Direction: 0
-  m_Center: {x: -0.41, y: 0.18, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.17, y: 0.67, z: 1.33}
+  m_Center: {x: -0.54, y: 0.15, z: 0}
 --- !u!1 &8037054154368074469
 GameObject:
   m_ObjectHideFlags: 0
