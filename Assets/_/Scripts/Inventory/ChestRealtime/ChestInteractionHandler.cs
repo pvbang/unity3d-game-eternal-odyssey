@@ -18,7 +18,7 @@ public class ChestInteractionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(ConstantManager.PLAYER_TAG))
+        if (other.gameObject.name == "HintChest" && other.CompareTag(ConstantManager.PLAYER_TAG))
         {
             isPlayerInRange = true;
 
@@ -41,7 +41,7 @@ public class ChestInteractionHandler : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(ConstantManager.PLAYER_TAG))
+        if (other.gameObject.name == "HintChest" && other.CompareTag(ConstantManager.PLAYER_TAG))
         {
             isPlayerInRange = false;
 
