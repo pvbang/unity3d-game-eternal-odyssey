@@ -37,7 +37,7 @@ public class EnemyDamageHandle : MonoBehaviour
         int damage = takeDamageValue.GetDamage() - enemyAtribute.getResistance();
         Debug.Log($"Enemy took {damage} damage!");
         
-        if (damage < 0) return;
+        if (damage < 0) damage = 1;
 
         enemyAnimationController.PlayAnimation("get_hit");
 

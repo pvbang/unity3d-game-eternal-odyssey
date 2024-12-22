@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 9187616520236541902}
+  realtimeObjectSync: {fileID: 0}
   run: 1
   attack: 1
   skill_1: 1
@@ -2633,6 +2634,8 @@ GameObject:
   - component: {fileID: 3725368951375419638}
   - component: {fileID: 1613060065703893087}
   - component: {fileID: 8315124316789039344}
+  - component: {fileID: 6346533074386227759}
+  - component: {fileID: 3594905046430371346}
   m_Layer: 0
   m_Name: Elite_Dragon
   m_TagString: _Enemy
@@ -2766,6 +2769,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAtribute: {fileID: 1613060065703893087}
   enemyAnimationController: {fileID: 5121437124726442086}
+--- !u!114 &6346533074386227759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797457141863895863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6000bb7b0be7649ac167244a39ea6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+--- !u!114 &3594905046430371346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797457141863895863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee388141133f297458a785c72cc19b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMainObject: 0
+  MySyncObject:
+    realtime_object_id: 
+    object_id: 
+    type: 1
+    attribute:
+      health:
+        current: 1000
+        max: 1000
+      damage:
+        from: 25
+        to: 35
+      resistance: 10
+      attackSpeed: 1
+      runSpeed: 1
+      intelligence: 10
+      crit: 1
+    animation_name: 0
+    position:
+      x: 0
+      y: 0
+      z: 0
+    rotation:
+      x: 0
+      y: 0
+      z: 0
+    status: 0
+  attribute: {fileID: 1613060065703893087}
+  animator: {fileID: 9187616520236541902}
+  syncInterval: 0.3
 --- !u!1 &6847587489700402529
 GameObject:
   m_ObjectHideFlags: 0
