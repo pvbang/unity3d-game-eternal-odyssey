@@ -8,6 +8,9 @@ public class _DestroyObject : MonoBehaviour
     public bool destroy = false;
     public bool destroyParentObject = false;
     public bool waitAnimation = false;
+    public bool waitTimeout = false;
+    public float waitTime = 0f;
+    private float elapsedTime = 0f;
 
     private void Awake()
     {
@@ -42,5 +45,17 @@ public class _DestroyObject : MonoBehaviour
     public void Destroy()
     {
         Destroy(destroyObject);
+    }
+
+    public void FixedUpdate()
+    {
+        if (!waitTimeout) return;
+
+        elapsedTime += Time.deltaTime;
+
+        if (elapsedTime >= waitTime)
+        {
+            Destroy(destroyObject);
+        }
     }
 }
