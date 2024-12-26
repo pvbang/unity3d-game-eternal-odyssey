@@ -20,10 +20,10 @@ public class RealtimeObjectSync : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Quaternion currentTargetRotation;
 
-    private float positionSmoothTime = 0.3f; // Thời gian để chuyển mượt
-    private float rotationSmoothTime = 0.3f; // Thời gian để quay mượt
+    private float positionSmoothTime = 0.25f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.25f; // Thời gian để quay mượt
 
-    public float syncInterval = 0.3f; // Tần suất đồng bộ với server (200ms)
+    public float syncInterval = 0.25f; // Tần suất đồng bộ với server (200ms)
     private float syncTimer = 0f;
 
     private Vector3 defaultPosition = new Vector3(0f, 0f, 0f);
