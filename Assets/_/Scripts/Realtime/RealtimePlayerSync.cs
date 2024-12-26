@@ -18,8 +18,8 @@ public class RealtimePlayerSync : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Quaternion currentTargetRotation;
 
-    private float positionSmoothTime = 0.3f; // Thời gian để chuyển mượt
-    private float rotationSmoothTime = 0.3f; // Thời gian để quay mượt
+    private float positionSmoothTime = 0.25f; // Thời gian để chuyển mượt
+    private float rotationSmoothTime = 0.25f; // Thời gian để quay mượt
 
     private Vector3 defaultPosition = new Vector3(0f, -0.983f, 0f);
     private Vector3 defaultRotation = new Vector3(0, 0, 0);
