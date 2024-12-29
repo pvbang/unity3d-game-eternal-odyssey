@@ -5,8 +5,8 @@ public class PlayerStamina : MonoBehaviour
 {
     public Image staminaBar;
 
-    private float currentStamina = 100f;
-    private float maxStamina = 100f;
+    private float currentStamina = 10000f;
+    private float maxStamina = 10000f;
     private float baseStaminaDecreaseRate = 10f; // Tốc độ giảm stamina cơ bản ở Level 1
     private float staminaRecoveryRate = 5f;      // Tốc độ hồi phục stamina mỗi giây khi không chạy
     private float staminaUpdateInterval = 0.01f;  // Thời gian cập nhật stamina mỗi 0.2 giây
